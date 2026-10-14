@@ -1,0 +1,1 @@
+We apply Double Deep Q-Learning to railway platform allocation using SUMO. The agent observes platform availability, train priorities, queues, and uncertain arrivals; it assigns a feasible platform or holds a train. Rewards penalize priority-weighted station delay, congestion, and platform changes. Evaluation compares unseen synthetic scenarios against heuristics.
