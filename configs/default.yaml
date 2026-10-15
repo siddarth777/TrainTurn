@@ -1,0 +1,25 @@
+# Eight-platform daily scenario. Simulation: CPU; neural computations: CUDA only.
+station:
+  platform_count: 8
+scenario:
+  trains: 128
+  severity: 0.7
+environment:
+  backend: sumo
+  max_platforms: 8
+  forecast_count: 6
+  horizon: 1440
+agent:
+  device: cuda
+  hidden: [128, 128]
+  replay_capacity: 50000
+  batch_size: 64
+  warmup: 1024
+  epsilon_steps: 15000
+  target_update: 100
+  train_every: 1
+  vram_limit_gib: 5.5
+training:
+  episodes: 300
+  validate_every: 5
+  validation_episodes: 2

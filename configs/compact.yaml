@@ -1,0 +1,25 @@
+# Small laptop development run. Simulation: CPU; neural computations: CUDA only.
+station:
+  platform_count: 3
+scenario:
+  trains: 15
+  severity: 0.7
+environment:
+  backend: sumo
+  max_platforms: 8
+  forecast_count: 6
+  horizon: 360
+agent:
+  device: cuda
+  hidden: [128, 128]
+  replay_capacity: 10000
+  batch_size: 64
+  warmup: 128
+  epsilon_steps: 1500
+  target_update: 100
+  train_every: 1
+  vram_limit_gib: 5.5
+training:
+  episodes: 300
+  validate_every: 5
+  validation_episodes: 2
