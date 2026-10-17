@@ -1,0 +1,9 @@
+# Opt-in small stress case, not a full-scale evaluation.
+station:
+  platform_count: 3
+scenario:
+  trains: 15
+  severity: 1.5
+  mode: closure
+environment:
+  horizon: 600
