@@ -1,0 +1,20 @@
+# Small curriculum only; no large stage runs by default.
+station:
+  platform_count: 3
+scenario:
+  trains: 15
+agent:
+  device: cuda
+  replay_capacity: 10000
+  batch_size: 64
+  warmup: 128
+  epsilon_steps: 1500
+  target_update: 100
+training:
+  episodes: 30
+  validate_every: 5
+  validation_episodes: 2
+curriculum:
+  - {episodes: 10, platforms: 3, trains: 5, severity: 0.1}
+  - {episodes: 10, platforms: 3, trains: 10, severity: 0.4}
+  - {episodes: 10, platforms: 3, trains: 15, severity: 0.7}
