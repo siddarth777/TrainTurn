@@ -4,9 +4,8 @@ __pycache__/
 .pytest_cache/
 *.egg-info/
 results/runs/
-checkpoints/*.pt
-!checkpoints/best_model.pt
-!checkpoints/smoke_model.pt
+checkpoints/**/*.pt
+!checkpoints/station8_128/best_model.pt
 *.log
 reports/*.aux
 reports/*.out
@@ -14,7 +13,6 @@ reports/*.bbl
 reports/*.blg
 reports/*.toc
 results/**/network_cache/
-checkpoints/**/final_model.pt
 *.tmp
 
 data/raw/

@@ -1,0 +1,19 @@
+# Data provenance and timetable schema
+
+Every generated scenario in this repository is **synthetic and uncalibrated**. No timetable, delay sample, corridor shock, or train identifier is claimed to be Indian Railways operational data. The station is a fictional two-corridor junction inspired by the allocation problem, not a reconstruction of a named station.
+
+`railway_rl/timetable.py` builds a nominal schedule by reserving platform and movement intervals. Peak bursts and off-peak gaps are explicit modeling assumptions. `scripts/validate_simulator.py` checks a small zero-disruption schedule in SUMO; the generator's nominal feasibility must be rechecked after changing physical timings or infrastructure.
+
+`railway_rl/delays.py` draws immutable scenario randomness before any policy runs: an on-time/short-lognormal/severe-lognormal mixture, shared corridor/time-window shocks, dwell extensions, and persistent noisy forecasts. Parameters are in YAML/default settings, not fitted to measured railway data. Seasonal settings are sensitivity assumptions. There is no claim of empirical distribution calibration.
+
+Generate sample JSON with `python scripts/generate_scenarios.py --count 3`. Evaluation saves the actual shared inputs and SHA-256 hashes under its result directory. Changing actions never redraws exogenous disturbances. Rake-linked service availability depends on predecessor completion plus turnaround, so this endogenous time may correctly differ between policies.
+
+CSV ingestion is supported by `--csv PATH` on the scenario generator. Required columns:
+
+```text
+id,category,scheduled_arrival,scheduled_departure,planned_platform
+```
+
+Optional columns: `length,electric,kind,arrival_corridor,departure_corridor,dwell,priority,rake_from,turnaround`. Times are absolute integer minutes from the simulation origin, lengths are coaches, platforms are one-based, corridors are `A`/`B`, and `electric` is `true`/`false`. Categories are `premium`, `superfast`, `express`, `passenger`, `freight`. Use `kind=through` or `terminal`. Blank `rake_from` means no link. For SUMO, scheduled departure is the earliest platform release time. The separate network-exit timestamp is used for train conservation.
+
+Imported CSVs receive zero exogenous perturbations unless explicitly constructed otherwise. Record the actual source, access date, license, station, timezone, and any cleaning before using real data; CSV import itself does not establish authenticity.

@@ -1,0 +1,4492 @@
+{
+  "normal_fcfs": [
+    {
+      "train": "SYN0001",
+      "category": "premium",
+      "platform": 1,
+      "start": 4.066666666666666,
+      "end": 14.083333333333334
+    },
+    {
+      "train": "SYN0002",
+      "category": "passenger",
+      "platform": 2,
+      "start": 8.016666666666667,
+      "end": 16.916666666666668
+    },
+    {
+      "train": "SYN0003",
+      "category": "express",
+      "platform": 4,
+      "start": 11.016666666666667,
+      "end": 20.483333333333334
+    },
+    {
+      "train": "SYN0005",
+      "category": "superfast",
+      "platform": 1,
+      "start": 25.066666666666666,
+      "end": 40.11666666666667
+    },
+    {
+      "train": "SYN0006",
+      "category": "superfast",
+      "platform": 4,
+      "start": 29.016666666666666,
+      "end": 45.15
+    },
+    {
+      "train": "SYN0007",
+      "category": "passenger",
+      "platform": 2,
+      "start": 43.016666666666666,
+      "end": 47.9
+    },
+    {
+      "train": "SYN0008",
+      "category": "superfast",
+      "platform": 1,
+      "start": 48.06666666666667,
+      "end": 58.11666666666667
+    },
+    {
+      "train": "SYN0009",
+      "category": "express",
+      "platform": 2,
+      "start": 52.016666666666666,
+      "end": 61.483333333333334
+    },
+    {
+      "train": "SYN0004",
+      "category": "freight",
+      "platform": 4,
+      "start": 55.016666666666666,
+      "end": 68.31666666666666
+    },
+    {
+      "train": "SYN0010",
+      "category": "express",
+      "platform": 5,
+      "start": 58.016666666666666,
+      "end": 65.48333333333333
+    },
+    {
+      "train": "SYN0011",
+      "category": "express",
+      "platform": 7,
+      "start": 61.016666666666666,
+      "end": 70.2
+    },
+    {
+      "train": "SYN0012",
+      "category": "premium",
+      "platform": 1,
+      "start": 74.06666666666666,
+      "end": 81.06666666666666
+    },
+    {
+      "train": "SYN0013",
+      "category": "superfast",
+      "platform": 4,
+      "start": 78.01666666666667,
+      "end": 85.56666666666666
+    },
+    {
+      "train": "SYN0014",
+      "category": "passenger",
+      "platform": 1,
+      "start": 93.06666666666666,
+      "end": 99.6
+    },
+    {
+      "train": "SYN0015",
+      "category": "passenger",
+      "platform": 1,
+      "start": 108.06666666666666,
+      "end": 118.6
+    },
+    {
+      "train": "SYN0016",
+      "category": "premium",
+      "platform": 1,
+      "start": 123.06666666666666,
+      "end": 133.83333333333334
+    },
+    {
+      "train": "SYN0017",
+      "category": "freight",
+      "platform": 1,
+      "start": 140.06666666666666,
+      "end": 152.21666666666667
+    },
+    {
+      "train": "SYN0019",
+      "category": "express",
+      "platform": 1,
+      "start": 161.06666666666666,
+      "end": 169.91666666666666
+    },
+    {
+      "train": "SYN0018",
+      "category": "premium",
+      "platform": 2,
+      "start": 165.01666666666668,
+      "end": 174.01666666666668
+    },
+    {
+      "train": "SYN0020",
+      "category": "superfast",
+      "platform": 4,
+      "start": 171.01666666666668,
+      "end": 180.56666666666666
+    },
+    {
+      "train": "SYN0021",
+      "category": "express",
+      "platform": 1,
+      "start": 177.06666666666666,
+      "end": 184.91666666666666
+    },
+    {
+      "train": "SYN0022",
+      "category": "premium",
+      "platform": 1,
+      "start": 191.06666666666666,
+      "end": 200.06666666666666
+    },
+    {
+      "train": "SYN0023",
+      "category": "express",
+      "platform": 2,
+      "start": 195.01666666666668,
+      "end": 202.48333333333332
+    },
+    {
+      "train": "SYN0024",
+      "category": "express",
+      "platform": 4,
+      "start": 198.01666666666668,
+      "end": 206.48333333333332
+    },
+    {
+      "train": "SYN0025",
+      "category": "express",
+      "platform": 1,
+      "start": 211.06666666666666,
+      "end": 220.91666666666666
+    },
+    {
+      "train": "SYN0026",
+      "category": "express",
+      "platform": 2,
+      "start": 215.01666666666668,
+      "end": 224.48333333333332
+    },
+    {
+      "train": "SYN0027",
+      "category": "express",
+      "platform": 1,
+      "start": 227.06666666666666,
+      "end": 239.2
+    },
+    {
+      "train": "SYN0028",
+      "category": "express",
+      "platform": 2,
+      "start": 231.01666666666668,
+      "end": 241.25
+    },
+    {
+      "train": "SYN0029",
+      "category": "superfast",
+      "platform": 4,
+      "start": 242.01666666666668,
+      "end": 250.63333333333333
+    },
+    {
+      "train": "SYN0030",
+      "category": "passenger",
+      "platform": 1,
+      "start": 248.06666666666666,
+      "end": 258.6
+    },
+    {
+      "train": "SYN0031",
+      "category": "premium",
+      "platform": 2,
+      "start": 252.01666666666668,
+      "end": 260.76666666666665
+    },
+    {
+      "train": "SYN0032",
+      "category": "express",
+      "platform": 4,
+      "start": 256.01666666666665,
+      "end": 264.2
+    },
+    {
+      "train": "SYN0033",
+      "category": "superfast",
+      "platform": 7,
+      "start": 262.01666666666665,
+      "end": 270.28333333333336
+    },
+    {
+      "train": "SYN0034",
+      "category": "express",
+      "platform": 1,
+      "start": 267.06666666666666,
+      "end": 272.65
+    },
+    {
+      "train": "SYN0035",
+      "category": "express",
+      "platform": 1,
+      "start": 278.06666666666666,
+      "end": 287.9166666666667
+    },
+    {
+      "train": "SYN0036",
+      "category": "express",
+      "platform": 1,
+      "start": 296.06666666666666,
+      "end": 305.2
+    },
+    {
+      "train": "SYN0037",
+      "category": "express",
+      "platform": 1,
+      "start": 314.06666666666666,
+      "end": 320.2
+    },
+    {
+      "train": "SYN0038",
+      "category": "passenger",
+      "platform": 1,
+      "start": 330.06666666666666,
+      "end": 334.6
+    },
+    {
+      "train": "SYN0039",
+      "category": "passenger",
+      "platform": 1,
+      "start": 342.06666666666666,
+      "end": 347.6
+    },
+    {
+      "train": "SYN0040",
+      "category": "superfast",
+      "platform": 4,
+      "start": 349.01666666666665,
+      "end": 358.28333333333336
+    },
+    {
+      "train": "SYN0041",
+      "category": "passenger",
+      "platform": 1,
+      "start": 353.06666666666666,
+      "end": 360.25
+    },
+    {
+      "train": "SYN0042",
+      "category": "superfast",
+      "platform": 4,
+      "start": 363.01666666666665,
+      "end": 372.56666666666666
+    },
+    {
+      "train": "SYN0043",
+      "category": "passenger",
+      "platform": 1,
+      "start": 375.06666666666666,
+      "end": 384.6
+    },
+    {
+      "train": "SYN0045",
+      "category": "passenger",
+      "platform": 2,
+      "start": 381.01666666666665,
+      "end": 388.31666666666666
+    },
+    {
+      "train": "SYN0044",
+      "category": "passenger",
+      "platform": 3,
+      "start": 385.01666666666665,
+      "end": 391.68333333333334
+    },
+    {
+      "train": "SYN0046",
+      "category": "freight",
+      "platform": 1,
+      "start": 389.06666666666666,
+      "end": 408.21666666666664
+    },
+    {
+      "train": "SYN0047",
+      "category": "premium",
+      "platform": 2,
+      "start": 395.01666666666665,
+      "end": 404.01666666666665
+    },
+    {
+      "train": "SYN0048",
+      "category": "express",
+      "platform": 4,
+      "start": 398.01666666666665,
+      "end": 411.48333333333335
+    },
+    {
+      "train": "SYN0049",
+      "category": "express",
+      "platform": 5,
+      "start": 401.01666666666665,
+      "end": 415.48333333333335
+    },
+    {
+      "train": "SYN0050",
+      "category": "passenger",
+      "platform": 3,
+      "start": 405.01666666666665,
+      "end": 419.31666666666666
+    },
+    {
+      "train": "SYN0052",
+      "category": "express",
+      "platform": 1,
+      "start": 413.06666666666666,
+      "end": 427.9166666666667
+    },
+    {
+      "train": "SYN0051",
+      "category": "superfast",
+      "platform": 4,
+      "start": 418.01666666666665,
+      "end": 423.56666666666666
+    },
+    {
+      "train": "SYN0054",
+      "category": "freight",
+      "platform": 1,
+      "start": 444.06666666666666,
+      "end": 455.56666666666666
+    },
+    {
+      "train": "SYN0055",
+      "category": "superfast",
+      "platform": 4,
+      "start": 452.01666666666665,
+      "end": 462.56666666666666
+    },
+    {
+      "train": "SYN0056",
+      "category": "express",
+      "platform": 1,
+      "start": 469.06666666666666,
+      "end": 481.2
+    },
+    {
+      "train": "SYN0057",
+      "category": "express",
+      "platform": 1,
+      "start": 485.06666666666666,
+      "end": 491.2
+    },
+    {
+      "train": "SYN0058",
+      "category": "freight",
+      "platform": 1,
+      "start": 495.06666666666666,
+      "end": 512.2166666666667
+    },
+    {
+      "train": "SYN0059",
+      "category": "express",
+      "platform": 1,
+      "start": 516.0666666666667,
+      "end": 525.9166666666666
+    },
+    {
+      "train": "SYN0053",
+      "category": "superfast",
+      "platform": 1,
+      "start": 530.0666666666667,
+      "end": 536.8333333333334
+    },
+    {
+      "train": "SYN0061",
+      "category": "superfast",
+      "platform": 4,
+      "start": 534.0166666666667,
+      "end": 542.2833333333333
+    },
+    {
+      "train": "SYN0060",
+      "category": "passenger",
+      "platform": 2,
+      "start": 537.0166666666667,
+      "end": 544.0333333333333
+    },
+    {
+      "train": "SYN0062",
+      "category": "passenger",
+      "platform": 3,
+      "start": 540.0166666666667,
+      "end": 546.0333333333333
+    },
+    {
+      "train": "SYN0063",
+      "category": "passenger",
+      "platform": 1,
+      "start": 545.0666666666667,
+      "end": 549.6
+    },
+    {
+      "train": "SYN0064",
+      "category": "superfast",
+      "platform": 1,
+      "start": 554.0666666666667,
+      "end": 561.1166666666667
+    },
+    {
+      "train": "SYN0065",
+      "category": "passenger",
+      "platform": 2,
+      "start": 558.0166666666667,
+      "end": 564.3166666666667
+    },
+    {
+      "train": "SYN0066",
+      "category": "express",
+      "platform": 1,
+      "start": 573.0666666666667,
+      "end": 582.5
+    },
+    {
+      "train": "SYN0067",
+      "category": "passenger",
+      "platform": 2,
+      "start": 580.0166666666667,
+      "end": 586.3166666666667
+    },
+    {
+      "train": "SYN0068",
+      "category": "passenger",
+      "platform": 3,
+      "start": 586.0166666666667,
+      "end": 593.7833333333333
+    },
+    {
+      "train": "SYN0069",
+      "category": "express",
+      "platform": 1,
+      "start": 598.0666666666667,
+      "end": 607.9166666666666
+    },
+    {
+      "train": "SYN0070",
+      "category": "premium",
+      "platform": 2,
+      "start": 603.0166666666667,
+      "end": 611.4333333333333
+    },
+    {
+      "train": "SYN0071",
+      "category": "superfast",
+      "platform": 4,
+      "start": 606.0166666666667,
+      "end": 615.5666666666667
+    },
+    {
+      "train": "SYN0072",
+      "category": "express",
+      "platform": 1,
+      "start": 624.0666666666667,
+      "end": 634.2
+    },
+    {
+      "train": "SYN0073",
+      "category": "passenger",
+      "platform": 2,
+      "start": 628.0166666666667,
+      "end": 636.0833333333334
+    },
+    {
+      "train": "SYN0074",
+      "category": "premium",
+      "platform": 1,
+      "start": 639.0666666666667,
+      "end": 644.8333333333334
+    },
+    {
+      "train": "SYN0075",
+      "category": "superfast",
+      "platform": 1,
+      "start": 651.0666666666667,
+      "end": 657.1166666666667
+    },
+    {
+      "train": "SYN0076",
+      "category": "freight",
+      "platform": 1,
+      "start": 669.0666666666667,
+      "end": 684.2166666666667
+    },
+    {
+      "train": "SYN0077",
+      "category": "superfast",
+      "platform": 1,
+      "start": 689.0666666666667,
+      "end": 695.4666666666667
+    },
+    {
+      "train": "SYN0078",
+      "category": "express",
+      "platform": 2,
+      "start": 698.0166666666667,
+      "end": 704.4833333333333
+    },
+    {
+      "train": "SYN0079",
+      "category": "express",
+      "platform": 1,
+      "start": 710.0666666666667,
+      "end": 717.9166666666666
+    },
+    {
+      "train": "SYN0080",
+      "category": "premium",
+      "platform": 2,
+      "start": 720.0166666666667,
+      "end": 729.7166666666667
+    },
+    {
+      "train": "SYN0081",
+      "category": "express",
+      "platform": 1,
+      "start": 727.0666666666667,
+      "end": 734.2
+    },
+    {
+      "train": "SYN0082",
+      "category": "superfast",
+      "platform": 4,
+      "start": 731.0166666666667,
+      "end": 737.5666666666667
+    },
+    {
+      "train": "SYN0084",
+      "category": "superfast",
+      "platform": 1,
+      "start": 742.0666666666667,
+      "end": 753.1166666666667
+    },
+    {
+      "train": "SYN0085",
+      "category": "passenger",
+      "platform": 2,
+      "start": 746.0166666666667,
+      "end": 756.3166666666667
+    },
+    {
+      "train": "SYN0086",
+      "category": "superfast",
+      "platform": 1,
+      "start": 757.0666666666667,
+      "end": 764.1166666666667
+    },
+    {
+      "train": "SYN0087",
+      "category": "freight",
+      "platform": 4,
+      "start": 766.0166666666667,
+      "end": 782.3166666666667
+    },
+    {
+      "train": "SYN0089",
+      "category": "express",
+      "platform": 1,
+      "start": 769.0666666666667,
+      "end": 784.6333333333333
+    },
+    {
+      "train": "SYN0088",
+      "category": "passenger",
+      "platform": 2,
+      "start": 773.0166666666667,
+      "end": 778.9
+    },
+    {
+      "train": "SYN0083",
+      "category": "superfast",
+      "platform": 4,
+      "start": 788.0166666666667,
+      "end": 799.4166666666666
+    },
+    {
+      "train": "SYN0090",
+      "category": "passenger",
+      "platform": 1,
+      "start": 791.0666666666667,
+      "end": 797.1166666666667
+    },
+    {
+      "train": "SYN0091",
+      "category": "passenger",
+      "platform": 2,
+      "start": 795.0166666666667,
+      "end": 801.9
+    },
+    {
+      "train": "SYN0092",
+      "category": "express",
+      "platform": 5,
+      "start": 800.0166666666667,
+      "end": 805.4833333333333
+    },
+    {
+      "train": "SYN0093",
+      "category": "passenger",
+      "platform": 1,
+      "start": 803.0666666666667,
+      "end": 809.6
+    },
+    {
+      "train": "SYN0094",
+      "category": "superfast",
+      "platform": 4,
+      "start": 807.0166666666667,
+      "end": 813.5666666666667
+    },
+    {
+      "train": "SYN0095",
+      "category": "express",
+      "platform": 1,
+      "start": 817.0666666666667,
+      "end": 824.2
+    },
+    {
+      "train": "SYN0096",
+      "category": "passenger",
+      "platform": 2,
+      "start": 824.0166666666667,
+      "end": 830.3166666666667
+    },
+    {
+      "train": "SYN0097",
+      "category": "premium",
+      "platform": 1,
+      "start": 842.0666666666667,
+      "end": 852.0666666666667
+    },
+    {
+      "train": "SYN0098",
+      "category": "express",
+      "platform": 2,
+      "start": 855.0166666666667,
+      "end": 862.4833333333333
+    },
+    {
+      "train": "SYN0099",
+      "category": "passenger",
+      "platform": 1,
+      "start": 867.0666666666667,
+      "end": 875.6
+    },
+    {
+      "train": "SYN0101",
+      "category": "superfast",
+      "platform": 1,
+      "start": 889.0666666666667,
+      "end": 900.4666666666667
+    },
+    {
+      "train": "SYN0100",
+      "category": "express",
+      "platform": 2,
+      "start": 893.0166666666667,
+      "end": 904.0666666666667
+    },
+    {
+      "train": "SYN0102",
+      "category": "passenger",
+      "platform": 3,
+      "start": 902.0166666666667,
+      "end": 906.7833333333333
+    },
+    {
+      "train": "SYN0103",
+      "category": "passenger",
+      "platform": 1,
+      "start": 907.0666666666667,
+      "end": 913.6
+    },
+    {
+      "train": "SYN0104",
+      "category": "passenger",
+      "platform": 2,
+      "start": 917.0166666666667,
+      "end": 921.3166666666667
+    },
+    {
+      "train": "SYN0105",
+      "category": "passenger",
+      "platform": 1,
+      "start": 920.0666666666667,
+      "end": 925.5333333333333
+    },
+    {
+      "train": "SYN0106",
+      "category": "express",
+      "platform": 1,
+      "start": 930.0666666666667,
+      "end": 940.2
+    },
+    {
+      "train": "SYN0107",
+      "category": "express",
+      "platform": 2,
+      "start": 934.0166666666667,
+      "end": 942.4833333333333
+    },
+    {
+      "train": "SYN0108",
+      "category": "express",
+      "platform": 1,
+      "start": 947.0666666666667,
+      "end": 955.9166666666666
+    },
+    {
+      "train": "SYN0109",
+      "category": "passenger",
+      "platform": 2,
+      "start": 951.0166666666667,
+      "end": 959.3166666666667
+    },
+    {
+      "train": "SYN0110",
+      "category": "superfast",
+      "platform": 1,
+      "start": 964.0666666666667,
+      "end": 974.1166666666667
+    },
+    {
+      "train": "SYN0111",
+      "category": "superfast",
+      "platform": 4,
+      "start": 972.0166666666667,
+      "end": 979.2833333333333
+    },
+    {
+      "train": "SYN0112",
+      "category": "express",
+      "platform": 1,
+      "start": 984.0666666666667,
+      "end": 990.2
+    },
+    {
+      "train": "SYN0113",
+      "category": "express",
+      "platform": 2,
+      "start": 991.0166666666667,
+      "end": 1000.0666666666667
+    },
+    {
+      "train": "SYN0114",
+      "category": "express",
+      "platform": 1,
+      "start": 994.0666666666667,
+      "end": 1004.2
+    },
+    {
+      "train": "SYN0115",
+      "category": "freight",
+      "platform": 4,
+      "start": 1003.0166666666667,
+      "end": 1019.3166666666667
+    },
+    {
+      "train": "SYN0116",
+      "category": "express",
+      "platform": 1,
+      "start": 1014.0666666666667,
+      "end": 1022.9166666666666
+    },
+    {
+      "train": "SYN0117",
+      "category": "express",
+      "platform": 1,
+      "start": 1028.0666666666666,
+      "end": 1036.9166666666667
+    },
+    {
+      "train": "SYN0118",
+      "category": "premium",
+      "platform": 1,
+      "start": 1047.0666666666666,
+      "end": 1054.0666666666666
+    },
+    {
+      "train": "SYN0119",
+      "category": "freight",
+      "platform": 4,
+      "start": 1057.0166666666667,
+      "end": 1069.3166666666666
+    },
+    {
+      "train": "SYN0120",
+      "category": "superfast",
+      "platform": 1,
+      "start": 1074.0666666666666,
+      "end": 1080.4666666666667
+    },
+    {
+      "train": "SYN0121",
+      "category": "superfast",
+      "platform": 4,
+      "start": 1083.0166666666667,
+      "end": 1094.2833333333333
+    },
+    {
+      "train": "SYN0122",
+      "category": "express",
+      "platform": 1,
+      "start": 1087.0666666666666,
+      "end": 1097.9166666666667
+    },
+    {
+      "train": "SYN0123",
+      "category": "express",
+      "platform": 2,
+      "start": 1091.0166666666667,
+      "end": 1101.4833333333333
+    },
+    {
+      "train": "SYN0124",
+      "category": "superfast",
+      "platform": 7,
+      "start": 1095.0166666666667,
+      "end": 1106.2833333333333
+    },
+    {
+      "train": "SYN0126",
+      "category": "passenger",
+      "platform": 1,
+      "start": 1114.0666666666666,
+      "end": 1124.5333333333333
+    },
+    {
+      "train": "SYN0125",
+      "category": "express",
+      "platform": 2,
+      "start": 1128.0166666666667,
+      "end": 1138.25
+    },
+    {
+      "train": "SYN0128",
+      "category": "express",
+      "platform": 1,
+      "start": 1131.0666666666666,
+      "end": 1136.2
+    },
+    {
+      "train": "SYN0127",
+      "category": "freight",
+      "platform": 1,
+      "start": 1152.0666666666666,
+      "end": 1165.5833333333333
+    }
+  ],
+  "normal_timetable": [
+    {
+      "train": "SYN0001",
+      "category": "premium",
+      "platform": 1,
+      "start": 4.066666666666666,
+      "end": 14.083333333333334
+    },
+    {
+      "train": "SYN0002",
+      "category": "passenger",
+      "platform": 2,
+      "start": 8.016666666666667,
+      "end": 16.916666666666668
+    },
+    {
+      "train": "SYN0003",
+      "category": "express",
+      "platform": 4,
+      "start": 11.016666666666667,
+      "end": 20.483333333333334
+    },
+    {
+      "train": "SYN0005",
+      "category": "superfast",
+      "platform": 7,
+      "start": 25.016666666666666,
+      "end": 39.56666666666667
+    },
+    {
+      "train": "SYN0006",
+      "category": "superfast",
+      "platform": 4,
+      "start": 29.016666666666666,
+      "end": 45.15
+    },
+    {
+      "train": "SYN0007",
+      "category": "passenger",
+      "platform": 2,
+      "start": 43.016666666666666,
+      "end": 47.9
+    },
+    {
+      "train": "SYN0008",
+      "category": "superfast",
+      "platform": 1,
+      "start": 48.06666666666667,
+      "end": 58.11666666666667
+    },
+    {
+      "train": "SYN0009",
+      "category": "express",
+      "platform": 4,
+      "start": 52.016666666666666,
+      "end": 61.483333333333334
+    },
+    {
+      "train": "SYN0004",
+      "category": "freight",
+      "platform": 7,
+      "start": 55.016666666666666,
+      "end": 68.31666666666666
+    },
+    {
+      "train": "SYN0010",
+      "category": "express",
+      "platform": 2,
+      "start": 58.016666666666666,
+      "end": 65.48333333333333
+    },
+    {
+      "train": "SYN0011",
+      "category": "express",
+      "platform": 5,
+      "start": 61.016666666666666,
+      "end": 70.21666666666667
+    },
+    {
+      "train": "SYN0012",
+      "category": "premium",
+      "platform": 1,
+      "start": 74.06666666666666,
+      "end": 81.06666666666666
+    },
+    {
+      "train": "SYN0013",
+      "category": "superfast",
+      "platform": 4,
+      "start": 78.01666666666667,
+      "end": 85.56666666666666
+    },
+    {
+      "train": "SYN0014",
+      "category": "passenger",
+      "platform": 1,
+      "start": 93.06666666666666,
+      "end": 99.6
+    },
+    {
+      "train": "SYN0015",
+      "category": "passenger",
+      "platform": 1,
+      "start": 108.06666666666666,
+      "end": 118.6
+    },
+    {
+      "train": "SYN0016",
+      "category": "premium",
+      "platform": 2,
+      "start": 123.01666666666667,
+      "end": 133.43333333333334
+    },
+    {
+      "train": "SYN0017",
+      "category": "freight",
+      "platform": 1,
+      "start": 140.06666666666666,
+      "end": 152.21666666666667
+    },
+    {
+      "train": "SYN0019",
+      "category": "express",
+      "platform": 1,
+      "start": 161.06666666666666,
+      "end": 169.91666666666666
+    },
+    {
+      "train": "SYN0018",
+      "category": "premium",
+      "platform": 2,
+      "start": 165.01666666666668,
+      "end": 174.01666666666668
+    },
+    {
+      "train": "SYN0020",
+      "category": "superfast",
+      "platform": 4,
+      "start": 171.01666666666668,
+      "end": 180.56666666666666
+    },
+    {
+      "train": "SYN0021",
+      "category": "express",
+      "platform": 1,
+      "start": 177.06666666666666,
+      "end": 184.91666666666666
+    },
+    {
+      "train": "SYN0022",
+      "category": "premium",
+      "platform": 2,
+      "start": 191.01666666666668,
+      "end": 199.01666666666668
+    },
+    {
+      "train": "SYN0023",
+      "category": "express",
+      "platform": 1,
+      "start": 194.06666666666666,
+      "end": 202.91666666666666
+    },
+    {
+      "train": "SYN0024",
+      "category": "express",
+      "platform": 4,
+      "start": 198.01666666666668,
+      "end": 206.48333333333332
+    },
+    {
+      "train": "SYN0025",
+      "category": "express",
+      "platform": 1,
+      "start": 211.06666666666666,
+      "end": 220.91666666666666
+    },
+    {
+      "train": "SYN0026",
+      "category": "express",
+      "platform": 2,
+      "start": 215.01666666666668,
+      "end": 224.48333333333332
+    },
+    {
+      "train": "SYN0027",
+      "category": "express",
+      "platform": 4,
+      "start": 227.01666666666668,
+      "end": 238.2
+    },
+    {
+      "train": "SYN0028",
+      "category": "express",
+      "platform": 1,
+      "start": 230.06666666666666,
+      "end": 240.63333333333333
+    },
+    {
+      "train": "SYN0029",
+      "category": "superfast",
+      "platform": 7,
+      "start": 241.01666666666668,
+      "end": 247.56666666666666
+    },
+    {
+      "train": "SYN0030",
+      "category": "passenger",
+      "platform": 2,
+      "start": 251.01666666666668,
+      "end": 260.9166666666667
+    },
+    {
+      "train": "SYN0031",
+      "category": "premium",
+      "platform": 1,
+      "start": 254.06666666666666,
+      "end": 263.43333333333334
+    },
+    {
+      "train": "SYN0032",
+      "category": "express",
+      "platform": 4,
+      "start": 258.01666666666665,
+      "end": 266.2
+    },
+    {
+      "train": "SYN0033",
+      "category": "superfast",
+      "platform": 7,
+      "start": 264.01666666666665,
+      "end": 272.28333333333336
+    },
+    {
+      "train": "SYN0034",
+      "category": "express",
+      "platform": 1,
+      "start": 269.06666666666666,
+      "end": 274.65
+    },
+    {
+      "train": "SYN0035",
+      "category": "express",
+      "platform": 2,
+      "start": 278.01666666666665,
+      "end": 287.48333333333335
+    },
+    {
+      "train": "SYN0036",
+      "category": "express",
+      "platform": 1,
+      "start": 296.06666666666666,
+      "end": 305.2
+    },
+    {
+      "train": "SYN0037",
+      "category": "express",
+      "platform": 1,
+      "start": 314.06666666666666,
+      "end": 320.2
+    },
+    {
+      "train": "SYN0038",
+      "category": "passenger",
+      "platform": 1,
+      "start": 330.06666666666666,
+      "end": 334.6
+    },
+    {
+      "train": "SYN0039",
+      "category": "passenger",
+      "platform": 2,
+      "start": 342.01666666666665,
+      "end": 346.9
+    },
+    {
+      "train": "SYN0040",
+      "category": "superfast",
+      "platform": 1,
+      "start": 349.06666666666666,
+      "end": 360.7
+    },
+    {
+      "train": "SYN0041",
+      "category": "passenger",
+      "platform": 2,
+      "start": 353.01666666666665,
+      "end": 357.9
+    },
+    {
+      "train": "SYN0042",
+      "category": "superfast",
+      "platform": 4,
+      "start": 364.01666666666665,
+      "end": 373.28333333333336
+    },
+    {
+      "train": "SYN0043",
+      "category": "passenger",
+      "platform": 2,
+      "start": 376.01666666666665,
+      "end": 384.9
+    },
+    {
+      "train": "SYN0045",
+      "category": "passenger",
+      "platform": 1,
+      "start": 381.06666666666666,
+      "end": 388.53333333333336
+    },
+    {
+      "train": "SYN0044",
+      "category": "passenger",
+      "platform": 3,
+      "start": 385.01666666666665,
+      "end": 391.03333333333336
+    },
+    {
+      "train": "SYN0046",
+      "category": "freight",
+      "platform": 4,
+      "start": 389.01666666666665,
+      "end": 407.6
+    },
+    {
+      "train": "SYN0047",
+      "category": "premium",
+      "platform": 2,
+      "start": 394.01666666666665,
+      "end": 403.43333333333334
+    },
+    {
+      "train": "SYN0048",
+      "category": "express",
+      "platform": 1,
+      "start": 397.06666666666666,
+      "end": 411.9166666666667
+    },
+    {
+      "train": "SYN0049",
+      "category": "express",
+      "platform": 5,
+      "start": 401.01666666666665,
+      "end": 415.48333333333335
+    },
+    {
+      "train": "SYN0050",
+      "category": "passenger",
+      "platform": 3,
+      "start": 405.01666666666665,
+      "end": 419.31666666666666
+    },
+    {
+      "train": "SYN0052",
+      "category": "express",
+      "platform": 2,
+      "start": 413.01666666666665,
+      "end": 427.48333333333335
+    },
+    {
+      "train": "SYN0051",
+      "category": "superfast",
+      "platform": 7,
+      "start": 418.01666666666665,
+      "end": 423.56666666666666
+    },
+    {
+      "train": "SYN0054",
+      "category": "freight",
+      "platform": 4,
+      "start": 444.01666666666665,
+      "end": 454.95
+    },
+    {
+      "train": "SYN0055",
+      "category": "superfast",
+      "platform": 1,
+      "start": 452.06666666666666,
+      "end": 463.1166666666667
+    },
+    {
+      "train": "SYN0056",
+      "category": "express",
+      "platform": 1,
+      "start": 469.06666666666666,
+      "end": 481.2
+    },
+    {
+      "train": "SYN0057",
+      "category": "express",
+      "platform": 2,
+      "start": 485.01666666666665,
+      "end": 490.48333333333335
+    },
+    {
+      "train": "SYN0058",
+      "category": "freight",
+      "platform": 1,
+      "start": 495.06666666666666,
+      "end": 512.2166666666667
+    },
+    {
+      "train": "SYN0059",
+      "category": "express",
+      "platform": 2,
+      "start": 516.0166666666667,
+      "end": 525.4833333333333
+    },
+    {
+      "train": "SYN0053",
+      "category": "superfast",
+      "platform": 1,
+      "start": 530.0666666666667,
+      "end": 536.8333333333334
+    },
+    {
+      "train": "SYN0061",
+      "category": "superfast",
+      "platform": 4,
+      "start": 534.0166666666667,
+      "end": 542.2833333333333
+    },
+    {
+      "train": "SYN0060",
+      "category": "passenger",
+      "platform": 2,
+      "start": 537.0166666666667,
+      "end": 544.0333333333333
+    },
+    {
+      "train": "SYN0062",
+      "category": "passenger",
+      "platform": 3,
+      "start": 540.0166666666667,
+      "end": 546.0333333333333
+    },
+    {
+      "train": "SYN0063",
+      "category": "passenger",
+      "platform": 1,
+      "start": 545.0666666666667,
+      "end": 549.6
+    },
+    {
+      "train": "SYN0064",
+      "category": "superfast",
+      "platform": 4,
+      "start": 554.0166666666667,
+      "end": 560.5666666666667
+    },
+    {
+      "train": "SYN0065",
+      "category": "passenger",
+      "platform": 1,
+      "start": 558.0666666666667,
+      "end": 564.5333333333333
+    },
+    {
+      "train": "SYN0066",
+      "category": "express",
+      "platform": 2,
+      "start": 573.0166666666667,
+      "end": 582.55
+    },
+    {
+      "train": "SYN0067",
+      "category": "passenger",
+      "platform": 1,
+      "start": 580.0666666666667,
+      "end": 586.6
+    },
+    {
+      "train": "SYN0068",
+      "category": "passenger",
+      "platform": 3,
+      "start": 586.0166666666667,
+      "end": 593.7833333333333
+    },
+    {
+      "train": "SYN0069",
+      "category": "express",
+      "platform": 1,
+      "start": 598.0666666666667,
+      "end": 607.9166666666666
+    },
+    {
+      "train": "SYN0070",
+      "category": "premium",
+      "platform": 2,
+      "start": 603.0166666666667,
+      "end": 611.4333333333333
+    },
+    {
+      "train": "SYN0071",
+      "category": "superfast",
+      "platform": 4,
+      "start": 606.0166666666667,
+      "end": 615.5666666666667
+    },
+    {
+      "train": "SYN0072",
+      "category": "express",
+      "platform": 1,
+      "start": 624.0666666666667,
+      "end": 634.2
+    },
+    {
+      "train": "SYN0073",
+      "category": "passenger",
+      "platform": 2,
+      "start": 628.0166666666667,
+      "end": 636.0833333333334
+    },
+    {
+      "train": "SYN0074",
+      "category": "premium",
+      "platform": 1,
+      "start": 639.0666666666667,
+      "end": 644.8333333333334
+    },
+    {
+      "train": "SYN0075",
+      "category": "superfast",
+      "platform": 1,
+      "start": 651.0666666666667,
+      "end": 657.1166666666667
+    },
+    {
+      "train": "SYN0076",
+      "category": "freight",
+      "platform": 1,
+      "start": 669.0666666666667,
+      "end": 684.2166666666667
+    },
+    {
+      "train": "SYN0077",
+      "category": "superfast",
+      "platform": 4,
+      "start": 689.0166666666667,
+      "end": 694.2833333333333
+    },
+    {
+      "train": "SYN0078",
+      "category": "express",
+      "platform": 1,
+      "start": 698.0666666666667,
+      "end": 704.9166666666666
+    },
+    {
+      "train": "SYN0079",
+      "category": "express",
+      "platform": 1,
+      "start": 710.0666666666667,
+      "end": 717.9166666666666
+    },
+    {
+      "train": "SYN0080",
+      "category": "premium",
+      "platform": 2,
+      "start": 720.0166666666667,
+      "end": 729.7166666666667
+    },
+    {
+      "train": "SYN0081",
+      "category": "express",
+      "platform": 1,
+      "start": 727.0666666666667,
+      "end": 734.2
+    },
+    {
+      "train": "SYN0082",
+      "category": "superfast",
+      "platform": 4,
+      "start": 731.0166666666667,
+      "end": 737.5666666666667
+    },
+    {
+      "train": "SYN0084",
+      "category": "superfast",
+      "platform": 1,
+      "start": 742.0666666666667,
+      "end": 753.1166666666667
+    },
+    {
+      "train": "SYN0085",
+      "category": "passenger",
+      "platform": 2,
+      "start": 746.0166666666667,
+      "end": 756.3166666666667
+    },
+    {
+      "train": "SYN0086",
+      "category": "superfast",
+      "platform": 4,
+      "start": 757.0166666666667,
+      "end": 763.5666666666667
+    },
+    {
+      "train": "SYN0087",
+      "category": "freight",
+      "platform": 1,
+      "start": 766.0666666666667,
+      "end": 785.2166666666667
+    },
+    {
+      "train": "SYN0089",
+      "category": "express",
+      "platform": 4,
+      "start": 770.0166666666667,
+      "end": 782.4833333333333
+    },
+    {
+      "train": "SYN0088",
+      "category": "passenger",
+      "platform": 2,
+      "start": 773.0166666666667,
+      "end": 778.9
+    },
+    {
+      "train": "SYN0083",
+      "category": "superfast",
+      "platform": 7,
+      "start": 785.0166666666667,
+      "end": 794.2833333333333
+    },
+    {
+      "train": "SYN0090",
+      "category": "passenger",
+      "platform": 2,
+      "start": 790.0166666666667,
+      "end": 796.0333333333333
+    },
+    {
+      "train": "SYN0091",
+      "category": "passenger",
+      "platform": 1,
+      "start": 793.0666666666667,
+      "end": 801.5333333333333
+    },
+    {
+      "train": "SYN0092",
+      "category": "express",
+      "platform": 4,
+      "start": 799.0166666666667,
+      "end": 805.4833333333333
+    },
+    {
+      "train": "SYN0093",
+      "category": "passenger",
+      "platform": 3,
+      "start": 803.0166666666667,
+      "end": 809.3166666666667
+    },
+    {
+      "train": "SYN0094",
+      "category": "superfast",
+      "platform": 1,
+      "start": 806.0666666666667,
+      "end": 814.1166666666667
+    },
+    {
+      "train": "SYN0095",
+      "category": "express",
+      "platform": 2,
+      "start": 817.0166666666667,
+      "end": 823.0666666666667
+    },
+    {
+      "train": "SYN0096",
+      "category": "passenger",
+      "platform": 1,
+      "start": 824.0666666666667,
+      "end": 830.5333333333333
+    },
+    {
+      "train": "SYN0097",
+      "category": "premium",
+      "platform": 1,
+      "start": 842.0666666666667,
+      "end": 852.0666666666667
+    },
+    {
+      "train": "SYN0098",
+      "category": "express",
+      "platform": 2,
+      "start": 855.0166666666667,
+      "end": 862.4833333333333
+    },
+    {
+      "train": "SYN0099",
+      "category": "passenger",
+      "platform": 1,
+      "start": 867.0666666666667,
+      "end": 875.6
+    },
+    {
+      "train": "SYN0101",
+      "category": "superfast",
+      "platform": 4,
+      "start": 889.0166666666667,
+      "end": 899.5666666666667
+    },
+    {
+      "train": "SYN0100",
+      "category": "express",
+      "platform": 1,
+      "start": 892.0666666666667,
+      "end": 904.5
+    },
+    {
+      "train": "SYN0102",
+      "category": "passenger",
+      "platform": 2,
+      "start": 902.0166666666667,
+      "end": 906.9
+    },
+    {
+      "train": "SYN0103",
+      "category": "passenger",
+      "platform": 3,
+      "start": 908.0166666666667,
+      "end": 913.7833333333333
+    },
+    {
+      "train": "SYN0104",
+      "category": "passenger",
+      "platform": 2,
+      "start": 917.0166666666667,
+      "end": 921.3166666666667
+    },
+    {
+      "train": "SYN0105",
+      "category": "passenger",
+      "platform": 1,
+      "start": 920.0666666666667,
+      "end": 925.5333333333333
+    },
+    {
+      "train": "SYN0106",
+      "category": "express",
+      "platform": 2,
+      "start": 930.0166666666667,
+      "end": 939.0666666666667
+    },
+    {
+      "train": "SYN0107",
+      "category": "express",
+      "platform": 1,
+      "start": 934.0666666666667,
+      "end": 942.9166666666666
+    },
+    {
+      "train": "SYN0108",
+      "category": "express",
+      "platform": 2,
+      "start": 947.0166666666667,
+      "end": 955.4833333333333
+    },
+    {
+      "train": "SYN0109",
+      "category": "passenger",
+      "platform": 1,
+      "start": 951.0666666666667,
+      "end": 959.5333333333333
+    },
+    {
+      "train": "SYN0110",
+      "category": "superfast",
+      "platform": 4,
+      "start": 964.0166666666667,
+      "end": 973.5666666666667
+    },
+    {
+      "train": "SYN0111",
+      "category": "superfast",
+      "platform": 1,
+      "start": 972.0666666666667,
+      "end": 980.4666666666667
+    },
+    {
+      "train": "SYN0112",
+      "category": "express",
+      "platform": 2,
+      "start": 984.0166666666667,
+      "end": 989.0666666666667
+    },
+    {
+      "train": "SYN0113",
+      "category": "express",
+      "platform": 1,
+      "start": 991.0666666666667,
+      "end": 1003.6333333333333
+    },
+    {
+      "train": "SYN0114",
+      "category": "express",
+      "platform": 4,
+      "start": 995.0166666666667,
+      "end": 1005.6833333333333
+    },
+    {
+      "train": "SYN0115",
+      "category": "freight",
+      "platform": 7,
+      "start": 1001.0166666666667,
+      "end": 1018.6
+    },
+    {
+      "train": "SYN0116",
+      "category": "express",
+      "platform": 1,
+      "start": 1014.0666666666667,
+      "end": 1022.9166666666666
+    },
+    {
+      "train": "SYN0117",
+      "category": "express",
+      "platform": 1,
+      "start": 1028.0666666666666,
+      "end": 1036.9166666666667
+    },
+    {
+      "train": "SYN0118",
+      "category": "premium",
+      "platform": 2,
+      "start": 1047.0166666666667,
+      "end": 1053.0166666666667
+    },
+    {
+      "train": "SYN0119",
+      "category": "freight",
+      "platform": 1,
+      "start": 1056.0666666666666,
+      "end": 1069.5833333333333
+    },
+    {
+      "train": "SYN0120",
+      "category": "superfast",
+      "platform": 4,
+      "start": 1074.0166666666667,
+      "end": 1079.2833333333333
+    },
+    {
+      "train": "SYN0121",
+      "category": "superfast",
+      "platform": 1,
+      "start": 1083.0666666666666,
+      "end": 1095.4666666666667
+    },
+    {
+      "train": "SYN0122",
+      "category": "express",
+      "platform": 2,
+      "start": 1087.0166666666667,
+      "end": 1097.4833333333333
+    },
+    {
+      "train": "SYN0123",
+      "category": "express",
+      "platform": 4,
+      "start": 1091.0166666666667,
+      "end": 1101.4833333333333
+    },
+    {
+      "train": "SYN0124",
+      "category": "superfast",
+      "platform": 7,
+      "start": 1095.0166666666667,
+      "end": 1106.2833333333333
+    },
+    {
+      "train": "SYN0126",
+      "category": "passenger",
+      "platform": 2,
+      "start": 1114.0166666666667,
+      "end": 1124.3166666666666
+    },
+    {
+      "train": "SYN0125",
+      "category": "express",
+      "platform": 1,
+      "start": 1127.0666666666666,
+      "end": 1137.9166666666667
+    },
+    {
+      "train": "SYN0128",
+      "category": "express",
+      "platform": 5,
+      "start": 1131.0166666666667,
+      "end": 1135.4833333333333
+    },
+    {
+      "train": "SYN0127",
+      "category": "freight",
+      "platform": 4,
+      "start": 1152.0166666666667,
+      "end": 1164.3166666666666
+    }
+  ],
+  "normal_priority": [
+    {
+      "train": "SYN0001",
+      "category": "premium",
+      "platform": 2,
+      "start": 4.016666666666667,
+      "end": 13.016666666666667
+    },
+    {
+      "train": "SYN0002",
+      "category": "passenger",
+      "platform": 3,
+      "start": 7.016666666666667,
+      "end": 16.316666666666666
+    },
+    {
+      "train": "SYN0003",
+      "category": "express",
+      "platform": 5,
+      "start": 10.016666666666667,
+      "end": 20.483333333333334
+    },
+    {
+      "train": "SYN0005",
+      "category": "superfast",
+      "platform": 1,
+      "start": 25.066666666666666,
+      "end": 40.11666666666667
+    },
+    {
+      "train": "SYN0006",
+      "category": "superfast",
+      "platform": 4,
+      "start": 29.016666666666666,
+      "end": 45.03333333333333
+    },
+    {
+      "train": "SYN0007",
+      "category": "passenger",
+      "platform": 3,
+      "start": 43.016666666666666,
+      "end": 47.78333333333333
+    },
+    {
+      "train": "SYN0008",
+      "category": "superfast",
+      "platform": 1,
+      "start": 48.06666666666667,
+      "end": 58.11666666666667
+    },
+    {
+      "train": "SYN0009",
+      "category": "express",
+      "platform": 2,
+      "start": 52.016666666666666,
+      "end": 61.483333333333334
+    },
+    {
+      "train": "SYN0004",
+      "category": "freight",
+      "platform": 4,
+      "start": 55.016666666666666,
+      "end": 68.31666666666666
+    },
+    {
+      "train": "SYN0010",
+      "category": "express",
+      "platform": 5,
+      "start": 58.016666666666666,
+      "end": 65.48333333333333
+    },
+    {
+      "train": "SYN0011",
+      "category": "express",
+      "platform": 7,
+      "start": 61.016666666666666,
+      "end": 70.2
+    },
+    {
+      "train": "SYN0012",
+      "category": "premium",
+      "platform": 2,
+      "start": 74.01666666666667,
+      "end": 80.43333333333334
+    },
+    {
+      "train": "SYN0013",
+      "category": "superfast",
+      "platform": 1,
+      "start": 78.06666666666666,
+      "end": 86.11666666666666
+    },
+    {
+      "train": "SYN0014",
+      "category": "passenger",
+      "platform": 3,
+      "start": 93.01666666666667,
+      "end": 98.78333333333333
+    },
+    {
+      "train": "SYN0015",
+      "category": "passenger",
+      "platform": 3,
+      "start": 108.01666666666667,
+      "end": 118.31666666666666
+    },
+    {
+      "train": "SYN0016",
+      "category": "premium",
+      "platform": 2,
+      "start": 123.01666666666667,
+      "end": 133.43333333333334
+    },
+    {
+      "train": "SYN0017",
+      "category": "freight",
+      "platform": 1,
+      "start": 140.06666666666666,
+      "end": 152.21666666666667
+    },
+    {
+      "train": "SYN0019",
+      "category": "express",
+      "platform": 2,
+      "start": 161.01666666666668,
+      "end": 169.48333333333332
+    },
+    {
+      "train": "SYN0018",
+      "category": "premium",
+      "platform": 5,
+      "start": 164.01666666666668,
+      "end": 173.78333333333333
+    },
+    {
+      "train": "SYN0020",
+      "category": "superfast",
+      "platform": 1,
+      "start": 171.06666666666666,
+      "end": 181.11666666666667
+    },
+    {
+      "train": "SYN0021",
+      "category": "express",
+      "platform": 2,
+      "start": 177.01666666666668,
+      "end": 184.48333333333332
+    },
+    {
+      "train": "SYN0022",
+      "category": "premium",
+      "platform": 2,
+      "start": 191.01666666666668,
+      "end": 199.01666666666668
+    },
+    {
+      "train": "SYN0023",
+      "category": "express",
+      "platform": 5,
+      "start": 194.01666666666668,
+      "end": 202.48333333333332
+    },
+    {
+      "train": "SYN0024",
+      "category": "express",
+      "platform": 1,
+      "start": 197.06666666666666,
+      "end": 206.91666666666666
+    },
+    {
+      "train": "SYN0025",
+      "category": "express",
+      "platform": 2,
+      "start": 211.01666666666668,
+      "end": 220.48333333333332
+    },
+    {
+      "train": "SYN0026",
+      "category": "express",
+      "platform": 5,
+      "start": 215.01666666666668,
+      "end": 224.48333333333332
+    },
+    {
+      "train": "SYN0027",
+      "category": "express",
+      "platform": 2,
+      "start": 227.01666666666668,
+      "end": 238.06666666666666
+    },
+    {
+      "train": "SYN0028",
+      "category": "express",
+      "platform": 5,
+      "start": 230.01666666666668,
+      "end": 240.06666666666666
+    },
+    {
+      "train": "SYN0029",
+      "category": "superfast",
+      "platform": 1,
+      "start": 241.06666666666666,
+      "end": 250.58333333333334
+    },
+    {
+      "train": "SYN0030",
+      "category": "passenger",
+      "platform": 3,
+      "start": 248.01666666666668,
+      "end": 257.8
+    },
+    {
+      "train": "SYN0031",
+      "category": "premium",
+      "platform": 2,
+      "start": 251.01666666666668,
+      "end": 259.9166666666667
+    },
+    {
+      "train": "SYN0032",
+      "category": "express",
+      "platform": 5,
+      "start": 256.01666666666665,
+      "end": 264.8333333333333
+    },
+    {
+      "train": "SYN0033",
+      "category": "superfast",
+      "platform": 1,
+      "start": 262.06666666666666,
+      "end": 271.46666666666664
+    },
+    {
+      "train": "SYN0034",
+      "category": "express",
+      "platform": 2,
+      "start": 268.01666666666665,
+      "end": 273.4166666666667
+    },
+    {
+      "train": "SYN0035",
+      "category": "express",
+      "platform": 2,
+      "start": 278.01666666666665,
+      "end": 287.48333333333335
+    },
+    {
+      "train": "SYN0036",
+      "category": "express",
+      "platform": 2,
+      "start": 296.01666666666665,
+      "end": 304.06666666666666
+    },
+    {
+      "train": "SYN0037",
+      "category": "express",
+      "platform": 2,
+      "start": 314.01666666666665,
+      "end": 319.06666666666666
+    },
+    {
+      "train": "SYN0038",
+      "category": "passenger",
+      "platform": 3,
+      "start": 330.01666666666665,
+      "end": 333.78333333333336
+    },
+    {
+      "train": "SYN0039",
+      "category": "passenger",
+      "platform": 3,
+      "start": 342.01666666666665,
+      "end": 346.78333333333336
+    },
+    {
+      "train": "SYN0040",
+      "category": "superfast",
+      "platform": 1,
+      "start": 349.06666666666666,
+      "end": 360.5833333333333
+    },
+    {
+      "train": "SYN0041",
+      "category": "passenger",
+      "platform": 3,
+      "start": 353.01666666666665,
+      "end": 357.78333333333336
+    },
+    {
+      "train": "SYN0042",
+      "category": "superfast",
+      "platform": 4,
+      "start": 364.01666666666665,
+      "end": 373.28333333333336
+    },
+    {
+      "train": "SYN0043",
+      "category": "passenger",
+      "platform": 3,
+      "start": 376.01666666666665,
+      "end": 384.78333333333336
+    },
+    {
+      "train": "SYN0045",
+      "category": "passenger",
+      "platform": 6,
+      "start": 381.01666666666665,
+      "end": 388.31666666666666
+    },
+    {
+      "train": "SYN0044",
+      "category": "passenger",
+      "platform": 8,
+      "start": 385.06666666666666,
+      "end": 391.9
+    },
+    {
+      "train": "SYN0046",
+      "category": "freight",
+      "platform": 1,
+      "start": 389.06666666666666,
+      "end": 408.21666666666664
+    },
+    {
+      "train": "SYN0047",
+      "category": "premium",
+      "platform": 2,
+      "start": 395.01666666666665,
+      "end": 404.01666666666665
+    },
+    {
+      "train": "SYN0048",
+      "category": "express",
+      "platform": 5,
+      "start": 398.01666666666665,
+      "end": 411.48333333333335
+    },
+    {
+      "train": "SYN0049",
+      "category": "express",
+      "platform": 4,
+      "start": 401.01666666666665,
+      "end": 415.48333333333335
+    },
+    {
+      "train": "SYN0050",
+      "category": "passenger",
+      "platform": 3,
+      "start": 405.01666666666665,
+      "end": 419.31666666666666
+    },
+    {
+      "train": "SYN0052",
+      "category": "express",
+      "platform": 2,
+      "start": 413.01666666666665,
+      "end": 427.48333333333335
+    },
+    {
+      "train": "SYN0051",
+      "category": "superfast",
+      "platform": 1,
+      "start": 418.06666666666666,
+      "end": 424.46666666666664
+    },
+    {
+      "train": "SYN0054",
+      "category": "freight",
+      "platform": 1,
+      "start": 444.06666666666666,
+      "end": 455.56666666666666
+    },
+    {
+      "train": "SYN0055",
+      "category": "superfast",
+      "platform": 4,
+      "start": 452.01666666666665,
+      "end": 462.56666666666666
+    },
+    {
+      "train": "SYN0056",
+      "category": "express",
+      "platform": 2,
+      "start": 469.01666666666665,
+      "end": 480.06666666666666
+    },
+    {
+      "train": "SYN0057",
+      "category": "express",
+      "platform": 2,
+      "start": 485.01666666666665,
+      "end": 490.48333333333335
+    },
+    {
+      "train": "SYN0058",
+      "category": "freight",
+      "platform": 1,
+      "start": 495.06666666666666,
+      "end": 512.2166666666667
+    },
+    {
+      "train": "SYN0059",
+      "category": "express",
+      "platform": 2,
+      "start": 516.0166666666667,
+      "end": 525.4833333333333
+    },
+    {
+      "train": "SYN0053",
+      "category": "superfast",
+      "platform": 1,
+      "start": 530.0666666666667,
+      "end": 536.8333333333334
+    },
+    {
+      "train": "SYN0061",
+      "category": "superfast",
+      "platform": 4,
+      "start": 534.0166666666667,
+      "end": 542.2833333333333
+    },
+    {
+      "train": "SYN0060",
+      "category": "passenger",
+      "platform": 3,
+      "start": 537.0166666666667,
+      "end": 544.0333333333333
+    },
+    {
+      "train": "SYN0062",
+      "category": "passenger",
+      "platform": 6,
+      "start": 540.0166666666667,
+      "end": 546.0333333333333
+    },
+    {
+      "train": "SYN0063",
+      "category": "passenger",
+      "platform": 2,
+      "start": 545.0166666666667,
+      "end": 549.3166666666667
+    },
+    {
+      "train": "SYN0064",
+      "category": "superfast",
+      "platform": 1,
+      "start": 554.0666666666667,
+      "end": 561.1166666666667
+    },
+    {
+      "train": "SYN0065",
+      "category": "passenger",
+      "platform": 3,
+      "start": 558.0166666666667,
+      "end": 564.3166666666667
+    },
+    {
+      "train": "SYN0066",
+      "category": "express",
+      "platform": 2,
+      "start": 573.0166666666667,
+      "end": 581.95
+    },
+    {
+      "train": "SYN0067",
+      "category": "passenger",
+      "platform": 3,
+      "start": 580.0166666666667,
+      "end": 586.3166666666667
+    },
+    {
+      "train": "SYN0068",
+      "category": "passenger",
+      "platform": 6,
+      "start": 585.0166666666667,
+      "end": 593.3166666666667
+    },
+    {
+      "train": "SYN0069",
+      "category": "express",
+      "platform": 2,
+      "start": 598.0166666666667,
+      "end": 607.4833333333333
+    },
+    {
+      "train": "SYN0070",
+      "category": "premium",
+      "platform": 5,
+      "start": 603.0166666666667,
+      "end": 611.4333333333333
+    },
+    {
+      "train": "SYN0071",
+      "category": "superfast",
+      "platform": 1,
+      "start": 606.0666666666667,
+      "end": 616.1166666666667
+    },
+    {
+      "train": "SYN0072",
+      "category": "express",
+      "platform": 2,
+      "start": 624.0166666666667,
+      "end": 633.0666666666667
+    },
+    {
+      "train": "SYN0073",
+      "category": "passenger",
+      "platform": 3,
+      "start": 627.0166666666667,
+      "end": 634.9
+    },
+    {
+      "train": "SYN0074",
+      "category": "premium",
+      "platform": 2,
+      "start": 639.0166666666667,
+      "end": 644.4333333333333
+    },
+    {
+      "train": "SYN0075",
+      "category": "superfast",
+      "platform": 1,
+      "start": 651.0666666666667,
+      "end": 657.1166666666667
+    },
+    {
+      "train": "SYN0076",
+      "category": "freight",
+      "platform": 1,
+      "start": 669.0666666666667,
+      "end": 684.2166666666667
+    },
+    {
+      "train": "SYN0077",
+      "category": "superfast",
+      "platform": 1,
+      "start": 689.0666666666667,
+      "end": 695.4666666666667
+    },
+    {
+      "train": "SYN0078",
+      "category": "express",
+      "platform": 2,
+      "start": 698.0166666666667,
+      "end": 704.4833333333333
+    },
+    {
+      "train": "SYN0079",
+      "category": "express",
+      "platform": 2,
+      "start": 710.0166666666667,
+      "end": 717.4833333333333
+    },
+    {
+      "train": "SYN0080",
+      "category": "premium",
+      "platform": 5,
+      "start": 720.0166666666667,
+      "end": 729.4333333333333
+    },
+    {
+      "train": "SYN0081",
+      "category": "express",
+      "platform": 2,
+      "start": 727.0166666666667,
+      "end": 733.4833333333333
+    },
+    {
+      "train": "SYN0082",
+      "category": "superfast",
+      "platform": 1,
+      "start": 730.0666666666667,
+      "end": 738.1166666666667
+    },
+    {
+      "train": "SYN0084",
+      "category": "superfast",
+      "platform": 1,
+      "start": 742.0666666666667,
+      "end": 753.1166666666667
+    },
+    {
+      "train": "SYN0085",
+      "category": "passenger",
+      "platform": 3,
+      "start": 746.0166666666667,
+      "end": 756.3166666666667
+    },
+    {
+      "train": "SYN0086",
+      "category": "superfast",
+      "platform": 1,
+      "start": 757.0666666666667,
+      "end": 764.1166666666667
+    },
+    {
+      "train": "SYN0087",
+      "category": "freight",
+      "platform": 4,
+      "start": 766.0166666666667,
+      "end": 782.3166666666667
+    },
+    {
+      "train": "SYN0089",
+      "category": "express",
+      "platform": 2,
+      "start": 769.0166666666667,
+      "end": 784.2
+    },
+    {
+      "train": "SYN0088",
+      "category": "passenger",
+      "platform": 3,
+      "start": 772.0166666666667,
+      "end": 777.7833333333333
+    },
+    {
+      "train": "SYN0083",
+      "category": "superfast",
+      "platform": 1,
+      "start": 787.0666666666667,
+      "end": 798.5833333333334
+    },
+    {
+      "train": "SYN0090",
+      "category": "passenger",
+      "platform": 3,
+      "start": 791.0166666666667,
+      "end": 795.7833333333333
+    },
+    {
+      "train": "SYN0091",
+      "category": "passenger",
+      "platform": 6,
+      "start": 794.0166666666667,
+      "end": 801.3166666666667
+    },
+    {
+      "train": "SYN0092",
+      "category": "express",
+      "platform": 2,
+      "start": 799.0166666666667,
+      "end": 805.4833333333333
+    },
+    {
+      "train": "SYN0093",
+      "category": "passenger",
+      "platform": 3,
+      "start": 803.0166666666667,
+      "end": 809.3166666666667
+    },
+    {
+      "train": "SYN0094",
+      "category": "superfast",
+      "platform": 1,
+      "start": 806.0666666666667,
+      "end": 814.1166666666667
+    },
+    {
+      "train": "SYN0095",
+      "category": "express",
+      "platform": 2,
+      "start": 817.0166666666667,
+      "end": 823.0666666666667
+    },
+    {
+      "train": "SYN0096",
+      "category": "passenger",
+      "platform": 3,
+      "start": 824.0166666666667,
+      "end": 830.3166666666667
+    },
+    {
+      "train": "SYN0097",
+      "category": "premium",
+      "platform": 2,
+      "start": 842.0166666666667,
+      "end": 851.4333333333333
+    },
+    {
+      "train": "SYN0098",
+      "category": "express",
+      "platform": 2,
+      "start": 855.0166666666667,
+      "end": 862.4833333333333
+    },
+    {
+      "train": "SYN0099",
+      "category": "passenger",
+      "platform": 3,
+      "start": 867.0166666666667,
+      "end": 875.3166666666667
+    },
+    {
+      "train": "SYN0101",
+      "category": "superfast",
+      "platform": 1,
+      "start": 889.0666666666667,
+      "end": 900.4666666666667
+    },
+    {
+      "train": "SYN0100",
+      "category": "express",
+      "platform": 2,
+      "start": 893.0166666666667,
+      "end": 904.0666666666667
+    },
+    {
+      "train": "SYN0102",
+      "category": "passenger",
+      "platform": 3,
+      "start": 902.0166666666667,
+      "end": 906.7833333333333
+    },
+    {
+      "train": "SYN0103",
+      "category": "passenger",
+      "platform": 6,
+      "start": 907.0166666666667,
+      "end": 912.7833333333333
+    },
+    {
+      "train": "SYN0104",
+      "category": "passenger",
+      "platform": 3,
+      "start": 916.0166666666667,
+      "end": 921.3166666666667
+    },
+    {
+      "train": "SYN0105",
+      "category": "passenger",
+      "platform": 6,
+      "start": 920.0166666666667,
+      "end": 925.3166666666667
+    },
+    {
+      "train": "SYN0106",
+      "category": "express",
+      "platform": 2,
+      "start": 930.0166666666667,
+      "end": 939.0666666666667
+    },
+    {
+      "train": "SYN0107",
+      "category": "express",
+      "platform": 5,
+      "start": 934.0166666666667,
+      "end": 942.4833333333333
+    },
+    {
+      "train": "SYN0108",
+      "category": "express",
+      "platform": 2,
+      "start": 947.0166666666667,
+      "end": 955.4833333333333
+    },
+    {
+      "train": "SYN0109",
+      "category": "passenger",
+      "platform": 3,
+      "start": 951.0166666666667,
+      "end": 959.3166666666667
+    },
+    {
+      "train": "SYN0110",
+      "category": "superfast",
+      "platform": 1,
+      "start": 964.0666666666667,
+      "end": 974.1166666666667
+    },
+    {
+      "train": "SYN0111",
+      "category": "superfast",
+      "platform": 4,
+      "start": 972.0166666666667,
+      "end": 979.2833333333333
+    },
+    {
+      "train": "SYN0112",
+      "category": "express",
+      "platform": 2,
+      "start": 984.0166666666667,
+      "end": 989.0666666666667
+    },
+    {
+      "train": "SYN0113",
+      "category": "express",
+      "platform": 5,
+      "start": 991.0166666666667,
+      "end": 1000.0666666666667
+    },
+    {
+      "train": "SYN0114",
+      "category": "express",
+      "platform": 2,
+      "start": 994.0166666666667,
+      "end": 1003.4833333333333
+    },
+    {
+      "train": "SYN0115",
+      "category": "freight",
+      "platform": 1,
+      "start": 1003.0666666666667,
+      "end": 1020.5666666666667
+    },
+    {
+      "train": "SYN0116",
+      "category": "express",
+      "platform": 2,
+      "start": 1014.0166666666667,
+      "end": 1022.4833333333333
+    },
+    {
+      "train": "SYN0117",
+      "category": "express",
+      "platform": 2,
+      "start": 1028.0166666666667,
+      "end": 1036.4833333333333
+    },
+    {
+      "train": "SYN0118",
+      "category": "premium",
+      "platform": 2,
+      "start": 1047.0166666666667,
+      "end": 1053.0166666666667
+    },
+    {
+      "train": "SYN0119",
+      "category": "freight",
+      "platform": 1,
+      "start": 1056.0666666666666,
+      "end": 1069.5833333333333
+    },
+    {
+      "train": "SYN0120",
+      "category": "superfast",
+      "platform": 1,
+      "start": 1074.0666666666666,
+      "end": 1080.4666666666667
+    },
+    {
+      "train": "SYN0121",
+      "category": "superfast",
+      "platform": 4,
+      "start": 1083.0166666666667,
+      "end": 1094.2833333333333
+    },
+    {
+      "train": "SYN0122",
+      "category": "express",
+      "platform": 2,
+      "start": 1087.0166666666667,
+      "end": 1097.4833333333333
+    },
+    {
+      "train": "SYN0123",
+      "category": "express",
+      "platform": 5,
+      "start": 1091.0166666666667,
+      "end": 1101.4833333333333
+    },
+    {
+      "train": "SYN0124",
+      "category": "superfast",
+      "platform": 1,
+      "start": 1095.0666666666666,
+      "end": 1107.4666666666667
+    },
+    {
+      "train": "SYN0126",
+      "category": "passenger",
+      "platform": 3,
+      "start": 1114.0166666666667,
+      "end": 1124.3166666666666
+    },
+    {
+      "train": "SYN0125",
+      "category": "express",
+      "platform": 2,
+      "start": 1127.0166666666667,
+      "end": 1135.0666666666666
+    },
+    {
+      "train": "SYN0128",
+      "category": "express",
+      "platform": 5,
+      "start": 1130.0166666666667,
+      "end": 1137.0666666666666
+    },
+    {
+      "train": "SYN0127",
+      "category": "freight",
+      "platform": 1,
+      "start": 1152.0666666666666,
+      "end": 1165.5833333333333
+    }
+  ],
+  "normal_greedy": [
+    {
+      "train": "SYN0001",
+      "category": "premium",
+      "platform": 1,
+      "start": 4.066666666666666,
+      "end": 14.083333333333334
+    },
+    {
+      "train": "SYN0002",
+      "category": "passenger",
+      "platform": 2,
+      "start": 8.016666666666667,
+      "end": 16.916666666666668
+    },
+    {
+      "train": "SYN0003",
+      "category": "express",
+      "platform": 4,
+      "start": 11.016666666666667,
+      "end": 20.483333333333334
+    },
+    {
+      "train": "SYN0005",
+      "category": "superfast",
+      "platform": 7,
+      "start": 25.016666666666666,
+      "end": 39.56666666666667
+    },
+    {
+      "train": "SYN0006",
+      "category": "superfast",
+      "platform": 4,
+      "start": 29.016666666666666,
+      "end": 45.15
+    },
+    {
+      "train": "SYN0007",
+      "category": "passenger",
+      "platform": 2,
+      "start": 43.016666666666666,
+      "end": 47.9
+    },
+    {
+      "train": "SYN0008",
+      "category": "superfast",
+      "platform": 1,
+      "start": 48.06666666666667,
+      "end": 58.11666666666667
+    },
+    {
+      "train": "SYN0009",
+      "category": "express",
+      "platform": 4,
+      "start": 52.016666666666666,
+      "end": 61.483333333333334
+    },
+    {
+      "train": "SYN0004",
+      "category": "freight",
+      "platform": 1,
+      "start": 64.06666666666666,
+      "end": 78.93333333333334
+    },
+    {
+      "train": "SYN0010",
+      "category": "express",
+      "platform": 2,
+      "start": 68.01666666666667,
+      "end": 76.2
+    },
+    {
+      "train": "SYN0011",
+      "category": "express",
+      "platform": 5,
+      "start": 71.01666666666667,
+      "end": 82.85
+    },
+    {
+      "train": "SYN0012",
+      "category": "premium",
+      "platform": 4,
+      "start": 74.01666666666667,
+      "end": 80.8
+    },
+    {
+      "train": "SYN0013",
+      "category": "superfast",
+      "platform": 7,
+      "start": 79.01666666666667,
+      "end": 85.56666666666666
+    },
+    {
+      "train": "SYN0014",
+      "category": "passenger",
+      "platform": 1,
+      "start": 93.06666666666666,
+      "end": 99.6
+    },
+    {
+      "train": "SYN0015",
+      "category": "passenger",
+      "platform": 1,
+      "start": 108.06666666666666,
+      "end": 118.6
+    },
+    {
+      "train": "SYN0016",
+      "category": "premium",
+      "platform": 2,
+      "start": 123.01666666666667,
+      "end": 133.43333333333334
+    },
+    {
+      "train": "SYN0017",
+      "category": "freight",
+      "platform": 1,
+      "start": 140.06666666666666,
+      "end": 152.21666666666667
+    },
+    {
+      "train": "SYN0019",
+      "category": "express",
+      "platform": 1,
+      "start": 161.06666666666666,
+      "end": 169.91666666666666
+    },
+    {
+      "train": "SYN0018",
+      "category": "premium",
+      "platform": 2,
+      "start": 165.01666666666668,
+      "end": 174.01666666666668
+    },
+    {
+      "train": "SYN0020",
+      "category": "superfast",
+      "platform": 4,
+      "start": 171.01666666666668,
+      "end": 180.56666666666666
+    },
+    {
+      "train": "SYN0021",
+      "category": "express",
+      "platform": 1,
+      "start": 177.06666666666666,
+      "end": 184.91666666666666
+    },
+    {
+      "train": "SYN0022",
+      "category": "premium",
+      "platform": 2,
+      "start": 191.01666666666668,
+      "end": 199.01666666666668
+    },
+    {
+      "train": "SYN0023",
+      "category": "express",
+      "platform": 1,
+      "start": 194.06666666666666,
+      "end": 202.91666666666666
+    },
+    {
+      "train": "SYN0024",
+      "category": "express",
+      "platform": 4,
+      "start": 198.01666666666668,
+      "end": 206.48333333333332
+    },
+    {
+      "train": "SYN0025",
+      "category": "express",
+      "platform": 1,
+      "start": 211.06666666666666,
+      "end": 220.91666666666666
+    },
+    {
+      "train": "SYN0026",
+      "category": "express",
+      "platform": 2,
+      "start": 215.01666666666668,
+      "end": 224.48333333333332
+    },
+    {
+      "train": "SYN0027",
+      "category": "express",
+      "platform": 4,
+      "start": 227.01666666666668,
+      "end": 238.2
+    },
+    {
+      "train": "SYN0028",
+      "category": "express",
+      "platform": 1,
+      "start": 230.06666666666666,
+      "end": 240.63333333333333
+    },
+    {
+      "train": "SYN0029",
+      "category": "superfast",
+      "platform": 7,
+      "start": 241.01666666666668,
+      "end": 247.56666666666666
+    },
+    {
+      "train": "SYN0030",
+      "category": "passenger",
+      "platform": 2,
+      "start": 251.01666666666668,
+      "end": 260.9166666666667
+    },
+    {
+      "train": "SYN0031",
+      "category": "premium",
+      "platform": 1,
+      "start": 254.06666666666666,
+      "end": 263.43333333333334
+    },
+    {
+      "train": "SYN0032",
+      "category": "express",
+      "platform": 4,
+      "start": 258.01666666666665,
+      "end": 266.2
+    },
+    {
+      "train": "SYN0033",
+      "category": "superfast",
+      "platform": 7,
+      "start": 264.01666666666665,
+      "end": 272.28333333333336
+    },
+    {
+      "train": "SYN0034",
+      "category": "express",
+      "platform": 1,
+      "start": 269.06666666666666,
+      "end": 274.65
+    },
+    {
+      "train": "SYN0035",
+      "category": "express",
+      "platform": 2,
+      "start": 278.01666666666665,
+      "end": 287.48333333333335
+    },
+    {
+      "train": "SYN0036",
+      "category": "express",
+      "platform": 1,
+      "start": 296.06666666666666,
+      "end": 305.2
+    },
+    {
+      "train": "SYN0037",
+      "category": "express",
+      "platform": 1,
+      "start": 314.06666666666666,
+      "end": 320.2
+    },
+    {
+      "train": "SYN0038",
+      "category": "passenger",
+      "platform": 1,
+      "start": 330.06666666666666,
+      "end": 334.6
+    },
+    {
+      "train": "SYN0039",
+      "category": "passenger",
+      "platform": 2,
+      "start": 342.01666666666665,
+      "end": 346.9
+    },
+    {
+      "train": "SYN0040",
+      "category": "superfast",
+      "platform": 1,
+      "start": 349.06666666666666,
+      "end": 360.7
+    },
+    {
+      "train": "SYN0041",
+      "category": "passenger",
+      "platform": 2,
+      "start": 353.01666666666665,
+      "end": 357.9
+    },
+    {
+      "train": "SYN0042",
+      "category": "superfast",
+      "platform": 4,
+      "start": 364.01666666666665,
+      "end": 373.28333333333336
+    },
+    {
+      "train": "SYN0043",
+      "category": "passenger",
+      "platform": 2,
+      "start": 376.01666666666665,
+      "end": 384.9
+    },
+    {
+      "train": "SYN0045",
+      "category": "passenger",
+      "platform": 1,
+      "start": 381.06666666666666,
+      "end": 388.53333333333336
+    },
+    {
+      "train": "SYN0044",
+      "category": "passenger",
+      "platform": 3,
+      "start": 385.01666666666665,
+      "end": 391.03333333333336
+    },
+    {
+      "train": "SYN0046",
+      "category": "freight",
+      "platform": 4,
+      "start": 389.01666666666665,
+      "end": 407.6
+    },
+    {
+      "train": "SYN0047",
+      "category": "premium",
+      "platform": 2,
+      "start": 394.01666666666665,
+      "end": 403.43333333333334
+    },
+    {
+      "train": "SYN0048",
+      "category": "express",
+      "platform": 1,
+      "start": 397.06666666666666,
+      "end": 411.9166666666667
+    },
+    {
+      "train": "SYN0049",
+      "category": "express",
+      "platform": 5,
+      "start": 401.01666666666665,
+      "end": 415.48333333333335
+    },
+    {
+      "train": "SYN0050",
+      "category": "passenger",
+      "platform": 3,
+      "start": 405.01666666666665,
+      "end": 419.31666666666666
+    },
+    {
+      "train": "SYN0052",
+      "category": "express",
+      "platform": 2,
+      "start": 413.01666666666665,
+      "end": 427.48333333333335
+    },
+    {
+      "train": "SYN0051",
+      "category": "superfast",
+      "platform": 7,
+      "start": 418.01666666666665,
+      "end": 423.56666666666666
+    },
+    {
+      "train": "SYN0054",
+      "category": "freight",
+      "platform": 4,
+      "start": 444.01666666666665,
+      "end": 454.95
+    },
+    {
+      "train": "SYN0055",
+      "category": "superfast",
+      "platform": 1,
+      "start": 452.06666666666666,
+      "end": 463.1166666666667
+    },
+    {
+      "train": "SYN0056",
+      "category": "express",
+      "platform": 1,
+      "start": 469.06666666666666,
+      "end": 481.2
+    },
+    {
+      "train": "SYN0057",
+      "category": "express",
+      "platform": 2,
+      "start": 485.01666666666665,
+      "end": 490.48333333333335
+    },
+    {
+      "train": "SYN0058",
+      "category": "freight",
+      "platform": 1,
+      "start": 495.06666666666666,
+      "end": 512.2166666666667
+    },
+    {
+      "train": "SYN0059",
+      "category": "express",
+      "platform": 2,
+      "start": 516.0166666666667,
+      "end": 525.4833333333333
+    },
+    {
+      "train": "SYN0053",
+      "category": "superfast",
+      "platform": 1,
+      "start": 530.0666666666667,
+      "end": 536.8333333333334
+    },
+    {
+      "train": "SYN0061",
+      "category": "superfast",
+      "platform": 4,
+      "start": 534.0166666666667,
+      "end": 543.6333333333333
+    },
+    {
+      "train": "SYN0060",
+      "category": "passenger",
+      "platform": 1,
+      "start": 541.0666666666667,
+      "end": 548.6
+    },
+    {
+      "train": "SYN0062",
+      "category": "passenger",
+      "platform": 2,
+      "start": 547.0166666666667,
+      "end": 552.9
+    },
+    {
+      "train": "SYN0063",
+      "category": "passenger",
+      "platform": 1,
+      "start": 553.0666666666667,
+      "end": 559.25
+    },
+    {
+      "train": "SYN0064",
+      "category": "superfast",
+      "platform": 4,
+      "start": 557.0166666666667,
+      "end": 562.2833333333333
+    },
+    {
+      "train": "SYN0065",
+      "category": "passenger",
+      "platform": 1,
+      "start": 563.0666666666667,
+      "end": 567.6
+    },
+    {
+      "train": "SYN0066",
+      "category": "express",
+      "platform": 2,
+      "start": 573.0166666666667,
+      "end": 582.55
+    },
+    {
+      "train": "SYN0067",
+      "category": "passenger",
+      "platform": 1,
+      "start": 580.0666666666667,
+      "end": 586.6
+    },
+    {
+      "train": "SYN0068",
+      "category": "passenger",
+      "platform": 2,
+      "start": 587.0166666666667,
+      "end": 594.9
+    },
+    {
+      "train": "SYN0069",
+      "category": "express",
+      "platform": 1,
+      "start": 598.0666666666667,
+      "end": 607.9166666666666
+    },
+    {
+      "train": "SYN0070",
+      "category": "premium",
+      "platform": 2,
+      "start": 603.0166666666667,
+      "end": 611.4333333333333
+    },
+    {
+      "train": "SYN0071",
+      "category": "superfast",
+      "platform": 4,
+      "start": 606.0166666666667,
+      "end": 615.5666666666667
+    },
+    {
+      "train": "SYN0072",
+      "category": "express",
+      "platform": 1,
+      "start": 624.0666666666667,
+      "end": 634.2
+    },
+    {
+      "train": "SYN0073",
+      "category": "passenger",
+      "platform": 2,
+      "start": 628.0166666666667,
+      "end": 636.0833333333334
+    },
+    {
+      "train": "SYN0074",
+      "category": "premium",
+      "platform": 1,
+      "start": 639.0666666666667,
+      "end": 644.8333333333334
+    },
+    {
+      "train": "SYN0075",
+      "category": "superfast",
+      "platform": 1,
+      "start": 651.0666666666667,
+      "end": 657.1166666666667
+    },
+    {
+      "train": "SYN0076",
+      "category": "freight",
+      "platform": 1,
+      "start": 669.0666666666667,
+      "end": 684.2166666666667
+    },
+    {
+      "train": "SYN0077",
+      "category": "superfast",
+      "platform": 4,
+      "start": 689.0166666666667,
+      "end": 694.2833333333333
+    },
+    {
+      "train": "SYN0078",
+      "category": "express",
+      "platform": 1,
+      "start": 698.0666666666667,
+      "end": 704.9166666666666
+    },
+    {
+      "train": "SYN0079",
+      "category": "express",
+      "platform": 1,
+      "start": 710.0666666666667,
+      "end": 717.9166666666666
+    },
+    {
+      "train": "SYN0080",
+      "category": "premium",
+      "platform": 2,
+      "start": 720.0166666666667,
+      "end": 729.7166666666667
+    },
+    {
+      "train": "SYN0081",
+      "category": "express",
+      "platform": 1,
+      "start": 727.0666666666667,
+      "end": 734.2
+    },
+    {
+      "train": "SYN0082",
+      "category": "superfast",
+      "platform": 4,
+      "start": 731.0166666666667,
+      "end": 737.5666666666667
+    },
+    {
+      "train": "SYN0084",
+      "category": "superfast",
+      "platform": 1,
+      "start": 742.0666666666667,
+      "end": 753.1166666666667
+    },
+    {
+      "train": "SYN0085",
+      "category": "passenger",
+      "platform": 2,
+      "start": 746.0166666666667,
+      "end": 756.3166666666667
+    },
+    {
+      "train": "SYN0086",
+      "category": "superfast",
+      "platform": 4,
+      "start": 757.0166666666667,
+      "end": 763.5666666666667
+    },
+    {
+      "train": "SYN0087",
+      "category": "freight",
+      "platform": 1,
+      "start": 766.0666666666667,
+      "end": 785.2166666666667
+    },
+    {
+      "train": "SYN0089",
+      "category": "express",
+      "platform": 4,
+      "start": 770.0166666666667,
+      "end": 782.4833333333333
+    },
+    {
+      "train": "SYN0088",
+      "category": "passenger",
+      "platform": 2,
+      "start": 773.0166666666667,
+      "end": 778.9
+    },
+    {
+      "train": "SYN0083",
+      "category": "superfast",
+      "platform": 7,
+      "start": 785.0166666666667,
+      "end": 794.2833333333333
+    },
+    {
+      "train": "SYN0090",
+      "category": "passenger",
+      "platform": 2,
+      "start": 790.0166666666667,
+      "end": 796.0333333333333
+    },
+    {
+      "train": "SYN0091",
+      "category": "passenger",
+      "platform": 1,
+      "start": 793.0666666666667,
+      "end": 801.5333333333333
+    },
+    {
+      "train": "SYN0092",
+      "category": "express",
+      "platform": 4,
+      "start": 799.0166666666667,
+      "end": 805.4833333333333
+    },
+    {
+      "train": "SYN0093",
+      "category": "passenger",
+      "platform": 3,
+      "start": 803.0166666666667,
+      "end": 809.3166666666667
+    },
+    {
+      "train": "SYN0094",
+      "category": "superfast",
+      "platform": 1,
+      "start": 806.0666666666667,
+      "end": 814.1166666666667
+    },
+    {
+      "train": "SYN0095",
+      "category": "express",
+      "platform": 2,
+      "start": 817.0166666666667,
+      "end": 823.0666666666667
+    },
+    {
+      "train": "SYN0096",
+      "category": "passenger",
+      "platform": 2,
+      "start": 827.0166666666667,
+      "end": 831.9
+    },
+    {
+      "train": "SYN0097",
+      "category": "premium",
+      "platform": 1,
+      "start": 842.0666666666667,
+      "end": 852.0666666666667
+    },
+    {
+      "train": "SYN0098",
+      "category": "express",
+      "platform": 2,
+      "start": 855.0166666666667,
+      "end": 862.4833333333333
+    },
+    {
+      "train": "SYN0099",
+      "category": "passenger",
+      "platform": 1,
+      "start": 867.0666666666667,
+      "end": 875.6
+    },
+    {
+      "train": "SYN0101",
+      "category": "superfast",
+      "platform": 4,
+      "start": 889.0166666666667,
+      "end": 899.5666666666667
+    },
+    {
+      "train": "SYN0100",
+      "category": "express",
+      "platform": 1,
+      "start": 892.0666666666667,
+      "end": 904.5
+    },
+    {
+      "train": "SYN0102",
+      "category": "passenger",
+      "platform": 2,
+      "start": 902.0166666666667,
+      "end": 906.9
+    },
+    {
+      "train": "SYN0103",
+      "category": "passenger",
+      "platform": 1,
+      "start": 909.0666666666667,
+      "end": 918.1166666666667
+    },
+    {
+      "train": "SYN0104",
+      "category": "passenger",
+      "platform": 2,
+      "start": 916.0166666666667,
+      "end": 921.3166666666667
+    },
+    {
+      "train": "SYN0105",
+      "category": "passenger",
+      "platform": 1,
+      "start": 922.0666666666667,
+      "end": 926.6
+    },
+    {
+      "train": "SYN0106",
+      "category": "express",
+      "platform": 2,
+      "start": 930.0166666666667,
+      "end": 939.0666666666667
+    },
+    {
+      "train": "SYN0107",
+      "category": "express",
+      "platform": 1,
+      "start": 934.0666666666667,
+      "end": 942.9166666666666
+    },
+    {
+      "train": "SYN0108",
+      "category": "express",
+      "platform": 2,
+      "start": 947.0166666666667,
+      "end": 955.4833333333333
+    },
+    {
+      "train": "SYN0109",
+      "category": "passenger",
+      "platform": 1,
+      "start": 951.0666666666667,
+      "end": 959.5333333333333
+    },
+    {
+      "train": "SYN0110",
+      "category": "superfast",
+      "platform": 4,
+      "start": 964.0166666666667,
+      "end": 973.5666666666667
+    },
+    {
+      "train": "SYN0111",
+      "category": "superfast",
+      "platform": 1,
+      "start": 972.0666666666667,
+      "end": 980.4666666666667
+    },
+    {
+      "train": "SYN0112",
+      "category": "express",
+      "platform": 2,
+      "start": 984.0166666666667,
+      "end": 989.0666666666667
+    },
+    {
+      "train": "SYN0113",
+      "category": "express",
+      "platform": 1,
+      "start": 991.0666666666667,
+      "end": 1003.6333333333333
+    },
+    {
+      "train": "SYN0114",
+      "category": "express",
+      "platform": 4,
+      "start": 995.0166666666667,
+      "end": 1005.6833333333333
+    },
+    {
+      "train": "SYN0115",
+      "category": "freight",
+      "platform": 7,
+      "start": 1001.0166666666667,
+      "end": 1018.6
+    },
+    {
+      "train": "SYN0116",
+      "category": "express",
+      "platform": 1,
+      "start": 1014.0666666666667,
+      "end": 1022.9166666666666
+    },
+    {
+      "train": "SYN0117",
+      "category": "express",
+      "platform": 1,
+      "start": 1028.0666666666666,
+      "end": 1036.9166666666667
+    },
+    {
+      "train": "SYN0118",
+      "category": "premium",
+      "platform": 2,
+      "start": 1047.0166666666667,
+      "end": 1053.0166666666667
+    },
+    {
+      "train": "SYN0119",
+      "category": "freight",
+      "platform": 1,
+      "start": 1056.0666666666666,
+      "end": 1069.5833333333333
+    },
+    {
+      "train": "SYN0120",
+      "category": "superfast",
+      "platform": 4,
+      "start": 1074.0166666666667,
+      "end": 1079.2833333333333
+    },
+    {
+      "train": "SYN0121",
+      "category": "superfast",
+      "platform": 1,
+      "start": 1083.0666666666666,
+      "end": 1095.4666666666667
+    },
+    {
+      "train": "SYN0122",
+      "category": "express",
+      "platform": 2,
+      "start": 1087.0166666666667,
+      "end": 1097.4833333333333
+    },
+    {
+      "train": "SYN0123",
+      "category": "express",
+      "platform": 4,
+      "start": 1091.0166666666667,
+      "end": 1101.4833333333333
+    },
+    {
+      "train": "SYN0124",
+      "category": "superfast",
+      "platform": 7,
+      "start": 1095.0166666666667,
+      "end": 1106.2833333333333
+    },
+    {
+      "train": "SYN0126",
+      "category": "passenger",
+      "platform": 2,
+      "start": 1114.0166666666667,
+      "end": 1124.3166666666666
+    },
+    {
+      "train": "SYN0125",
+      "category": "express",
+      "platform": 1,
+      "start": 1127.0666666666666,
+      "end": 1137.9166666666667
+    },
+    {
+      "train": "SYN0128",
+      "category": "express",
+      "platform": 5,
+      "start": 1131.0166666666667,
+      "end": 1135.4833333333333
+    },
+    {
+      "train": "SYN0127",
+      "category": "freight",
+      "platform": 4,
+      "start": 1152.0166666666667,
+      "end": 1164.3166666666666
+    }
+  ],
+  "normal_dqn": [
+    {
+      "train": "SYN0001",
+      "category": "premium",
+      "platform": 2,
+      "start": 4.016666666666667,
+      "end": 13.016666666666667
+    },
+    {
+      "train": "SYN0002",
+      "category": "passenger",
+      "platform": 7,
+      "start": 7.016666666666667,
+      "end": 16.316666666666666
+    },
+    {
+      "train": "SYN0003",
+      "category": "express",
+      "platform": 5,
+      "start": 10.016666666666667,
+      "end": 20.483333333333334
+    },
+    {
+      "train": "SYN0005",
+      "category": "superfast",
+      "platform": 7,
+      "start": 25.016666666666666,
+      "end": 39.56666666666667
+    },
+    {
+      "train": "SYN0006",
+      "category": "superfast",
+      "platform": 4,
+      "start": 29.016666666666666,
+      "end": 45.03333333333333
+    },
+    {
+      "train": "SYN0007",
+      "category": "passenger",
+      "platform": 3,
+      "start": 43.016666666666666,
+      "end": 47.78333333333333
+    },
+    {
+      "train": "SYN0008",
+      "category": "superfast",
+      "platform": 1,
+      "start": 48.06666666666667,
+      "end": 58.11666666666667
+    },
+    {
+      "train": "SYN0009",
+      "category": "express",
+      "platform": 4,
+      "start": 52.016666666666666,
+      "end": 61.483333333333334
+    },
+    {
+      "train": "SYN0004",
+      "category": "freight",
+      "platform": 7,
+      "start": 55.016666666666666,
+      "end": 68.31666666666666
+    },
+    {
+      "train": "SYN0010",
+      "category": "express",
+      "platform": 5,
+      "start": 58.016666666666666,
+      "end": 65.48333333333333
+    },
+    {
+      "train": "SYN0011",
+      "category": "express",
+      "platform": 2,
+      "start": 61.016666666666666,
+      "end": 70.21666666666667
+    },
+    {
+      "train": "SYN0012",
+      "category": "premium",
+      "platform": 1,
+      "start": 74.06666666666666,
+      "end": 81.06666666666666
+    },
+    {
+      "train": "SYN0013",
+      "category": "superfast",
+      "platform": 4,
+      "start": 78.01666666666667,
+      "end": 85.56666666666666
+    },
+    {
+      "train": "SYN0014",
+      "category": "passenger",
+      "platform": 2,
+      "start": 93.01666666666667,
+      "end": 98.9
+    },
+    {
+      "train": "SYN0015",
+      "category": "passenger",
+      "platform": 1,
+      "start": 108.06666666666666,
+      "end": 118.6
+    },
+    {
+      "train": "SYN0016",
+      "category": "premium",
+      "platform": 2,
+      "start": 123.01666666666667,
+      "end": 133.43333333333334
+    },
+    {
+      "train": "SYN0017",
+      "category": "freight",
+      "platform": 7,
+      "start": 140.01666666666668,
+      "end": 151.6
+    },
+    {
+      "train": "SYN0019",
+      "category": "express",
+      "platform": 2,
+      "start": 161.01666666666668,
+      "end": 169.48333333333332
+    },
+    {
+      "train": "SYN0018",
+      "category": "premium",
+      "platform": 5,
+      "start": 164.01666666666668,
+      "end": 173.15
+    },
+    {
+      "train": "SYN0020",
+      "category": "superfast",
+      "platform": 7,
+      "start": 171.01666666666668,
+      "end": 180.56666666666666
+    },
+    {
+      "train": "SYN0021",
+      "category": "express",
+      "platform": 4,
+      "start": 176.01666666666668,
+      "end": 184.48333333333332
+    },
+    {
+      "train": "SYN0022",
+      "category": "premium",
+      "platform": 2,
+      "start": 191.01666666666668,
+      "end": 199.01666666666668
+    },
+    {
+      "train": "SYN0023",
+      "category": "express",
+      "platform": 7,
+      "start": 194.01666666666668,
+      "end": 202.48333333333332
+    },
+    {
+      "train": "SYN0024",
+      "category": "express",
+      "platform": 5,
+      "start": 197.01666666666668,
+      "end": 206.48333333333332
+    },
+    {
+      "train": "SYN0025",
+      "category": "express",
+      "platform": 1,
+      "start": 211.06666666666666,
+      "end": 220.91666666666666
+    },
+    {
+      "train": "SYN0026",
+      "category": "express",
+      "platform": 7,
+      "start": 215.01666666666668,
+      "end": 224.48333333333332
+    },
+    {
+      "train": "SYN0027",
+      "category": "express",
+      "platform": 2,
+      "start": 227.01666666666668,
+      "end": 238.06666666666666
+    },
+    {
+      "train": "SYN0028",
+      "category": "express",
+      "platform": 5,
+      "start": 230.01666666666668,
+      "end": 240.06666666666666
+    },
+    {
+      "train": "SYN0029",
+      "category": "superfast",
+      "platform": 7,
+      "start": 241.01666666666668,
+      "end": 247.56666666666666
+    },
+    {
+      "train": "SYN0030",
+      "category": "passenger",
+      "platform": 2,
+      "start": 251.01666666666668,
+      "end": 260.9166666666667
+    },
+    {
+      "train": "SYN0031",
+      "category": "premium",
+      "platform": 7,
+      "start": 254.01666666666668,
+      "end": 263.03333333333336
+    },
+    {
+      "train": "SYN0032",
+      "category": "express",
+      "platform": 4,
+      "start": 257.01666666666665,
+      "end": 266.8333333333333
+    },
+    {
+      "train": "SYN0033",
+      "category": "superfast",
+      "platform": 1,
+      "start": 264.06666666666666,
+      "end": 273.46666666666664
+    },
+    {
+      "train": "SYN0034",
+      "category": "express",
+      "platform": 2,
+      "start": 270.01666666666665,
+      "end": 275.4166666666667
+    },
+    {
+      "train": "SYN0035",
+      "category": "express",
+      "platform": 1,
+      "start": 278.06666666666666,
+      "end": 287.9166666666667
+    },
+    {
+      "train": "SYN0036",
+      "category": "express",
+      "platform": 2,
+      "start": 296.01666666666665,
+      "end": 304.06666666666666
+    },
+    {
+      "train": "SYN0037",
+      "category": "express",
+      "platform": 2,
+      "start": 314.01666666666665,
+      "end": 319.06666666666666
+    },
+    {
+      "train": "SYN0038",
+      "category": "passenger",
+      "platform": 1,
+      "start": 330.06666666666666,
+      "end": 334.6
+    },
+    {
+      "train": "SYN0039",
+      "category": "passenger",
+      "platform": 2,
+      "start": 342.01666666666665,
+      "end": 346.9
+    },
+    {
+      "train": "SYN0040",
+      "category": "superfast",
+      "platform": 7,
+      "start": 349.01666666666665,
+      "end": 360.03333333333336
+    },
+    {
+      "train": "SYN0041",
+      "category": "passenger",
+      "platform": 6,
+      "start": 353.01666666666665,
+      "end": 357.78333333333336
+    },
+    {
+      "train": "SYN0042",
+      "category": "superfast",
+      "platform": 1,
+      "start": 363.06666666666666,
+      "end": 373.46666666666664
+    },
+    {
+      "train": "SYN0043",
+      "category": "passenger",
+      "platform": 6,
+      "start": 376.01666666666665,
+      "end": 384.78333333333336
+    },
+    {
+      "train": "SYN0045",
+      "category": "passenger",
+      "platform": 2,
+      "start": 381.01666666666665,
+      "end": 388.31666666666666
+    },
+    {
+      "train": "SYN0044",
+      "category": "passenger",
+      "platform": 3,
+      "start": 385.01666666666665,
+      "end": 391.03333333333336
+    },
+    {
+      "train": "SYN0046",
+      "category": "freight",
+      "platform": 4,
+      "start": 389.01666666666665,
+      "end": 407.6
+    },
+    {
+      "train": "SYN0047",
+      "category": "premium",
+      "platform": 2,
+      "start": 394.01666666666665,
+      "end": 403.43333333333334
+    },
+    {
+      "train": "SYN0048",
+      "category": "express",
+      "platform": 1,
+      "start": 397.06666666666666,
+      "end": 411.9166666666667
+    },
+    {
+      "train": "SYN0049",
+      "category": "express",
+      "platform": 7,
+      "start": 401.01666666666665,
+      "end": 415.48333333333335
+    },
+    {
+      "train": "SYN0050",
+      "category": "passenger",
+      "platform": 6,
+      "start": 405.01666666666665,
+      "end": 419.31666666666666
+    },
+    {
+      "train": "SYN0052",
+      "category": "express",
+      "platform": 4,
+      "start": 413.01666666666665,
+      "end": 427.48333333333335
+    },
+    {
+      "train": "SYN0051",
+      "category": "superfast",
+      "platform": 1,
+      "start": 418.06666666666666,
+      "end": 424.46666666666664
+    },
+    {
+      "train": "SYN0054",
+      "category": "freight",
+      "platform": 7,
+      "start": 444.01666666666665,
+      "end": 454.95
+    },
+    {
+      "train": "SYN0055",
+      "category": "superfast",
+      "platform": 1,
+      "start": 452.06666666666666,
+      "end": 463.1166666666667
+    },
+    {
+      "train": "SYN0056",
+      "category": "express",
+      "platform": 1,
+      "start": 469.06666666666666,
+      "end": 481.2
+    },
+    {
+      "train": "SYN0057",
+      "category": "express",
+      "platform": 1,
+      "start": 485.06666666666666,
+      "end": 491.2
+    },
+    {
+      "train": "SYN0058",
+      "category": "freight",
+      "platform": 7,
+      "start": 495.01666666666665,
+      "end": 511.6
+    },
+    {
+      "train": "SYN0059",
+      "category": "express",
+      "platform": 2,
+      "start": 516.0166666666667,
+      "end": 525.4833333333333
+    },
+    {
+      "train": "SYN0053",
+      "category": "superfast",
+      "platform": 7,
+      "start": 530.0166666666667,
+      "end": 535.9166666666666
+    },
+    {
+      "train": "SYN0061",
+      "category": "superfast",
+      "platform": 1,
+      "start": 533.0666666666667,
+      "end": 542.7
+    },
+    {
+      "train": "SYN0060",
+      "category": "passenger",
+      "platform": 3,
+      "start": 537.0166666666667,
+      "end": 544.4833333333333
+    },
+    {
+      "train": "SYN0062",
+      "category": "passenger",
+      "platform": 2,
+      "start": 540.0166666666667,
+      "end": 546.4833333333333
+    },
+    {
+      "train": "SYN0063",
+      "category": "passenger",
+      "platform": 7,
+      "start": 546.0166666666667,
+      "end": 550.0333333333333
+    },
+    {
+      "train": "SYN0064",
+      "category": "superfast",
+      "platform": 4,
+      "start": 554.0166666666667,
+      "end": 560.5666666666667
+    },
+    {
+      "train": "SYN0065",
+      "category": "passenger",
+      "platform": 3,
+      "start": 558.0166666666667,
+      "end": 564.3166666666667
+    },
+    {
+      "train": "SYN0066",
+      "category": "express",
+      "platform": 2,
+      "start": 573.0166666666667,
+      "end": 581.95
+    },
+    {
+      "train": "SYN0067",
+      "category": "passenger",
+      "platform": 3,
+      "start": 580.0166666666667,
+      "end": 586.3166666666667
+    },
+    {
+      "train": "SYN0068",
+      "category": "passenger",
+      "platform": 7,
+      "start": 585.0166666666667,
+      "end": 593.3166666666667
+    },
+    {
+      "train": "SYN0069",
+      "category": "express",
+      "platform": 2,
+      "start": 598.0166666666667,
+      "end": 607.4833333333333
+    },
+    {
+      "train": "SYN0070",
+      "category": "premium",
+      "platform": 1,
+      "start": 603.0666666666667,
+      "end": 611.8333333333334
+    },
+    {
+      "train": "SYN0071",
+      "category": "superfast",
+      "platform": 7,
+      "start": 607.0166666666667,
+      "end": 615.5666666666667
+    },
+    {
+      "train": "SYN0072",
+      "category": "express",
+      "platform": 2,
+      "start": 624.0166666666667,
+      "end": 633.0666666666667
+    },
+    {
+      "train": "SYN0073",
+      "category": "passenger",
+      "platform": 7,
+      "start": 627.0166666666667,
+      "end": 634.9
+    },
+    {
+      "train": "SYN0074",
+      "category": "premium",
+      "platform": 2,
+      "start": 639.0166666666667,
+      "end": 644.4333333333333
+    },
+    {
+      "train": "SYN0075",
+      "category": "superfast",
+      "platform": 1,
+      "start": 651.0666666666667,
+      "end": 657.1166666666667
+    },
+    {
+      "train": "SYN0076",
+      "category": "freight",
+      "platform": 1,
+      "start": 669.0666666666667,
+      "end": 684.2166666666667
+    },
+    {
+      "train": "SYN0077",
+      "category": "superfast",
+      "platform": 4,
+      "start": 689.0166666666667,
+      "end": 694.2833333333333
+    },
+    {
+      "train": "SYN0078",
+      "category": "express",
+      "platform": 2,
+      "start": 698.0166666666667,
+      "end": 704.4833333333333
+    },
+    {
+      "train": "SYN0079",
+      "category": "express",
+      "platform": 2,
+      "start": 710.0166666666667,
+      "end": 717.4833333333333
+    },
+    {
+      "train": "SYN0080",
+      "category": "premium",
+      "platform": 4,
+      "start": 720.0166666666667,
+      "end": 729.4333333333333
+    },
+    {
+      "train": "SYN0081",
+      "category": "express",
+      "platform": 2,
+      "start": 727.0166666666667,
+      "end": 733.4833333333333
+    },
+    {
+      "train": "SYN0082",
+      "category": "superfast",
+      "platform": 7,
+      "start": 730.0166666666667,
+      "end": 737.5666666666667
+    },
+    {
+      "train": "SYN0084",
+      "category": "superfast",
+      "platform": 7,
+      "start": 742.0166666666667,
+      "end": 752.5666666666667
+    },
+    {
+      "train": "SYN0085",
+      "category": "passenger",
+      "platform": 6,
+      "start": 746.0166666666667,
+      "end": 756.3166666666667
+    },
+    {
+      "train": "SYN0086",
+      "category": "superfast",
+      "platform": 1,
+      "start": 757.0666666666667,
+      "end": 764.1166666666667
+    },
+    {
+      "train": "SYN0087",
+      "category": "freight",
+      "platform": 4,
+      "start": 766.0166666666667,
+      "end": 782.3166666666667
+    },
+    {
+      "train": "SYN0089",
+      "category": "express",
+      "platform": 2,
+      "start": 769.0166666666667,
+      "end": 784.2
+    },
+    {
+      "train": "SYN0088",
+      "category": "passenger",
+      "platform": 3,
+      "start": 772.0166666666667,
+      "end": 777.7833333333333
+    },
+    {
+      "train": "SYN0083",
+      "category": "superfast",
+      "platform": 7,
+      "start": 787.0166666666667,
+      "end": 797.0333333333333
+    },
+    {
+      "train": "SYN0090",
+      "category": "passenger",
+      "platform": 3,
+      "start": 790.0166666666667,
+      "end": 794.7833333333333
+    },
+    {
+      "train": "SYN0091",
+      "category": "passenger",
+      "platform": 6,
+      "start": 793.0166666666667,
+      "end": 801.3166666666667
+    },
+    {
+      "train": "SYN0092",
+      "category": "express",
+      "platform": 1,
+      "start": 798.0666666666667,
+      "end": 805.9166666666666
+    },
+    {
+      "train": "SYN0093",
+      "category": "passenger",
+      "platform": 7,
+      "start": 803.0166666666667,
+      "end": 809.3166666666667
+    },
+    {
+      "train": "SYN0094",
+      "category": "superfast",
+      "platform": 4,
+      "start": 806.0166666666667,
+      "end": 813.5666666666667
+    },
+    {
+      "train": "SYN0095",
+      "category": "express",
+      "platform": 2,
+      "start": 817.0166666666667,
+      "end": 823.0666666666667
+    },
+    {
+      "train": "SYN0096",
+      "category": "passenger",
+      "platform": 7,
+      "start": 824.0166666666667,
+      "end": 830.3166666666667
+    },
+    {
+      "train": "SYN0097",
+      "category": "premium",
+      "platform": 2,
+      "start": 842.0166666666667,
+      "end": 851.4333333333333
+    },
+    {
+      "train": "SYN0098",
+      "category": "express",
+      "platform": 2,
+      "start": 855.0166666666667,
+      "end": 862.4833333333333
+    },
+    {
+      "train": "SYN0099",
+      "category": "passenger",
+      "platform": 1,
+      "start": 867.0666666666667,
+      "end": 875.6
+    },
+    {
+      "train": "SYN0101",
+      "category": "superfast",
+      "platform": 1,
+      "start": 889.0666666666667,
+      "end": 900.4666666666667
+    },
+    {
+      "train": "SYN0100",
+      "category": "express",
+      "platform": 2,
+      "start": 893.0166666666667,
+      "end": 904.0666666666667
+    },
+    {
+      "train": "SYN0102",
+      "category": "passenger",
+      "platform": 3,
+      "start": 902.0166666666667,
+      "end": 906.7833333333333
+    },
+    {
+      "train": "SYN0103",
+      "category": "passenger",
+      "platform": 6,
+      "start": 907.0166666666667,
+      "end": 912.7833333333333
+    },
+    {
+      "train": "SYN0104",
+      "category": "passenger",
+      "platform": 2,
+      "start": 916.0166666666667,
+      "end": 921.3166666666667
+    },
+    {
+      "train": "SYN0105",
+      "category": "passenger",
+      "platform": 7,
+      "start": 920.0166666666667,
+      "end": 925.3166666666667
+    },
+    {
+      "train": "SYN0106",
+      "category": "express",
+      "platform": 2,
+      "start": 930.0166666666667,
+      "end": 939.0666666666667
+    },
+    {
+      "train": "SYN0107",
+      "category": "express",
+      "platform": 7,
+      "start": 934.0166666666667,
+      "end": 942.4833333333333
+    },
+    {
+      "train": "SYN0108",
+      "category": "express",
+      "platform": 2,
+      "start": 947.0166666666667,
+      "end": 955.4833333333333
+    },
+    {
+      "train": "SYN0109",
+      "category": "passenger",
+      "platform": 3,
+      "start": 951.0166666666667,
+      "end": 959.3166666666667
+    },
+    {
+      "train": "SYN0110",
+      "category": "superfast",
+      "platform": 7,
+      "start": 964.0166666666667,
+      "end": 973.5666666666667
+    },
+    {
+      "train": "SYN0111",
+      "category": "superfast",
+      "platform": 1,
+      "start": 972.0666666666667,
+      "end": 980.4666666666667
+    },
+    {
+      "train": "SYN0112",
+      "category": "express",
+      "platform": 5,
+      "start": 984.0166666666667,
+      "end": 989.0666666666667
+    },
+    {
+      "train": "SYN0113",
+      "category": "express",
+      "platform": 1,
+      "start": 991.0666666666667,
+      "end": 1003.6333333333333
+    },
+    {
+      "train": "SYN0114",
+      "category": "express",
+      "platform": 4,
+      "start": 995.0166666666667,
+      "end": 1005.6833333333333
+    },
+    {
+      "train": "SYN0115",
+      "category": "freight",
+      "platform": 7,
+      "start": 1001.0166666666667,
+      "end": 1018.6
+    },
+    {
+      "train": "SYN0116",
+      "category": "express",
+      "platform": 1,
+      "start": 1014.0666666666667,
+      "end": 1022.9166666666666
+    },
+    {
+      "train": "SYN0117",
+      "category": "express",
+      "platform": 2,
+      "start": 1028.0166666666667,
+      "end": 1036.4833333333333
+    },
+    {
+      "train": "SYN0118",
+      "category": "premium",
+      "platform": 2,
+      "start": 1047.0166666666667,
+      "end": 1053.0166666666667
+    },
+    {
+      "train": "SYN0119",
+      "category": "freight",
+      "platform": 1,
+      "start": 1056.0666666666666,
+      "end": 1069.5833333333333
+    },
+    {
+      "train": "SYN0120",
+      "category": "superfast",
+      "platform": 4,
+      "start": 1074.0166666666667,
+      "end": 1079.2833333333333
+    },
+    {
+      "train": "SYN0121",
+      "category": "superfast",
+      "platform": 4,
+      "start": 1083.0166666666667,
+      "end": 1094.2833333333333
+    },
+    {
+      "train": "SYN0122",
+      "category": "express",
+      "platform": 2,
+      "start": 1087.0166666666667,
+      "end": 1097.4833333333333
+    },
+    {
+      "train": "SYN0123",
+      "category": "express",
+      "platform": 7,
+      "start": 1091.0166666666667,
+      "end": 1101.4833333333333
+    },
+    {
+      "train": "SYN0124",
+      "category": "superfast",
+      "platform": 1,
+      "start": 1095.0666666666666,
+      "end": 1107.4666666666667
+    },
+    {
+      "train": "SYN0126",
+      "category": "passenger",
+      "platform": 6,
+      "start": 1114.0166666666667,
+      "end": 1124.3166666666666
+    },
+    {
+      "train": "SYN0125",
+      "category": "express",
+      "platform": 1,
+      "start": 1127.0666666666666,
+      "end": 1137.9166666666667
+    },
+    {
+      "train": "SYN0128",
+      "category": "express",
+      "platform": 2,
+      "start": 1131.0166666666667,
+      "end": 1135.4833333333333
+    },
+    {
+      "train": "SYN0127",
+      "category": "freight",
+      "platform": 7,
+      "start": 1152.0166666666667,
+      "end": 1164.3166666666666
+    }
+  ]
+}

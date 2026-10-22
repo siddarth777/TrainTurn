@@ -1,0 +1,30 @@
+{
+  "fcfs": {
+    "mean_weighted_delay": 394.2874999999994,
+    "mean_reward": -53.70625000000004,
+    "std_reward": 10.839583333333376,
+    "mean_discretionary_holds": 0.0,
+    "complete": true
+  },
+  "timetable": {
+    "mean_weighted_delay": 363.09166666666647,
+    "mean_reward": -40.864166666666684,
+    "std_reward": 8.96500000000001,
+    "mean_discretionary_holds": 0.0,
+    "complete": true
+  },
+  "priority": {
+    "mean_weighted_delay": 319.433333333333,
+    "mean_reward": -50.50333333333338,
+    "std_reward": 8.37000000000004,
+    "mean_discretionary_holds": 0.0,
+    "complete": true
+  },
+  "greedy": {
+    "mean_weighted_delay": 478.1291666666666,
+    "mean_reward": -51.490416666666654,
+    "std_reward": 11.488749999999975,
+    "mean_discretionary_holds": 29.0,
+    "complete": true
+  }
+}

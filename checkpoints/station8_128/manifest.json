@@ -1,0 +1,20 @@
+{
+  "episodes": 300,
+  "optimizer_updates": 61543,
+  "elapsed_seconds": 1109.8230587740004,
+  "best_validation_delay": 285.2125,
+  "training_seed": 42,
+  "device": "cuda",
+  "preliminary": true,
+  "initial_validation_delay": 378.6624999999998,
+  "improved_over_initial": true,
+  "cuda_memory": {
+    "allocator_limit_gib": 5.5,
+    "allocated_gib": 0.06337976455688477,
+    "reserved_gib": 0.064453125,
+    "peak_allocated_gib": 0.06367063522338867,
+    "peak_reserved_gib": 0.064453125
+  },
+  "warm_start": null,
+  "resume_semantics": "Weights-only warm start; replay and optimizer restart"
+}
