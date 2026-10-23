@@ -1,0 +1,751 @@
+{
+ "config": "/home/sid/Documents/gamet/AI/realdata/configs/ddu.yaml",
+ "station": {
+  "code": "DDU",
+  "platform_lengths_coaches": [
+   26,
+   26,
+   26,
+   26,
+   22,
+   22,
+   22,
+   22
+  ]
+ },
+ "days": [
+  "2024-09-03",
+  "2024-09-04",
+  "2024-09-05",
+  "2024-09-06",
+  "2024-09-07",
+  "2024-09-08",
+  "2024-09-09",
+  "2024-09-10",
+  "2024-09-11",
+  "2024-09-12",
+  "2024-09-13",
+  "2024-09-14",
+  "2024-09-15",
+  "2024-09-16",
+  "2024-09-17",
+  "2024-09-18",
+  "2024-09-19",
+  "2024-09-20",
+  "2024-09-21",
+  "2024-09-22",
+  "2024-09-23",
+  "2024-09-24",
+  "2024-09-25",
+  "2024-09-26",
+  "2024-09-27",
+  "2024-09-28",
+  "2024-09-29",
+  "2024-09-30"
+ ],
+ "skipped_runs": {
+  "no_side": 0,
+  "no_times": 0
+ },
+ "summary": {
+  "runs": 3764,
+  "trains": 381,
+  "categories": {
+   "superfast": 172,
+   "express": 170,
+   "premium": 38,
+   "passenger": 1
+  },
+  "corridors": {
+   "A->B": 1889,
+   "B->A": 1875
+  },
+  "incoming_delay_median": 18.0,
+  "incoming_delay_mean": 53.79144527098831,
+  "real_delay_change_into_ddu_median": -6.0
+ },
+ "per_day": [
+  {
+   "late_window": 0,
+   "carried_from_previous_day": 0,
+   "missing_delay": 0,
+   "trains": 121,
+   "mode": "planned",
+   "date": "2024-09-03"
+  },
+  {
+   "late_window": 9,
+   "carried_from_previous_day": 6,
+   "missing_delay": 0,
+   "trains": 117,
+   "mode": "actual",
+   "date": "2024-09-03"
+  },
+  {
+   "late_window": 7,
+   "carried_from_previous_day": 5,
+   "missing_delay": 0,
+   "trains": 117,
+   "mode": "observed",
+   "date": "2024-09-03"
+  },
+  {
+   "late_window": 0,
+   "carried_from_previous_day": 0,
+   "missing_delay": 0,
+   "trains": 117,
+   "mode": "planned",
+   "date": "2024-09-04"
+  },
+  {
+   "late_window": 6,
+   "carried_from_previous_day": 7,
+   "missing_delay": 0,
+   "trains": 119,
+   "mode": "actual",
+   "date": "2024-09-04"
+  },
+  {
+   "late_window": 7,
+   "carried_from_previous_day": 8,
+   "missing_delay": 0,
+   "trains": 120,
+   "mode": "observed",
+   "date": "2024-09-04"
+  },
+  {
+   "late_window": 0,
+   "carried_from_previous_day": 0,
+   "missing_delay": 0,
+   "trains": 119,
+   "mode": "planned",
+   "date": "2024-09-05"
+  },
+  {
+   "late_window": 3,
+   "carried_from_previous_day": 5,
+   "missing_delay": 0,
+   "trains": 118,
+   "mode": "actual",
+   "date": "2024-09-05"
+  },
+  {
+   "late_window": 4,
+   "carried_from_previous_day": 4,
+   "missing_delay": 0,
+   "trains": 118,
+   "mode": "observed",
+   "date": "2024-09-05"
+  },
+  {
+   "late_window": 0,
+   "carried_from_previous_day": 0,
+   "missing_delay": 0,
+   "trains": 115,
+   "mode": "planned",
+   "date": "2024-09-06"
+  },
+  {
+   "late_window": 5,
+   "carried_from_previous_day": 8,
+   "missing_delay": 0,
+   "trains": 117,
+   "mode": "actual",
+   "date": "2024-09-06"
+  },
+  {
+   "late_window": 5,
+   "carried_from_previous_day": 6,
+   "missing_delay": 0,
+   "trains": 115,
+   "mode": "observed",
+   "date": "2024-09-06"
+  },
+  {
+   "late_window": 0,
+   "carried_from_previous_day": 0,
+   "missing_delay": 0,
+   "trains": 111,
+   "mode": "planned",
+   "date": "2024-09-07"
+  },
+  {
+   "late_window": 3,
+   "carried_from_previous_day": 7,
+   "missing_delay": 0,
+   "trains": 110,
+   "mode": "actual",
+   "date": "2024-09-07"
+  },
+  {
+   "late_window": 2,
+   "carried_from_previous_day": 7,
+   "missing_delay": 0,
+   "trains": 111,
+   "mode": "observed",
+   "date": "2024-09-07"
+  },
+  {
+   "late_window": 0,
+   "carried_from_previous_day": 0,
+   "missing_delay": 0,
+   "trains": 117,
+   "mode": "planned",
+   "date": "2024-09-08"
+  },
+  {
+   "late_window": 5,
+   "carried_from_previous_day": 9,
+   "missing_delay": 0,
+   "trains": 118,
+   "mode": "actual",
+   "date": "2024-09-08"
+  },
+  {
+   "late_window": 6,
+   "carried_from_previous_day": 9,
+   "missing_delay": 0,
+   "trains": 120,
+   "mode": "observed",
+   "date": "2024-09-08"
+  },
+  {
+   "late_window": 0,
+   "carried_from_previous_day": 0,
+   "missing_delay": 0,
+   "trains": 131,
+   "mode": "planned",
+   "date": "2024-09-09"
+  },
+  {
+   "late_window": 8,
+   "carried_from_previous_day": 9,
+   "missing_delay": 0,
+   "trains": 130,
+   "mode": "actual",
+   "date": "2024-09-09"
+  },
+  {
+   "late_window": 5,
+   "carried_from_previous_day": 6,
+   "missing_delay": 0,
+   "trains": 131,
+   "mode": "observed",
+   "date": "2024-09-09"
+  },
+  {
+   "late_window": 0,
+   "carried_from_previous_day": 0,
+   "missing_delay": 0,
+   "trains": 127,
+   "mode": "planned",
+   "date": "2024-09-10"
+  },
+  {
+   "late_window": 4,
+   "carried_from_previous_day": 7,
+   "missing_delay": 0,
+   "trains": 129,
+   "mode": "actual",
+   "date": "2024-09-10"
+  },
+  {
+   "late_window": 4,
+   "carried_from_previous_day": 6,
+   "missing_delay": 0,
+   "trains": 126,
+   "mode": "observed",
+   "date": "2024-09-10"
+  },
+  {
+   "late_window": 0,
+   "carried_from_previous_day": 0,
+   "missing_delay": 0,
+   "trains": 120,
+   "mode": "planned",
+   "date": "2024-09-11"
+  },
+  {
+   "late_window": 6,
+   "carried_from_previous_day": 7,
+   "missing_delay": 0,
+   "trains": 119,
+   "mode": "actual",
+   "date": "2024-09-11"
+  },
+  {
+   "late_window": 4,
+   "carried_from_previous_day": 9,
+   "missing_delay": 0,
+   "trains": 124,
+   "mode": "observed",
+   "date": "2024-09-11"
+  },
+  {
+   "late_window": 0,
+   "carried_from_previous_day": 0,
+   "missing_delay": 0,
+   "trains": 123,
+   "mode": "planned",
+   "date": "2024-09-12"
+  },
+  {
+   "late_window": 7,
+   "carried_from_previous_day": 7,
+   "missing_delay": 0,
+   "trains": 122,
+   "mode": "actual",
+   "date": "2024-09-12"
+  },
+  {
+   "late_window": 7,
+   "carried_from_previous_day": 6,
+   "missing_delay": 0,
+   "trains": 123,
+   "mode": "observed",
+   "date": "2024-09-12"
+  },
+  {
+   "late_window": 0,
+   "carried_from_previous_day": 0,
+   "missing_delay": 0,
+   "trains": 126,
+   "mode": "planned",
+   "date": "2024-09-13"
+  },
+  {
+   "late_window": 9,
+   "carried_from_previous_day": 6,
+   "missing_delay": 0,
+   "trains": 122,
+   "mode": "actual",
+   "date": "2024-09-13"
+  },
+  {
+   "late_window": 9,
+   "carried_from_previous_day": 4,
+   "missing_delay": 0,
+   "trains": 121,
+   "mode": "observed",
+   "date": "2024-09-13"
+  },
+  {
+   "late_window": 0,
+   "carried_from_previous_day": 0,
+   "missing_delay": 0,
+   "trains": 114,
+   "mode": "planned",
+   "date": "2024-09-14"
+  },
+  {
+   "late_window": 5,
+   "carried_from_previous_day": 8,
+   "missing_delay": 0,
+   "trains": 115,
+   "mode": "actual",
+   "date": "2024-09-14"
+  },
+  {
+   "late_window": 4,
+   "carried_from_previous_day": 7,
+   "missing_delay": 0,
+   "trains": 113,
+   "mode": "observed",
+   "date": "2024-09-14"
+  },
+  {
+   "late_window": 0,
+   "carried_from_previous_day": 0,
+   "missing_delay": 0,
+   "trains": 114,
+   "mode": "planned",
+   "date": "2024-09-15"
+  },
+  {
+   "late_window": 7,
+   "carried_from_previous_day": 7,
+   "missing_delay": 0,
+   "trains": 115,
+   "mode": "actual",
+   "date": "2024-09-15"
+  },
+  {
+   "late_window": 5,
+   "carried_from_previous_day": 9,
+   "missing_delay": 0,
+   "trains": 117,
+   "mode": "observed",
+   "date": "2024-09-15"
+  },
+  {
+   "late_window": 0,
+   "carried_from_previous_day": 0,
+   "missing_delay": 0,
+   "trains": 129,
+   "mode": "planned",
+   "date": "2024-09-16"
+  },
+  {
+   "late_window": 5,
+   "carried_from_previous_day": 4,
+   "missing_delay": 0,
+   "trains": 124,
+   "mode": "actual",
+   "date": "2024-09-16"
+  },
+  {
+   "late_window": 5,
+   "carried_from_previous_day": 6,
+   "missing_delay": 0,
+   "trains": 127,
+   "mode": "observed",
+   "date": "2024-09-16"
+  },
+  {
+   "late_window": 0,
+   "carried_from_previous_day": 0,
+   "missing_delay": 0,
+   "trains": 122,
+   "mode": "planned",
+   "date": "2024-09-17"
+  },
+  {
+   "late_window": 5,
+   "carried_from_previous_day": 9,
+   "missing_delay": 0,
+   "trains": 123,
+   "mode": "actual",
+   "date": "2024-09-17"
+  },
+  {
+   "late_window": 7,
+   "carried_from_previous_day": 8,
+   "missing_delay": 0,
+   "trains": 124,
+   "mode": "observed",
+   "date": "2024-09-17"
+  },
+  {
+   "late_window": 0,
+   "carried_from_previous_day": 0,
+   "missing_delay": 0,
+   "trains": 115,
+   "mode": "planned",
+   "date": "2024-09-18"
+  },
+  {
+   "late_window": 5,
+   "carried_from_previous_day": 10,
+   "missing_delay": 0,
+   "trains": 121,
+   "mode": "actual",
+   "date": "2024-09-18"
+  },
+  {
+   "late_window": 6,
+   "carried_from_previous_day": 6,
+   "missing_delay": 0,
+   "trains": 118,
+   "mode": "observed",
+   "date": "2024-09-18"
+  },
+  {
+   "late_window": 0,
+   "carried_from_previous_day": 0,
+   "missing_delay": 0,
+   "trains": 121,
+   "mode": "planned",
+   "date": "2024-09-19"
+  },
+  {
+   "late_window": 5,
+   "carried_from_previous_day": 5,
+   "missing_delay": 0,
+   "trains": 118,
+   "mode": "actual",
+   "date": "2024-09-19"
+  },
+  {
+   "late_window": 6,
+   "carried_from_previous_day": 3,
+   "missing_delay": 0,
+   "trains": 118,
+   "mode": "observed",
+   "date": "2024-09-19"
+  },
+  {
+   "late_window": 0,
+   "carried_from_previous_day": 0,
+   "missing_delay": 0,
+   "trains": 120,
+   "mode": "planned",
+   "date": "2024-09-20"
+  },
+  {
+   "late_window": 8,
+   "carried_from_previous_day": 9,
+   "missing_delay": 0,
+   "trains": 121,
+   "mode": "actual",
+   "date": "2024-09-20"
+  },
+  {
+   "late_window": 6,
+   "carried_from_previous_day": 6,
+   "missing_delay": 0,
+   "trains": 120,
+   "mode": "observed",
+   "date": "2024-09-20"
+  },
+  {
+   "late_window": 0,
+   "carried_from_previous_day": 0,
+   "missing_delay": 0,
+   "trains": 116,
+   "mode": "planned",
+   "date": "2024-09-21"
+  },
+  {
+   "late_window": 4,
+   "carried_from_previous_day": 6,
+   "missing_delay": 0,
+   "trains": 115,
+   "mode": "actual",
+   "date": "2024-09-21"
+  },
+  {
+   "late_window": 4,
+   "carried_from_previous_day": 6,
+   "missing_delay": 0,
+   "trains": 116,
+   "mode": "observed",
+   "date": "2024-09-21"
+  },
+  {
+   "late_window": 0,
+   "carried_from_previous_day": 0,
+   "missing_delay": 0,
+   "trains": 116,
+   "mode": "planned",
+   "date": "2024-09-22"
+  },
+  {
+   "late_window": 3,
+   "carried_from_previous_day": 8,
+   "missing_delay": 0,
+   "trains": 116,
+   "mode": "actual",
+   "date": "2024-09-22"
+  },
+  {
+   "late_window": 7,
+   "carried_from_previous_day": 7,
+   "missing_delay": 0,
+   "trains": 116,
+   "mode": "observed",
+   "date": "2024-09-22"
+  },
+  {
+   "late_window": 0,
+   "carried_from_previous_day": 0,
+   "missing_delay": 0,
+   "trains": 125,
+   "mode": "planned",
+   "date": "2024-09-23"
+  },
+  {
+   "late_window": 5,
+   "carried_from_previous_day": 11,
+   "missing_delay": 0,
+   "trains": 128,
+   "mode": "actual",
+   "date": "2024-09-23"
+  },
+  {
+   "late_window": 5,
+   "carried_from_previous_day": 6,
+   "missing_delay": 0,
+   "trains": 126,
+   "mode": "observed",
+   "date": "2024-09-23"
+  },
+  {
+   "late_window": 0,
+   "carried_from_previous_day": 0,
+   "missing_delay": 0,
+   "trains": 126,
+   "mode": "planned",
+   "date": "2024-09-24"
+  },
+  {
+   "late_window": 6,
+   "carried_from_previous_day": 8,
+   "missing_delay": 0,
+   "trains": 121,
+   "mode": "actual",
+   "date": "2024-09-24"
+  },
+  {
+   "late_window": 6,
+   "carried_from_previous_day": 5,
+   "missing_delay": 0,
+   "trains": 119,
+   "mode": "observed",
+   "date": "2024-09-24"
+  },
+  {
+   "late_window": 0,
+   "carried_from_previous_day": 0,
+   "missing_delay": 0,
+   "trains": 115,
+   "mode": "planned",
+   "date": "2024-09-25"
+  },
+  {
+   "late_window": 6,
+   "carried_from_previous_day": 13,
+   "missing_delay": 0,
+   "trains": 122,
+   "mode": "actual",
+   "date": "2024-09-25"
+  },
+  {
+   "late_window": 5,
+   "carried_from_previous_day": 12,
+   "missing_delay": 0,
+   "trains": 122,
+   "mode": "observed",
+   "date": "2024-09-25"
+  },
+  {
+   "late_window": 0,
+   "carried_from_previous_day": 0,
+   "missing_delay": 0,
+   "trains": 124,
+   "mode": "planned",
+   "date": "2024-09-26"
+  },
+  {
+   "late_window": 6,
+   "carried_from_previous_day": 6,
+   "missing_delay": 0,
+   "trains": 123,
+   "mode": "actual",
+   "date": "2024-09-26"
+  },
+  {
+   "late_window": 7,
+   "carried_from_previous_day": 6,
+   "missing_delay": 0,
+   "trains": 124,
+   "mode": "observed",
+   "date": "2024-09-26"
+  },
+  {
+   "late_window": 0,
+   "carried_from_previous_day": 0,
+   "missing_delay": 0,
+   "trains": 123,
+   "mode": "planned",
+   "date": "2024-09-27"
+  },
+  {
+   "late_window": 8,
+   "carried_from_previous_day": 5,
+   "missing_delay": 0,
+   "trains": 120,
+   "mode": "actual",
+   "date": "2024-09-27"
+  },
+  {
+   "late_window": 9,
+   "carried_from_previous_day": 3,
+   "missing_delay": 0,
+   "trains": 119,
+   "mode": "observed",
+   "date": "2024-09-27"
+  },
+  {
+   "late_window": 0,
+   "carried_from_previous_day": 0,
+   "missing_delay": 0,
+   "trains": 120,
+   "mode": "planned",
+   "date": "2024-09-28"
+  },
+  {
+   "late_window": 5,
+   "carried_from_previous_day": 7,
+   "missing_delay": 0,
+   "trains": 119,
+   "mode": "actual",
+   "date": "2024-09-28"
+  },
+  {
+   "late_window": 6,
+   "carried_from_previous_day": 5,
+   "missing_delay": 0,
+   "trains": 117,
+   "mode": "observed",
+   "date": "2024-09-28"
+  },
+  {
+   "late_window": 0,
+   "carried_from_previous_day": 0,
+   "missing_delay": 0,
+   "trains": 117,
+   "mode": "planned",
+   "date": "2024-09-29"
+  },
+  {
+   "late_window": 4,
+   "carried_from_previous_day": 8,
+   "missing_delay": 0,
+   "trains": 120,
+   "mode": "actual",
+   "date": "2024-09-29"
+  },
+  {
+   "late_window": 3,
+   "carried_from_previous_day": 7,
+   "missing_delay": 0,
+   "trains": 121,
+   "mode": "observed",
+   "date": "2024-09-29"
+  },
+  {
+   "late_window": 0,
+   "carried_from_previous_day": 0,
+   "missing_delay": 0,
+   "trains": 120,
+   "mode": "planned",
+   "date": "2024-09-30"
+  },
+  {
+   "late_window": 5,
+   "carried_from_previous_day": 7,
+   "missing_delay": 0,
+   "trains": 122,
+   "mode": "actual",
+   "date": "2024-09-30"
+  },
+  {
+   "late_window": 6,
+   "carried_from_previous_day": 6,
+   "missing_delay": 0,
+   "trains": 120,
+   "mode": "observed",
+   "date": "2024-09-30"
+  }
+ ],
+ "raw_sha256": {
+  "train_routes_Sep2024.csv": "127b933ca1baa1c23f595f6bb71f310634199be88c67a139a88f27912f702cb2",
+  "train_routes_delays_Sep2024.csv": "732308d17b3006856536061fdbe762026ca9d84489fa6b882d68d6cd4936e492",
+  "trains.json": "e434d9c56016ccdf2291ccd446586ef87a7fab101084efa5f68871ab27800167",
+  "stations.json": "9bd5e1da3a859e5359a95f40b6009aa468efb177da4faac57ffdcd7daeb4df18"
+ },
+ "sources": {
+  "rstgcn": "github.com/KoyenaChowdhury/RSTGCN (research use; cite IEEE T-ITS 2026)",
+  "datameet": "github.com/datameet/railways (CC0)"
+ }
+}

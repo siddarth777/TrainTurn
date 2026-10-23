@@ -1,0 +1,5255 @@
+{
+ "seed": 200002,
+ "layout_digest": "6e6163481b683842",
+ "provenance": "synthetic network timetable derived from a synthetic junction timetable; uncalibrated",
+ "plans": [
+  {
+   "train": "SYN0001",
+   "origin_time": 1170.3,
+   "start_delay": 20,
+   "west": [
+    {
+     "station": "AW2",
+     "stops": true,
+     "track": 2,
+     "arrival": 1318.3,
+     "departure": 1378.3,
+     "dwell": 1,
+     "extension": 0
+    },
+    {
+     "station": "AW1",
+     "stops": true,
+     "track": 2,
+     "arrival": 1669.9,
+     "departure": 1729.9,
+     "dwell": 1,
+     "extension": 0
+    }
+   ],
+   "gate_arrival": 1860.0,
+   "junction_departure": 2460.0,
+   "gate_out": 2530.7,
+   "east": [
+    {
+     "station": "BE1",
+     "stops": false,
+     "track": 1,
+     "arrival": 2735.4,
+     "departure": 2735.4,
+     "dwell": 0,
+     "extension": 0
+    }
+   ],
+   "sink_arrival": 2852.0,
+   "terminal": true
+  },
+  {
+   "train": "SYN0002",
+   "origin_time": 1811.1,
+   "start_delay": 0,
+   "west": [
+    {
+     "station": "BW1",
+     "stops": false,
+     "track": 1,
+     "arrival": 1929.4,
+     "departure": 1929.4,
+     "dwell": 0,
+     "extension": 0
+    }
+   ],
+   "gate_arrival": 2100.0,
+   "junction_departure": 3120.0,
+   "gate_out": 3190.7,
+   "east": [
+    {
+     "station": "AE1",
+     "stops": false,
+     "track": 1,
+     "arrival": 3395.4,
+     "departure": 3395.4,
+     "dwell": 0,
+     "extension": 0
+    },
+    {
+     "station": "AE2",
+     "stops": false,
+     "track": 1,
+     "arrival": 3662.7,
+     "departure": 3662.7,
+     "dwell": 0,
+     "extension": 0
+    }
+   ],
+   "sink_arrival": 3779.3,
+   "terminal": false
+  },
+  {
+   "train": "SYN0003",
+   "origin_time": 1650.3,
+   "start_delay": 20,
+   "west": [
+    {
+     "station": "AW2",
+     "stops": true,
+     "track": 2,
+     "arrival": 1798.3,
+     "departure": 1858.3,
+     "dwell": 1,
+     "extension": 0
+    },
+    {
+     "station": "AW1",
+     "stops": true,
+     "track": 2,
+     "arrival": 2149.9,
+     "departure": 2209.9,
+     "dwell": 1,
+     "extension": 0
+    }
+   ],
+   "gate_arrival": 2340.0,
+   "junction_departure": 3360.0,
+   "gate_out": 3430.7,
+   "east": [
+    {
+     "station": "BE1",
+     "stops": false,
+     "track": 1,
+     "arrival": 3635.4,
+     "departure": 3635.4,
+     "dwell": 0,
+     "extension": 0
+    }
+   ],
+   "sink_arrival": 3752.0,
+   "terminal": true
+  },
+  {
+   "train": "SYN0004",
+   "origin_time": 2067.0,
+   "start_delay": 27,
+   "west": [
+    {
+     "station": "AW2",
+     "stops": false,
+     "track": 1,
+     "arrival": 2196.1,
+     "departure": 2196.1,
+     "dwell": 0,
+     "extension": 0
+    },
+    {
+     "station": "AW1",
+     "stops": false,
+     "track": 1,
+     "arrival": 2463.4,
+     "departure": 2463.4,
+     "dwell": 0,
+     "extension": 0
+    }
+   ],
+   "gate_arrival": 2580.0,
+   "junction_departure": 3600.0,
+   "gate_out": 3670.7,
+   "east": [
+    {
+     "station": "BE1",
+     "stops": false,
+     "track": 1,
+     "arrival": 3875.4,
+     "departure": 3875.4,
+     "dwell": 0,
+     "extension": 0
+    }
+   ],
+   "sink_arrival": 3992.0,
+   "terminal": false
+  },
+  {
+   "train": "SYN0005",
+   "origin_time": 2378.7,
+   "start_delay": 2,
+   "west": [
+    {
+     "station": "BW1",
+     "stops": true,
+     "track": 2,
+     "arrival": 2515.9,
+     "departure": 2635.9,
+     "dwell": 2,
+     "extension": 0
+    }
+   ],
+   "gate_arrival": 2820.0,
+   "junction_departure": 3840.0,
+   "gate_out": 3910.7,
+   "east": [
+    {
+     "station": "AE1",
+     "stops": true,
+     "track": 2,
+     "arrival": 4126.2,
+     "departure": 4246.2,
+     "dwell": 2,
+     "extension": 0
+    },
+    {
+     "station": "AE2",
+     "stops": false,
+     "track": 1,
+     "arrival": 4527.0,
+     "departure": 4527.0,
+     "dwell": 0,
+     "extension": 0
+    }
+   ],
+   "sink_arrival": 4643.6,
+   "terminal": false
+  },
+  {
+   "train": "SYN0006",
+   "origin_time": 2618.7,
+   "start_delay": 5,
+   "west": [
+    {
+     "station": "BW1",
+     "stops": true,
+     "track": 3,
+     "arrival": 2755.9,
+     "departure": 2875.9,
+     "dwell": 2,
+     "extension": 2
+    }
+   ],
+   "gate_arrival": 3060.0,
+   "junction_departure": 4080.0,
+   "gate_out": 4150.7,
+   "east": [
+    {
+     "station": "AE1",
+     "stops": true,
+     "track": 3,
+     "arrival": 4366.2,
+     "departure": 4486.2,
+     "dwell": 2,
+     "extension": 0
+    },
+    {
+     "station": "AE2",
+     "stops": false,
+     "track": 1,
+     "arrival": 4767.0,
+     "departure": 4767.0,
+     "dwell": 0,
+     "extension": 0
+    }
+   ],
+   "sink_arrival": 4883.6,
+   "terminal": false
+  },
+  {
+   "train": "SYN0007",
+   "origin_time": 2765.4,
+   "start_delay": 20,
+   "west": [
+    {
+     "station": "AW2",
+     "stops": false,
+     "track": 1,
+     "arrival": 2891.8,
+     "departure": 2891.8,
+     "dwell": 0,
+     "extension": 0
+    },
+    {
+     "station": "AW1",
+     "stops": true,
+     "track": 2,
+     "arrival": 3169.9,
+     "departure": 3289.9,
+     "dwell": 2,
+     "extension": 0
+    }
+   ],
+   "gate_arrival": 3420.0,
+   "junction_departure": 4320.0,
+   "gate_out": 4390.7,
+   "east": [
+    {
+     "station": "BE1",
+     "stops": true,
+     "track": 2,
+     "arrival": 4606.2,
+     "departure": 4726.2,
+     "dwell": 2,
+     "extension": 0
+    }
+   ],
+   "sink_arrival": 4856.3,
+   "terminal": false
+  },
+  {
+   "train": "SYN0008",
+   "origin_time": 3815.1,
+   "start_delay": 20,
+   "west": [
+    {
+     "station": "AW2",
+     "stops": false,
+     "track": 1,
+     "arrival": 3936.1,
+     "departure": 3936.1,
+     "dwell": 0,
+     "extension": 0
+    },
+    {
+     "station": "AW1",
+     "stops": false,
+     "track": 1,
+     "arrival": 4203.4,
+     "departure": 4203.4,
+     "dwell": 0,
+     "extension": 0
+    }
+   ],
+   "gate_arrival": 4320.0,
+   "junction_departure": 4680.0,
+   "gate_out": 4750.7,
+   "east": [
+    {
+     "station": "BE1",
+     "stops": false,
+     "track": 1,
+     "arrival": 4955.4,
+     "departure": 4955.4,
+     "dwell": 0,
+     "extension": 0
+    }
+   ],
+   "sink_arrival": 5072.0,
+   "terminal": false
+  },
+  {
+   "train": "SYN0009",
+   "origin_time": 4628.4,
+   "start_delay": 101,
+   "west": [
+    {
+     "station": "BW1",
+     "stops": false,
+     "track": 1,
+     "arrival": 4749.4,
+     "departure": 4749.4,
+     "dwell": 0,
+     "extension": 0
+    }
+   ],
+   "gate_arrival": 4920.0,
+   "junction_departure": 5400.0,
+   "gate_out": 5470.7,
+   "east": [
+    {
+     "station": "AE1",
+     "stops": false,
+     "track": 1,
+     "arrival": 5675.4,
+     "departure": 5675.4,
+     "dwell": 0,
+     "extension": 0
+    },
+    {
+     "station": "AE2",
+     "stops": false,
+     "track": 1,
+     "arrival": 5942.7,
+     "departure": 5942.7,
+     "dwell": 0,
+     "extension": 0
+    }
+   ],
+   "sink_arrival": 6059.3,
+   "terminal": false
+  },
+  {
+   "train": "SYN0010",
+   "origin_time": 4767.9,
+   "start_delay": 9,
+   "west": [
+    {
+     "station": "BW1",
+     "stops": true,
+     "track": 3,
+     "arrival": 4915.9,
+     "departure": 4975.9,
+     "dwell": 1,
+     "extension": 0
+    }
+   ],
+   "gate_arrival": 5160.0,
+   "junction_departure": 5640.0,
+   "gate_out": 5710.7,
+   "east": [
+    {
+     "station": "AE1",
+     "stops": false,
+     "track": 1,
+     "arrival": 5915.4,
+     "departure": 5915.4,
+     "dwell": 0,
+     "extension": 0
+    },
+    {
+     "station": "AE2",
+     "stops": false,
+     "track": 1,
+     "arrival": 6182.7,
+     "departure": 6182.7,
+     "dwell": 0,
+     "extension": 0
+    }
+   ],
+   "sink_arrival": 6299.3,
+   "terminal": true
+  },
+  {
+   "train": "SYN0011",
+   "origin_time": 5007.9,
+   "start_delay": 0,
+   "west": [
+    {
+     "station": "BW1",
+     "stops": true,
+     "track": 2,
+     "arrival": 5155.9,
+     "departure": 5215.9,
+     "dwell": 1,
+     "extension": 0
+    }
+   ],
+   "gate_arrival": 5400.0,
+   "junction_departure": 6060.0,
+   "gate_out": 6130.7,
+   "east": [
+    {
+     "station": "AE1",
+     "stops": false,
+     "track": 1,
+     "arrival": 6335.4,
+     "departure": 6335.4,
+     "dwell": 0,
+     "extension": 0
+    },
+    {
+     "station": "AE2",
+     "stops": false,
+     "track": 1,
+     "arrival": 6602.7,
+     "departure": 6602.7,
+     "dwell": 0,
+     "extension": 0
+    }
+   ],
+   "sink_arrival": 6719.3,
+   "terminal": true
+  },
+  {
+   "train": "SYN0012",
+   "origin_time": 5348.4,
+   "start_delay": 0,
+   "west": [
+    {
+     "station": "BW1",
+     "stops": false,
+     "track": 1,
+     "arrival": 5469.4,
+     "departure": 5469.4,
+     "dwell": 0,
+     "extension": 0
+    }
+   ],
+   "gate_arrival": 5640.0,
+   "junction_departure": 6300.0,
+   "gate_out": 6370.7,
+   "east": [
+    {
+     "station": "AE1",
+     "stops": false,
+     "track": 1,
+     "arrival": 6575.4,
+     "departure": 6575.4,
+     "dwell": 0,
+     "extension": 0
+    },
+    {
+     "station": "AE2",
+     "stops": false,
+     "track": 1,
+     "arrival": 6842.7,
+     "departure": 6842.7,
+     "dwell": 0,
+     "extension": 0
+    }
+   ],
+   "sink_arrival": 6959.3,
+   "terminal": false
+  },
+  {
+   "train": "SYN0013",
+   "origin_time": 5487.9,
+   "start_delay": 11,
+   "west": [
+    {
+     "station": "BW1",
+     "stops": true,
+     "track": 2,
+     "arrival": 5635.9,
+     "departure": 5695.9,
+     "dwell": 1,
+     "extension": 3
+    }
+   ],
+   "gate_arrival": 5880.0,
+   "junction_departure": 6540.0,
+   "gate_out": 6610.7,
+   "east": [
+    {
+     "station": "AE1",
+     "stops": false,
+     "track": 1,
+     "arrival": 6815.4,
+     "departure": 6815.4,
+     "dwell": 0,
+     "extension": 0
+    },
+    {
+     "station": "AE2",
+     "stops": false,
+     "track": 1,
+     "arrival": 7082.7,
+     "departure": 7082.7,
+     "dwell": 0,
+     "extension": 0
+    }
+   ],
+   "sink_arrival": 7199.3,
+   "terminal": true
+  },
+  {
+   "train": "SYN0014",
+   "origin_time": 6275.1,
+   "start_delay": 20,
+   "west": [
+    {
+     "station": "AW2",
+     "stops": false,
+     "track": 1,
+     "arrival": 6396.1,
+     "departure": 6396.1,
+     "dwell": 0,
+     "extension": 0
+    },
+    {
+     "station": "AW1",
+     "stops": false,
+     "track": 1,
+     "arrival": 6663.4,
+     "departure": 6663.4,
+     "dwell": 0,
+     "extension": 0
+    }
+   ],
+   "gate_arrival": 6780.0,
+   "junction_departure": 7140.0,
+   "gate_out": 7210.7,
+   "east": [
+    {
+     "station": "BE1",
+     "stops": false,
+     "track": 1,
+     "arrival": 7415.4,
+     "departure": 7415.4,
+     "dwell": 0,
+     "extension": 0
+    }
+   ],
+   "sink_arrival": 7532.0,
+   "terminal": false
+  },
+  {
+   "train": "SYN0015",
+   "origin_time": 7167.0,
+   "start_delay": 0,
+   "west": [
+    {
+     "station": "AW2",
+     "stops": false,
+     "track": 1,
+     "arrival": 7296.1,
+     "departure": 7296.1,
+     "dwell": 0,
+     "extension": 0
+    },
+    {
+     "station": "AW1",
+     "stops": false,
+     "track": 1,
+     "arrival": 7563.4,
+     "departure": 7563.4,
+     "dwell": 0,
+     "extension": 0
+    }
+   ],
+   "gate_arrival": 7680.0,
+   "junction_departure": 8280.0,
+   "gate_out": 8350.7,
+   "east": [
+    {
+     "station": "BE1",
+     "stops": false,
+     "track": 1,
+     "arrival": 8555.4,
+     "departure": 8555.4,
+     "dwell": 0,
+     "extension": 0
+    }
+   ],
+   "sink_arrival": 8672.0,
+   "terminal": false
+  },
+  {
+   "train": "SYN0016",
+   "origin_time": 8257.8,
+   "start_delay": 0,
+   "west": [
+    {
+     "station": "AW2",
+     "stops": false,
+     "track": 1,
+     "arrival": 8376.1,
+     "departure": 8376.1,
+     "dwell": 0,
+     "extension": 0
+    },
+    {
+     "station": "AW1",
+     "stops": false,
+     "track": 1,
+     "arrival": 8643.4,
+     "departure": 8643.4,
+     "dwell": 0,
+     "extension": 0
+    }
+   ],
+   "gate_arrival": 8760.0,
+   "junction_departure": 9600.0,
+   "gate_out": 9670.7,
+   "east": [
+    {
+     "station": "BE1",
+     "stops": false,
+     "track": 1,
+     "arrival": 9875.4,
+     "departure": 9875.4,
+     "dwell": 0,
+     "extension": 0
+    }
+   ],
+   "sink_arrival": 9992.0,
+   "terminal": false
+  },
+  {
+   "train": "SYN0017",
+   "origin_time": 9185.4,
+   "start_delay": 0,
+   "west": [
+    {
+     "station": "AW2",
+     "stops": false,
+     "track": 1,
+     "arrival": 9311.8,
+     "departure": 9311.8,
+     "dwell": 0,
+     "extension": 0
+    },
+    {
+     "station": "AW1",
+     "stops": true,
+     "track": 2,
+     "arrival": 9589.9,
+     "departure": 9709.9,
+     "dwell": 2,
+     "extension": 0
+    }
+   ],
+   "gate_arrival": 9840.0,
+   "junction_departure": 10500.0,
+   "gate_out": 10570.7,
+   "east": [
+    {
+     "station": "BE1",
+     "stops": true,
+     "track": 2,
+     "arrival": 10786.2,
+     "departure": 10906.2,
+     "dwell": 2,
+     "extension": 0
+    }
+   ],
+   "sink_arrival": 11036.3,
+   "terminal": false
+  },
+  {
+   "train": "SYN0018",
+   "origin_time": 9665.4,
+   "start_delay": 0,
+   "west": [
+    {
+     "station": "AW2",
+     "stops": false,
+     "track": 1,
+     "arrival": 9791.8,
+     "departure": 9791.8,
+     "dwell": 0,
+     "extension": 0
+    },
+    {
+     "station": "AW1",
+     "stops": true,
+     "track": 3,
+     "arrival": 10069.9,
+     "departure": 10189.9,
+     "dwell": 2,
+     "extension": 0
+    }
+   ],
+   "gate_arrival": 10320.0,
+   "junction_departure": 10980.0,
+   "gate_out": 11050.7,
+   "east": [
+    {
+     "station": "BE1",
+     "stops": true,
+     "track": 3,
+     "arrival": 11266.2,
+     "departure": 11386.2,
+     "dwell": 2,
+     "extension": 0
+    }
+   ],
+   "sink_arrival": 11516.3,
+   "terminal": false
+  },
+  {
+   "train": "SYN0019",
+   "origin_time": 10887.9,
+   "start_delay": 0,
+   "west": [
+    {
+     "station": "BW1",
+     "stops": true,
+     "track": 2,
+     "arrival": 11035.9,
+     "departure": 11095.9,
+     "dwell": 1,
+     "extension": 0
+    }
+   ],
+   "gate_arrival": 11280.0,
+   "junction_departure": 11820.0,
+   "gate_out": 11890.7,
+   "east": [
+    {
+     "station": "AE1",
+     "stops": false,
+     "track": 1,
+     "arrival": 12095.4,
+     "departure": 12095.4,
+     "dwell": 0,
+     "extension": 0
+    },
+    {
+     "station": "AE2",
+     "stops": false,
+     "track": 1,
+     "arrival": 12362.7,
+     "departure": 12362.7,
+     "dwell": 0,
+     "extension": 0
+    }
+   ],
+   "sink_arrival": 12479.3,
+   "terminal": true
+  },
+  {
+   "train": "SYN0020",
+   "origin_time": 11610.3,
+   "start_delay": 0,
+   "west": [
+    {
+     "station": "AW2",
+     "stops": true,
+     "track": 2,
+     "arrival": 11758.3,
+     "departure": 11818.3,
+     "dwell": 1,
+     "extension": 0
+    },
+    {
+     "station": "AW1",
+     "stops": true,
+     "track": 3,
+     "arrival": 12109.9,
+     "departure": 12169.9,
+     "dwell": 1,
+     "extension": 0
+    }
+   ],
+   "gate_arrival": 12300.0,
+   "junction_departure": 12840.0,
+   "gate_out": 12910.7,
+   "east": [
+    {
+     "station": "BE1",
+     "stops": false,
+     "track": 1,
+     "arrival": 13115.4,
+     "departure": 13115.4,
+     "dwell": 0,
+     "extension": 0
+    }
+   ],
+   "sink_arrival": 13232.0,
+   "terminal": true
+  },
+  {
+   "train": "SYN0021",
+   "origin_time": 11850.3,
+   "start_delay": 0,
+   "west": [
+    {
+     "station": "AW2",
+     "stops": true,
+     "track": 2,
+     "arrival": 11998.3,
+     "departure": 12058.3,
+     "dwell": 1,
+     "extension": 0
+    },
+    {
+     "station": "AW1",
+     "stops": true,
+     "track": 2,
+     "arrival": 12349.9,
+     "departure": 12409.9,
+     "dwell": 1,
+     "extension": 0
+    }
+   ],
+   "gate_arrival": 12540.0,
+   "junction_departure": 13200.0,
+   "gate_out": 13270.7,
+   "east": [
+    {
+     "station": "BE1",
+     "stops": false,
+     "track": 1,
+     "arrival": 13475.4,
+     "departure": 13475.4,
+     "dwell": 0,
+     "extension": 0
+    }
+   ],
+   "sink_arrival": 13592.0,
+   "terminal": true
+  },
+  {
+   "train": "SYN0022",
+   "origin_time": 13151.1,
+   "start_delay": 0,
+   "west": [
+    {
+     "station": "BW1",
+     "stops": false,
+     "track": 1,
+     "arrival": 13269.4,
+     "departure": 13269.4,
+     "dwell": 0,
+     "extension": 0
+    }
+   ],
+   "gate_arrival": 13440.0,
+   "junction_departure": 14340.0,
+   "gate_out": 14410.7,
+   "east": [
+    {
+     "station": "AE1",
+     "stops": false,
+     "track": 1,
+     "arrival": 14615.4,
+     "departure": 14615.4,
+     "dwell": 0,
+     "extension": 0
+    },
+    {
+     "station": "AE2",
+     "stops": false,
+     "track": 1,
+     "arrival": 14882.7,
+     "departure": 14882.7,
+     "dwell": 0,
+     "extension": 0
+    }
+   ],
+   "sink_arrival": 14999.3,
+   "terminal": false
+  },
+  {
+   "train": "SYN0023",
+   "origin_time": 13025.4,
+   "start_delay": 5,
+   "west": [
+    {
+     "station": "AW2",
+     "stops": false,
+     "track": 1,
+     "arrival": 13151.8,
+     "departure": 13151.8,
+     "dwell": 0,
+     "extension": 0
+    },
+    {
+     "station": "AW1",
+     "stops": true,
+     "track": 2,
+     "arrival": 13429.9,
+     "departure": 13549.9,
+     "dwell": 2,
+     "extension": 0
+    }
+   ],
+   "gate_arrival": 13680.0,
+   "junction_departure": 14580.0,
+   "gate_out": 14650.7,
+   "east": [
+    {
+     "station": "BE1",
+     "stops": true,
+     "track": 2,
+     "arrival": 14866.2,
+     "departure": 14986.2,
+     "dwell": 2,
+     "extension": 3
+    }
+   ],
+   "sink_arrival": 15116.3,
+   "terminal": false
+  },
+  {
+   "train": "SYN0024",
+   "origin_time": 13628.4,
+   "start_delay": 0,
+   "west": [
+    {
+     "station": "BW1",
+     "stops": false,
+     "track": 1,
+     "arrival": 13749.4,
+     "departure": 13749.4,
+     "dwell": 0,
+     "extension": 0
+    }
+   ],
+   "gate_arrival": 13920.0,
+   "junction_departure": 14820.0,
+   "gate_out": 14890.7,
+   "east": [
+    {
+     "station": "AE1",
+     "stops": false,
+     "track": 1,
+     "arrival": 15095.4,
+     "departure": 15095.4,
+     "dwell": 0,
+     "extension": 0
+    },
+    {
+     "station": "AE2",
+     "stops": false,
+     "track": 1,
+     "arrival": 15362.7,
+     "departure": 15362.7,
+     "dwell": 0,
+     "extension": 0
+    }
+   ],
+   "sink_arrival": 15479.3,
+   "terminal": false
+  },
+  {
+   "train": "SYN0025",
+   "origin_time": 13860.3,
+   "start_delay": 1,
+   "west": [
+    {
+     "station": "BW1",
+     "stops": false,
+     "track": 1,
+     "arrival": 13989.4,
+     "departure": 13989.4,
+     "dwell": 0,
+     "extension": 0
+    }
+   ],
+   "gate_arrival": 14160.0,
+   "junction_departure": 15060.0,
+   "gate_out": 15130.7,
+   "east": [
+    {
+     "station": "AE1",
+     "stops": false,
+     "track": 1,
+     "arrival": 15335.4,
+     "departure": 15335.4,
+     "dwell": 0,
+     "extension": 0
+    },
+    {
+     "station": "AE2",
+     "stops": false,
+     "track": 1,
+     "arrival": 15602.7,
+     "departure": 15602.7,
+     "dwell": 0,
+     "extension": 0
+    }
+   ],
+   "sink_arrival": 15719.3,
+   "terminal": false
+  },
+  {
+   "train": "SYN0026",
+   "origin_time": 13925.4,
+   "start_delay": 0,
+   "west": [
+    {
+     "station": "AW2",
+     "stops": false,
+     "track": 1,
+     "arrival": 14051.8,
+     "departure": 14051.8,
+     "dwell": 0,
+     "extension": 0
+    },
+    {
+     "station": "AW1",
+     "stops": true,
+     "track": 3,
+     "arrival": 14329.9,
+     "departure": 14449.9,
+     "dwell": 2,
+     "extension": 0
+    }
+   ],
+   "gate_arrival": 14580.0,
+   "junction_departure": 15300.0,
+   "gate_out": 15370.7,
+   "east": [
+    {
+     "station": "BE1",
+     "stops": true,
+     "track": 3,
+     "arrival": 15586.2,
+     "departure": 15706.2,
+     "dwell": 2,
+     "extension": 0
+    }
+   ],
+   "sink_arrival": 15836.3,
+   "terminal": false
+  },
+  {
+   "train": "SYN0027",
+   "origin_time": 14645.4,
+   "start_delay": 0,
+   "west": [
+    {
+     "station": "AW2",
+     "stops": false,
+     "track": 1,
+     "arrival": 14771.8,
+     "departure": 14771.8,
+     "dwell": 0,
+     "extension": 0
+    },
+    {
+     "station": "AW1",
+     "stops": true,
+     "track": 2,
+     "arrival": 15049.9,
+     "departure": 15169.9,
+     "dwell": 2,
+     "extension": 0
+    }
+   ],
+   "gate_arrival": 15300.0,
+   "junction_departure": 15660.0,
+   "gate_out": 15730.7,
+   "east": [
+    {
+     "station": "BE1",
+     "stops": true,
+     "track": 2,
+     "arrival": 15946.2,
+     "departure": 16066.2,
+     "dwell": 2,
+     "extension": 0
+    }
+   ],
+   "sink_arrival": 16196.3,
+   "terminal": false
+  },
+  {
+   "train": "SYN0028",
+   "origin_time": 15035.1,
+   "start_delay": 0,
+   "west": [
+    {
+     "station": "AW2",
+     "stops": false,
+     "track": 1,
+     "arrival": 15156.1,
+     "departure": 15156.1,
+     "dwell": 0,
+     "extension": 0
+    },
+    {
+     "station": "AW1",
+     "stops": false,
+     "track": 1,
+     "arrival": 15423.4,
+     "departure": 15423.4,
+     "dwell": 0,
+     "extension": 0
+    }
+   ],
+   "gate_arrival": 15540.0,
+   "junction_departure": 16200.0,
+   "gate_out": 16270.7,
+   "east": [
+    {
+     "station": "BE1",
+     "stops": false,
+     "track": 1,
+     "arrival": 16475.4,
+     "departure": 16475.4,
+     "dwell": 0,
+     "extension": 0
+    }
+   ],
+   "sink_arrival": 16592.0,
+   "terminal": false
+  },
+  {
+   "train": "SYN0029",
+   "origin_time": 15275.1,
+   "start_delay": 3,
+   "west": [
+    {
+     "station": "AW2",
+     "stops": false,
+     "track": 1,
+     "arrival": 15396.1,
+     "departure": 15396.1,
+     "dwell": 0,
+     "extension": 0
+    },
+    {
+     "station": "AW1",
+     "stops": false,
+     "track": 1,
+     "arrival": 15663.4,
+     "departure": 15663.4,
+     "dwell": 0,
+     "extension": 0
+    }
+   ],
+   "gate_arrival": 15780.0,
+   "junction_departure": 16440.0,
+   "gate_out": 16510.7,
+   "east": [
+    {
+     "station": "BE1",
+     "stops": false,
+     "track": 1,
+     "arrival": 16715.4,
+     "departure": 16715.4,
+     "dwell": 0,
+     "extension": 0
+    }
+   ],
+   "sink_arrival": 16832.0,
+   "terminal": false
+  },
+  {
+   "train": "SYN0030",
+   "origin_time": 15515.1,
+   "start_delay": 6,
+   "west": [
+    {
+     "station": "AW2",
+     "stops": false,
+     "track": 1,
+     "arrival": 15636.1,
+     "departure": 15636.1,
+     "dwell": 0,
+     "extension": 0
+    },
+    {
+     "station": "AW1",
+     "stops": false,
+     "track": 1,
+     "arrival": 15903.4,
+     "departure": 15903.4,
+     "dwell": 0,
+     "extension": 0
+    }
+   ],
+   "gate_arrival": 16020.0,
+   "junction_departure": 16680.0,
+   "gate_out": 16750.7,
+   "east": [
+    {
+     "station": "BE1",
+     "stops": false,
+     "track": 1,
+     "arrival": 16955.4,
+     "departure": 16955.4,
+     "dwell": 0,
+     "extension": 0
+    }
+   ],
+   "sink_arrival": 17072.0,
+   "terminal": false
+  },
+  {
+   "train": "SYN0031",
+   "origin_time": 15747.0,
+   "start_delay": 0,
+   "west": [
+    {
+     "station": "AW2",
+     "stops": false,
+     "track": 1,
+     "arrival": 15876.1,
+     "departure": 15876.1,
+     "dwell": 0,
+     "extension": 0
+    },
+    {
+     "station": "AW1",
+     "stops": false,
+     "track": 1,
+     "arrival": 16143.4,
+     "departure": 16143.4,
+     "dwell": 0,
+     "extension": 0
+    }
+   ],
+   "gate_arrival": 16260.0,
+   "junction_departure": 16920.0,
+   "gate_out": 16990.7,
+   "east": [
+    {
+     "station": "BE1",
+     "stops": false,
+     "track": 1,
+     "arrival": 17195.4,
+     "departure": 17195.4,
+     "dwell": 0,
+     "extension": 0
+    }
+   ],
+   "sink_arrival": 17312.0,
+   "terminal": false
+  },
+  {
+   "train": "SYN0032",
+   "origin_time": 16767.9,
+   "start_delay": 12,
+   "west": [
+    {
+     "station": "BW1",
+     "stops": true,
+     "track": 3,
+     "arrival": 16915.9,
+     "departure": 16975.9,
+     "dwell": 1,
+     "extension": 0
+    }
+   ],
+   "gate_arrival": 17160.0,
+   "junction_departure": 17580.0,
+   "gate_out": 17650.7,
+   "east": [
+    {
+     "station": "AE1",
+     "stops": false,
+     "track": 1,
+     "arrival": 17855.4,
+     "departure": 17855.4,
+     "dwell": 0,
+     "extension": 0
+    },
+    {
+     "station": "AE2",
+     "stops": false,
+     "track": 1,
+     "arrival": 18122.7,
+     "departure": 18122.7,
+     "dwell": 0,
+     "extension": 0
+    }
+   ],
+   "sink_arrival": 18239.3,
+   "terminal": true
+  },
+  {
+   "train": "SYN0033",
+   "origin_time": 17108.4,
+   "start_delay": 7,
+   "west": [
+    {
+     "station": "BW1",
+     "stops": false,
+     "track": 1,
+     "arrival": 17229.4,
+     "departure": 17229.4,
+     "dwell": 0,
+     "extension": 0
+    }
+   ],
+   "gate_arrival": 17400.0,
+   "junction_departure": 17880.0,
+   "gate_out": 17950.7,
+   "east": [
+    {
+     "station": "AE1",
+     "stops": false,
+     "track": 1,
+     "arrival": 18155.4,
+     "departure": 18155.4,
+     "dwell": 0,
+     "extension": 0
+    },
+    {
+     "station": "AE2",
+     "stops": false,
+     "track": 1,
+     "arrival": 18422.7,
+     "departure": 18422.7,
+     "dwell": 0,
+     "extension": 0
+    }
+   ],
+   "sink_arrival": 18539.3,
+   "terminal": false
+  },
+  {
+   "train": "SYN0034",
+   "origin_time": 17430.3,
+   "start_delay": 0,
+   "west": [
+    {
+     "station": "AW2",
+     "stops": true,
+     "track": 2,
+     "arrival": 17578.3,
+     "departure": 17638.3,
+     "dwell": 1,
+     "extension": 0
+    },
+    {
+     "station": "AW1",
+     "stops": true,
+     "track": 3,
+     "arrival": 17929.9,
+     "departure": 17989.9,
+     "dwell": 1,
+     "extension": 0
+    }
+   ],
+   "gate_arrival": 18120.0,
+   "junction_departure": 18540.0,
+   "gate_out": 18610.7,
+   "east": [
+    {
+     "station": "BE1",
+     "stops": false,
+     "track": 1,
+     "arrival": 18815.4,
+     "departure": 18815.4,
+     "dwell": 0,
+     "extension": 0
+    }
+   ],
+   "sink_arrival": 18932.0,
+   "terminal": true
+  },
+  {
+   "train": "SYN0035",
+   "origin_time": 18390.3,
+   "start_delay": 3,
+   "west": [
+    {
+     "station": "AW2",
+     "stops": true,
+     "track": 2,
+     "arrival": 18538.3,
+     "departure": 18598.3,
+     "dwell": 1,
+     "extension": 0
+    },
+    {
+     "station": "AW1",
+     "stops": true,
+     "track": 2,
+     "arrival": 18889.9,
+     "departure": 18949.9,
+     "dwell": 1,
+     "extension": 0
+    }
+   ],
+   "gate_arrival": 19080.0,
+   "junction_departure": 19620.0,
+   "gate_out": 19690.7,
+   "east": [
+    {
+     "station": "BE1",
+     "stops": false,
+     "track": 1,
+     "arrival": 19895.4,
+     "departure": 19895.4,
+     "dwell": 0,
+     "extension": 0
+    }
+   ],
+   "sink_arrival": 20012.0,
+   "terminal": true
+  },
+  {
+   "train": "SYN0036",
+   "origin_time": 19467.9,
+   "start_delay": 7,
+   "west": [
+    {
+     "station": "BW1",
+     "stops": true,
+     "track": 3,
+     "arrival": 19615.9,
+     "departure": 19675.9,
+     "dwell": 1,
+     "extension": 0
+    }
+   ],
+   "gate_arrival": 19860.0,
+   "junction_departure": 20280.0,
+   "gate_out": 20350.7,
+   "east": [
+    {
+     "station": "AE1",
+     "stops": false,
+     "track": 1,
+     "arrival": 20555.4,
+     "departure": 20555.4,
+     "dwell": 0,
+     "extension": 0
+    },
+    {
+     "station": "AE2",
+     "stops": false,
+     "track": 1,
+     "arrival": 20822.7,
+     "departure": 20822.7,
+     "dwell": 0,
+     "extension": 0
+    }
+   ],
+   "sink_arrival": 20939.3,
+   "terminal": true
+  },
+  {
+   "train": "SYN0037",
+   "origin_time": 20067.9,
+   "start_delay": 14,
+   "west": [
+    {
+     "station": "BW1",
+     "stops": true,
+     "track": 2,
+     "arrival": 20215.9,
+     "departure": 20275.9,
+     "dwell": 1,
+     "extension": 0
+    }
+   ],
+   "gate_arrival": 20460.0,
+   "junction_departure": 21060.0,
+   "gate_out": 21130.7,
+   "east": [
+    {
+     "station": "AE1",
+     "stops": false,
+     "track": 1,
+     "arrival": 21335.4,
+     "departure": 21335.4,
+     "dwell": 0,
+     "extension": 0
+    },
+    {
+     "station": "AE2",
+     "stops": false,
+     "track": 1,
+     "arrival": 21602.7,
+     "departure": 21602.7,
+     "dwell": 0,
+     "extension": 0
+    }
+   ],
+   "sink_arrival": 21719.3,
+   "terminal": true
+  },
+  {
+   "train": "SYN0038",
+   "origin_time": 20645.4,
+   "start_delay": 8,
+   "west": [
+    {
+     "station": "AW2",
+     "stops": false,
+     "track": 1,
+     "arrival": 20771.8,
+     "departure": 20771.8,
+     "dwell": 0,
+     "extension": 0
+    },
+    {
+     "station": "AW1",
+     "stops": true,
+     "track": 3,
+     "arrival": 21049.9,
+     "departure": 21169.9,
+     "dwell": 2,
+     "extension": 0
+    }
+   ],
+   "gate_arrival": 21300.0,
+   "junction_departure": 21960.0,
+   "gate_out": 22030.7,
+   "east": [
+    {
+     "station": "BE1",
+     "stops": true,
+     "track": 3,
+     "arrival": 22246.2,
+     "departure": 22366.2,
+     "dwell": 2,
+     "extension": 0
+    }
+   ],
+   "sink_arrival": 22496.3,
+   "terminal": false
+  },
+  {
+   "train": "SYN0039",
+   "origin_time": 21365.4,
+   "start_delay": 14,
+   "west": [
+    {
+     "station": "AW2",
+     "stops": false,
+     "track": 1,
+     "arrival": 21491.8,
+     "departure": 21491.8,
+     "dwell": 0,
+     "extension": 0
+    },
+    {
+     "station": "AW1",
+     "stops": true,
+     "track": 2,
+     "arrival": 21769.9,
+     "departure": 21889.9,
+     "dwell": 2,
+     "extension": 0
+    }
+   ],
+   "gate_arrival": 22020.0,
+   "junction_departure": 22440.0,
+   "gate_out": 22510.7,
+   "east": [
+    {
+     "station": "BE1",
+     "stops": true,
+     "track": 2,
+     "arrival": 22726.2,
+     "departure": 22846.2,
+     "dwell": 2,
+     "extension": 0
+    }
+   ],
+   "sink_arrival": 22976.3,
+   "terminal": false
+  },
+  {
+   "train": "SYN0040",
+   "origin_time": 22410.3,
+   "start_delay": 23,
+   "west": [
+    {
+     "station": "AW2",
+     "stops": true,
+     "track": 2,
+     "arrival": 22558.3,
+     "departure": 22618.3,
+     "dwell": 1,
+     "extension": 0
+    },
+    {
+     "station": "AW1",
+     "stops": true,
+     "track": 3,
+     "arrival": 22909.9,
+     "departure": 22969.9,
+     "dwell": 1,
+     "extension": 3
+    }
+   ],
+   "gate_arrival": 23100.0,
+   "junction_departure": 23460.0,
+   "gate_out": 23530.7,
+   "east": [
+    {
+     "station": "BE1",
+     "stops": false,
+     "track": 1,
+     "arrival": 23735.4,
+     "departure": 23735.4,
+     "dwell": 0,
+     "extension": 0
+    }
+   ],
+   "sink_arrival": 23852.0,
+   "terminal": true
+  },
+  {
+   "train": "SYN0041",
+   "origin_time": 22835.1,
+   "start_delay": 9,
+   "west": [
+    {
+     "station": "AW2",
+     "stops": false,
+     "track": 1,
+     "arrival": 22956.1,
+     "departure": 22956.1,
+     "dwell": 0,
+     "extension": 0
+    },
+    {
+     "station": "AW1",
+     "stops": false,
+     "track": 1,
+     "arrival": 23223.4,
+     "departure": 23223.4,
+     "dwell": 0,
+     "extension": 0
+    }
+   ],
+   "gate_arrival": 23340.0,
+   "junction_departure": 23820.0,
+   "gate_out": 23890.7,
+   "east": [
+    {
+     "station": "BE1",
+     "stops": false,
+     "track": 1,
+     "arrival": 24095.4,
+     "departure": 24095.4,
+     "dwell": 0,
+     "extension": 0
+    }
+   ],
+   "sink_arrival": 24212.0,
+   "terminal": false
+  },
+  {
+   "train": "SYN0042",
+   "origin_time": 23667.9,
+   "start_delay": 6,
+   "west": [
+    {
+     "station": "BW1",
+     "stops": true,
+     "track": 3,
+     "arrival": 23815.9,
+     "departure": 23875.9,
+     "dwell": 1,
+     "extension": 0
+    }
+   ],
+   "gate_arrival": 24060.0,
+   "junction_departure": 24540.0,
+   "gate_out": 24610.7,
+   "east": [
+    {
+     "station": "AE1",
+     "stops": false,
+     "track": 1,
+     "arrival": 24815.4,
+     "departure": 24815.4,
+     "dwell": 0,
+     "extension": 0
+    },
+    {
+     "station": "AE2",
+     "stops": false,
+     "track": 1,
+     "arrival": 25082.7,
+     "departure": 25082.7,
+     "dwell": 0,
+     "extension": 0
+    }
+   ],
+   "sink_arrival": 25199.3,
+   "terminal": true
+  },
+  {
+   "train": "SYN0043",
+   "origin_time": 23795.1,
+   "start_delay": 9,
+   "west": [
+    {
+     "station": "AW2",
+     "stops": false,
+     "track": 1,
+     "arrival": 23916.1,
+     "departure": 23916.1,
+     "dwell": 0,
+     "extension": 0
+    },
+    {
+     "station": "AW1",
+     "stops": false,
+     "track": 1,
+     "arrival": 24183.4,
+     "departure": 24183.4,
+     "dwell": 0,
+     "extension": 0
+    }
+   ],
+   "gate_arrival": 24300.0,
+   "junction_departure": 24840.0,
+   "gate_out": 24910.7,
+   "east": [
+    {
+     "station": "BE1",
+     "stops": false,
+     "track": 1,
+     "arrival": 25115.4,
+     "departure": 25115.4,
+     "dwell": 0,
+     "extension": 0
+    }
+   ],
+   "sink_arrival": 25232.0,
+   "terminal": false
+  },
+  {
+   "train": "SYN0044",
+   "origin_time": 24147.9,
+   "start_delay": 6,
+   "west": [
+    {
+     "station": "BW1",
+     "stops": true,
+     "track": 3,
+     "arrival": 24295.9,
+     "departure": 24355.9,
+     "dwell": 1,
+     "extension": 0
+    }
+   ],
+   "gate_arrival": 24540.0,
+   "junction_departure": 25200.0,
+   "gate_out": 25270.7,
+   "east": [
+    {
+     "station": "AE1",
+     "stops": false,
+     "track": 1,
+     "arrival": 25475.4,
+     "departure": 25475.4,
+     "dwell": 0,
+     "extension": 0
+    },
+    {
+     "station": "AE2",
+     "stops": false,
+     "track": 1,
+     "arrival": 25742.7,
+     "departure": 25742.7,
+     "dwell": 0,
+     "extension": 0
+    }
+   ],
+   "sink_arrival": 25859.3,
+   "terminal": true
+  },
+  {
+   "train": "SYN0045",
+   "origin_time": 24275.1,
+   "start_delay": 9,
+   "west": [
+    {
+     "station": "AW2",
+     "stops": false,
+     "track": 1,
+     "arrival": 24396.1,
+     "departure": 24396.1,
+     "dwell": 0,
+     "extension": 0
+    },
+    {
+     "station": "AW1",
+     "stops": false,
+     "track": 1,
+     "arrival": 24663.4,
+     "departure": 24663.4,
+     "dwell": 0,
+     "extension": 0
+    }
+   ],
+   "gate_arrival": 24780.0,
+   "junction_departure": 25440.0,
+   "gate_out": 25510.7,
+   "east": [
+    {
+     "station": "BE1",
+     "stops": false,
+     "track": 1,
+     "arrival": 25715.4,
+     "departure": 25715.4,
+     "dwell": 0,
+     "extension": 0
+    }
+   ],
+   "sink_arrival": 25832.0,
+   "terminal": false
+  },
+  {
+   "train": "SYN0046",
+   "origin_time": 24687.9,
+   "start_delay": 20,
+   "west": [
+    {
+     "station": "BW1",
+     "stops": true,
+     "track": 3,
+     "arrival": 24835.9,
+     "departure": 24895.9,
+     "dwell": 1,
+     "extension": 0
+    }
+   ],
+   "gate_arrival": 25080.0,
+   "junction_departure": 25740.0,
+   "gate_out": 25810.7,
+   "east": [
+    {
+     "station": "AE1",
+     "stops": false,
+     "track": 1,
+     "arrival": 26015.4,
+     "departure": 26015.4,
+     "dwell": 0,
+     "extension": 0
+    },
+    {
+     "station": "AE2",
+     "stops": false,
+     "track": 1,
+     "arrival": 26282.7,
+     "departure": 26282.7,
+     "dwell": 0,
+     "extension": 0
+    }
+   ],
+   "sink_arrival": 26399.3,
+   "terminal": true
+  },
+  {
+   "train": "SYN0047",
+   "origin_time": 25287.9,
+   "start_delay": 0,
+   "west": [
+    {
+     "station": "BW1",
+     "stops": true,
+     "track": 2,
+     "arrival": 25435.9,
+     "departure": 25495.9,
+     "dwell": 1,
+     "extension": 0
+    }
+   ],
+   "gate_arrival": 25680.0,
+   "junction_departure": 26280.0,
+   "gate_out": 26350.7,
+   "east": [
+    {
+     "station": "AE1",
+     "stops": false,
+     "track": 1,
+     "arrival": 26555.4,
+     "departure": 26555.4,
+     "dwell": 0,
+     "extension": 0
+    },
+    {
+     "station": "AE2",
+     "stops": false,
+     "track": 1,
+     "arrival": 26822.7,
+     "departure": 26822.7,
+     "dwell": 0,
+     "extension": 0
+    }
+   ],
+   "sink_arrival": 26939.3,
+   "terminal": true
+  },
+  {
+   "train": "SYN0048",
+   "origin_time": 25478.7,
+   "start_delay": 0,
+   "west": [
+    {
+     "station": "BW1",
+     "stops": true,
+     "track": 3,
+     "arrival": 25615.9,
+     "departure": 25735.9,
+     "dwell": 2,
+     "extension": 3
+    }
+   ],
+   "gate_arrival": 25920.0,
+   "junction_departure": 26520.0,
+   "gate_out": 26590.7,
+   "east": [
+    {
+     "station": "AE1",
+     "stops": true,
+     "track": 3,
+     "arrival": 26806.2,
+     "departure": 26926.2,
+     "dwell": 2,
+     "extension": 0
+    },
+    {
+     "station": "AE2",
+     "stops": false,
+     "track": 1,
+     "arrival": 27207.0,
+     "departure": 27207.0,
+     "dwell": 0,
+     "extension": 0
+    }
+   ],
+   "sink_arrival": 27323.6,
+   "terminal": false
+  },
+  {
+   "train": "SYN0049",
+   "origin_time": 26257.8,
+   "start_delay": 16,
+   "west": [
+    {
+     "station": "AW2",
+     "stops": false,
+     "track": 1,
+     "arrival": 26376.1,
+     "departure": 26376.1,
+     "dwell": 0,
+     "extension": 0
+    },
+    {
+     "station": "AW1",
+     "stops": false,
+     "track": 1,
+     "arrival": 26643.4,
+     "departure": 26643.4,
+     "dwell": 0,
+     "extension": 0
+    }
+   ],
+   "gate_arrival": 26760.0,
+   "junction_departure": 27420.0,
+   "gate_out": 27490.7,
+   "east": [
+    {
+     "station": "BE1",
+     "stops": false,
+     "track": 1,
+     "arrival": 27695.4,
+     "departure": 27695.4,
+     "dwell": 0,
+     "extension": 0
+    }
+   ],
+   "sink_arrival": 27812.0,
+   "terminal": false
+  },
+  {
+   "train": "SYN0050",
+   "origin_time": 26345.4,
+   "start_delay": 9,
+   "west": [
+    {
+     "station": "AW2",
+     "stops": false,
+     "track": 1,
+     "arrival": 26471.8,
+     "departure": 26471.8,
+     "dwell": 0,
+     "extension": 0
+    },
+    {
+     "station": "AW1",
+     "stops": true,
+     "track": 3,
+     "arrival": 26749.9,
+     "departure": 26869.9,
+     "dwell": 2,
+     "extension": 0
+    }
+   ],
+   "gate_arrival": 27000.0,
+   "junction_departure": 27660.0,
+   "gate_out": 27730.7,
+   "east": [
+    {
+     "station": "BE1",
+     "stops": true,
+     "track": 3,
+     "arrival": 27946.2,
+     "departure": 28066.2,
+     "dwell": 2,
+     "extension": 0
+    }
+   ],
+   "sink_arrival": 28196.3,
+   "terminal": false
+  },
+  {
+   "train": "SYN0051",
+   "origin_time": 26550.3,
+   "start_delay": 9,
+   "west": [
+    {
+     "station": "AW2",
+     "stops": true,
+     "track": 2,
+     "arrival": 26698.3,
+     "departure": 26758.3,
+     "dwell": 1,
+     "extension": 0
+    },
+    {
+     "station": "AW1",
+     "stops": true,
+     "track": 2,
+     "arrival": 27049.9,
+     "departure": 27109.9,
+     "dwell": 1,
+     "extension": 0
+    }
+   ],
+   "gate_arrival": 27240.0,
+   "junction_departure": 27900.0,
+   "gate_out": 27970.7,
+   "east": [
+    {
+     "station": "BE1",
+     "stops": false,
+     "track": 1,
+     "arrival": 28175.4,
+     "departure": 28175.4,
+     "dwell": 0,
+     "extension": 0
+    }
+   ],
+   "sink_arrival": 28292.0,
+   "terminal": true
+  },
+  {
+   "train": "SYN0052",
+   "origin_time": 26975.1,
+   "start_delay": 9,
+   "west": [
+    {
+     "station": "AW2",
+     "stops": false,
+     "track": 1,
+     "arrival": 27096.1,
+     "departure": 27096.1,
+     "dwell": 0,
+     "extension": 0
+    },
+    {
+     "station": "AW1",
+     "stops": false,
+     "track": 1,
+     "arrival": 27363.4,
+     "departure": 27363.4,
+     "dwell": 0,
+     "extension": 0
+    }
+   ],
+   "gate_arrival": 27480.0,
+   "junction_departure": 28140.0,
+   "gate_out": 28210.7,
+   "east": [
+    {
+     "station": "BE1",
+     "stops": false,
+     "track": 1,
+     "arrival": 28415.4,
+     "departure": 28415.4,
+     "dwell": 0,
+     "extension": 0
+    }
+   ],
+   "sink_arrival": 28532.0,
+   "terminal": false
+  },
+  {
+   "train": "SYN0053",
+   "origin_time": 27215.1,
+   "start_delay": 30,
+   "west": [
+    {
+     "station": "AW2",
+     "stops": false,
+     "track": 1,
+     "arrival": 27336.1,
+     "departure": 27336.1,
+     "dwell": 0,
+     "extension": 0
+    },
+    {
+     "station": "AW1",
+     "stops": false,
+     "track": 1,
+     "arrival": 27603.4,
+     "departure": 27603.4,
+     "dwell": 0,
+     "extension": 0
+    }
+   ],
+   "gate_arrival": 27720.0,
+   "junction_departure": 28380.0,
+   "gate_out": 28450.7,
+   "east": [
+    {
+     "station": "BE1",
+     "stops": false,
+     "track": 1,
+     "arrival": 28655.4,
+     "departure": 28655.4,
+     "dwell": 0,
+     "extension": 0
+    }
+   ],
+   "sink_arrival": 28772.0,
+   "terminal": false
+  },
+  {
+   "train": "SYN0054",
+   "origin_time": 27270.3,
+   "start_delay": 9,
+   "west": [
+    {
+     "station": "AW2",
+     "stops": true,
+     "track": 2,
+     "arrival": 27418.3,
+     "departure": 27478.3,
+     "dwell": 1,
+     "extension": 0
+    },
+    {
+     "station": "AW1",
+     "stops": true,
+     "track": 3,
+     "arrival": 27769.9,
+     "departure": 27829.9,
+     "dwell": 1,
+     "extension": 0
+    }
+   ],
+   "gate_arrival": 27960.0,
+   "junction_departure": 28620.0,
+   "gate_out": 28690.7,
+   "east": [
+    {
+     "station": "BE1",
+     "stops": false,
+     "track": 1,
+     "arrival": 28895.4,
+     "departure": 28895.4,
+     "dwell": 0,
+     "extension": 0
+    }
+   ],
+   "sink_arrival": 29012.0,
+   "terminal": true
+  },
+  {
+   "train": "SYN0055",
+   "origin_time": 28751.1,
+   "start_delay": 15,
+   "west": [
+    {
+     "station": "BW1",
+     "stops": false,
+     "track": 1,
+     "arrival": 28869.4,
+     "departure": 28869.4,
+     "dwell": 0,
+     "extension": 0
+    }
+   ],
+   "gate_arrival": 29040.0,
+   "junction_departure": 30120.0,
+   "gate_out": 30190.7,
+   "east": [
+    {
+     "station": "AE1",
+     "stops": false,
+     "track": 1,
+     "arrival": 30395.4,
+     "departure": 30395.4,
+     "dwell": 0,
+     "extension": 0
+    },
+    {
+     "station": "AE2",
+     "stops": false,
+     "track": 1,
+     "arrival": 30662.7,
+     "departure": 30662.7,
+     "dwell": 0,
+     "extension": 0
+    }
+   ],
+   "sink_arrival": 30779.3,
+   "terminal": false
+  },
+  {
+   "train": "SYN0056",
+   "origin_time": 29847.0,
+   "start_delay": 12,
+   "west": [
+    {
+     "station": "AW2",
+     "stops": false,
+     "track": 1,
+     "arrival": 29976.1,
+     "departure": 29976.1,
+     "dwell": 0,
+     "extension": 0
+    },
+    {
+     "station": "AW1",
+     "stops": false,
+     "track": 1,
+     "arrival": 30243.4,
+     "departure": 30243.4,
+     "dwell": 0,
+     "extension": 0
+    }
+   ],
+   "gate_arrival": 30360.0,
+   "junction_departure": 30840.0,
+   "gate_out": 30910.7,
+   "east": [
+    {
+     "station": "BE1",
+     "stops": false,
+     "track": 1,
+     "arrival": 31115.4,
+     "departure": 31115.4,
+     "dwell": 0,
+     "extension": 0
+    }
+   ],
+   "sink_arrival": 31232.0,
+   "terminal": false
+  },
+  {
+   "train": "SYN0057",
+   "origin_time": 30780.3,
+   "start_delay": 9,
+   "west": [
+    {
+     "station": "BW1",
+     "stops": false,
+     "track": 1,
+     "arrival": 30909.4,
+     "departure": 30909.4,
+     "dwell": 0,
+     "extension": 0
+    }
+   ],
+   "gate_arrival": 31080.0,
+   "junction_departure": 31740.0,
+   "gate_out": 31810.7,
+   "east": [
+    {
+     "station": "AE1",
+     "stops": false,
+     "track": 1,
+     "arrival": 32015.4,
+     "departure": 32015.4,
+     "dwell": 0,
+     "extension": 0
+    },
+    {
+     "station": "AE2",
+     "stops": false,
+     "track": 1,
+     "arrival": 32282.7,
+     "departure": 32282.7,
+     "dwell": 0,
+     "extension": 0
+    }
+   ],
+   "sink_arrival": 32399.3,
+   "terminal": false
+  },
+  {
+   "train": "SYN0058",
+   "origin_time": 31290.3,
+   "start_delay": 10,
+   "west": [
+    {
+     "station": "AW2",
+     "stops": true,
+     "track": 2,
+     "arrival": 31438.3,
+     "departure": 31498.3,
+     "dwell": 1,
+     "extension": 0
+    },
+    {
+     "station": "AW1",
+     "stops": true,
+     "track": 3,
+     "arrival": 31789.9,
+     "departure": 31849.9,
+     "dwell": 1,
+     "extension": 0
+    }
+   ],
+   "gate_arrival": 31980.0,
+   "junction_departure": 32640.0,
+   "gate_out": 32710.7,
+   "east": [
+    {
+     "station": "BE1",
+     "stops": false,
+     "track": 1,
+     "arrival": 32915.4,
+     "departure": 32915.4,
+     "dwell": 0,
+     "extension": 0
+    }
+   ],
+   "sink_arrival": 33032.0,
+   "terminal": true
+  },
+  {
+   "train": "SYN0059",
+   "origin_time": 31770.3,
+   "start_delay": 10,
+   "west": [
+    {
+     "station": "AW2",
+     "stops": true,
+     "track": 2,
+     "arrival": 31918.3,
+     "departure": 31978.3,
+     "dwell": 1,
+     "extension": 0
+    },
+    {
+     "station": "AW1",
+     "stops": true,
+     "track": 2,
+     "arrival": 32269.9,
+     "departure": 32329.9,
+     "dwell": 1,
+     "extension": 0
+    }
+   ],
+   "gate_arrival": 32460.0,
+   "junction_departure": 32940.0,
+   "gate_out": 33010.7,
+   "east": [
+    {
+     "station": "BE1",
+     "stops": false,
+     "track": 1,
+     "arrival": 33215.4,
+     "departure": 33215.4,
+     "dwell": 0,
+     "extension": 0
+    }
+   ],
+   "sink_arrival": 33332.0,
+   "terminal": true
+  },
+  {
+   "train": "SYN0060",
+   "origin_time": 32738.7,
+   "start_delay": 6,
+   "west": [
+    {
+     "station": "BW1",
+     "stops": true,
+     "track": 3,
+     "arrival": 32875.9,
+     "departure": 32995.9,
+     "dwell": 2,
+     "extension": 0
+    }
+   ],
+   "gate_arrival": 33180.0,
+   "junction_departure": 33600.0,
+   "gate_out": 33670.7,
+   "east": [
+    {
+     "station": "AE1",
+     "stops": true,
+     "track": 3,
+     "arrival": 33886.2,
+     "departure": 34006.2,
+     "dwell": 2,
+     "extension": 0
+    },
+    {
+     "station": "AE2",
+     "stops": false,
+     "track": 1,
+     "arrival": 34287.0,
+     "departure": 34287.0,
+     "dwell": 0,
+     "extension": 0
+    }
+   ],
+   "sink_arrival": 34403.6,
+   "terminal": false
+  },
+  {
+   "train": "SYN0061",
+   "origin_time": 33185.4,
+   "start_delay": 14,
+   "west": [
+    {
+     "station": "AW2",
+     "stops": false,
+     "track": 1,
+     "arrival": 33311.8,
+     "departure": 33311.8,
+     "dwell": 0,
+     "extension": 0
+    },
+    {
+     "station": "AW1",
+     "stops": true,
+     "track": 2,
+     "arrival": 33589.9,
+     "departure": 33709.9,
+     "dwell": 2,
+     "extension": 0
+    }
+   ],
+   "gate_arrival": 33840.0,
+   "junction_departure": 34260.0,
+   "gate_out": 34330.7,
+   "east": [
+    {
+     "station": "BE1",
+     "stops": true,
+     "track": 2,
+     "arrival": 34546.2,
+     "departure": 34666.2,
+     "dwell": 2,
+     "extension": 0
+    }
+   ],
+   "sink_arrival": 34796.3,
+   "terminal": false
+  },
+  {
+   "train": "SYN0062",
+   "origin_time": 33390.3,
+   "start_delay": 10,
+   "west": [
+    {
+     "station": "AW2",
+     "stops": true,
+     "track": 2,
+     "arrival": 33538.3,
+     "departure": 33598.3,
+     "dwell": 1,
+     "extension": 0
+    },
+    {
+     "station": "AW1",
+     "stops": true,
+     "track": 3,
+     "arrival": 33889.9,
+     "departure": 33949.9,
+     "dwell": 1,
+     "extension": 0
+    }
+   ],
+   "gate_arrival": 34080.0,
+   "junction_departure": 34740.0,
+   "gate_out": 34810.7,
+   "east": [
+    {
+     "station": "BE1",
+     "stops": false,
+     "track": 1,
+     "arrival": 35015.4,
+     "departure": 35015.4,
+     "dwell": 0,
+     "extension": 0
+    }
+   ],
+   "sink_arrival": 35132.0,
+   "terminal": true
+  },
+  {
+   "train": "SYN0063",
+   "origin_time": 34107.9,
+   "start_delay": 10,
+   "west": [
+    {
+     "station": "BW1",
+     "stops": true,
+     "track": 2,
+     "arrival": 34255.9,
+     "departure": 34315.9,
+     "dwell": 1,
+     "extension": 0
+    }
+   ],
+   "gate_arrival": 34500.0,
+   "junction_departure": 35040.0,
+   "gate_out": 35110.7,
+   "east": [
+    {
+     "station": "AE1",
+     "stops": false,
+     "track": 1,
+     "arrival": 35315.4,
+     "departure": 35315.4,
+     "dwell": 0,
+     "extension": 0
+    },
+    {
+     "station": "AE2",
+     "stops": false,
+     "track": 1,
+     "arrival": 35582.7,
+     "departure": 35582.7,
+     "dwell": 0,
+     "extension": 0
+    }
+   ],
+   "sink_arrival": 35699.3,
+   "terminal": true
+  },
+  {
+   "train": "SYN0064",
+   "origin_time": 34691.1,
+   "start_delay": 20,
+   "west": [
+    {
+     "station": "BW1",
+     "stops": false,
+     "track": 1,
+     "arrival": 34809.4,
+     "departure": 34809.4,
+     "dwell": 0,
+     "extension": 0
+    }
+   ],
+   "gate_arrival": 34980.0,
+   "junction_departure": 36060.0,
+   "gate_out": 36130.7,
+   "east": [
+    {
+     "station": "AE1",
+     "stops": false,
+     "track": 1,
+     "arrival": 36335.4,
+     "departure": 36335.4,
+     "dwell": 0,
+     "extension": 0
+    },
+    {
+     "station": "AE2",
+     "stops": false,
+     "track": 1,
+     "arrival": 36602.7,
+     "departure": 36602.7,
+     "dwell": 0,
+     "extension": 0
+    }
+   ],
+   "sink_arrival": 36719.3,
+   "terminal": false
+  },
+  {
+   "train": "SYN0065",
+   "origin_time": 34778.7,
+   "start_delay": 10,
+   "west": [
+    {
+     "station": "BW1",
+     "stops": true,
+     "track": 2,
+     "arrival": 34915.9,
+     "departure": 35035.9,
+     "dwell": 2,
+     "extension": 0
+    }
+   ],
+   "gate_arrival": 35220.0,
+   "junction_departure": 35820.0,
+   "gate_out": 35890.7,
+   "east": [
+    {
+     "station": "AE1",
+     "stops": true,
+     "track": 2,
+     "arrival": 36106.2,
+     "departure": 36226.2,
+     "dwell": 2,
+     "extension": 0
+    },
+    {
+     "station": "AE2",
+     "stops": false,
+     "track": 1,
+     "arrival": 36507.0,
+     "departure": 36507.0,
+     "dwell": 0,
+     "extension": 0
+    }
+   ],
+   "sink_arrival": 36623.6,
+   "terminal": false
+  },
+  {
+   "train": "SYN0066",
+   "origin_time": 35067.9,
+   "start_delay": 6,
+   "west": [
+    {
+     "station": "BW1",
+     "stops": true,
+     "track": 3,
+     "arrival": 35215.9,
+     "departure": 35275.9,
+     "dwell": 1,
+     "extension": 0
+    }
+   ],
+   "gate_arrival": 35460.0,
+   "junction_departure": 36300.0,
+   "gate_out": 36370.7,
+   "east": [
+    {
+     "station": "AE1",
+     "stops": false,
+     "track": 1,
+     "arrival": 36575.4,
+     "departure": 36575.4,
+     "dwell": 0,
+     "extension": 0
+    },
+    {
+     "station": "AE2",
+     "stops": false,
+     "track": 1,
+     "arrival": 36842.7,
+     "departure": 36842.7,
+     "dwell": 0,
+     "extension": 0
+    }
+   ],
+   "sink_arrival": 36959.3,
+   "terminal": true
+  },
+  {
+   "train": "SYN0067",
+   "origin_time": 35885.4,
+   "start_delay": 13,
+   "west": [
+    {
+     "station": "AW2",
+     "stops": false,
+     "track": 1,
+     "arrival": 36011.8,
+     "departure": 36011.8,
+     "dwell": 0,
+     "extension": 0
+    },
+    {
+     "station": "AW1",
+     "stops": true,
+     "track": 2,
+     "arrival": 36289.9,
+     "departure": 36409.9,
+     "dwell": 2,
+     "extension": 0
+    }
+   ],
+   "gate_arrival": 36540.0,
+   "junction_departure": 37080.0,
+   "gate_out": 37150.7,
+   "east": [
+    {
+     "station": "BE1",
+     "stops": true,
+     "track": 2,
+     "arrival": 37366.2,
+     "departure": 37486.2,
+     "dwell": 2,
+     "extension": 0
+    }
+   ],
+   "sink_arrival": 37616.3,
+   "terminal": false
+  },
+  {
+   "train": "SYN0068",
+   "origin_time": 36125.4,
+   "start_delay": 9,
+   "west": [
+    {
+     "station": "AW2",
+     "stops": false,
+     "track": 1,
+     "arrival": 36251.8,
+     "departure": 36251.8,
+     "dwell": 0,
+     "extension": 0
+    },
+    {
+     "station": "AW1",
+     "stops": true,
+     "track": 3,
+     "arrival": 36529.9,
+     "departure": 36649.9,
+     "dwell": 2,
+     "extension": 0
+    }
+   ],
+   "gate_arrival": 36780.0,
+   "junction_departure": 37440.0,
+   "gate_out": 37510.7,
+   "east": [
+    {
+     "station": "BE1",
+     "stops": true,
+     "track": 3,
+     "arrival": 37726.2,
+     "departure": 37846.2,
+     "dwell": 2,
+     "extension": 0
+    }
+   ],
+   "sink_arrival": 37976.3,
+   "terminal": false
+  },
+  {
+   "train": "SYN0069",
+   "origin_time": 37287.9,
+   "start_delay": 0,
+   "west": [
+    {
+     "station": "BW1",
+     "stops": true,
+     "track": 2,
+     "arrival": 37435.9,
+     "departure": 37495.9,
+     "dwell": 1,
+     "extension": 0
+    }
+   ],
+   "gate_arrival": 37680.0,
+   "junction_departure": 38340.0,
+   "gate_out": 38410.7,
+   "east": [
+    {
+     "station": "AE1",
+     "stops": false,
+     "track": 1,
+     "arrival": 38615.4,
+     "departure": 38615.4,
+     "dwell": 0,
+     "extension": 0
+    },
+    {
+     "station": "AE2",
+     "stops": false,
+     "track": 1,
+     "arrival": 38882.7,
+     "departure": 38882.7,
+     "dwell": 0,
+     "extension": 0
+    }
+   ],
+   "sink_arrival": 38999.3,
+   "terminal": true
+  },
+  {
+   "train": "SYN0070",
+   "origin_time": 37265.4,
+   "start_delay": 8,
+   "west": [
+    {
+     "station": "AW2",
+     "stops": false,
+     "track": 1,
+     "arrival": 37391.8,
+     "departure": 37391.8,
+     "dwell": 0,
+     "extension": 0
+    },
+    {
+     "station": "AW1",
+     "stops": true,
+     "track": 3,
+     "arrival": 37669.9,
+     "departure": 37789.9,
+     "dwell": 2,
+     "extension": 0
+    }
+   ],
+   "gate_arrival": 37920.0,
+   "junction_departure": 38580.0,
+   "gate_out": 38650.7,
+   "east": [
+    {
+     "station": "BE1",
+     "stops": true,
+     "track": 3,
+     "arrival": 38866.2,
+     "departure": 38986.2,
+     "dwell": 2,
+     "extension": 0
+    }
+   ],
+   "sink_arrival": 39116.3,
+   "terminal": false
+  },
+  {
+   "train": "SYN0071",
+   "origin_time": 37925.4,
+   "start_delay": 17,
+   "west": [
+    {
+     "station": "AW2",
+     "stops": false,
+     "track": 1,
+     "arrival": 38051.8,
+     "departure": 38051.8,
+     "dwell": 0,
+     "extension": 0
+    },
+    {
+     "station": "AW1",
+     "stops": true,
+     "track": 2,
+     "arrival": 38329.9,
+     "departure": 38449.9,
+     "dwell": 2,
+     "extension": 0
+    }
+   ],
+   "gate_arrival": 38580.0,
+   "junction_departure": 39120.0,
+   "gate_out": 39190.7,
+   "east": [
+    {
+     "station": "BE1",
+     "stops": true,
+     "track": 2,
+     "arrival": 39406.2,
+     "departure": 39526.2,
+     "dwell": 2,
+     "extension": 0
+    }
+   ],
+   "sink_arrival": 39656.3,
+   "terminal": false
+  },
+  {
+   "train": "SYN0072",
+   "origin_time": 38378.7,
+   "start_delay": 0,
+   "west": [
+    {
+     "station": "BW1",
+     "stops": true,
+     "track": 3,
+     "arrival": 38515.9,
+     "departure": 38635.9,
+     "dwell": 2,
+     "extension": 0
+    }
+   ],
+   "gate_arrival": 38820.0,
+   "junction_departure": 39360.0,
+   "gate_out": 39430.7,
+   "east": [
+    {
+     "station": "AE1",
+     "stops": true,
+     "track": 3,
+     "arrival": 39646.2,
+     "departure": 39766.2,
+     "dwell": 2,
+     "extension": 3
+    },
+    {
+     "station": "AE2",
+     "stops": false,
+     "track": 1,
+     "arrival": 40047.0,
+     "departure": 40047.0,
+     "dwell": 0,
+     "extension": 0
+    }
+   ],
+   "sink_arrival": 40163.6,
+   "terminal": false
+  },
+  {
+   "train": "SYN0073",
+   "origin_time": 38918.7,
+   "start_delay": 0,
+   "west": [
+    {
+     "station": "BW1",
+     "stops": true,
+     "track": 2,
+     "arrival": 39055.9,
+     "departure": 39175.9,
+     "dwell": 2,
+     "extension": 0
+    }
+   ],
+   "gate_arrival": 39360.0,
+   "junction_departure": 39840.0,
+   "gate_out": 39910.7,
+   "east": [
+    {
+     "station": "AE1",
+     "stops": true,
+     "track": 2,
+     "arrival": 40126.2,
+     "departure": 40246.2,
+     "dwell": 2,
+     "extension": 0
+    },
+    {
+     "station": "AE2",
+     "stops": false,
+     "track": 1,
+     "arrival": 40527.0,
+     "departure": 40527.0,
+     "dwell": 0,
+     "extension": 0
+    }
+   ],
+   "sink_arrival": 40643.6,
+   "terminal": false
+  },
+  {
+   "train": "SYN0074",
+   "origin_time": 39097.8,
+   "start_delay": 8,
+   "west": [
+    {
+     "station": "AW2",
+     "stops": false,
+     "track": 1,
+     "arrival": 39216.1,
+     "departure": 39216.1,
+     "dwell": 0,
+     "extension": 0
+    },
+    {
+     "station": "AW1",
+     "stops": false,
+     "track": 1,
+     "arrival": 39483.4,
+     "departure": 39483.4,
+     "dwell": 0,
+     "extension": 0
+    }
+   ],
+   "gate_arrival": 39600.0,
+   "junction_departure": 40320.0,
+   "gate_out": 40390.7,
+   "east": [
+    {
+     "station": "BE1",
+     "stops": false,
+     "track": 1,
+     "arrival": 40595.4,
+     "departure": 40595.4,
+     "dwell": 0,
+     "extension": 0
+    }
+   ],
+   "sink_arrival": 40712.0,
+   "terminal": false
+  },
+  {
+   "train": "SYN0075",
+   "origin_time": 39485.4,
+   "start_delay": 8,
+   "west": [
+    {
+     "station": "AW2",
+     "stops": false,
+     "track": 1,
+     "arrival": 39611.8,
+     "departure": 39611.8,
+     "dwell": 0,
+     "extension": 0
+    },
+    {
+     "station": "AW1",
+     "stops": true,
+     "track": 2,
+     "arrival": 39889.9,
+     "departure": 40009.9,
+     "dwell": 2,
+     "extension": 0
+    }
+   ],
+   "gate_arrival": 40140.0,
+   "junction_departure": 40620.0,
+   "gate_out": 40690.7,
+   "east": [
+    {
+     "station": "BE1",
+     "stops": true,
+     "track": 2,
+     "arrival": 40906.2,
+     "departure": 41026.2,
+     "dwell": 2,
+     "extension": 0
+    }
+   ],
+   "sink_arrival": 41156.3,
+   "terminal": false
+  },
+  {
+   "train": "SYN0076",
+   "origin_time": 40571.1,
+   "start_delay": 0,
+   "west": [
+    {
+     "station": "BW1",
+     "stops": false,
+     "track": 1,
+     "arrival": 40689.4,
+     "departure": 40689.4,
+     "dwell": 0,
+     "extension": 0
+    }
+   ],
+   "gate_arrival": 40860.0,
+   "junction_departure": 41520.0,
+   "gate_out": 41590.7,
+   "east": [
+    {
+     "station": "AE1",
+     "stops": false,
+     "track": 1,
+     "arrival": 41795.4,
+     "departure": 41795.4,
+     "dwell": 0,
+     "extension": 0
+    },
+    {
+     "station": "AE2",
+     "stops": false,
+     "track": 1,
+     "arrival": 42062.7,
+     "departure": 42062.7,
+     "dwell": 0,
+     "extension": 0
+    }
+   ],
+   "sink_arrival": 42179.3,
+   "terminal": false
+  },
+  {
+   "train": "SYN0077",
+   "origin_time": 41307.9,
+   "start_delay": 20,
+   "west": [
+    {
+     "station": "BW1",
+     "stops": true,
+     "track": 2,
+     "arrival": 41455.9,
+     "departure": 41515.9,
+     "dwell": 1,
+     "extension": 0
+    }
+   ],
+   "gate_arrival": 41700.0,
+   "junction_departure": 42120.0,
+   "gate_out": 42190.7,
+   "east": [
+    {
+     "station": "AE1",
+     "stops": false,
+     "track": 1,
+     "arrival": 42395.4,
+     "departure": 42395.4,
+     "dwell": 0,
+     "extension": 0
+    },
+    {
+     "station": "AE2",
+     "stops": false,
+     "track": 1,
+     "arrival": 42662.7,
+     "departure": 42662.7,
+     "dwell": 0,
+     "extension": 0
+    }
+   ],
+   "sink_arrival": 42779.3,
+   "terminal": true
+  },
+  {
+   "train": "SYN0078",
+   "origin_time": 42188.4,
+   "start_delay": 30,
+   "west": [
+    {
+     "station": "BW1",
+     "stops": false,
+     "track": 1,
+     "arrival": 42309.4,
+     "departure": 42309.4,
+     "dwell": 0,
+     "extension": 0
+    }
+   ],
+   "gate_arrival": 42480.0,
+   "junction_departure": 42900.0,
+   "gate_out": 42970.7,
+   "east": [
+    {
+     "station": "AE1",
+     "stops": false,
+     "track": 1,
+     "arrival": 43175.4,
+     "departure": 43175.4,
+     "dwell": 0,
+     "extension": 0
+    },
+    {
+     "station": "AE2",
+     "stops": false,
+     "track": 1,
+     "arrival": 43442.7,
+     "departure": 43442.7,
+     "dwell": 0,
+     "extension": 0
+    }
+   ],
+   "sink_arrival": 43559.3,
+   "terminal": false
+  },
+  {
+   "train": "SYN0079",
+   "origin_time": 42905.4,
+   "start_delay": 0,
+   "west": [
+    {
+     "station": "AW2",
+     "stops": false,
+     "track": 1,
+     "arrival": 43031.8,
+     "departure": 43031.8,
+     "dwell": 0,
+     "extension": 0
+    },
+    {
+     "station": "AW1",
+     "stops": true,
+     "track": 2,
+     "arrival": 43309.9,
+     "departure": 43429.9,
+     "dwell": 2,
+     "extension": 0
+    }
+   ],
+   "gate_arrival": 43560.0,
+   "junction_departure": 44100.0,
+   "gate_out": 44170.7,
+   "east": [
+    {
+     "station": "BE1",
+     "stops": true,
+     "track": 2,
+     "arrival": 44386.2,
+     "departure": 44506.2,
+     "dwell": 2,
+     "extension": 0
+    }
+   ],
+   "sink_arrival": 44636.3,
+   "terminal": false
+  },
+  {
+   "train": "SYN0080",
+   "origin_time": 44348.4,
+   "start_delay": 0,
+   "west": [
+    {
+     "station": "BW1",
+     "stops": false,
+     "track": 1,
+     "arrival": 44469.4,
+     "departure": 44469.4,
+     "dwell": 0,
+     "extension": 0
+    }
+   ],
+   "gate_arrival": 44640.0,
+   "junction_departure": 45240.0,
+   "gate_out": 45310.7,
+   "east": [
+    {
+     "station": "AE1",
+     "stops": false,
+     "track": 1,
+     "arrival": 45515.4,
+     "departure": 45515.4,
+     "dwell": 0,
+     "extension": 0
+    },
+    {
+     "station": "AE2",
+     "stops": false,
+     "track": 1,
+     "arrival": 45782.7,
+     "departure": 45782.7,
+     "dwell": 0,
+     "extension": 0
+    }
+   ],
+   "sink_arrival": 45899.3,
+   "terminal": false
+  },
+  {
+   "train": "SYN0081",
+   "origin_time": 44588.4,
+   "start_delay": 0,
+   "west": [
+    {
+     "station": "BW1",
+     "stops": false,
+     "track": 1,
+     "arrival": 44709.4,
+     "departure": 44709.4,
+     "dwell": 0,
+     "extension": 0
+    }
+   ],
+   "gate_arrival": 44880.0,
+   "junction_departure": 45480.0,
+   "gate_out": 45550.7,
+   "east": [
+    {
+     "station": "AE1",
+     "stops": false,
+     "track": 1,
+     "arrival": 45755.4,
+     "departure": 45755.4,
+     "dwell": 0,
+     "extension": 0
+    },
+    {
+     "station": "AE2",
+     "stops": false,
+     "track": 1,
+     "arrival": 46022.7,
+     "departure": 46022.7,
+     "dwell": 0,
+     "extension": 0
+    }
+   ],
+   "sink_arrival": 46139.3,
+   "terminal": false
+  },
+  {
+   "train": "SYN0082",
+   "origin_time": 44678.7,
+   "start_delay": 0,
+   "west": [
+    {
+     "station": "BW1",
+     "stops": true,
+     "track": 3,
+     "arrival": 44815.9,
+     "departure": 44935.9,
+     "dwell": 2,
+     "extension": 0
+    }
+   ],
+   "gate_arrival": 45120.0,
+   "junction_departure": 45720.0,
+   "gate_out": 45790.7,
+   "east": [
+    {
+     "station": "AE1",
+     "stops": true,
+     "track": 3,
+     "arrival": 46006.2,
+     "departure": 46126.2,
+     "dwell": 2,
+     "extension": 0
+    },
+    {
+     "station": "AE2",
+     "stops": false,
+     "track": 1,
+     "arrival": 46407.0,
+     "departure": 46407.0,
+     "dwell": 0,
+     "extension": 0
+    }
+   ],
+   "sink_arrival": 46523.6,
+   "terminal": false
+  },
+  {
+   "train": "SYN0083",
+   "origin_time": 45060.3,
+   "start_delay": 0,
+   "west": [
+    {
+     "station": "BW1",
+     "stops": false,
+     "track": 1,
+     "arrival": 45189.4,
+     "departure": 45189.4,
+     "dwell": 0,
+     "extension": 0
+    }
+   ],
+   "gate_arrival": 45360.0,
+   "junction_departure": 45960.0,
+   "gate_out": 46030.7,
+   "east": [
+    {
+     "station": "AE1",
+     "stops": false,
+     "track": 1,
+     "arrival": 46235.4,
+     "departure": 46235.4,
+     "dwell": 0,
+     "extension": 0
+    },
+    {
+     "station": "AE2",
+     "stops": false,
+     "track": 1,
+     "arrival": 46502.7,
+     "departure": 46502.7,
+     "dwell": 0,
+     "extension": 0
+    }
+   ],
+   "sink_arrival": 46619.3,
+   "terminal": false
+  },
+  {
+   "train": "SYN0084",
+   "origin_time": 45687.0,
+   "start_delay": 0,
+   "west": [
+    {
+     "station": "AW2",
+     "stops": false,
+     "track": 1,
+     "arrival": 45816.1,
+     "departure": 45816.1,
+     "dwell": 0,
+     "extension": 0
+    },
+    {
+     "station": "AW1",
+     "stops": false,
+     "track": 1,
+     "arrival": 46083.4,
+     "departure": 46083.4,
+     "dwell": 0,
+     "extension": 0
+    }
+   ],
+   "gate_arrival": 46200.0,
+   "junction_departure": 46680.0,
+   "gate_out": 46750.7,
+   "east": [
+    {
+     "station": "BE1",
+     "stops": false,
+     "track": 1,
+     "arrival": 46955.4,
+     "departure": 46955.4,
+     "dwell": 0,
+     "extension": 0
+    }
+   ],
+   "sink_arrival": 47072.0,
+   "terminal": false
+  },
+  {
+   "train": "SYN0085",
+   "origin_time": 45750.3,
+   "start_delay": 5,
+   "west": [
+    {
+     "station": "AW2",
+     "stops": true,
+     "track": 2,
+     "arrival": 45898.3,
+     "departure": 45958.3,
+     "dwell": 1,
+     "extension": 0
+    },
+    {
+     "station": "AW1",
+     "stops": true,
+     "track": 2,
+     "arrival": 46249.9,
+     "departure": 46309.9,
+     "dwell": 1,
+     "extension": 0
+    }
+   ],
+   "gate_arrival": 46440.0,
+   "junction_departure": 46920.0,
+   "gate_out": 46990.7,
+   "east": [
+    {
+     "station": "BE1",
+     "stops": false,
+     "track": 1,
+     "arrival": 47195.4,
+     "departure": 47195.4,
+     "dwell": 0,
+     "extension": 0
+    }
+   ],
+   "sink_arrival": 47312.0,
+   "terminal": true
+  },
+  {
+   "train": "SYN0086",
+   "origin_time": 46767.9,
+   "start_delay": 0,
+   "west": [
+    {
+     "station": "BW1",
+     "stops": true,
+     "track": 3,
+     "arrival": 46915.9,
+     "departure": 46975.9,
+     "dwell": 1,
+     "extension": 0
+    }
+   ],
+   "gate_arrival": 47160.0,
+   "junction_departure": 47760.0,
+   "gate_out": 47830.7,
+   "east": [
+    {
+     "station": "AE1",
+     "stops": false,
+     "track": 1,
+     "arrival": 48035.4,
+     "departure": 48035.4,
+     "dwell": 0,
+     "extension": 0
+    },
+    {
+     "station": "AE2",
+     "stops": false,
+     "track": 1,
+     "arrival": 48302.7,
+     "departure": 48302.7,
+     "dwell": 0,
+     "extension": 0
+    }
+   ],
+   "sink_arrival": 48419.3,
+   "terminal": true
+  },
+  {
+   "train": "SYN0087",
+   "origin_time": 46958.7,
+   "start_delay": 0,
+   "west": [
+    {
+     "station": "BW1",
+     "stops": true,
+     "track": 2,
+     "arrival": 47095.9,
+     "departure": 47215.9,
+     "dwell": 2,
+     "extension": 0
+    }
+   ],
+   "gate_arrival": 47400.0,
+   "junction_departure": 48000.0,
+   "gate_out": 48070.7,
+   "east": [
+    {
+     "station": "AE1",
+     "stops": true,
+     "track": 2,
+     "arrival": 48286.2,
+     "departure": 48406.2,
+     "dwell": 2,
+     "extension": 0
+    },
+    {
+     "station": "AE2",
+     "stops": false,
+     "track": 1,
+     "arrival": 48687.0,
+     "departure": 48687.0,
+     "dwell": 0,
+     "extension": 0
+    }
+   ],
+   "sink_arrival": 48803.6,
+   "terminal": false
+  },
+  {
+   "train": "SYN0088",
+   "origin_time": 47735.1,
+   "start_delay": 0,
+   "west": [
+    {
+     "station": "AW2",
+     "stops": false,
+     "track": 1,
+     "arrival": 47856.1,
+     "departure": 47856.1,
+     "dwell": 0,
+     "extension": 0
+    },
+    {
+     "station": "AW1",
+     "stops": false,
+     "track": 1,
+     "arrival": 48123.4,
+     "departure": 48123.4,
+     "dwell": 0,
+     "extension": 0
+    }
+   ],
+   "gate_arrival": 48240.0,
+   "junction_departure": 48600.0,
+   "gate_out": 48670.7,
+   "east": [
+    {
+     "station": "BE1",
+     "stops": false,
+     "track": 1,
+     "arrival": 48875.4,
+     "departure": 48875.4,
+     "dwell": 0,
+     "extension": 0
+    }
+   ],
+   "sink_arrival": 48992.0,
+   "terminal": false
+  },
+  {
+   "train": "SYN0089",
+   "origin_time": 47975.1,
+   "start_delay": 0,
+   "west": [
+    {
+     "station": "AW2",
+     "stops": false,
+     "track": 1,
+     "arrival": 48096.1,
+     "departure": 48096.1,
+     "dwell": 0,
+     "extension": 0
+    },
+    {
+     "station": "AW1",
+     "stops": false,
+     "track": 1,
+     "arrival": 48363.4,
+     "departure": 48363.4,
+     "dwell": 0,
+     "extension": 0
+    }
+   ],
+   "gate_arrival": 48480.0,
+   "junction_departure": 49080.0,
+   "gate_out": 49150.7,
+   "east": [
+    {
+     "station": "BE1",
+     "stops": false,
+     "track": 1,
+     "arrival": 49355.4,
+     "departure": 49355.4,
+     "dwell": 0,
+     "extension": 0
+    }
+   ],
+   "sink_arrival": 49472.0,
+   "terminal": false
+  },
+  {
+   "train": "SYN0090",
+   "origin_time": 48207.0,
+   "start_delay": 0,
+   "west": [
+    {
+     "station": "AW2",
+     "stops": false,
+     "track": 1,
+     "arrival": 48336.1,
+     "departure": 48336.1,
+     "dwell": 0,
+     "extension": 0
+    },
+    {
+     "station": "AW1",
+     "stops": false,
+     "track": 1,
+     "arrival": 48603.4,
+     "departure": 48603.4,
+     "dwell": 0,
+     "extension": 0
+    }
+   ],
+   "gate_arrival": 48720.0,
+   "junction_departure": 49380.0,
+   "gate_out": 49450.7,
+   "east": [
+    {
+     "station": "BE1",
+     "stops": false,
+     "track": 1,
+     "arrival": 49655.4,
+     "departure": 49655.4,
+     "dwell": 0,
+     "extension": 0
+    }
+   ],
+   "sink_arrival": 49772.0,
+   "terminal": false
+  },
+  {
+   "train": "SYN0091",
+   "origin_time": 49328.4,
+   "start_delay": 0,
+   "west": [
+    {
+     "station": "BW1",
+     "stops": false,
+     "track": 1,
+     "arrival": 49449.4,
+     "departure": 49449.4,
+     "dwell": 0,
+     "extension": 0
+    }
+   ],
+   "gate_arrival": 49620.0,
+   "junction_departure": 50280.0,
+   "gate_out": 50350.7,
+   "east": [
+    {
+     "station": "AE1",
+     "stops": false,
+     "track": 1,
+     "arrival": 50555.4,
+     "departure": 50555.4,
+     "dwell": 0,
+     "extension": 0
+    },
+    {
+     "station": "AE2",
+     "stops": false,
+     "track": 1,
+     "arrival": 50822.7,
+     "departure": 50822.7,
+     "dwell": 0,
+     "extension": 0
+    }
+   ],
+   "sink_arrival": 50939.3,
+   "terminal": false
+  },
+  {
+   "train": "SYN0092",
+   "origin_time": 49205.4,
+   "start_delay": 9,
+   "west": [
+    {
+     "station": "AW2",
+     "stops": false,
+     "track": 1,
+     "arrival": 49331.8,
+     "departure": 49331.8,
+     "dwell": 0,
+     "extension": 0
+    },
+    {
+     "station": "AW1",
+     "stops": true,
+     "track": 3,
+     "arrival": 49609.9,
+     "departure": 49729.9,
+     "dwell": 2,
+     "extension": 0
+    }
+   ],
+   "gate_arrival": 49860.0,
+   "junction_departure": 50520.0,
+   "gate_out": 50590.7,
+   "east": [
+    {
+     "station": "BE1",
+     "stops": true,
+     "track": 3,
+     "arrival": 50806.2,
+     "departure": 50926.2,
+     "dwell": 2,
+     "extension": 0
+    }
+   ],
+   "sink_arrival": 51056.3,
+   "terminal": false
+  },
+  {
+   "train": "SYN0093",
+   "origin_time": 49658.7,
+   "start_delay": 0,
+   "west": [
+    {
+     "station": "BW1",
+     "stops": true,
+     "track": 2,
+     "arrival": 49795.9,
+     "departure": 49915.9,
+     "dwell": 2,
+     "extension": 0
+    }
+   ],
+   "gate_arrival": 50100.0,
+   "junction_departure": 50760.0,
+   "gate_out": 50830.7,
+   "east": [
+    {
+     "station": "AE1",
+     "stops": true,
+     "track": 2,
+     "arrival": 51046.2,
+     "departure": 51166.2,
+     "dwell": 2,
+     "extension": 0
+    },
+    {
+     "station": "AE2",
+     "stops": false,
+     "track": 1,
+     "arrival": 51447.0,
+     "departure": 51447.0,
+     "dwell": 0,
+     "extension": 0
+    }
+   ],
+   "sink_arrival": 51563.6,
+   "terminal": false
+  },
+  {
+   "train": "SYN0094",
+   "origin_time": 49830.3,
+   "start_delay": 23,
+   "west": [
+    {
+     "station": "AW2",
+     "stops": true,
+     "track": 2,
+     "arrival": 49978.3,
+     "departure": 50038.3,
+     "dwell": 1,
+     "extension": 0
+    },
+    {
+     "station": "AW1",
+     "stops": true,
+     "track": 3,
+     "arrival": 50329.9,
+     "departure": 50389.9,
+     "dwell": 1,
+     "extension": 0
+    }
+   ],
+   "gate_arrival": 50520.0,
+   "junction_departure": 51060.0,
+   "gate_out": 51130.7,
+   "east": [
+    {
+     "station": "BE1",
+     "stops": false,
+     "track": 1,
+     "arrival": 51335.4,
+     "departure": 51335.4,
+     "dwell": 0,
+     "extension": 0
+    }
+   ],
+   "sink_arrival": 51452.0,
+   "terminal": true
+  },
+  {
+   "train": "SYN0095",
+   "origin_time": 51011.1,
+   "start_delay": 179,
+   "west": [
+    {
+     "station": "BW1",
+     "stops": false,
+     "track": 1,
+     "arrival": 51129.4,
+     "departure": 51129.4,
+     "dwell": 0,
+     "extension": 0
+    }
+   ],
+   "gate_arrival": 51300.0,
+   "junction_departure": 52140.0,
+   "gate_out": 52210.7,
+   "east": [
+    {
+     "station": "AE1",
+     "stops": false,
+     "track": 1,
+     "arrival": 52415.4,
+     "departure": 52415.4,
+     "dwell": 0,
+     "extension": 0
+    },
+    {
+     "station": "AE2",
+     "stops": false,
+     "track": 1,
+     "arrival": 52682.7,
+     "departure": 52682.7,
+     "dwell": 0,
+     "extension": 0
+    }
+   ],
+   "sink_arrival": 52799.3,
+   "terminal": false
+  },
+  {
+   "train": "SYN0096",
+   "origin_time": 51638.7,
+   "start_delay": 0,
+   "west": [
+    {
+     "station": "BW1",
+     "stops": true,
+     "track": 3,
+     "arrival": 51775.9,
+     "departure": 51895.9,
+     "dwell": 2,
+     "extension": 0
+    }
+   ],
+   "gate_arrival": 52080.0,
+   "junction_departure": 52620.0,
+   "gate_out": 52690.7,
+   "east": [
+    {
+     "station": "AE1",
+     "stops": true,
+     "track": 3,
+     "arrival": 52906.2,
+     "departure": 53026.2,
+     "dwell": 2,
+     "extension": 0
+    },
+    {
+     "station": "AE2",
+     "stops": false,
+     "track": 1,
+     "arrival": 53307.0,
+     "departure": 53307.0,
+     "dwell": 0,
+     "extension": 0
+    }
+   ],
+   "sink_arrival": 53423.6,
+   "terminal": false
+  },
+  {
+   "train": "SYN0097",
+   "origin_time": 52385.4,
+   "start_delay": 20,
+   "west": [
+    {
+     "station": "AW2",
+     "stops": false,
+     "track": 1,
+     "arrival": 52511.8,
+     "departure": 52511.8,
+     "dwell": 0,
+     "extension": 0
+    },
+    {
+     "station": "AW1",
+     "stops": true,
+     "track": 2,
+     "arrival": 52789.9,
+     "departure": 52909.9,
+     "dwell": 2,
+     "extension": 0
+    }
+   ],
+   "gate_arrival": 53040.0,
+   "junction_departure": 53460.0,
+   "gate_out": 53530.7,
+   "east": [
+    {
+     "station": "BE1",
+     "stops": true,
+     "track": 2,
+     "arrival": 53746.2,
+     "departure": 53866.2,
+     "dwell": 2,
+     "extension": 0
+    }
+   ],
+   "sink_arrival": 53996.3,
+   "terminal": false
+  },
+  {
+   "train": "SYN0098",
+   "origin_time": 53487.0,
+   "start_delay": 23,
+   "west": [
+    {
+     "station": "AW2",
+     "stops": false,
+     "track": 1,
+     "arrival": 53616.1,
+     "departure": 53616.1,
+     "dwell": 0,
+     "extension": 0
+    },
+    {
+     "station": "AW1",
+     "stops": false,
+     "track": 1,
+     "arrival": 53883.4,
+     "departure": 53883.4,
+     "dwell": 0,
+     "extension": 0
+    }
+   ],
+   "gate_arrival": 54000.0,
+   "junction_departure": 54420.0,
+   "gate_out": 54490.7,
+   "east": [
+    {
+     "station": "BE1",
+     "stops": false,
+     "track": 1,
+     "arrival": 54695.4,
+     "departure": 54695.4,
+     "dwell": 0,
+     "extension": 0
+    }
+   ],
+   "sink_arrival": 54812.0,
+   "terminal": false
+  },
+  {
+   "train": "SYN0099",
+   "origin_time": 54065.4,
+   "start_delay": 20,
+   "west": [
+    {
+     "station": "AW2",
+     "stops": false,
+     "track": 1,
+     "arrival": 54191.8,
+     "departure": 54191.8,
+     "dwell": 0,
+     "extension": 0
+    },
+    {
+     "station": "AW1",
+     "stops": true,
+     "track": 2,
+     "arrival": 54469.9,
+     "departure": 54589.9,
+     "dwell": 2,
+     "extension": 0
+    }
+   ],
+   "gate_arrival": 54720.0,
+   "junction_departure": 55320.0,
+   "gate_out": 55390.7,
+   "east": [
+    {
+     "station": "BE1",
+     "stops": true,
+     "track": 2,
+     "arrival": 55606.2,
+     "departure": 55726.2,
+     "dwell": 2,
+     "extension": 0
+    }
+   ],
+   "sink_arrival": 55856.3,
+   "terminal": false
+  },
+  {
+   "train": "SYN0100",
+   "origin_time": 55167.9,
+   "start_delay": 53,
+   "west": [
+    {
+     "station": "BW1",
+     "stops": true,
+     "track": 3,
+     "arrival": 55315.9,
+     "departure": 55375.9,
+     "dwell": 1,
+     "extension": 0
+    }
+   ],
+   "gate_arrival": 55560.0,
+   "junction_departure": 55980.0,
+   "gate_out": 56050.7,
+   "east": [
+    {
+     "station": "AE1",
+     "stops": false,
+     "track": 1,
+     "arrival": 56255.4,
+     "departure": 56255.4,
+     "dwell": 0,
+     "extension": 0
+    },
+    {
+     "station": "AE2",
+     "stops": false,
+     "track": 1,
+     "arrival": 56522.7,
+     "departure": 56522.7,
+     "dwell": 0,
+     "extension": 0
+    }
+   ],
+   "sink_arrival": 56639.3,
+   "terminal": true
+  },
+  {
+   "train": "SYN0101",
+   "origin_time": 55358.7,
+   "start_delay": 0,
+   "west": [
+    {
+     "station": "BW1",
+     "stops": true,
+     "track": 2,
+     "arrival": 55495.9,
+     "departure": 55615.9,
+     "dwell": 2,
+     "extension": 0
+    }
+   ],
+   "gate_arrival": 55800.0,
+   "junction_departure": 56340.0,
+   "gate_out": 56410.7,
+   "east": [
+    {
+     "station": "AE1",
+     "stops": true,
+     "track": 2,
+     "arrival": 56626.2,
+     "departure": 56746.2,
+     "dwell": 2,
+     "extension": 0
+    },
+    {
+     "station": "AE2",
+     "stops": false,
+     "track": 1,
+     "arrival": 57027.0,
+     "departure": 57027.0,
+     "dwell": 0,
+     "extension": 0
+    }
+   ],
+   "sink_arrival": 57143.6,
+   "terminal": false
+  },
+  {
+   "train": "SYN0102",
+   "origin_time": 55598.7,
+   "start_delay": 0,
+   "west": [
+    {
+     "station": "BW1",
+     "stops": true,
+     "track": 3,
+     "arrival": 55735.9,
+     "departure": 55855.9,
+     "dwell": 2,
+     "extension": 0
+    }
+   ],
+   "gate_arrival": 56040.0,
+   "junction_departure": 56700.0,
+   "gate_out": 56770.7,
+   "east": [
+    {
+     "station": "AE1",
+     "stops": true,
+     "track": 3,
+     "arrival": 56986.2,
+     "departure": 57106.2,
+     "dwell": 2,
+     "extension": 0
+    },
+    {
+     "station": "AE2",
+     "stops": false,
+     "track": 1,
+     "arrival": 57387.0,
+     "departure": 57387.0,
+     "dwell": 0,
+     "extension": 0
+    }
+   ],
+   "sink_arrival": 57503.6,
+   "terminal": false
+  },
+  {
+   "train": "SYN0103",
+   "origin_time": 56435.1,
+   "start_delay": 22,
+   "west": [
+    {
+     "station": "AW2",
+     "stops": false,
+     "track": 1,
+     "arrival": 56556.1,
+     "departure": 56556.1,
+     "dwell": 0,
+     "extension": 0
+    },
+    {
+     "station": "AW1",
+     "stops": false,
+     "track": 1,
+     "arrival": 56823.4,
+     "departure": 56823.4,
+     "dwell": 0,
+     "extension": 0
+    }
+   ],
+   "gate_arrival": 56940.0,
+   "junction_departure": 57600.0,
+   "gate_out": 57670.7,
+   "east": [
+    {
+     "station": "BE1",
+     "stops": false,
+     "track": 1,
+     "arrival": 57875.4,
+     "departure": 57875.4,
+     "dwell": 0,
+     "extension": 0
+    }
+   ],
+   "sink_arrival": 57992.0,
+   "terminal": false
+  },
+  {
+   "train": "SYN0104",
+   "origin_time": 56888.4,
+   "start_delay": 0,
+   "west": [
+    {
+     "station": "BW1",
+     "stops": false,
+     "track": 1,
+     "arrival": 57009.4,
+     "departure": 57009.4,
+     "dwell": 0,
+     "extension": 0
+    }
+   ],
+   "gate_arrival": 57180.0,
+   "junction_departure": 57840.0,
+   "gate_out": 57910.7,
+   "east": [
+    {
+     "station": "AE1",
+     "stops": false,
+     "track": 1,
+     "arrival": 58115.4,
+     "departure": 58115.4,
+     "dwell": 0,
+     "extension": 0
+    },
+    {
+     "station": "AE2",
+     "stops": false,
+     "track": 1,
+     "arrival": 58382.7,
+     "departure": 58382.7,
+     "dwell": 0,
+     "extension": 0
+    }
+   ],
+   "sink_arrival": 58499.3,
+   "terminal": false
+  },
+  {
+   "train": "SYN0105",
+   "origin_time": 57398.7,
+   "start_delay": 20,
+   "west": [
+    {
+     "station": "BW1",
+     "stops": true,
+     "track": 2,
+     "arrival": 57535.9,
+     "departure": 57655.9,
+     "dwell": 2,
+     "extension": 0
+    }
+   ],
+   "gate_arrival": 57840.0,
+   "junction_departure": 58200.0,
+   "gate_out": 58270.7,
+   "east": [
+    {
+     "station": "AE1",
+     "stops": true,
+     "track": 2,
+     "arrival": 58486.2,
+     "departure": 58606.2,
+     "dwell": 2,
+     "extension": 0
+    },
+    {
+     "station": "AE2",
+     "stops": false,
+     "track": 1,
+     "arrival": 58887.0,
+     "departure": 58887.0,
+     "dwell": 0,
+     "extension": 0
+    }
+   ],
+   "sink_arrival": 59003.6,
+   "terminal": false
+  },
+  {
+   "train": "SYN0106",
+   "origin_time": 57937.8,
+   "start_delay": 3,
+   "west": [
+    {
+     "station": "AW2",
+     "stops": false,
+     "track": 1,
+     "arrival": 58056.1,
+     "departure": 58056.1,
+     "dwell": 0,
+     "extension": 0
+    },
+    {
+     "station": "AW1",
+     "stops": false,
+     "track": 1,
+     "arrival": 58323.4,
+     "departure": 58323.4,
+     "dwell": 0,
+     "extension": 0
+    }
+   ],
+   "gate_arrival": 58440.0,
+   "junction_departure": 59460.0,
+   "gate_out": 59530.7,
+   "east": [
+    {
+     "station": "BE1",
+     "stops": false,
+     "track": 1,
+     "arrival": 59735.4,
+     "departure": 59735.4,
+     "dwell": 0,
+     "extension": 0
+    }
+   ],
+   "sink_arrival": 59852.0,
+   "terminal": false
+  },
+  {
+   "train": "SYN0107",
+   "origin_time": 58388.4,
+   "start_delay": 20,
+   "west": [
+    {
+     "station": "BW1",
+     "stops": false,
+     "track": 1,
+     "arrival": 58509.4,
+     "departure": 58509.4,
+     "dwell": 0,
+     "extension": 0
+    }
+   ],
+   "gate_arrival": 58680.0,
+   "junction_departure": 59100.0,
+   "gate_out": 59170.7,
+   "east": [
+    {
+     "station": "AE1",
+     "stops": false,
+     "track": 1,
+     "arrival": 59375.4,
+     "departure": 59375.4,
+     "dwell": 0,
+     "extension": 0
+    },
+    {
+     "station": "AE2",
+     "stops": false,
+     "track": 1,
+     "arrival": 59642.7,
+     "departure": 59642.7,
+     "dwell": 0,
+     "extension": 0
+    }
+   ],
+   "sink_arrival": 59759.3,
+   "terminal": false
+  },
+  {
+   "train": "SYN0108",
+   "origin_time": 58527.9,
+   "start_delay": 20,
+   "west": [
+    {
+     "station": "BW1",
+     "stops": true,
+     "track": 3,
+     "arrival": 58675.9,
+     "departure": 58735.9,
+     "dwell": 1,
+     "extension": 0
+    }
+   ],
+   "gate_arrival": 58920.0,
+   "junction_departure": 59700.0,
+   "gate_out": 59770.7,
+   "east": [
+    {
+     "station": "AE1",
+     "stops": false,
+     "track": 1,
+     "arrival": 59975.4,
+     "departure": 59975.4,
+     "dwell": 0,
+     "extension": 0
+    },
+    {
+     "station": "AE2",
+     "stops": false,
+     "track": 1,
+     "arrival": 60242.7,
+     "departure": 60242.7,
+     "dwell": 0,
+     "extension": 0
+    }
+   ],
+   "sink_arrival": 60359.3,
+   "terminal": true
+  },
+  {
+   "train": "SYN0109",
+   "origin_time": 58871.1,
+   "start_delay": 40,
+   "west": [
+    {
+     "station": "BW1",
+     "stops": false,
+     "track": 1,
+     "arrival": 58989.4,
+     "departure": 58989.4,
+     "dwell": 0,
+     "extension": 0
+    }
+   ],
+   "gate_arrival": 59160.0,
+   "junction_departure": 60240.0,
+   "gate_out": 60310.7,
+   "east": [
+    {
+     "station": "AE1",
+     "stops": false,
+     "track": 1,
+     "arrival": 60515.4,
+     "departure": 60515.4,
+     "dwell": 0,
+     "extension": 0
+    },
+    {
+     "station": "AE2",
+     "stops": false,
+     "track": 1,
+     "arrival": 60782.7,
+     "departure": 60782.7,
+     "dwell": 0,
+     "extension": 0
+    }
+   ],
+   "sink_arrival": 60899.3,
+   "terminal": false
+  },
+  {
+   "train": "SYN0110",
+   "origin_time": 58895.1,
+   "start_delay": 0,
+   "west": [
+    {
+     "station": "AW2",
+     "stops": false,
+     "track": 1,
+     "arrival": 59016.1,
+     "departure": 59016.1,
+     "dwell": 0,
+     "extension": 0
+    },
+    {
+     "station": "AW1",
+     "stops": false,
+     "track": 1,
+     "arrival": 59283.4,
+     "departure": 59283.4,
+     "dwell": 0,
+     "extension": 0
+    }
+   ],
+   "gate_arrival": 59400.0,
+   "junction_departure": 60000.0,
+   "gate_out": 60070.7,
+   "east": [
+    {
+     "station": "BE1",
+     "stops": false,
+     "track": 1,
+     "arrival": 60275.4,
+     "departure": 60275.4,
+     "dwell": 0,
+     "extension": 0
+    }
+   ],
+   "sink_arrival": 60392.0,
+   "terminal": false
+  },
+  {
+   "train": "SYN0111",
+   "origin_time": 59468.4,
+   "start_delay": 20,
+   "west": [
+    {
+     "station": "BW1",
+     "stops": false,
+     "track": 1,
+     "arrival": 59589.4,
+     "departure": 59589.4,
+     "dwell": 0,
+     "extension": 0
+    }
+   ],
+   "gate_arrival": 59760.0,
+   "junction_departure": 60480.0,
+   "gate_out": 60550.7,
+   "east": [
+    {
+     "station": "AE1",
+     "stops": false,
+     "track": 1,
+     "arrival": 60755.4,
+     "departure": 60755.4,
+     "dwell": 0,
+     "extension": 0
+    },
+    {
+     "station": "AE2",
+     "stops": false,
+     "track": 1,
+     "arrival": 61022.7,
+     "departure": 61022.7,
+     "dwell": 0,
+     "extension": 0
+    }
+   ],
+   "sink_arrival": 61139.3,
+   "terminal": false
+  },
+  {
+   "train": "SYN0112",
+   "origin_time": 59310.3,
+   "start_delay": 0,
+   "west": [
+    {
+     "station": "AW2",
+     "stops": true,
+     "track": 2,
+     "arrival": 59458.3,
+     "departure": 59518.3,
+     "dwell": 1,
+     "extension": 0
+    },
+    {
+     "station": "AW1",
+     "stops": true,
+     "track": 3,
+     "arrival": 59809.9,
+     "departure": 59869.9,
+     "dwell": 1,
+     "extension": 0
+    }
+   ],
+   "gate_arrival": 60000.0,
+   "junction_departure": 60720.0,
+   "gate_out": 60790.7,
+   "east": [
+    {
+     "station": "BE1",
+     "stops": false,
+     "track": 1,
+     "arrival": 60995.4,
+     "departure": 60995.4,
+     "dwell": 0,
+     "extension": 0
+    }
+   ],
+   "sink_arrival": 61112.0,
+   "terminal": true
+  },
+  {
+   "train": "SYN0113",
+   "origin_time": 60065.4,
+   "start_delay": 9,
+   "west": [
+    {
+     "station": "AW2",
+     "stops": false,
+     "track": 1,
+     "arrival": 60191.8,
+     "departure": 60191.8,
+     "dwell": 0,
+     "extension": 0
+    },
+    {
+     "station": "AW1",
+     "stops": true,
+     "track": 2,
+     "arrival": 60469.9,
+     "departure": 60589.9,
+     "dwell": 2,
+     "extension": 0
+    }
+   ],
+   "gate_arrival": 60720.0,
+   "junction_departure": 61380.0,
+   "gate_out": 61450.7,
+   "east": [
+    {
+     "station": "BE1",
+     "stops": true,
+     "track": 2,
+     "arrival": 61666.2,
+     "departure": 61786.2,
+     "dwell": 2,
+     "extension": 0
+    }
+   ],
+   "sink_arrival": 61916.3,
+   "terminal": false
+  },
+  {
+   "train": "SYN0114",
+   "origin_time": 60671.1,
+   "start_delay": 20,
+   "west": [
+    {
+     "station": "BW1",
+     "stops": false,
+     "track": 1,
+     "arrival": 60789.4,
+     "departure": 60789.4,
+     "dwell": 0,
+     "extension": 0
+    }
+   ],
+   "gate_arrival": 60960.0,
+   "junction_departure": 61620.0,
+   "gate_out": 61690.7,
+   "east": [
+    {
+     "station": "AE1",
+     "stops": false,
+     "track": 1,
+     "arrival": 61895.4,
+     "departure": 61895.4,
+     "dwell": 0,
+     "extension": 0
+    },
+    {
+     "station": "AE2",
+     "stops": false,
+     "track": 1,
+     "arrival": 62162.7,
+     "departure": 62162.7,
+     "dwell": 0,
+     "extension": 0
+    }
+   ],
+   "sink_arrival": 62279.3,
+   "terminal": false
+  },
+  {
+   "train": "SYN0115",
+   "origin_time": 61347.0,
+   "start_delay": 0,
+   "west": [
+    {
+     "station": "AW2",
+     "stops": false,
+     "track": 1,
+     "arrival": 61476.1,
+     "departure": 61476.1,
+     "dwell": 0,
+     "extension": 0
+    },
+    {
+     "station": "AW1",
+     "stops": false,
+     "track": 1,
+     "arrival": 61743.4,
+     "departure": 61743.4,
+     "dwell": 0,
+     "extension": 0
+    }
+   ],
+   "gate_arrival": 61860.0,
+   "junction_departure": 62280.0,
+   "gate_out": 62350.7,
+   "east": [
+    {
+     "station": "BE1",
+     "stops": false,
+     "track": 1,
+     "arrival": 62555.4,
+     "departure": 62555.4,
+     "dwell": 0,
+     "extension": 0
+    }
+   ],
+   "sink_arrival": 62672.0,
+   "terminal": false
+  },
+  {
+   "train": "SYN0116",
+   "origin_time": 61745.4,
+   "start_delay": 0,
+   "west": [
+    {
+     "station": "AW2",
+     "stops": false,
+     "track": 1,
+     "arrival": 61871.8,
+     "departure": 61871.8,
+     "dwell": 0,
+     "extension": 0
+    },
+    {
+     "station": "AW1",
+     "stops": true,
+     "track": 3,
+     "arrival": 62149.9,
+     "departure": 62269.9,
+     "dwell": 2,
+     "extension": 0
+    }
+   ],
+   "gate_arrival": 62400.0,
+   "junction_departure": 62760.0,
+   "gate_out": 62830.7,
+   "east": [
+    {
+     "station": "BE1",
+     "stops": true,
+     "track": 3,
+     "arrival": 63046.2,
+     "departure": 63166.2,
+     "dwell": 2,
+     "extension": 0
+    }
+   ],
+   "sink_arrival": 63296.3,
+   "terminal": false
+  },
+  {
+   "train": "SYN0117",
+   "origin_time": 62430.3,
+   "start_delay": 2,
+   "west": [
+    {
+     "station": "AW2",
+     "stops": true,
+     "track": 2,
+     "arrival": 62578.3,
+     "departure": 62638.3,
+     "dwell": 1,
+     "extension": 0
+    },
+    {
+     "station": "AW1",
+     "stops": true,
+     "track": 2,
+     "arrival": 62929.9,
+     "departure": 62989.9,
+     "dwell": 1,
+     "extension": 0
+    }
+   ],
+   "gate_arrival": 63120.0,
+   "junction_departure": 63780.0,
+   "gate_out": 63850.7,
+   "east": [
+    {
+     "station": "BE1",
+     "stops": false,
+     "track": 1,
+     "arrival": 64055.4,
+     "departure": 64055.4,
+     "dwell": 0,
+     "extension": 0
+    }
+   ],
+   "sink_arrival": 64172.0,
+   "terminal": true
+  },
+  {
+   "train": "SYN0118",
+   "origin_time": 63758.7,
+   "start_delay": 20,
+   "west": [
+    {
+     "station": "BW1",
+     "stops": true,
+     "track": 3,
+     "arrival": 63895.9,
+     "departure": 64015.9,
+     "dwell": 2,
+     "extension": 0
+    }
+   ],
+   "gate_arrival": 64200.0,
+   "junction_departure": 64740.0,
+   "gate_out": 64810.7,
+   "east": [
+    {
+     "station": "AE1",
+     "stops": true,
+     "track": 3,
+     "arrival": 65026.2,
+     "departure": 65146.2,
+     "dwell": 2,
+     "extension": 0
+    },
+    {
+     "station": "AE2",
+     "stops": false,
+     "track": 1,
+     "arrival": 65427.0,
+     "departure": 65427.0,
+     "dwell": 0,
+     "extension": 0
+    }
+   ],
+   "sink_arrival": 65543.6,
+   "terminal": false
+  },
+  {
+   "train": "SYN0119",
+   "origin_time": 64628.4,
+   "start_delay": 0,
+   "west": [
+    {
+     "station": "BW1",
+     "stops": false,
+     "track": 1,
+     "arrival": 64749.4,
+     "departure": 64749.4,
+     "dwell": 0,
+     "extension": 0
+    }
+   ],
+   "gate_arrival": 64920.0,
+   "junction_departure": 65580.0,
+   "gate_out": 65650.7,
+   "east": [
+    {
+     "station": "AE1",
+     "stops": false,
+     "track": 1,
+     "arrival": 65855.4,
+     "departure": 65855.4,
+     "dwell": 0,
+     "extension": 0
+    },
+    {
+     "station": "AE2",
+     "stops": false,
+     "track": 1,
+     "arrival": 66122.7,
+     "departure": 66122.7,
+     "dwell": 0,
+     "extension": 0
+    }
+   ],
+   "sink_arrival": 66239.3,
+   "terminal": false
+  },
+  {
+   "train": "SYN0120",
+   "origin_time": 65310.3,
+   "start_delay": 3,
+   "west": [
+    {
+     "station": "AW2",
+     "stops": true,
+     "track": 2,
+     "arrival": 65458.3,
+     "departure": 65518.3,
+     "dwell": 1,
+     "extension": 0
+    },
+    {
+     "station": "AW1",
+     "stops": true,
+     "track": 3,
+     "arrival": 65809.9,
+     "departure": 65869.9,
+     "dwell": 1,
+     "extension": 0
+    }
+   ],
+   "gate_arrival": 66000.0,
+   "junction_departure": 66540.0,
+   "gate_out": 66610.7,
+   "east": [
+    {
+     "station": "BE1",
+     "stops": false,
+     "track": 1,
+     "arrival": 66815.4,
+     "departure": 66815.4,
+     "dwell": 0,
+     "extension": 0
+    }
+   ],
+   "sink_arrival": 66932.0,
+   "terminal": true
+  },
+  {
+   "train": "SYN0121",
+   "origin_time": 65940.3,
+   "start_delay": 0,
+   "west": [
+    {
+     "station": "BW1",
+     "stops": false,
+     "track": 1,
+     "arrival": 66069.4,
+     "departure": 66069.4,
+     "dwell": 0,
+     "extension": 0
+    }
+   ],
+   "gate_arrival": 66240.0,
+   "junction_departure": 66780.0,
+   "gate_out": 66850.7,
+   "east": [
+    {
+     "station": "AE1",
+     "stops": false,
+     "track": 1,
+     "arrival": 67055.4,
+     "departure": 67055.4,
+     "dwell": 0,
+     "extension": 0
+    },
+    {
+     "station": "AE2",
+     "stops": false,
+     "track": 1,
+     "arrival": 67322.7,
+     "departure": 67322.7,
+     "dwell": 0,
+     "extension": 0
+    }
+   ],
+   "sink_arrival": 67439.3,
+   "terminal": false
+  },
+  {
+   "train": "SYN0122",
+   "origin_time": 65967.0,
+   "start_delay": 0,
+   "west": [
+    {
+     "station": "AW2",
+     "stops": false,
+     "track": 1,
+     "arrival": 66096.1,
+     "departure": 66096.1,
+     "dwell": 0,
+     "extension": 0
+    },
+    {
+     "station": "AW1",
+     "stops": false,
+     "track": 1,
+     "arrival": 66363.4,
+     "departure": 66363.4,
+     "dwell": 0,
+     "extension": 0
+    }
+   ],
+   "gate_arrival": 66480.0,
+   "junction_departure": 67140.0,
+   "gate_out": 67210.7,
+   "east": [
+    {
+     "station": "BE1",
+     "stops": false,
+     "track": 1,
+     "arrival": 67415.4,
+     "departure": 67415.4,
+     "dwell": 0,
+     "extension": 0
+    }
+   ],
+   "sink_arrival": 67532.0,
+   "terminal": false
+  },
+  {
+   "train": "SYN0123",
+   "origin_time": 66517.8,
+   "start_delay": 0,
+   "west": [
+    {
+     "station": "AW2",
+     "stops": false,
+     "track": 1,
+     "arrival": 66636.1,
+     "departure": 66636.1,
+     "dwell": 0,
+     "extension": 0
+    },
+    {
+     "station": "AW1",
+     "stops": false,
+     "track": 1,
+     "arrival": 66903.4,
+     "departure": 66903.4,
+     "dwell": 0,
+     "extension": 0
+    }
+   ],
+   "gate_arrival": 67020.0,
+   "junction_departure": 68040.0,
+   "gate_out": 68110.7,
+   "east": [
+    {
+     "station": "BE1",
+     "stops": false,
+     "track": 1,
+     "arrival": 68315.4,
+     "departure": 68315.4,
+     "dwell": 0,
+     "extension": 0
+    }
+   ],
+   "sink_arrival": 68432.0,
+   "terminal": false
+  },
+  {
+   "train": "SYN0124",
+   "origin_time": 66747.0,
+   "start_delay": 0,
+   "west": [
+    {
+     "station": "AW2",
+     "stops": false,
+     "track": 1,
+     "arrival": 66876.1,
+     "departure": 66876.1,
+     "dwell": 0,
+     "extension": 0
+    },
+    {
+     "station": "AW1",
+     "stops": false,
+     "track": 1,
+     "arrival": 67143.4,
+     "departure": 67143.4,
+     "dwell": 0,
+     "extension": 0
+    }
+   ],
+   "gate_arrival": 67260.0,
+   "junction_departure": 67620.0,
+   "gate_out": 67690.7,
+   "east": [
+    {
+     "station": "BE1",
+     "stops": false,
+     "track": 1,
+     "arrival": 67895.4,
+     "departure": 67895.4,
+     "dwell": 0,
+     "extension": 0
+    }
+   ],
+   "sink_arrival": 68012.0,
+   "terminal": false
+  },
+  {
+   "train": "SYN0125",
+   "origin_time": 66987.0,
+   "start_delay": 0,
+   "west": [
+    {
+     "station": "AW2",
+     "stops": false,
+     "track": 1,
+     "arrival": 67116.1,
+     "departure": 67116.1,
+     "dwell": 0,
+     "extension": 0
+    },
+    {
+     "station": "AW1",
+     "stops": false,
+     "track": 1,
+     "arrival": 67383.4,
+     "departure": 67383.4,
+     "dwell": 0,
+     "extension": 0
+    }
+   ],
+   "gate_arrival": 67500.0,
+   "junction_departure": 68280.0,
+   "gate_out": 68350.7,
+   "east": [
+    {
+     "station": "BE1",
+     "stops": false,
+     "track": 1,
+     "arrival": 68555.4,
+     "departure": 68555.4,
+     "dwell": 0,
+     "extension": 0
+    }
+   ],
+   "sink_arrival": 68672.0,
+   "terminal": false
+  },
+  {
+   "train": "SYN0126",
+   "origin_time": 67085.4,
+   "start_delay": 0,
+   "west": [
+    {
+     "station": "AW2",
+     "stops": false,
+     "track": 1,
+     "arrival": 67211.8,
+     "departure": 67211.8,
+     "dwell": 0,
+     "extension": 0
+    },
+    {
+     "station": "AW1",
+     "stops": true,
+     "track": 3,
+     "arrival": 67489.9,
+     "departure": 67609.9,
+     "dwell": 2,
+     "extension": 0
+    }
+   ],
+   "gate_arrival": 67740.0,
+   "junction_departure": 68520.0,
+   "gate_out": 68590.7,
+   "east": [
+    {
+     "station": "BE1",
+     "stops": true,
+     "track": 3,
+     "arrival": 68806.2,
+     "departure": 68926.2,
+     "dwell": 2,
+     "extension": 0
+    }
+   ],
+   "sink_arrival": 69056.3,
+   "terminal": false
+  },
+  {
+   "train": "SYN0127",
+   "origin_time": 68367.9,
+   "start_delay": 17,
+   "west": [
+    {
+     "station": "BW1",
+     "stops": true,
+     "track": 2,
+     "arrival": 68515.9,
+     "departure": 68575.9,
+     "dwell": 1,
+     "extension": 0
+    }
+   ],
+   "gate_arrival": 68760.0,
+   "junction_departure": 69420.0,
+   "gate_out": 69490.7,
+   "east": [
+    {
+     "station": "AE1",
+     "stops": false,
+     "track": 1,
+     "arrival": 69695.4,
+     "departure": 69695.4,
+     "dwell": 0,
+     "extension": 0
+    },
+    {
+     "station": "AE2",
+     "stops": false,
+     "track": 1,
+     "arrival": 69962.7,
+     "departure": 69962.7,
+     "dwell": 0,
+     "extension": 0
+    }
+   ],
+   "sink_arrival": 70079.3,
+   "terminal": true
+  },
+  {
+   "train": "SYN0128",
+   "origin_time": 68345.4,
+   "start_delay": 0,
+   "west": [
+    {
+     "station": "AW2",
+     "stops": false,
+     "track": 1,
+     "arrival": 68471.8,
+     "departure": 68471.8,
+     "dwell": 0,
+     "extension": 0
+    },
+    {
+     "station": "AW1",
+     "stops": true,
+     "track": 3,
+     "arrival": 68749.9,
+     "departure": 68869.9,
+     "dwell": 2,
+     "extension": 0
+    }
+   ],
+   "gate_arrival": 69000.0,
+   "junction_departure": 69660.0,
+   "gate_out": 69730.7,
+   "east": [
+    {
+     "station": "BE1",
+     "stops": true,
+     "track": 3,
+     "arrival": 69946.2,
+     "departure": 70066.2,
+     "dwell": 2,
+     "extension": 0
+    }
+   ],
+   "sink_arrival": 70196.3,
+   "terminal": false
+  }
+ ]
+}

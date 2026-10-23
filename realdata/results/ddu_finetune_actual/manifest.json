@@ -1,0 +1,55 @@
+{
+  "episodes": 150,
+  "optimizer_updates": 31435,
+  "elapsed_seconds": 1075.8336874570014,
+  "mode": "actual",
+  "train_days": [
+    "2024-09-03",
+    "2024-09-04",
+    "2024-09-05",
+    "2024-09-06",
+    "2024-09-07",
+    "2024-09-08",
+    "2024-09-09",
+    "2024-09-10",
+    "2024-09-11",
+    "2024-09-12",
+    "2024-09-13",
+    "2024-09-14",
+    "2024-09-15",
+    "2024-09-16",
+    "2024-09-17"
+  ],
+  "validation_days": [
+    "2024-09-18",
+    "2024-09-19",
+    "2024-09-20"
+  ],
+  "test_days_untouched": [
+    "2024-09-21",
+    "2024-09-30"
+  ],
+  "seed": 7,
+  "agent_overrides": {
+    "learning_rate": 0.0001,
+    "epsilon_start": 0.2,
+    "epsilon_end": 0.02,
+    "epsilon_steps": 6000,
+    "warmup": 1024
+  },
+  "warm_start": "/home/sid/Documents/gamet/AI/checkpoints/station8_128/best_model.pt",
+  "warm_start_sha256": "d017946d1e67328faa153e29f9ae2440cb4716342b6a756c585947d8a5256d5e",
+  "initial_validation_delay": 852.4777777777795,
+  "best_validation_delay": 729.8000000000001,
+  "best_episode": 25,
+  "improved_over_warm_start": true,
+  "cuda_memory": {
+    "allocator_limit_gib": 5.5,
+    "allocated_gib": 0.06337976455688477,
+    "reserved_gib": 0.064453125,
+    "peak_allocated_gib": 0.06367063522338867,
+    "peak_reserved_gib": 0.064453125
+  },
+  "device": "cuda",
+  "resume_semantics": "Weights-only warm start; replay and optimizer restart"
+}

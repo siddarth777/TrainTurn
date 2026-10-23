@@ -1,0 +1,62 @@
+# Seven-station, double-track synthetic network around the RL-controlled junction.
+# Only the junction (J) is controlled by the Double DQN or a junction baseline;
+# the six minor stations always use the same fixed local rule (see README).
+# All infrastructure, timetables and delays are synthetic and uncalibrated.
+
+# Junction settings come from the original single-station experiment so the
+# trained checkpoint's observation, action and reward contract is unchanged.
+junction_config: ../../configs/default.yaml
+junction_overrides:
+  scenario:
+    # Shift the junction timetable so upstream journeys start after minute 0.
+    start_minute: 30
+
+network:
+  line_speed: 20.0          # m/s; equals the junction vType maxSpeed
+  acceleration: 0.8         # m/s^2; equals the junction vType
+  deceleration: 1.0         # m/s^2; equals the junction vType
+  block_length: 1000        # m; open line is split into signalled blocks
+  run_allowance: 0.08       # recovery margin added to scheduled running times
+  station_entry_length: 150 # m; turnout edge into each minor-station track
+  station_track_length: 650 # m; fits the longest (24-coach, 600 m) train
+  station_exit_length: 150  # m
+  drain_minutes: 240        # simulated minutes allowed after the junction finishes
+
+  # Traffic runs in both directions on double track. Lines A and B on each side
+  # are listed west -> east; links_m lists open-line lengths west -> east
+  # (line end -> first station -> ... -> junction gate, or junction -> ... -> line end).
+  westbound_share: 0.5      # share of services running westbound (junction corridors C/D)
+  west:
+    A: {stations: [AW2, AW1], links_m: [2000, 4000, 3000]}
+    B: {stations: [BW1], links_m: [2000, 4000]}
+  east:
+    A: {stations: [AE1, AE2], links_m: [3000, 4000, 2000]}
+    B: {stations: [BE1], links_m: [3000, 2000]}
+
+  stations:
+    # tracks = per direction; track 1 is that direction's main line
+    AW2: {name: "A-West 2", tracks: 2}
+    AW1: {name: "A-West 1", tracks: 3}
+    BW1: {name: "B-West 1", tracks: 3}
+    AE1: {name: "A-East 1", tracks: 3}
+    AE2: {name: "A-East 2", tracks: 2}
+    BE1: {name: "B-East 1", tracks: 3}
+
+  # Which minor stations each class calls at; others run through on a free track.
+  # "all" means every minor station on its path. Terminal services (passenger)
+  # end their public journey at the junction and run empty to the sink.
+  stops:
+    premium: []
+    superfast: []
+    express: [AW1, BW1, AE1, BE1]
+    passenger: all
+    freight: []
+  minor_dwell_minutes: {premium: 1, superfast: 1, express: 2, passenger: 1, freight: 1}
+
+  # Exogenous minor-station dwell extensions, sampled once per scenario.
+  dwell_extension_probability: 0.08
+  dwell_extension_max_minutes: 3
+
+evaluation:
+  test_seed: 200000
+  episodes: 3

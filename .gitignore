@@ -6,6 +6,8 @@ __pycache__/
 results/runs/
 checkpoints/**/*.pt
 !checkpoints/station8_128/best_model.pt
+!checkpoints/station8_128/initial_model.pt
+realdata/results/**/final_model.pt
 *.log
 reports/*.aux
 reports/*.out

@@ -1,0 +1,212 @@
+{
+  "network_config": "/home/sid/Documents/gamet/AI/multistation/configs/network.yaml",
+  "config": {
+    "junction": {
+      "station": {
+        "platform_count": 8,
+        "outer_capacity": 2,
+        "platforms": [],
+        "entry_minutes": 3,
+        "departure_minutes": 3,
+        "route_clearance": 1,
+        "extra_conflicts": []
+      },
+      "scenario": {
+        "trains": 128,
+        "start_minute": 30,
+        "peak_fraction": 0.7,
+        "severity": 0.7,
+        "mode": "normal",
+        "rake_links": false,
+        "priorities": {
+          "premium": 5.0,
+          "superfast": 4.0,
+          "express": 3.0,
+          "passenger": 1.0,
+          "freight": 1.5
+        }
+      },
+      "delays": {
+        "on_time_probability": 0.65,
+        "short_probability": 0.3,
+        "short_logmean": 1.8,
+        "short_logsigma": 0.6,
+        "severe_logmean": 3.8,
+        "severe_logsigma": 0.9,
+        "corridor_probability": 0.3,
+        "corridor_logmean": 2.3,
+        "corridor_logsigma": 0.7,
+        "dwell_probability": 0.15,
+        "forecast_sigma": 2.0
+      },
+      "environment": {
+        "backend": "sumo",
+        "max_platforms": 8,
+        "forecast_count": 6,
+        "horizon": 1440,
+        "hold_limit": 30,
+        "gamma": 0.99
+      },
+      "reward": {
+        "weighted_wait": 1.0,
+        "outer": 0.05,
+        "upstream": 0.2,
+        "platform_change": 2.0,
+        "unnecessary_hold": 0.2,
+        "scale": 10.0
+      },
+      "agent": {
+        "hidden": [
+          128,
+          128
+        ],
+        "learning_rate": 0.0003,
+        "batch_size": 64,
+        "replay_capacity": 50000,
+        "warmup": 1024,
+        "target_update": 100,
+        "gradient_clip": 10.0,
+        "epsilon_start": 1.0,
+        "epsilon_end": 0.05,
+        "epsilon_steps": 15000,
+        "train_every": 1,
+        "device": "cuda",
+        "threads": 1,
+        "vram_limit_gib": 5.5
+      },
+      "training": {
+        "episodes": 300,
+        "validate_every": 5,
+        "validation_episodes": 2,
+        "validation_seed": 100000,
+        "test_seed": 200000
+      },
+      "curriculum": []
+    },
+    "network": {
+      "line_speed": 20.0,
+      "acceleration": 0.8,
+      "deceleration": 1.0,
+      "block_length": 1000,
+      "run_allowance": 0.08,
+      "station_entry_length": 150,
+      "station_track_length": 650,
+      "station_exit_length": 150,
+      "drain_minutes": 240,
+      "westbound_share": 0.5,
+      "west": {
+        "A": {
+          "stations": [
+            "AW2",
+            "AW1"
+          ],
+          "links_m": [
+            2000,
+            4000,
+            3000
+          ]
+        },
+        "B": {
+          "stations": [
+            "BW1"
+          ],
+          "links_m": [
+            2000,
+            4000
+          ]
+        }
+      },
+      "east": {
+        "A": {
+          "stations": [
+            "AE1",
+            "AE2"
+          ],
+          "links_m": [
+            3000,
+            4000,
+            2000
+          ]
+        },
+        "B": {
+          "stations": [
+            "BE1"
+          ],
+          "links_m": [
+            3000,
+            2000
+          ]
+        }
+      },
+      "stations": {
+        "AW2": {
+          "name": "A-West 2",
+          "tracks": 2
+        },
+        "AW1": {
+          "name": "A-West 1",
+          "tracks": 3
+        },
+        "BW1": {
+          "name": "B-West 1",
+          "tracks": 3
+        },
+        "AE1": {
+          "name": "A-East 1",
+          "tracks": 3
+        },
+        "AE2": {
+          "name": "A-East 2",
+          "tracks": 2
+        },
+        "BE1": {
+          "name": "B-East 1",
+          "tracks": 3
+        }
+      },
+      "stops": {
+        "premium": [],
+        "superfast": [],
+        "express": [
+          "AW1",
+          "BW1",
+          "AE1",
+          "BE1"
+        ],
+        "passenger": "all",
+        "freight": []
+      },
+      "minor_dwell_minutes": {
+        "premium": 1,
+        "superfast": 1,
+        "express": 2,
+        "passenger": 1,
+        "freight": 1
+      },
+      "dwell_extension_probability": 0.08,
+      "dwell_extension_max_minutes": 3
+    }
+  },
+  "episodes": 3,
+  "seed": 200000,
+  "policies": [
+    "fcfs",
+    "timetable",
+    "priority",
+    "greedy",
+    "dqn"
+  ],
+  "checkpoint_sha256": "d017946d1e67328faa153e29f9ae2440cb4716342b6a756c585947d8a5256d5e",
+  "scenario_sha256": {
+    "junction_200000.json": "aff282f84443cebe8fa0e1e162fbc27fc1aa19d92c86843436afb056e52dd4d3",
+    "network_200000.json": "74a5fb9aafbb26cdedb81d9749c494b9530531e2645a644cfac89e1e4be279e4",
+    "junction_200001.json": "8008319e00a737a5c286625de92dfd56770ab13240a42c17e86b833382093272",
+    "network_200001.json": "e0819380bc7c0e3ffe21d91c3154e34077ff663c6f6895a2c5e9b862cebc9f43",
+    "junction_200002.json": "511840204e44b2401fd92e8603ccc2026b4f321e08a2c359cc0fe96625a1a6f7",
+    "network_200002.json": "61451aa604c4358ee1831b0e228981b1b0a5b26b8659bfc270c3d0b70d246d57"
+  },
+  "python": "3.11.13",
+  "sumo": "SUMO 1.28.0",
+  "provenance": "synthetic; uncalibrated",
+  "interpretation": "Zero-shot transfer of a junction controller trained in isolation; preliminary small sample"
+}

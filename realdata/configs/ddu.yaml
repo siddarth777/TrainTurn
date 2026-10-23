@@ -1,0 +1,76 @@
+# Real-data replay at Pt. Deen Dayal Upadhyaya Junction (DDU, formerly Mughalsarai).
+# Timetable and delays: RSTGCN Indian Railway delay dataset, September 2024
+# (Chowdhury et al., IEEE T-ITS 2026; github.com/KoyenaChowdhury/RSTGCN).
+# Train types and station coordinates: DataMeet railways (CC0).
+# Everything marked "assumption" is not in the public data.
+
+# Junction settings come from the trained 8-platform experiment so the checkpoint's
+# observation, action, horizon and reward contract is unchanged.
+junction_config: ../../configs/default.yaml
+
+raw:
+  rstgcn: ../../data/raw/rstgcn/Indian-Railway-Network-and-Delays
+  datameet: ../../data/raw/datameet
+
+station:
+  code: DDU
+  # 8 platforms (Wikipedia; 2018 CAG audit). The audit found only four can take
+  # trains of 24+ coaches. Which four is not public: assumption = platforms 1-4.
+  platform_lengths_coaches: [26, 26, 26, 26, 22, 22, 22, 22]
+
+day:
+  # Minute 0 of an episode is 00:00 on the calendar day at DDU.
+  # A train belongs to the day on which it actually reaches DDU's outer signal,
+  # within [0, last_arrival_minute). Later arrivals would not finish within the
+  # trained 1,440-minute horizon and are left out (counted in the manifest).
+  last_arrival_minute: 1380
+  # Trains that start or end their journey at DDU (assumptions):
+  originating_rake_minutes: 20   # empty rake placed this long before departure
+  terminating_clear_minutes: 15  # empty rake removed this long after arrival
+
+classes:
+  # Priority classes are those of the trained model. Rules are applied in this
+  # order to whole words of the train name and to the DataMeet type code.
+  premium_words: [RAJDHANI, RAJ, VANDE, SHATABDI, TEJAS, DURONTO]
+  premium_types: [Raj, Drnt, Shtb, JShtb]
+  passenger_words: [MEMU, DEMU, PASS, PASSENGER, LOCAL]
+  passenger_types: [Pass, MEMU, DEMU]
+  superfast_words: [SF, SFAST, SUPERFAST, HUMSAFAR, GARIB, SAMPARK, AMRIT]
+  superfast_types: [SF, GR, SKr]
+  # Indian Railways numbering: 12xxx/20xxx/22xxx are mostly superfast services.
+  superfast_number_prefixes: ["12", "20", "22"]
+  # Everything else is "express". The data contains no freight trains.
+
+# Approach side of DDU. A train's arrival corridor is the side of its previous
+# station (west = A, east = B); its departure corridor is the side of its next
+# station. Sides come from DataMeet coordinates relative to DDU (listed there
+# under its pre-2018 code MGS); stations renamed after 2016 are set here.
+coordinates_code: MGS
+side_overrides: {PRYJ: west, PCOI: west}
+
+# Train lengths in coaches (assumption; real rakes vary between about 16 and 26).
+lengths:
+  premium: 22
+  vande_bharat: 16
+  shatabdi: 18
+  superfast: 24
+  express: 24
+  passenger: 12
+
+evaluation:
+  policies: [dqn, priority, timetable, fcfs, greedy]
+
+# Fine-tuning the synthetic checkpoint on real days (chronological split, so the
+# test days are later than every training and validation day and never seen).
+finetune:
+  warm_start: ../../checkpoints/station8_128/best_model.pt
+  mode: actual                 # incoming delay = delay at the previous station (step 2)
+  train_days: [2024-09-03, 2024-09-17]
+  validation_days: [2024-09-18, 2024-09-20]   # checkpoint selection only
+  test_days: [2024-09-21, 2024-09-30]         # untouched until the final evaluation
+  passes: 10                   # each training day is seen this many times, in seeded shuffled order
+  validate_every: 5
+  seed: 7
+  # Agent overrides for fine-tuning. Exploration starts low because the network is
+  # already trained; a lower learning rate limits forgetting of the synthetic policy.
+  agent: {learning_rate: 0.0001, epsilon_start: 0.2, epsilon_end: 0.02, epsilon_steps: 6000, warmup: 1024}

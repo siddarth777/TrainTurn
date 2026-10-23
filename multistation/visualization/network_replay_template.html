@@ -1,0 +1,484 @@
+<title>Network Junction Replay</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Source+Sans+3:wght@400;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap">
+<style>
+/* Layout: a regional control-room console. Controls, a whole-line overview
+   strip, the controlled junction in close-up, then instrument panels. */
+:root {
+  --bg: #eef1f4; --panel: #fbfcfd; --ink: #0e1620; --ink-2: #46515d; --muted: #7b8591; --rule: #d9dee4;
+  --track: #8e98a3; --track-dim: #c4cbd3; --slab: #e3e8ee; --slab-ink: #5d6874;
+  --accent: #1f5fae; --accent-soft: #dbe7f6; --signal-red: #d23a35; --signal-green: #12924a; --amber: #b7791f;
+  --late-ok: #12924a; --late-mid: #b7791f; --late-bad: #c8463f;
+  --board: #13202e; --board-ink: #f2c94c; --board-dim: #8796a6; --board-rule: #223142;
+  --c-premium: #2a78d6; --c-superfast: #eb6834; --c-express: #1baf7a; --c-freight: #eda100; --c-passenger: #e87ba4;
+  --f-display: "Barlow Condensed", "Arial Narrow", sans-serif;
+  --f-body: "Source Sans 3", "Segoe UI", system-ui, sans-serif;
+  --f-mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0d1115; --panel: #151b21; --ink: #eef1f4; --ink-2: #b6bfc9; --muted: #84909b; --rule: #27303a;
+    --track: #6d7884; --track-dim: #333c46; --slab: #222a33; --slab-ink: #9aa6b2;
+    --accent: #5b9cf0; --accent-soft: #1d2d42; --signal-red: #ef5a54; --signal-green: #3cc35a; --amber: #e0a43c;
+    --late-ok: #3cc35a; --late-mid: #e0a43c; --late-bad: #ef6a63;
+    --board: #090d11; --board-rule: #1b2632;
+    --c-premium: #3987e5; --c-superfast: #d95926; --c-express: #199e70; --c-freight: #c98500; --c-passenger: #d55181;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0d1115; --panel: #151b21; --ink: #eef1f4; --ink-2: #b6bfc9; --muted: #84909b; --rule: #27303a;
+  --track: #6d7884; --track-dim: #333c46; --slab: #222a33; --slab-ink: #9aa6b2;
+  --accent: #5b9cf0; --accent-soft: #1d2d42; --signal-red: #ef5a54; --signal-green: #3cc35a; --amber: #e0a43c;
+  --late-ok: #3cc35a; --late-mid: #e0a43c; --late-bad: #ef6a63;
+  --board: #090d11; --board-rule: #1b2632;
+  --c-premium: #3987e5; --c-superfast: #d95926; --c-express: #199e70; --c-freight: #c98500; --c-passenger: #d55181;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--ink); font-family: var(--f-body); font-size: 15px; line-height: 1.5; }
+.wrap { max-width: 1320px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); padding-block: 24px 48px; display: grid; gap: 16px; }
+h1, h2 { font-family: var(--f-display); font-weight: 700; margin: 0; line-height: 1.05; text-wrap: balance; }
+h1 { font-size: clamp(1.9rem, 4vw, 2.6rem); }
+h2 { font-size: 1.15rem; font-weight: 600; letter-spacing: .02em; }
+p { margin: 0; }
+.eyebrow { font-family: var(--f-mono); font-size: .72rem; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+.intro { display: grid; gap: 6px; max-width: 78ch; }
+.intro p { color: var(--ink-2); }
+.console { background: var(--panel); border: 1px solid var(--rule); border-radius: 8px; display: grid; min-width: 0; }
+.bar { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 18px; padding: 12px 14px; border-bottom: 1px solid var(--rule); }
+.group { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.glabel, .group > label { font-family: var(--f-mono); font-size: .68rem; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+.seg { display: inline-flex; border: 1px solid var(--rule); border-radius: 5px; overflow: hidden; flex-wrap: wrap; }
+.seg button { font: inherit; font-size: .85rem; background: transparent; color: var(--ink-2); border: 0; border-right: 1px solid var(--rule); padding: 5px 11px; cursor: pointer; }
+.seg button:last-child { border-right: 0; }
+.seg button:hover { background: var(--accent-soft); }
+.seg button[aria-pressed="true"] { background: var(--accent); color: #fff; }
+select { font: inherit; font-size: .85rem; padding: 5px 8px; border: 1px solid var(--rule); border-radius: 5px; background: var(--panel); color: var(--ink); }
+.play { font: inherit; font-weight: 700; font-size: .9rem; display: inline-flex; align-items: center; gap: 8px; border: 0; border-radius: 5px; background: var(--ink); color: var(--panel); padding: 7px 14px; cursor: pointer; }
+.play svg { width: 12px; height: 12px; fill: currentColor; }
+button:focus-visible, select:focus-visible, input:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.clock { font-family: var(--f-mono); font-weight: 700; font-size: 1.6rem; letter-spacing: .04em; font-variant-numeric: tabular-nums; }
+.clock small { font-size: .7rem; font-weight: 400; color: var(--muted); letter-spacing: .08em; margin-left: 6px; }
+.scrub { display: flex; align-items: center; gap: 12px; padding: 10px 14px; border-bottom: 1px solid var(--rule); }
+.scrub input { flex: 1; min-width: 0; accent-color: var(--accent); }
+.scrub .mono { font-family: var(--f-mono); font-size: .78rem; color: var(--muted); white-space: nowrap; }
+.view-head { display: flex; justify-content: space-between; gap: 8px; flex-wrap: wrap; padding: 10px 14px 0; }
+.view-head .s { font-size: .8rem; color: var(--muted); }
+.stage { overflow-x: auto; }
+.stage canvas { display: block; width: 100%; height: auto; }
+#cv-net { min-width: 900px; }
+#cv-j { min-width: 760px; }
+.legend { display: flex; flex-wrap: wrap; gap: 6px 16px; padding: 10px 14px; border-top: 1px solid var(--rule); font-size: .82rem; color: var(--ink-2); }
+.legend span { display: inline-flex; gap: 6px; align-items: center; }
+.legend i { width: 18px; height: 6px; border-radius: 3px; display: inline-block; }
+.panels { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr) minmax(0, .95fr); gap: 16px; }
+@media (max-width: 1100px) { .panels { grid-template-columns: minmax(0,1fr) minmax(0,1fr); } .panels .meter { grid-column: 1 / -1; } }
+@media (max-width: 720px) { .panels { grid-template-columns: minmax(0,1fr); } }
+.card { background: var(--panel); border: 1px solid var(--rule); border-radius: 8px; padding: 14px; display: grid; gap: 10px; align-content: start; min-width: 0; }
+.card-head { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; flex-wrap: wrap; }
+.card-head .s { font-size: .78rem; color: var(--muted); }
+.tchip { font-family: var(--f-mono); font-weight: 700; font-size: .82rem; padding: 2px 7px; border-radius: 3px; color: #fff; }
+.dec-train { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; }
+.dec-meta { font-size: .85rem; color: var(--ink-2); }
+.dec-verdict { font-family: var(--f-display); font-size: 1.45rem; font-weight: 700; line-height: 1.1; }
+.dec-verdict .chg { font-family: var(--f-mono); font-size: .7rem; font-weight: 600; color: var(--amber); border: 1px solid currentColor; border-radius: 3px; padding: 1px 6px; vertical-align: middle; margin-left: 6px; }
+.qbars { display: grid; grid-template-columns: repeat(9, minmax(0,1fr)); gap: 4px; align-items: end; height: 90px; }
+.qcol { display: grid; grid-template-rows: 1fr auto; gap: 3px; height: 100%; }
+.qbar { align-self: end; background: var(--track-dim); border-radius: 2px 2px 0 0; min-height: 2px; }
+.qbar.ok { background: var(--track); }
+.qbar.pick { background: var(--accent); }
+.qbar.blocked { background: repeating-linear-gradient(135deg, var(--track-dim) 0 3px, transparent 3px 6px); height: 100% !important; opacity: .7; }
+.qlab { font-family: var(--f-mono); font-size: .66rem; color: var(--muted); text-align: center; }
+.qlab.pick { color: var(--accent); font-weight: 700; }
+.qlab.plan { text-decoration: underline; text-underline-offset: 2px; }
+.qnote { font-size: .78rem; color: var(--muted); }
+.qrow { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; font-size: .82rem; }
+.qrow .glabel { width: 92px; flex: none; }
+.empty { color: var(--muted); font-style: italic; font-size: .82rem; }
+.board { background: var(--board); color: var(--board-ink); border-radius: 6px; padding: 10px 12px; font-family: var(--f-mono); overflow-x: auto; }
+.board table { width: 100%; border-collapse: collapse; font-size: .78rem; min-width: 440px; }
+.board th { text-align: left; color: var(--board-dim); font-weight: 400; font-size: .64rem; letter-spacing: .1em; text-transform: uppercase; padding: 3px 6px 5px 0; }
+.board td { padding: 4px 6px 4px 0; border-top: 1px solid var(--board-rule); white-space: nowrap; font-variant-numeric: tabular-nums; }
+.board td.r, .board th.r { text-align: right; }
+.board .dot { display: inline-block; width: 7px; height: 7px; border-radius: 50%; margin-right: 6px; vertical-align: middle; }
+.board .ok { color: #9fe3a8; } .board .mid { color: #ffd479; } .board .bad { color: #ff9a8a; }
+.mgroup { display: grid; gap: 7px; }
+.mrow { display: grid; grid-template-columns: 108px minmax(0,1fr) 58px; gap: 8px; align-items: center; font-size: .84rem; }
+.mrow .nm { color: var(--ink-2); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.mrow.sel .nm { color: var(--ink); font-weight: 700; }
+.mtrack { height: 11px; background: var(--slab); border-radius: 2px; position: relative; }
+.mfill { position: absolute; inset: 0 auto 0 0; background: var(--track); border-radius: 2px; }
+.mrow.sel .mfill { background: var(--accent); }
+.mfinal { position: absolute; top: -3px; bottom: -3px; width: 2px; background: var(--ink-2); opacity: .45; }
+.mrow .v { text-align: right; font-family: var(--f-mono); font-size: .8rem; font-variant-numeric: tabular-nums; }
+.log { display: grid; font-family: var(--f-mono); font-size: .76rem; max-height: 190px; overflow-y: auto; }
+.log div { display: grid; grid-template-columns: 46px 68px minmax(0,1fr); gap: 8px; padding: 3px 0; border-top: 1px solid var(--rule); color: var(--ink-2); }
+.log div:first-child { color: var(--ink); font-weight: 600; }
+.log .chg { color: var(--amber); }
+.notes { display: grid; gap: 6px; font-size: .85rem; color: var(--muted); max-width: 100ch; }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+
+<div class="wrap">
+  <div class="intro">
+    <div class="eyebrow">SUMO replay · 7 stations · double track, both directions · only the junction is controlled by the agent</div>
+    <h1>Network Junction Replay</h1>
+    <p>The trained Double DQN, unchanged from single-station training, runs the 8-platform junction inside a seven-station, double-track line with traffic in both directions. Trains start at the four line ends, call at six minor stations that follow a fixed local rule, queue for the junction, and run on to the opposite end. Switch the controller to replay the same day with a heuristic at the junction instead.</p>
+  </div>
+
+  <div class="console">
+    <div class="bar">
+      <button class="play" id="play" type="button" aria-label="Play"><svg viewBox="0 0 12 12" id="play-ico"><path d="M2 1l9 5-9 5z"/></svg><span id="play-txt">Play</span></button>
+      <div class="clock" id="clock">00:00<small>DAY CLOCK</small></div>
+      <div class="group"><span class="glabel">Junction controller</span>
+        <div class="seg" id="seg-pol" role="group" aria-label="Junction controller">
+          <button type="button" id="p-dqn" data-p="dqn" aria-pressed="true">Trained DQN</button>
+          <button type="button" id="p-priority" data-p="priority" aria-pressed="false">Priority-aware</button>
+          <button type="button" id="p-fcfs" data-p="fcfs" aria-pressed="false">FCFS</button>
+        </div>
+      </div>
+      <div class="group"><label for="day">Day</label><select id="day"></select></div>
+      <div class="group"><label for="speed">Speed</label>
+        <select id="speed"><option value="30">30×</option><option value="60">60×</option><option value="120" selected>120×</option><option value="300">300×</option><option value="600">600×</option></select>
+      </div>
+    </div>
+    <div class="scrub"><span class="mono" id="t0">00:00</span><input type="range" id="scrub" min="0" max="1300" step="0.1" value="0" aria-label="Replay time"><span class="mono" id="t1">—</span></div>
+    <div class="view-head"><h2>Whole line</h2><span class="s">west → east · vertical spacing exaggerated · lengths schematic</span></div>
+    <div class="stage"><canvas id="cv-net" aria-label="Animated overview of the seven-station line"></canvas></div>
+    <div class="view-head"><h2>Junction close-up</h2><span class="s">the only station the agent controls</span></div>
+    <div class="stage"><canvas id="cv-j" aria-label="Animated close-up of the controlled junction"></canvas></div>
+    <div class="legend" id="legend"></div>
+  </div>
+
+  <div class="panels">
+    <div class="card">
+      <div class="card-head"><h2>Junction decision</h2><span class="s" id="dec-when">—</span></div>
+      <div class="dec-train" id="dec-train"></div>
+      <div class="dec-verdict" id="dec-verdict">—</div>
+      <div class="qbars" id="qbars" aria-label="Action values"></div>
+      <div class="qnote" id="qnote"></div>
+      <div class="qrow"><span class="glabel">Outer signal</span><span id="q-outer"></span></div>
+      <div class="qrow"><span class="glabel">Queued behind</span><span id="q-up"></span></div>
+      <div class="card-head"><h2>Decision log</h2><span class="s">newest first</span></div>
+      <div class="log" id="log"></div>
+    </div>
+    <div class="card">
+      <div class="card-head"><h2>Trains on the line</h2><span class="s">most priority-weighted lateness first</span></div>
+      <div class="board"><table id="board"></table></div>
+      <p class="qnote">Lateness is measured at the last timing point each train has passed: a minor station, the junction's outer signal, the junction exit, or the end of the line.</p>
+    </div>
+    <div class="card meter">
+      <div class="card-head"><h2>Junction waiting so far</h2><span class="s">priority × min</span></div>
+      <div class="mgroup" id="meter-j"></div>
+      <div class="card-head"><h2>Network lateness so far</h2><span class="s">priority × late min at journey end</span></div>
+      <div class="mgroup" id="meter-n"></div>
+      <p class="qnote">Bars grow through the day; the tick marks each controller's end-of-day total. Lower is better. Network lateness also includes late starts the junction cannot influence, so differences between controllers are small relative to its size.</p>
+      <div class="card-head"><h2>Totals for this day</h2></div>
+      <div id="totals" class="mgroup"></div>
+    </div>
+  </div>
+
+  <div class="notes">
+    <span>Replays were re-run in SUMO 1.28.0 with the saved checkpoint (best model from episode 135 of the 8-platform, 128-train training run). Junction and network totals match <code>multistation/results/network7_bidir_eval3</code> exactly. The agent was trained on eastbound traffic only; westbound trains appear to it as unseen corridors C/D. The days are the three held-out scenarios of that preliminary evaluation (seeds 200000–200002).</span>
+    <span>Positions are SUMO vehicle positions sampled every 10 simulated seconds, interpolated along each train's actual path. Drawn train length is its share of each track. Infrastructure, timetables, late starts and dwell extensions are synthetic and uncalibrated.</span>
+  </div>
+</div>
+
+<script>
+const D = /*__DATA__*/;
+const POLS = ["dqn", "priority", "fcfs"];
+const PNAME = { dqn: "Trained DQN", priority: "Priority-aware", fcfs: "FCFS" };
+const CLASSES = ["premium", "superfast", "express", "freight", "passenger"];
+const ACT = ["Hold","P1","P2","P3","P4","P5","P6","P7","P8"];
+const RULE = { priority: "Priority-aware rule: keeps scarce, forecast-compatible platforms for higher-priority trains, then takes the first feasible one.", fcfs: "FCFS rule: the first feasible platform in platform order; it never holds by choice." };
+const state = { day: 0, pol: "dqn", t: 0, playing: false, speed: 120 };
+const $ = id => document.getElementById(id);
+const hhmm = m => { m = Math.max(0, m); return String(Math.floor(m / 60) % 24).padStart(2, "0") + ":" + String(Math.floor(m % 60)).padStart(2, "0"); };
+const fmt = (x, d = 1) => Number(x).toLocaleString("en-US", { minimumFractionDigits: d, maximumFractionDigits: d });
+const css = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+let COL = {};
+function readColors() { COL = { track: css("--track"), dim: css("--track-dim"), slab: css("--slab"), slabInk: css("--slab-ink"), ink: css("--ink"), ink2: css("--ink-2"), muted: css("--muted"), panel: css("--panel"), red: css("--signal-red"), green: css("--signal-green"), accent: css("--accent") }; CLASSES.forEach(c => COL[c] = css("--c-" + c)); }
+
+/* ---------- geometry ---------- */
+const EDGES = D.lanes.map(l => l[0]);
+const LANE = D.lanes.map(([name, len, shape]) => ({ name, len, shape }));
+const EIX = {}; EDGES.forEach((n, i) => EIX[n] = i);
+function lerpShape(shape, f) {
+  let L = 0; const seg = [];
+  for (let i = 1; i < shape.length; i++) { const d = Math.hypot(shape[i][0] - shape[i-1][0], shape[i][1] - shape[i-1][1]); seg.push(d); L += d; }
+  let target = Math.max(0, Math.min(1, f)) * L;
+  for (let i = 1; i < shape.length; i++) { if (target <= seg[i-1] || i === shape.length - 1) { const g = seg[i-1] ? Math.min(1, target / seg[i-1]) : 0; return [shape[i-1][0] + (shape[i][0] - shape[i-1][0]) * g, shape[i-1][1] + (shape[i][1] - shape[i-1][1]) * g]; } target -= seg[i-1]; }
+  return shape[shape.length - 1];
+}
+function makePath(ixs) { let cum = 0; return ixs.map(i => { const s = { i, start: cum, len: LANE[i].len, shape: LANE[i].shape }; cum += LANE[i].len; return s; }); }
+function pointAt(path, s) {
+  if (!path.length) return null;
+  for (const seg of path) if (s <= seg.start + seg.len) return lerpShape(seg.shape, (s - seg.start) / seg.len);
+  const last = path[path.length - 1]; return last.shape[last.shape.length - 1];
+}
+function segAt(path, s) { for (const seg of path) if (s <= seg.start + seg.len) return seg; return path[path.length - 1]; }
+function bodyPoints(path, a, b) {
+  a = Math.max(0, a); const pts = [pointAt(path, a)];
+  for (const seg of path) { const end = seg.start + seg.len; if (seg.start > a && seg.start < b) pts.push(seg.shape[0]); if (end > a && end < b) pts.push(seg.shape[seg.shape.length - 1]); }
+  pts.push(pointAt(path, b)); return pts;
+}
+// Connectors: every consecutive edge pair any recorded train used, so drawn track is continuous.
+const CONN = new Set();
+D.days.forEach(d => Object.values(d.runs).forEach(r => r.paths.forEach(p => { for (let k = 1; k < p.length; k++) CONN.add(p[k-1] + ">" + p[k]); })));
+let BOUNDS = { x0: Infinity, x1: -Infinity, y0: Infinity, y1: -Infinity };
+LANE.forEach(l => l.shape.forEach(([x, y]) => { BOUNDS.x0 = Math.min(BOUNDS.x0, x); BOUNDS.x1 = Math.max(BOUNDS.x1, x); BOUNDS.y0 = Math.min(BOUNDS.y0, y); BOUNDS.y1 = Math.max(BOUNDS.y1, y); }));
+// netconvert normalizes coordinates, so locate the junction from its own lanes.
+const JB = { x0: Infinity, x1: -Infinity, y0: Infinity, y1: -Infinity };
+LANE.forEach(l => { if (/^(approach|downstream|platform|entry|exit)[A-Z0-9]$/.test(l.name)) l.shape.forEach(([x, y]) => { JB.x0 = Math.min(JB.x0, x); JB.x1 = Math.max(JB.x1, x); JB.y0 = Math.min(JB.y0, y); JB.y1 = Math.max(JB.y1, y); }); });
+const JCY = (JB.y0 + JB.y1) / 2, JCX = (JB.x0 + JB.x1) / 2;
+const STATION_POS = {};
+Object.keys(D.stations).forEach(sid => { const e = LANE[EIX[sid + "_epf1"]], w = LANE[EIX[sid + "_wpf1"]]; if (e && w) { const [x, y1] = lerpShape(e.shape, .5), [, y2] = lerpShape(w.shape, .5); STATION_POS[sid] = [x, (y1 + y2) / 2, y1, y2]; } });
+
+/* ---------- per-run prep ---------- */
+function prep(day) {
+  if (day._prep) return day._prep;
+  const P = {};
+  for (const pol of POLS) {
+    const run = day.runs[pol];
+    const paths = run.paths.map(makePath);
+    const tracks = run.tracks.map(flat => { const a = []; for (let k = 0; k < flat.length; k += 2) a.push([flat[k], flat[k+1]]); return a; });
+    const minuteIdx = {}; run.minutes.forEach((m, k) => minuteIdx[m[0]] = k);
+    // timing events per train: [actual s, scheduled s]
+    const timing = day.trains.map((tr, i) => {
+      const plan = day.plans[i], act = run.actual[i], ev = [];
+      plan[7].forEach(([sid, , , dep]) => { const t = act[5][sid]; if (t && t[1] != null) ev.push([t[1], dep]); });
+      if (act[0] != null) ev.push([act[0] * 60, plan[2]]);
+      if (act[3] != null) ev.push([act[3] * 60, plan[4]]);
+      if (act[4] != null) ev.push([act[4], plan[5]]);
+      return ev.sort((a, b) => a[0] - b[0]);
+    });
+    // public journey end (terminal services end at the junction)
+    const ends = day.trains.map((tr, i) => { const plan = day.plans[i], act = run.actual[i];
+      if (plan[6]) return act[0] != null ? [act[0] * 60, (act[0] * 60 - plan[2]) / 60] : null;
+      return act[4] != null ? [act[4], (act[4] - plan[5]) / 60] : null; });
+    let end = 0; tracks.forEach(t => { if (t.length) end = Math.max(end, t[t.length - 1][0]); });
+    P[pol] = { paths, tracks, minuteIdx, timing, ends, end };
+  }
+  let start = Infinity; P.dqn.tracks.forEach(t => { if (t.length) start = Math.min(start, t[0][0]); });
+  P.start = start;
+  day._prep = P; return P;
+}
+function minuteRow(day, pol, minute) {
+  const run = day.runs[pol], P = prep(day)[pol];
+  let m = Math.floor(minute); const first = run.minutes[0][0];
+  if (m < first) return null;
+  while (m >= first && P.minuteIdx[m] === undefined) m--;
+  return run.minutes[P.minuteIdx[m]];
+}
+function cumJ(day, pol, minute) { const r = minuteRow(day, pol, minute); return r ? r[4] : 0; }
+function cumN(day, pol, tSec) { const P = prep(day)[pol]; let s = 0; P.ends.forEach((e, i) => { if (e && e[0] <= tSec) s += day.trains[i][2] * Math.max(0, e[1]); }); return s; }
+function position(day, pol, i, tSec) {
+  const tr = prep(day)[pol].tracks[i];
+  if (!tr.length || tSec < tr[0][0] || tSec > tr[tr.length - 1][0]) return null;
+  let lo = 0, hi = tr.length - 1;
+  while (lo < hi) { const mid = (lo + hi + 1) >> 1; if (tr[mid][0] <= tSec) lo = mid; else hi = mid - 1; }
+  if (lo === tr.length - 1) return tr[lo][1];
+  const a = tr[lo], b = tr[lo + 1]; return a[1] + (b[1] - a[1]) * (tSec - a[0]) / (b[0] - a[0]);
+}
+function lateness(day, pol, i, tSec) {
+  const ev = prep(day)[pol].timing[i]; let last = null;
+  for (const e of ev) { if (e[0] <= tSec) last = e; else break; }
+  return last ? (last[0] - last[1]) / 60 : day.plans[i][1];
+}
+
+/* ---------- canvases ---------- */
+function makeView(id, bbox, opts) {
+  const cv = $(id), ctx = cv.getContext("2d");
+  const v = { cv, ctx, bbox, opts, W: 0, H: 0, sx: 1, sy: 1 };
+  v.resize = () => {
+    const w = Math.max(opts.minW, cv.getBoundingClientRect().width || 1000), dpr = Math.min(2, window.devicePixelRatio || 1);
+    v.sx = (w - opts.padL - opts.padR) / (bbox.x1 - bbox.x0);
+    v.sy = Math.min(v.sx * opts.yExag, opts.maxH / (bbox.y1 - bbox.y0));
+    const h = Math.round(opts.padT + opts.padB + (bbox.y1 - bbox.y0) * v.sy);
+    v.W = w; v.H = h; cv.width = Math.round(w * dpr); cv.height = Math.round(h * dpr); cv.style.height = h + "px";
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  };
+  v.X = x => opts.padL + (x - bbox.x0) * v.sx;
+  v.Y = y => opts.padT + (bbox.y1 - y) * v.sy;   // SUMO y points up
+  return v;
+}
+const NET = makeView("cv-net", { x0: BOUNDS.x0, x1: BOUNDS.x1, y0: BOUNDS.y0, y1: BOUNDS.y1 }, { padL: 14, padR: 14, padT: 34, padB: 30, yExag: 2.4, maxH: 260, minW: 900 });
+const JV = makeView("cv-j", { x0: JB.x0 - 320, x1: JB.x1 + 60, y0: JB.y0 - 40, y1: JB.y1 + 40 }, { padL: 10, padR: 10, padT: 18, padB: 18, yExag: 1, maxH: 520, minW: 760 });
+function inBox(v, shape) { const b = v.bbox; return shape.some(([x, y]) => x >= b.x0 - 50 && x <= b.x1 + 50 && y >= b.y0 - 50 && y <= b.y1 + 50); }
+
+function drawTrack(v, occ) {
+  const { ctx, X, Y } = v;
+  ctx.lineCap = "round"; ctx.lineJoin = "round"; ctx.strokeStyle = COL.track; ctx.lineWidth = v === NET ? 1.3 : 1.6;
+  LANE.forEach(l => { if (!inBox(v, l.shape)) return; ctx.beginPath(); ctx.moveTo(X(l.shape[0][0]), Y(l.shape[0][1])); l.shape.slice(1).forEach(([x, y]) => ctx.lineTo(X(x), Y(y))); ctx.stroke(); });
+  CONN.forEach(k => { const [a, b] = k.split(">").map(Number); const p = LANE[a].shape, q = LANE[b].shape; if (!inBox(v, p) && !inBox(v, q)) return; ctx.beginPath(); ctx.moveTo(X(p[p.length-1][0]), Y(p[p.length-1][1])); ctx.lineTo(X(q[0][0]), Y(q[0][1])); ctx.stroke(); });
+  if (v === JV) {
+    const slabH = Math.max(7, 20 * v.sy), gap = Math.max(4, 8 * v.sy), day = D.days[state.day];
+    D.platforms.forEach(([id, coaches]) => {
+      const sh = LANE[EIX["platform" + id]].shape, x0 = X(sh[0][0]) + 12, x1 = X(sh[sh.length-1][0]) - 12, y = Y(sh[0][1]) + gap;
+      const who = occ ? occ[id - 1] : -1;
+      ctx.fillStyle = COL.slab; ctx.fillRect(x0, y, x1 - x0, slabH);
+      if (who >= 0) { const c = COL[day.trains[who][1]]; ctx.globalAlpha = .22; ctx.fillStyle = c; ctx.fillRect(x0, y, x1 - x0, slabH); ctx.globalAlpha = 1; ctx.strokeStyle = c; ctx.lineWidth = 1; ctx.strokeRect(x0 + .5, y + .5, x1 - x0 - 1, slabH - 1); }
+      ctx.font = `600 ${Math.max(9, Math.min(12, 16 * v.sy))}px "JetBrains Mono", monospace`; ctx.textBaseline = "middle"; ctx.textAlign = "left"; ctx.fillStyle = COL.slabInk;
+      ctx.fillText("PF " + id, x0 + 6, y + slabH / 2 + .5);
+      ctx.textAlign = "right"; ctx.fillStyle = COL.muted; ctx.font = `${Math.max(8.5, Math.min(11, 14 * v.sy))}px "JetBrains Mono", monospace`;
+      ctx.fillText(who >= 0 ? `${day.trains[who][0]} · ${coaches} coaches` : `${coaches} coaches`, x1 - 6, y + slabH / 2 + .5);
+    });
+  } else {
+    ctx.font = `600 13px "Barlow Condensed", "Arial Narrow", sans-serif`; ctx.textAlign = "center"; ctx.fillStyle = COL.ink2; ctx.textBaseline = "alphabetic";
+    Object.entries(STATION_POS).forEach(([sid, [x, , y1, y2]]) => { const up = y1 > JCY; const yy = up ? Math.max(y1, y2) : Math.min(y1, y2); ctx.fillText(`${D.stations[sid]} (${sid})`, X(x), up ? Y(yy) - 26 : Y(yy) + 36); });
+    ctx.fillStyle = COL.accent; ctx.font = `700 14px "Barlow Condensed", "Arial Narrow", sans-serif`;
+    ctx.fillText("JUNCTION · RL-CONTROLLED", X(JCX), 16);
+    ctx.strokeStyle = COL.accent; ctx.setLineDash([4, 3]); ctx.lineWidth = 1; ctx.strokeRect(X(JB.x0) - 4, Y(JB.y1) - 6, X(JB.x1) - X(JB.x0) + 8, Y(JB.y0) - Y(JB.y1) + 12); ctx.setLineDash([]);
+    ctx.font = `600 11px "JetBrains Mono", monospace`; ctx.fillStyle = COL.muted; ctx.textAlign = "left";
+    const yOf = n => { const l = LANE[EIX[n]]; return l ? l.shape[0][1] : 0; };
+    const firstW = name => EDGES.find(e => e.startsWith(name));
+    [["A eastbound ▸", "lnWAe0_0", -6], ["◂ A westbound", "lnWAw0_0", -6], ["B eastbound ▸", "lnWBe0_0", 14], ["◂ B westbound", "lnWBw0_0", 14]].forEach(([t, e, dy]) => { if (EIX[e] !== undefined) ctx.fillText(t, X(BOUNDS.x0), Y(yOf(e)) + dy); });
+  }
+}
+function drawSignals(row) {
+  const day = D.days[state.day], outer = row ? row[1] : [], { ctx, X, Y } = JV;
+  ["A", "B", "C", "D"].forEach(c => {
+    if (EIX["approach" + c] === undefined) return;
+    const g = LANE[EIX["approach" + c]].shape[0], red = outer.some(i => day.trains[i][4] === c);
+    const x = X(g[0]), y = Y(g[1]) + (g[1] > JCY ? -12 : 22);
+    ctx.fillStyle = COL.panel; ctx.strokeStyle = COL.ink2; ctx.lineWidth = 1; ctx.beginPath(); ctx.roundRect(x - 6, y - 15, 12, 20, 3); ctx.fill(); ctx.stroke();
+    ctx.fillStyle = red ? COL.red : COL.dim; ctx.beginPath(); ctx.arc(x, y - 9, 3.5, 0, 7); ctx.fill();
+    ctx.fillStyle = red ? COL.dim : COL.green; ctx.beginPath(); ctx.arc(x, y - 1, 3.5, 0, 7); ctx.fill();
+  });
+}
+function drawTrains(v, tSec) {
+  const day = D.days[state.day], P = prep(day)[state.pol], { ctx, X, Y } = v;
+  const net = v === NET; ctx.lineCap = "round";
+  day.trains.forEach((tr, i) => {
+    const off = position(day, state.pol, i, tSec); if (off == null) return;
+    const path = P.paths[i], len = tr[6] * 25, pts = bodyPoints(path, off - len, off);
+    if (!pts[0] || !pts.every(p => p)) return;
+    if (!net && !pts.some(([x, y]) => x >= v.bbox.x0 && x <= v.bbox.x1 && y >= v.bbox.y0 && y <= v.bbox.y1)) return;
+    ctx.beginPath(); ctx.moveTo(X(pts[0][0]), Y(pts[0][1])); pts.slice(1).forEach(([x, y]) => ctx.lineTo(X(x), Y(y)));
+    ctx.strokeStyle = COL.panel; ctx.lineWidth = net ? 7 : 11; ctx.stroke();
+    ctx.strokeStyle = COL[tr[1]]; ctx.lineWidth = net ? 4 : 7; ctx.stroke();
+    const head = pts[pts.length - 1]; ctx.fillStyle = COL.ink; ctx.beginPath(); ctx.arc(X(head[0]), Y(head[1]), net ? 1.8 : 2.4, 0, 7); ctx.fill();
+    if (!net) {
+      const seg = segAt(path, off), name = EDGES[seg.i];
+      if (/^-?platform/.test(name) || name.startsWith("approach")) {
+        const mid = pointAt(path, Math.max(0, off - len / 2));
+        ctx.font = `600 10px "JetBrains Mono", monospace`; ctx.fillStyle = COL.ink; ctx.textAlign = "center"; ctx.textBaseline = "alphabetic";
+        ctx.fillText(tr[0].replace("SYN", ""), X(mid[0]), Y(mid[1]) - 8);
+      }
+    } else {
+      const late = lateness(day, state.pol, i, tSec);
+      if (late > 5) { ctx.fillStyle = COL.red; ctx.beginPath(); ctx.arc(X(head[0]), Y(head[1]) - 7, 2.2, 0, 7); ctx.fill(); }
+    }
+  });
+}
+function draw() {
+  if (!COL.track) readColors();
+  const day = D.days[state.day], row = minuteRow(day, state.pol, state.t / 60);
+  for (const v of [NET, JV]) { v.ctx.clearRect(0, 0, v.W, v.H); drawTrack(v, row ? row[3] : null); }
+  drawSignals(row); drawTrains(NET, state.t); drawTrains(JV, state.t);
+}
+
+/* ---------- panels ---------- */
+function chip(i) { const tr = D.days[state.day].trains[i]; return `<span class="tchip" style="background:var(--c-${tr[1]})">${tr[0]}</span>`; }
+function where(day, i, tSec) {
+  const off = position(day, state.pol, i, tSec); if (off == null) return null;
+  const name = EDGES[segAt(prep(day)[state.pol].paths[i], off).i];
+  let m;
+  if ((m = name.match(/^([A-Z]{2}\d)_([ew])(in|pf|out)(\d)$/))) return `${m[1]} ${m[2] === "e" ? "EB" : "WB"} track ${m[4]}`;
+  if ((m = name.match(/^-?platform(\d)$/))) return `Junction PF ${m[1]}`;
+  if (/^-?(entry|exit)\d$/.test(name)) return "Junction throat";
+  if (/^approach/.test(name)) return "Junction approach";
+  if (/^downstream/.test(name)) return "Leaving junction";
+  if ((m = name.match(/^ln([WE])([AB])([ew])/))) { const row = minuteRow(day, state.pol, tSec / 60); if (row && (row[1].includes(i) || row[2].includes(i))) return row[1].includes(i) ? "At outer signal" : "Queued for junction"; return `Line ${m[2]} ${m[1] === "W" ? "west" : "east"}, ${m[3] === "e" ? "EB" : "WB"}`; }
+  return name;
+}
+let lastPanel = "";
+function panels() {
+  const day = D.days[state.day], run = day.runs[state.pol], minute = state.t / 60;
+  const key = state.day + state.pol + Math.floor(minute * 4); if (key === lastPanel) return; lastPanel = key;
+  let k = -1; for (let j = 0; j < run.decisions.length; j++) { if (run.decisions[j][0] <= minute) k = j; else break; }
+  const dec = run.decisions[k];
+  if (dec) {
+    const [t, ti, act, mask, waiting, q] = dec, tr = day.trains[ti];
+    $("dec-when").textContent = `at ${hhmm(t)} · decision ${k + 1} of ${run.decisions.length}`;
+    $("dec-train").innerHTML = `${chip(ti)}<span class="dec-meta">${tr[1]} · priority ${tr[2]} · ${tr[6]} coaches · ${"AB".includes(tr[4]) ? "eastbound" : "westbound"} (corridor ${tr[4]} → ${tr[5]}) · waited ${fmt(waiting, 0)} min · planned PF ${tr[3]}</span>`;
+    $("dec-verdict").innerHTML = act === 0 ? "Hold at outer signal" : `Route to platform ${act}${act !== tr[3] ? '<span class="chg">PLATFORM CHANGE</span>' : ""}`;
+    const valid = ACT.map((_, a) => !!(mask & (1 << a)));
+    if (q) {
+      const vs = q.filter((_, a) => valid[a]), lo = Math.min(...vs), span = Math.max(1e-6, Math.max(...vs) - lo);
+      $("qbars").innerHTML = ACT.map((lab, a) => `<div class="qcol" title="${lab}: ${valid[a] ? "Q = " + q[a].toFixed(3) : "masked"}"><div class="qbar ${valid[a] ? (a === act ? "pick" : "ok") : "blocked"}" style="height:${valid[a] ? (12 + 88 * (q[a] - lo) / span).toFixed(0) : 100}%"></div><div class="qlab ${a === act ? "pick" : ""} ${a === tr[3] ? "plan" : ""}">${lab}</div></div>`).join("");
+      $("qnote").textContent = "Bars are the network's Q-values for allowed actions, scaled lowest to highest. Hatched actions are masked by the safety layer; the underlined label is the planned platform.";
+    } else {
+      $("qbars").innerHTML = ACT.map((lab, a) => `<div class="qcol"><div class="qbar ${valid[a] ? (a === act ? "pick" : "ok") : "blocked"}" style="height:${valid[a] ? (a === act ? 100 : 30) : 100}%"></div><div class="qlab ${a === act ? "pick" : ""} ${a === tr[3] ? "plan" : ""}">${lab}</div></div>`).join("");
+      $("qnote").textContent = RULE[state.pol] + " Hatched actions are masked.";
+    }
+  } else { $("dec-when").textContent = "—"; $("dec-train").innerHTML = '<span class="empty">No train has reached the junction yet.</span>'; $("dec-verdict").textContent = "—"; $("qbars").innerHTML = ""; $("qnote").textContent = ""; }
+  const row = minuteRow(day, state.pol, minute);
+  $("q-outer").innerHTML = row && row[1].length ? row[1].map(chip).join(" ") : '<span class="empty">clear</span>';
+  $("q-up").innerHTML = row && row[2].length ? row[2].map(chip).join(" ") : '<span class="empty">none</span>';
+  const lg = [];
+  for (let j = k; j >= 0 && lg.length < 12; j--) { const [t, ti, act] = run.decisions[j], tr = day.trains[ti]; lg.push(`<div><span>${hhmm(t)}</span><span>${tr[0]}</span><span class="${act && act !== tr[3] ? "chg" : ""}">${act ? `→ PF ${act}${act !== tr[3] ? ` (planned ${tr[3]})` : ""}` : "hold"}</span></div>`); }
+  $("log").innerHTML = lg.join("") || '<div><span></span><span></span><span class="empty">No decisions yet</span></div>';
+  // board
+  const rows = [];
+  day.trains.forEach((tr, i) => { const w = where(day, i, state.t); if (!w) return; const late = lateness(day, state.pol, i, state.t); rows.push({ i, tr, w, late, score: tr[2] * Math.max(0, late) }); });
+  rows.sort((a, b) => b.score - a.score || b.late - a.late);
+  $("board").innerHTML = `<thead><tr><th>Train</th><th>Class</th><th>Dir</th><th>Now</th><th class="r">Late</th></tr></thead><tbody>` +
+    (rows.slice(0, 10).map(r => `<tr><td><span class="dot" style="background:var(--c-${r.tr[1]})"></span>${r.tr[0]}</td><td>${r.tr[1]}</td><td>${"AB".includes(r.tr[4]) ? "EB" : "WB"}</td><td>${r.w}</td><td class="r ${r.late <= 1 ? "ok" : r.late <= 5 ? "mid" : "bad"}">${r.late >= 0 ? "+" : ""}${fmt(r.late)}</td></tr>`).join("") || `<tr><td colspan="5" style="color:var(--board-dim)">No trains on the line.</td></tr>`) + `</tbody>` +
+    `<tfoot><tr><td colspan="5" style="color:var(--board-dim);padding-top:6px">${rows.length} train${rows.length === 1 ? "" : "s"} on the line</td></tr></tfoot>`;
+  // meters
+  const meter = (id, fn, finals) => { const max = Math.max(...finals, 1e-9); $(id).innerHTML = POLS.map((p, n) => { const v = fn(p); return `<div class="mrow ${p === state.pol ? "sel" : ""}"><span class="nm">${PNAME[p]}</span><div class="mtrack"><div class="mfill" style="width:${(v / max * 100).toFixed(1)}%"></div><div class="mfinal" style="left:${(finals[n] / max * 100).toFixed(1)}%"></div></div><span class="v">${fmt(v, 0)}</span></div>`; }).join(""); };
+  meter("meter-j", p => cumJ(day, p, minute), POLS.map(p => day.runs[p].metrics.j_weighted_station_delay));
+  meter("meter-n", p => cumN(day, p, state.t), POLS.map(p => day.runs[p].metrics.network_weighted_lateness));
+}
+function totals() {
+  const day = D.days[state.day];
+  $("totals").innerHTML = `<div class="mrow" style="grid-template-columns:108px repeat(3,minmax(0,1fr))"><span class="nm"></span>${POLS.map(p => `<span class="v" style="text-align:right;${p === state.pol ? "font-weight:700;color:var(--ink)" : ""}">${PNAME[p].replace("-aware", "")}</span>`).join("")}</div>` +
+    [["Junction wait", "j_weighted_station_delay", 0], ["Network late", "network_weighted_lateness", 0], ["Mean late, min", "mean_public_lateness", 2], ["On time (≤5)", "on_time_share", 2], ["PF changes", "j_platform_changes", 0]].map(([lab, key, d]) => {
+      const vs = POLS.map(p => day.runs[p].metrics[key]), best = key === "on_time_share" ? Math.max(...vs) : key === "j_platform_changes" ? null : Math.min(...vs);
+      return `<div class="mrow" style="grid-template-columns:108px repeat(3,minmax(0,1fr))"><span class="nm">${lab}</span>${vs.map((v, n) => `<span class="v" style="text-align:right;${v === best ? "font-weight:700;color:var(--accent)" : ""}">${key === "on_time_share" ? fmt(v * 100, 0) + "%" : fmt(v, d)}</span>`).join("")}</div>`;
+    }).join("");
+}
+
+/* ---------- controls ---------- */
+$("legend").innerHTML = CLASSES.map(c => `<span><i style="background:var(--c-${c})"></i>${c}</span>`).join("") +
+  `<span><i style="background:var(--signal-red);width:6px;height:6px;border-radius:50%"></i>red dot on the overview: more than 5 min late</span><span style="margin-left:auto">Junction signal lamps (west: eastbound A/B, east: westbound C/D) show red while a train from that corridor waits at the outer signal</span>`;
+D.days.forEach((d, i) => { const o = document.createElement("option"); o.value = i; o.textContent = `Test day · scenario ${d.seed}`; $("day").appendChild(o); });
+function endSec() { return prep(D.days[state.day])[state.pol].end + 60; }
+function busyStart(day) { const start = prep(day).start; let best = start, n = -1; for (let t = start; t < start + 9 * 3600; t += 300) { let c = 0; day.trains.forEach((_, i) => { if (position(day, "dqn", i, t) != null) c++; }); if (c > n) { n = c; best = t; } } return best - 300; }
+function syncUI() {
+  const e = endSec();
+  $("scrub").max = (e / 60).toFixed(0); $("scrub").value = (state.t / 60).toFixed(1); $("t1").textContent = hhmm(e / 60);
+  $("clock").innerHTML = `${hhmm(state.t / 60)}<small>DAY CLOCK</small>`;
+  $("play-txt").textContent = state.playing ? "Pause" : "Play"; $("play").setAttribute("aria-label", state.playing ? "Pause" : "Play");
+  $("play-ico").innerHTML = state.playing ? '<path d="M2 1h3v10H2zM7 1h3v10H7z"/>' : '<path d="M2 1l9 5-9 5z"/>';
+}
+let lastTs = null;
+function loop(ts) {
+  if (state.playing) { if (lastTs !== null) state.t += Math.min(.1, (ts - lastTs) / 1000) * state.speed; if (state.t >= endSec()) { state.t = endSec(); state.playing = false; } }
+  lastTs = ts; draw(); panels(); syncUI(); requestAnimationFrame(loop);
+}
+function resize() { NET.resize(); JV.resize(); draw(); }
+$("play").addEventListener("click", () => { if (state.t >= endSec()) state.t = prep(D.days[state.day]).start; state.playing = !state.playing; });
+$("scrub").addEventListener("input", e => { state.t = +e.target.value * 60; lastPanel = ""; });
+$("speed").addEventListener("change", e => state.speed = +e.target.value);
+$("day").addEventListener("change", e => { state.day = +e.target.value; state.t = busyStart(D.days[state.day]); lastPanel = ""; totals(); });
+document.querySelectorAll("#seg-pol button").forEach(b => b.addEventListener("click", () => { state.pol = b.dataset.p; lastPanel = ""; document.querySelectorAll("#seg-pol button").forEach(x => x.setAttribute("aria-pressed", x === b)); totals(); }));
+document.addEventListener("keydown", e => { if (e.code === "Space" && !/INPUT|SELECT|BUTTON/.test(e.target.tagName)) { e.preventDefault(); $("play").click(); } });
+const recolor = () => { readColors(); lastPanel = ""; };
+matchMedia("(prefers-color-scheme: dark)").addEventListener?.("change", recolor);
+new MutationObserver(recolor).observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
+window.addEventListener("resize", resize);
+if (document.fonts?.ready) document.fonts.ready.then(() => draw());
+function start(saved) {
+  state.day = saved.day ?? 0; state.pol = saved.pol ?? "dqn"; state.t = saved.t ?? busyStart(D.days[state.day]);
+  $("day").value = state.day; document.querySelectorAll("#seg-pol button").forEach(x => x.setAttribute("aria-pressed", x.dataset.p === state.pol));
+  state.playing = !matchMedia("(prefers-reduced-motion: reduce)").matches;
+  readColors(); resize(); totals(); requestAnimationFrame(loop);
+}
+window.claude?.hot?.snapshot?.(() => ({ day: state.day, pol: state.pol, t: state.t }));
+window.claude?.hot?.ready ? window.claude.hot.ready(start) : start(window.claude?.hot?.data ?? {});
+</script>

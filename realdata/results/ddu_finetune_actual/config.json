@@ -1,0 +1,203 @@
+{
+  "junction_config": "../../configs/default.yaml",
+  "raw": {
+    "rstgcn": "/home/sid/Documents/gamet/AI/data/raw/rstgcn/Indian-Railway-Network-and-Delays",
+    "datameet": "/home/sid/Documents/gamet/AI/data/raw/datameet"
+  },
+  "station": {
+    "code": "DDU",
+    "platform_lengths_coaches": [
+      26,
+      26,
+      26,
+      26,
+      22,
+      22,
+      22,
+      22
+    ]
+  },
+  "day": {
+    "last_arrival_minute": 1380,
+    "originating_rake_minutes": 20,
+    "terminating_clear_minutes": 15
+  },
+  "classes": {
+    "premium_words": [
+      "RAJDHANI",
+      "RAJ",
+      "VANDE",
+      "SHATABDI",
+      "TEJAS",
+      "DURONTO"
+    ],
+    "premium_types": [
+      "Raj",
+      "Drnt",
+      "Shtb",
+      "JShtb"
+    ],
+    "passenger_words": [
+      "MEMU",
+      "DEMU",
+      "PASS",
+      "PASSENGER",
+      "LOCAL"
+    ],
+    "passenger_types": [
+      "Pass",
+      "MEMU",
+      "DEMU"
+    ],
+    "superfast_words": [
+      "SF",
+      "SFAST",
+      "SUPERFAST",
+      "HUMSAFAR",
+      "GARIB",
+      "SAMPARK",
+      "AMRIT"
+    ],
+    "superfast_types": [
+      "SF",
+      "GR",
+      "SKr"
+    ],
+    "superfast_number_prefixes": [
+      "12",
+      "20",
+      "22"
+    ]
+  },
+  "coordinates_code": "MGS",
+  "side_overrides": {
+    "PRYJ": "west",
+    "PCOI": "west"
+  },
+  "lengths": {
+    "premium": 22,
+    "vande_bharat": 16,
+    "shatabdi": 18,
+    "superfast": 24,
+    "express": 24,
+    "passenger": 12
+  },
+  "evaluation": {
+    "policies": [
+      "dqn",
+      "priority",
+      "timetable",
+      "fcfs",
+      "greedy"
+    ]
+  },
+  "finetune": {
+    "warm_start": "/home/sid/Documents/gamet/AI/checkpoints/station8_128/best_model.pt",
+    "mode": "actual",
+    "train_days": [
+      "2024-09-03",
+      "2024-09-17"
+    ],
+    "validation_days": [
+      "2024-09-18",
+      "2024-09-20"
+    ],
+    "test_days": [
+      "2024-09-21",
+      "2024-09-30"
+    ],
+    "passes": 10,
+    "validate_every": 5,
+    "seed": 7,
+    "agent": {
+      "learning_rate": 0.0001,
+      "epsilon_start": 0.2,
+      "epsilon_end": 0.02,
+      "epsilon_steps": 6000,
+      "warmup": 1024
+    }
+  },
+  "junction": {
+    "station": {
+      "platform_count": 8,
+      "outer_capacity": 2,
+      "platforms": [],
+      "entry_minutes": 3,
+      "departure_minutes": 3,
+      "route_clearance": 1,
+      "extra_conflicts": []
+    },
+    "scenario": {
+      "trains": 128,
+      "start_minute": 0,
+      "peak_fraction": 0.7,
+      "severity": 0.7,
+      "mode": "normal",
+      "rake_links": false,
+      "priorities": {
+        "premium": 5.0,
+        "superfast": 4.0,
+        "express": 3.0,
+        "passenger": 1.0,
+        "freight": 1.5
+      }
+    },
+    "delays": {
+      "on_time_probability": 0.65,
+      "short_probability": 0.3,
+      "short_logmean": 1.8,
+      "short_logsigma": 0.6,
+      "severe_logmean": 3.8,
+      "severe_logsigma": 0.9,
+      "corridor_probability": 0.3,
+      "corridor_logmean": 2.3,
+      "corridor_logsigma": 0.7,
+      "dwell_probability": 0.15,
+      "forecast_sigma": 2.0
+    },
+    "environment": {
+      "backend": "sumo",
+      "max_platforms": 8,
+      "forecast_count": 6,
+      "horizon": 1440,
+      "hold_limit": 30,
+      "gamma": 0.99
+    },
+    "reward": {
+      "weighted_wait": 1.0,
+      "outer": 0.05,
+      "upstream": 0.2,
+      "platform_change": 2.0,
+      "unnecessary_hold": 0.2,
+      "scale": 10.0
+    },
+    "agent": {
+      "hidden": [
+        128,
+        128
+      ],
+      "learning_rate": 0.0001,
+      "batch_size": 64,
+      "replay_capacity": 50000,
+      "warmup": 1024,
+      "target_update": 100,
+      "gradient_clip": 10.0,
+      "epsilon_start": 0.2,
+      "epsilon_end": 0.02,
+      "epsilon_steps": 6000,
+      "train_every": 1,
+      "device": "cuda",
+      "threads": 1,
+      "vram_limit_gib": 5.5
+    },
+    "training": {
+      "episodes": 300,
+      "validate_every": 5,
+      "validation_episodes": 2,
+      "validation_seed": 100000,
+      "test_seed": 200000
+    },
+    "curriculum": []
+  },
+  "source": "/home/sid/Documents/gamet/AI/realdata/configs/ddu.yaml"
+}

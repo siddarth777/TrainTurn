@@ -1,0 +1,43 @@
+{
+  "config": "/home/sid/Documents/gamet/AI/realdata/configs/ddu.yaml",
+  "scenarios": "realdata/data/ddu_sep2024",
+  "days": [
+    "2024-09-21",
+    "2024-09-22",
+    "2024-09-23",
+    "2024-09-24",
+    "2024-09-25",
+    "2024-09-26",
+    "2024-09-27",
+    "2024-09-28",
+    "2024-09-29",
+    "2024-09-30"
+  ],
+  "modes": [
+    "planned",
+    "actual",
+    "observed"
+  ],
+  "policies": [
+    "dqn",
+    "finetuned",
+    "finetuned_final",
+    "fcfs",
+    "timetable",
+    "priority",
+    "greedy"
+  ],
+  "checkpoint_sha256": "d017946d1e67328faa153e29f9ae2440cb4716342b6a756c585947d8a5256d5e",
+  "checkpoints": {
+    "dqn": "checkpoints/station8_128/best_model.pt",
+    "finetuned": "realdata/results/ddu_finetune_actual/best_model.pt",
+    "finetuned_final": "realdata/results/ddu_finetune_actual/final_model.pt"
+  },
+  "checkpoint_sha256s": {
+    "dqn": "d017946d1e67328faa153e29f9ae2440cb4716342b6a756c585947d8a5256d5e",
+    "finetuned": "a4093c14006d476f68be5cff686576b5f681154bc9accb161919737f9272d1a9",
+    "finetuned_final": "4ef1a81e8fad3e788cf30b4be0255e7128b50cc13f0dff37b72090c5341768c6"
+  },
+  "sumo": "SUMO 1.28.0",
+  "interpretation": "Replay of real September 2024 days at DDU (zero-shot for the DQN); station layout and train lengths partly assumed"
+}

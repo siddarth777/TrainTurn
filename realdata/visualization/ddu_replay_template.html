@@ -1,0 +1,516 @@
+<title>DDU Real-Day Replay</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Source+Sans+3:wght@400;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap">
+<style>
+/* Layout: a signal-box console. Control bar, then the live track diagram,
+   then three instrument panels (decision, platform board, delay meter). */
+:root {
+  --bg: #eef1f4;
+  --panel: #fbfcfd;
+  --ink: #0e1620;
+  --ink-2: #46515d;
+  --muted: #7b8591;
+  --rule: #d9dee4;
+  --track: #8e98a3;
+  --track-dim: #c4cbd3;
+  --slab: #e3e8ee;
+  --slab-ink: #5d6874;
+  --accent: #1f5fae;
+  --accent-soft: #dbe7f6;
+  --signal-red: #d23a35;
+  --signal-green: #12924a;
+  --amber: #b7791f;
+  --board: #13202e; --board-ink: #f2c94c; --board-dim: #8796a6; --board-rule: #223142;
+  --c-premium: #2a78d6; --c-superfast: #eb6834; --c-express: #1baf7a; --c-freight: #eda100; --c-passenger: #e87ba4;
+  --f-display: "Barlow Condensed", "Arial Narrow", sans-serif;
+  --f-body: "Source Sans 3", "Segoe UI", system-ui, sans-serif;
+  --f-mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0d1115; --panel: #151b21; --ink: #eef1f4; --ink-2: #b6bfc9; --muted: #84909b; --rule: #27303a;
+    --track: #6d7884; --track-dim: #333c46; --slab: #222a33; --slab-ink: #9aa6b2;
+    --accent: #5b9cf0; --accent-soft: #1d2d42; --signal-red: #ef5a54; --signal-green: #3cc35a; --amber: #e0a43c;
+    --board: #090d11; --board-rule: #1b2632;
+    --c-premium: #3987e5; --c-superfast: #d95926; --c-express: #199e70; --c-freight: #c98500; --c-passenger: #d55181;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0d1115; --panel: #151b21; --ink: #eef1f4; --ink-2: #b6bfc9; --muted: #84909b; --rule: #27303a;
+  --track: #6d7884; --track-dim: #333c46; --slab: #222a33; --slab-ink: #9aa6b2;
+  --accent: #5b9cf0; --accent-soft: #1d2d42; --signal-red: #ef5a54; --signal-green: #3cc35a; --amber: #e0a43c;
+  --board: #090d11; --board-rule: #1b2632;
+  --c-premium: #3987e5; --c-superfast: #d95926; --c-express: #199e70; --c-freight: #c98500; --c-passenger: #d55181;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--ink); font-family: var(--f-body); font-size: 15px; line-height: 1.5; }
+.wrap { max-width: 1280px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); padding-block: 24px 48px; display: grid; gap: 16px; }
+h1, h2 { font-family: var(--f-display); font-weight: 700; margin: 0; line-height: 1.05; text-wrap: balance; }
+h1 { font-size: clamp(1.9rem, 4vw, 2.6rem); }
+h2 { font-size: 1.15rem; font-weight: 600; letter-spacing: .02em; }
+p { margin: 0; }
+.eyebrow { font-family: var(--f-mono); font-size: .72rem; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+.mono { font-family: var(--f-mono); }
+.num { font-variant-numeric: tabular-nums; }
+.top { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 12px 24px; }
+.top .intro { display: grid; gap: 6px; max-width: 70ch; min-width: 0; }
+.top .intro p { color: var(--ink-2); }
+
+.console { background: var(--panel); border: 1px solid var(--rule); border-radius: 8px; display: grid; min-width: 0; }
+.bar { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 18px; padding: 12px 14px; border-bottom: 1px solid var(--rule); }
+.group { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.group > label, .glabel { font-family: var(--f-mono); font-size: .68rem; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+.seg { display: inline-flex; border: 1px solid var(--rule); border-radius: 5px; overflow: hidden; flex-wrap: wrap; }
+.seg button { font: inherit; font-size: .85rem; background: transparent; color: var(--ink-2); border: 0; border-right: 1px solid var(--rule); padding: 5px 11px; cursor: pointer; }
+.seg button:last-child { border-right: 0; }
+.seg button:hover { background: var(--accent-soft); }
+.seg button[aria-pressed="true"] { background: var(--accent); color: #fff; }
+select { font: inherit; font-size: .85rem; padding: 5px 8px; border: 1px solid var(--rule); border-radius: 5px; background: var(--panel); color: var(--ink); }
+.play { font: inherit; font-weight: 700; font-size: .9rem; display: inline-flex; align-items: center; gap: 8px; border: 0; border-radius: 5px; background: var(--ink); color: var(--panel); padding: 7px 14px; cursor: pointer; }
+.play svg { width: 12px; height: 12px; fill: currentColor; }
+button:focus-visible, select:focus-visible, input:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.clock { font-family: var(--f-mono); font-weight: 700; font-size: 1.6rem; letter-spacing: .04em; font-variant-numeric: tabular-nums; }
+.clock small { font-size: .7rem; font-weight: 400; color: var(--muted); letter-spacing: .08em; margin-left: 6px; }
+.scrub { display: flex; align-items: center; gap: 12px; padding: 10px 14px; border-bottom: 1px solid var(--rule); }
+.scrub input { flex: 1; min-width: 0; accent-color: var(--accent); }
+.scrub .mono { font-size: .78rem; color: var(--muted); white-space: nowrap; }
+
+.stage { position: relative; overflow-x: auto; }
+.stage canvas { display: block; width: 100%; min-width: 760px; height: auto; }
+.legend { display: flex; flex-wrap: wrap; gap: 6px 16px; padding: 10px 14px; border-top: 1px solid var(--rule); font-size: .82rem; color: var(--ink-2); }
+.legend span { display: inline-flex; gap: 6px; align-items: center; }
+.legend i { width: 18px; height: 6px; border-radius: 3px; display: inline-block; }
+
+.panels { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1.25fr) minmax(0, .9fr); gap: 16px; }
+@media (max-width: 1050px) { .panels { grid-template-columns: minmax(0,1fr) minmax(0,1fr); } .panels .meter { grid-column: 1 / -1; } }
+@media (max-width: 700px) { .panels { grid-template-columns: minmax(0,1fr); } }
+.card { background: var(--panel); border: 1px solid var(--rule); border-radius: 8px; padding: 14px; display: grid; gap: 10px; align-content: start; min-width: 0; }
+.card-head { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; flex-wrap: wrap; }
+.card-head .s { font-size: .78rem; color: var(--muted); }
+
+/* decision */
+.dec-train { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; }
+.tchip { font-family: var(--f-mono); font-weight: 700; font-size: .85rem; padding: 2px 8px; border-radius: 3px; color: #fff; }
+.dec-meta { font-size: .85rem; color: var(--ink-2); }
+.dec-verdict { font-family: var(--f-display); font-size: 1.5rem; font-weight: 700; line-height: 1.1; }
+.dec-verdict .chg { font-family: var(--f-mono); font-size: .72rem; font-weight: 600; color: var(--amber); border: 1px solid currentColor; border-radius: 3px; padding: 1px 6px; vertical-align: middle; margin-left: 6px; }
+.qbars { display: grid; grid-template-columns: repeat(9, minmax(0,1fr)); gap: 4px; align-items: end; height: 96px; }
+.qcol { display: grid; grid-template-rows: 1fr auto; gap: 3px; height: 100%; }
+.qbar { align-self: end; background: var(--track-dim); border-radius: 2px 2px 0 0; min-height: 2px; position: relative; }
+.qbar.ok { background: var(--track); }
+.qbar.pick { background: var(--accent); }
+.qbar.blocked { background: repeating-linear-gradient(135deg, var(--track-dim) 0 3px, transparent 3px 6px); height: 100% !important; opacity: .7; }
+.qlab { font-family: var(--f-mono); font-size: .66rem; color: var(--muted); text-align: center; }
+.qlab.pick { color: var(--accent); font-weight: 700; }
+.qlab.plan { text-decoration: underline; text-underline-offset: 2px; }
+.qnote { font-size: .78rem; color: var(--muted); }
+.queue { display: grid; gap: 6px; }
+.qrow { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; font-size: .82rem; color: var(--ink-2); }
+.qrow .glabel { width: 92px; flex: none; }
+.empty { color: var(--muted); font-style: italic; font-size: .82rem; }
+
+/* board */
+.board { background: var(--board); color: var(--board-ink); border-radius: 6px; padding: 10px 12px; font-family: var(--f-mono); overflow-x: auto; }
+.board table { width: 100%; border-collapse: collapse; font-size: .78rem; min-width: 400px; }
+.board th { text-align: left; color: var(--board-dim); font-weight: 400; font-size: .64rem; letter-spacing: .1em; text-transform: uppercase; padding: 3px 6px 5px 0; }
+.board td { padding: 4px 6px 4px 0; border-top: 1px solid var(--board-rule); white-space: nowrap; font-variant-numeric: tabular-nums; }
+.board td.st-held { color: #ff9a8a; }
+.board td.st-on { color: #9fe3a8; }
+.board td.st-due { color: var(--board-dim); }
+.board .dot { display: inline-block; width: 7px; height: 7px; border-radius: 50%; margin-right: 6px; vertical-align: middle; }
+.board .chg { color: #ffd479; }
+
+/* meter */
+.mrow { display: grid; grid-template-columns: 112px minmax(0,1fr) 54px; gap: 8px; align-items: center; font-size: .84rem; }
+.mrow .nm { color: var(--ink-2); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.mrow.sel .nm { color: var(--ink); font-weight: 700; }
+.mtrack { height: 12px; background: var(--slab); border-radius: 2px; position: relative; }
+.mfill { position: absolute; inset: 0 auto 0 0; background: var(--track); border-radius: 2px; }
+.mrow.sel .mfill { background: var(--accent); }
+.mfinal { position: absolute; top: -3px; bottom: -3px; width: 2px; background: var(--ink-2); opacity: .45; }
+.mrow .v { text-align: right; font-family: var(--f-mono); font-size: .8rem; font-variant-numeric: tabular-nums; }
+.spark svg { width: 100%; height: auto; display: block; overflow: visible; }
+.spark text { font-family: var(--f-mono); font-size: 10px; fill: var(--muted); }
+
+.log { display: grid; gap: 0; font-family: var(--f-mono); font-size: .78rem; max-height: 220px; overflow-y: auto; }
+.log div { display: grid; grid-template-columns: 48px 70px minmax(0,1fr); gap: 8px; padding: 4px 0; border-top: 1px solid var(--rule); color: var(--ink-2); }
+.log div:first-child { color: var(--ink); font-weight: 600; }
+.log .chg { color: var(--amber); }
+.notes { display: grid; gap: 6px; font-size: .85rem; color: var(--muted); max-width: 95ch; }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+
+<div class="wrap">
+  <div class="top">
+    <div class="intro">
+      <div class="eyebrow">SUMO replay · real September 2024 days · Pt. Deen Dayal Upadhyaya Jn (DDU) · 8 platforms</div>
+      <h1>DDU Real-Day Replay</h1>
+      <p>Real trains on real days at DDU: each train's actual September 2024 timetable, arriving as late as it actually was at its previous station. Corridor A is the west side (Varanasi, Prayagraj, Chunar), B the east side (Buxar–Patna, Sasaram–Gaya). The agent was trained only on synthetic days. Switch controllers to replay the same real day under a different one.</p>
+    </div>
+  </div>
+
+  <div class="console">
+    <div class="bar">
+      <button class="play" id="play" type="button" aria-label="Play"><svg viewBox="0 0 12 12" id="play-ico"><path d="M2 1l9 5-9 5z"/></svg><span id="play-txt">Play</span></button>
+      <div class="clock" id="clock">00:00<small>DAY CLOCK</small></div>
+      <div class="group"><span class="glabel">Controller</span>
+        <div class="seg" id="seg-pol" role="group" aria-label="Controller">
+          <button type="button" id="p-dqn" data-p="dqn" aria-pressed="true">Trained DQN</button>
+          <button type="button" id="p-untrained" data-p="untrained" aria-pressed="false">Untrained DQN</button>
+          <button type="button" id="p-priority" data-p="priority" aria-pressed="false">Priority-aware</button>
+          <button type="button" id="p-fcfs" data-p="fcfs" aria-pressed="false">FCFS</button>
+        </div>
+      </div>
+      <div class="group"><label for="day">Day</label><select id="day"></select></div>
+      <div class="group"><label for="speed">Speed</label>
+        <select id="speed"><option value="30">30×</option><option value="60">60×</option><option value="120" selected>120×</option><option value="300">300×</option><option value="600">600×</option></select>
+      </div>
+    </div>
+    <div class="scrub"><span class="mono" id="t0">00:00</span><input type="range" id="scrub" min="0" max="1200" step="0.1" value="0" aria-label="Replay time"><span class="mono" id="t1">—</span></div>
+    <div class="stage"><canvas id="cv" width="1600" height="560" aria-label="Animated track diagram of the junction"></canvas></div>
+    <div class="legend" id="legend"></div>
+  </div>
+
+  <div class="panels">
+    <div class="card">
+      <div class="card-head"><h2>Latest decision</h2><span class="s" id="dec-when">—</span></div>
+      <div class="dec-train" id="dec-train"></div>
+      <div class="dec-verdict" id="dec-verdict">—</div>
+      <div class="qbars" id="qbars" aria-label="Action values"></div>
+      <div class="qnote" id="qnote"></div>
+      <div class="queue">
+        <div class="qrow"><span class="glabel">Outer signal</span><span id="q-outer"></span></div>
+        <div class="qrow"><span class="glabel">Upstream</span><span id="q-up"></span></div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-head"><h2>Station board</h2><span class="s">due within 30 min, held, or on a platform</span></div>
+      <div class="board"><table id="board"></table></div>
+      <div class="card-head"><h2>Decision log</h2><span class="s">newest first</span></div>
+      <div class="log" id="log"></div>
+    </div>
+    <div class="card meter">
+      <div class="card-head"><h2>Weighted waiting so far</h2><span class="s">priority × minutes</span></div>
+      <div id="meter" style="display:grid;gap:9px"></div>
+      <p class="qnote">The bar grows as each controller makes trains wait on this day. The tick marks the end-of-day total. Lower is better.</p>
+      <div class="card-head" style="margin-top:6px"><h2>Where the two DQNs come from</h2></div>
+      <div class="spark" id="spark"></div>
+      <p class="qnote">Validation delay during training. The untrained controller is the episode-0 network. The trained one is the best checkpoint, from episode 135. Both are the same architecture with different weights.</p>
+    </div>
+  </div>
+
+  <div class="notes">
+    <span>The days were picked by the trained DQN's margin over priority-aware across all 28 replayed days: the median day, its best and its worst. Each replay was re-run in SUMO 1.28.0 from the saved checkpoint and day file; end-of-day totals match <code>realdata/results/ddu_sep2024_replay</code>.</span>
+    <span>Positions are SUMO vehicle positions sampled every 10 simulated seconds and interpolated in between. The outer-signal queue and upstream reservoir are boundary queues in the adapter, so queued trains are listed rather than drawn on track. Track layout is schematic. Timetable and incoming delays: RSTGCN September 2024 data (IIT Kharagpur). Platform lengths, train lengths and dwell overruns are assumptions; the data contains no freight.</span>
+  </div>
+</div>
+
+<script>
+const D = /*__DATA__*/;
+const POLS = ["dqn","untrained","priority","fcfs"];
+const PNAME = { dqn:"Trained DQN", untrained:"Untrained DQN", priority:"Priority-aware", fcfs:"FCFS" };
+const CLASSES = ["premium","superfast","express","freight","passenger"];
+const ACT = ["Hold","P1","P2","P3","P4","P5","P6","P7","P8"];
+const RULE = { priority:"Priority-aware rule: keeps scarce, forecast-compatible platforms free for higher-priority trains, then takes the first feasible one.", fcfs:"FCFS rule: the first feasible platform, in platform order. It never holds by choice." };
+const SAMPLE = 10;
+
+const state = { day: 0, pol: "dqn", t: 0, playing: false, speed: 120 };
+const $ = id => document.getElementById(id);
+const hhmm = m => { m = Math.max(0, m); const h = Math.floor(m/60) % 24, mm = Math.floor(m % 60); return String(h).padStart(2,"0") + ":" + String(mm).padStart(2,"0"); };
+const fmt = (x, d=1) => Number(x).toLocaleString("en-US", { minimumFractionDigits: d, maximumFractionDigits: d });
+function css(n) { return getComputedStyle(document.documentElement).getPropertyValue(n).trim(); }
+let COL = {};
+function readColors() { COL = { track: css("--track"), dim: css("--track-dim"), slab: css("--slab"), slabInk: css("--slab-ink"), ink: css("--ink"), ink2: css("--ink-2"), muted: css("--muted"), panel: css("--panel"), red: css("--signal-red"), green: css("--signal-green"), accent: css("--accent") }; CLASSES.forEach(c => COL[c] = css("--c-" + c)); }
+
+/* ---------- geometry ---------- */
+const LANES = {}; D.lanes.forEach(([name, len, shape]) => LANES[name] = { len, shape });
+const ROADS = D.lanes.map(l => l[0]);
+let minX = Infinity, maxX = -Infinity, minY = Infinity, maxY = -Infinity;
+D.lanes.forEach(([, , sh]) => sh.forEach(([x,y]) => { minX = Math.min(minX,x); maxX = Math.max(maxX,x); minY = Math.min(minY,y); maxY = Math.max(maxY,y); }));
+function routeFor(train, platform) {
+  const names = ["approach" + train[7], "entry" + platform, "platform" + platform, "exit" + platform, "downstream" + train[8]];
+  let cum = 0; const segs = names.map(n => { const s = { name: n, start: cum, len: LANES[n].len, shape: LANES[n].shape }; cum += LANES[n].len; return s; });
+  const byRoad = {}; segs.forEach(s => byRoad[ROADS.indexOf(s.name)] = s.start);
+  return { segs, byRoad, total: cum };
+}
+function lerpShape(shape, f) {
+  // two-point SUMO lane shapes; walk segments by length for safety
+  let L = 0; const seg = []; for (let i = 1; i < shape.length; i++) { const d = Math.hypot(shape[i][0]-shape[i-1][0], shape[i][1]-shape[i-1][1]); seg.push(d); L += d; }
+  let target = f * L;
+  for (let i = 1; i < shape.length; i++) { if (target <= seg[i-1] || i === shape.length-1) { const g = seg[i-1] ? Math.min(1, target/seg[i-1]) : 0; return [shape[i-1][0] + (shape[i][0]-shape[i-1][0])*g, shape[i-1][1] + (shape[i][1]-shape[i-1][1])*g]; } target -= seg[i-1]; }
+  return shape[shape.length-1];
+}
+function pointAt(route, s) {
+  s = Math.max(0, Math.min(route.total, s));
+  for (const seg of route.segs) if (s <= seg.start + seg.len) return lerpShape(seg.shape, (s - seg.start) / seg.len);
+  const last = route.segs[route.segs.length-1]; return last.shape[last.shape.length-1];
+}
+function bodyPoints(route, a, b) {
+  const pts = [pointAt(route, a)];
+  for (const seg of route.segs) {
+    const end = seg.start + seg.len;
+    if (seg.start > a && seg.start < b) pts.push(seg.shape[0]);
+    if (end > a && end < b) pts.push(seg.shape[seg.shape.length-1]);
+  }
+  pts.push(pointAt(route, b));
+  return pts;
+}
+
+/* ---------- per-day prep ---------- */
+function prep(day) {
+  if (day._prep) return day._prep;
+  const P = {};
+  for (const pol of POLS) {
+    const run = day.runs[pol];
+    const routes = day.trains.map((tr, i) => routeFor(tr, run.per[i][0]));
+    const tracks = run.tracks.map((flat, i) => { const a = []; for (let k = 0; k < flat.length; k += 3) { const off = routes[i].byRoad[flat[k+1]]; if (off !== undefined) a.push([flat[k], off + flat[k+2]]); } return a; });
+    const minuteIdx = {}; run.minutes.forEach((m, k) => minuteIdx[m[0]] = k);
+    P[pol] = { routes, tracks, minuteIdx, end: run.minutes[run.minutes.length-1][0] };
+  }
+  day._prep = P; return P;
+}
+function minuteRow(day, pol, minute) {
+  const run = day.runs[pol], P = prep(day)[pol];
+  let m = Math.floor(minute); const first = run.minutes[0][0];
+  if (m < first) return null;
+  while (m >= first && P.minuteIdx[m] === undefined) m--;
+  return run.minutes[P.minuteIdx[m]];
+}
+function cumAt(day, pol, minute) {
+  const r = minuteRow(day, pol, minute), run = day.runs[pol];
+  if (!r) return 0;
+  const nx = minuteRow(day, pol, Math.floor(minute) + 1);
+  const f = minute - Math.floor(minute);
+  return nx && nx !== r ? r[4] + (nx[4] - r[4]) * f : r[4];
+}
+
+/* ---------- canvas ---------- */
+const cv = $("cv"), ctx = cv.getContext("2d");
+const PADL = 120, PADR = 110, PADT = 46, PADB = 52;
+let scale = 1, CW = 1600, CH = 560;
+function resize() {
+  const w = Math.max(760, cv.getBoundingClientRect().width || 1000);
+  const dpr = Math.min(2, window.devicePixelRatio || 1);
+  scale = (w - PADL - PADR) / (maxX - minX);
+  const h = Math.round(PADT + PADB + (maxY - minY) * scale);
+  CW = w; CH = h;
+  cv.width = Math.round(w * dpr); cv.height = Math.round(h * dpr);
+  cv.style.height = h + "px";
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  draw();
+}
+const X = x => PADL + (x - minX) * scale, Y = y => PADT + (y - minY) * scale;
+
+function drawTrack() {
+  ctx.lineCap = "round"; ctx.lineJoin = "round";
+  // connectors between consecutive lanes
+  ctx.strokeStyle = COL.track; ctx.lineWidth = 1.6;
+  const conn = (a, b) => { const p = LANES[a].shape, q = LANES[b].shape; ctx.beginPath(); ctx.moveTo(X(p[p.length-1][0]), Y(p[p.length-1][1])); ctx.lineTo(X(q[0][0]), Y(q[0][1])); ctx.stroke(); };
+  for (let p = 1; p <= 8; p++) { conn("approachA","entry"+p); conn("approachB","entry"+p); conn("entry"+p,"platform"+p); conn("platform"+p,"exit"+p); conn("exit"+p,"downstreamA"); conn("exit"+p,"downstreamB"); }
+  for (const name in LANES) {
+    const sh = LANES[name].shape; ctx.beginPath(); ctx.moveTo(X(sh[0][0]), Y(sh[0][1])); sh.slice(1).forEach(([x,y]) => ctx.lineTo(X(x), Y(y)));
+    ctx.lineWidth = name.startsWith("platform") ? 2 : 1.6; ctx.strokeStyle = COL.track; ctx.stroke();
+  }
+}
+function drawPlatforms(occ) {
+  const slabH = Math.max(7, 22 * scale), gap = Math.max(4, 9 * scale);
+  D.platforms.forEach(([id, coaches, clearance]) => {
+    const sh = LANES["platform" + id].shape, x0 = X(sh[0][0]) + 14, x1 = X(sh[sh.length-1][0]) - 14, y = Y(sh[0][1]) + gap;
+    const who = occ ? occ[id-1] : -1;
+    ctx.fillStyle = COL.slab; ctx.fillRect(x0, y, x1 - x0, slabH);
+    if (who >= 0) { const tr = D.days[state.day].trains[who]; ctx.fillStyle = COL[tr[1]]; ctx.globalAlpha = .22; ctx.fillRect(x0, y, x1 - x0, slabH); ctx.globalAlpha = 1; ctx.strokeStyle = COL[tr[1]]; ctx.lineWidth = 1; ctx.strokeRect(x0 + .5, y + .5, x1 - x0 - 1, slabH - 1); }
+    ctx.fillStyle = COL.slabInk; ctx.font = `600 ${Math.max(9, Math.min(12, 17*scale))}px "JetBrains Mono", monospace`; ctx.textBaseline = "middle"; ctx.textAlign = "left";
+    ctx.fillText(`PF ${id}`, x0 + 6, y + slabH/2 + .5);
+    ctx.textAlign = "right"; ctx.fillStyle = COL.muted; ctx.font = `${Math.max(8.5, Math.min(11, 15*scale))}px "JetBrains Mono", monospace`;
+    ctx.fillText(who >= 0 ? `${D.days[state.day].trains[who][0]} · ${coaches} coaches` : `${coaches} coaches`, x1 - 6, y + slabH/2 + .5);
+  });
+}
+function drawSignals(row) {
+  const a = LANES.approachA.shape, b = LANES.approachB.shape;
+  const outer = row ? row[1] : [];
+  const lamp = (x, y, red) => { ctx.fillStyle = COL.panel; ctx.strokeStyle = COL.ink2; ctx.lineWidth = 1; ctx.beginPath(); ctx.roundRect(x - 6, y - 15, 12, 20, 3); ctx.fill(); ctx.stroke(); ctx.fillStyle = red ? COL.red : COL.dim; ctx.beginPath(); ctx.arc(x, y - 9, 3.5, 0, 7); ctx.fill(); ctx.fillStyle = red ? COL.dim : COL.green; ctx.beginPath(); ctx.arc(x, y - 1, 3.5, 0, 7); ctx.fill(); };
+  const day = D.days[state.day];
+  const heldA = outer.some(i => day.trains[i][7] === "A"), heldB = outer.some(i => day.trains[i][7] === "B");
+  const ea = a[a.length-1], eb = b[b.length-1];
+  lamp(X(ea[0]) - 22, Y(ea[1]) + 22, heldA); lamp(X(eb[0]) - 22, Y(eb[1]) - 8, heldB);
+  // corridor labels and queued trains as stubs
+  ctx.font = `600 12px "Barlow Condensed", "Arial Narrow", sans-serif`; ctx.fillStyle = COL.ink2; ctx.textBaseline = "alphabetic"; ctx.textAlign = "left";
+  ctx.fillText("CORRIDOR A  →", 8, Y(a[0][1]) + 18); ctx.fillText("CORRIDOR B  →", 8, Y(b[0][1]) - 10);
+  const dA = LANES.downstreamA.shape, dB = LANES.downstreamB.shape;
+  ctx.textAlign = "right"; ctx.fillText("→  EXIT A", CW - 8, Y(dA[dA.length-1][1]) + 18); ctx.fillText("→  EXIT B", CW - 8, Y(dB[dB.length-1][1]) - 10);
+  // queued trains (boundary reservoir) drawn as chips at the left edge
+  const q = outer.concat(row ? row[2] : []);
+  ctx.textAlign = "left"; ctx.font = `600 10px "JetBrains Mono", monospace`;
+  const lanesY = { A: Y(a[0][1]) + 32, B: Y(b[0][1]) - 26 };
+  const counts = { A: 0, B: 0 };
+  q.forEach((i, k) => { const tr = day.trains[i], c = tr[7]; const x = 8 + counts[c]++ * 60, y = lanesY[c]; if (x > PADL + 20) return; ctx.fillStyle = COL[tr[1]]; ctx.beginPath(); ctx.roundRect(x, y - 9, 54, 14, 3); ctx.fill(); ctx.fillStyle = "#fff"; ctx.fillText(tr[0].replace("SYN",""), x + 5, y + 2); if (k >= outer.length) { ctx.strokeStyle = COL.ink2; ctx.setLineDash([2,2]); ctx.strokeRect(x - 1.5, y - 10.5, 57, 17); ctx.setLineDash([]); } });
+}
+function trainPositions(tSec) {
+  const day = D.days[state.day], P = prep(day)[state.pol], out = [];
+  P.tracks.forEach((tr, i) => {
+    if (!tr.length || tSec < tr[0][0] || tSec > tr[tr.length-1][0] + SAMPLE) return;
+    let lo = 0, hi = tr.length - 1;
+    while (lo < hi) { const mid = (lo + hi + 1) >> 1; if (tr[mid][0] <= tSec) lo = mid; else hi = mid - 1; }
+    let off = tr[lo][1];
+    if (lo < tr.length - 1) { const a = tr[lo], b = tr[lo+1]; off = a[1] + (b[1] - a[1]) * (tSec - a[0]) / (b[0] - a[0]); }
+    else if (tSec > tr[lo][0]) { off = tr[lo][1] + 20 * (tSec - tr[lo][0]); }  // leaving at line speed
+    const moving = lo < tr.length - 1 ? tr[lo+1][1] !== tr[lo][1] : true;
+    out.push({ i, off, moving });
+  });
+  return out;
+}
+function drawTrains(tSec) {
+  const day = D.days[state.day], P = prep(day)[state.pol];
+  ctx.lineCap = "round";
+  for (const { i, off, moving } of trainPositions(tSec)) {
+    const tr = day.trains[i], route = P.routes[i], len = tr[6] * 25;
+    const pts = bodyPoints(route, off - len, off);
+    ctx.beginPath(); ctx.moveTo(X(pts[0][0]), Y(pts[0][1])); pts.slice(1).forEach(([x,y]) => ctx.lineTo(X(x), Y(y)));
+    ctx.strokeStyle = COL.panel; ctx.lineWidth = 11; ctx.stroke();
+    ctx.strokeStyle = COL[tr[1]]; ctx.lineWidth = 7; ctx.stroke();
+    const head = pts[pts.length-1];
+    ctx.fillStyle = COL.ink; ctx.beginPath(); ctx.arc(X(head[0]), Y(head[1]), 2.4, 0, 7); ctx.fill();
+    if (!moving || (off > route.segs[2].start && off < route.segs[3].start + 1)) {
+      ctx.font = `600 10px "JetBrains Mono", monospace`; ctx.fillStyle = COL.ink; ctx.textAlign = "center"; ctx.textBaseline = "alphabetic";
+      const mid = pointAt(route, off - len/2); ctx.fillText(tr[0].replace("SYN",""), X(mid[0]), Y(mid[1]) - 8);
+    }
+  }
+}
+function draw() {
+  if (!COL.track) readColors();
+  ctx.clearRect(0, 0, CW, CH);
+  const day = D.days[state.day], row = minuteRow(day, state.pol, state.t / 60);
+  drawTrack(); drawPlatforms(row ? row[3] : null); drawSignals(row); drawTrains(state.t);
+}
+
+/* ---------- panels ---------- */
+function chip(i) { const tr = D.days[state.day].trains[i]; return `<span class="tchip" style="background:var(--c-${tr[1]})">${tr[0]}</span>`; }
+let lastPanel = "";
+function panels() {
+  const day = D.days[state.day], run = day.runs[state.pol], minute = state.t / 60;
+  const key = state.day + state.pol + Math.floor(minute * 4);
+  if (key === lastPanel) return; lastPanel = key;
+  // decision
+  let k = -1; for (let j = 0; j < run.decisions.length; j++) { if (run.decisions[j][0] <= minute) k = j; else break; }
+  const dec = run.decisions[k];
+  if (dec) {
+    const [t, ti, act, mask, waiting, q] = dec, tr = day.trains[ti];
+    $("dec-when").textContent = `at ${hhmm(t)} · decision ${k+1} of ${run.decisions.length}`;
+    $("dec-train").innerHTML = `${chip(ti)}<span class="dec-meta">${tr[1]} · priority ${tr[2]} · ${tr[6]} coaches · from ${tr[7]} · waited ${fmt(waiting,0)} min · planned PF ${tr[3]}</span>`;
+    $("dec-verdict").innerHTML = act === 0 ? "Hold at outer signal" : `Route to platform ${act}${act !== tr[3] ? '<span class="chg">PLATFORM CHANGE</span>' : ""}`;
+    const valid = ACT.map((_, a) => !!(mask & (1 << a)));
+    if (q) {
+      const vs = q.filter((_, a) => valid[a]), lo = Math.min(...vs), hi = Math.max(...vs), span = Math.max(1e-6, hi - lo);
+      $("qbars").innerHTML = ACT.map((lab, a) => `<div class="qcol" title="${lab}: ${valid[a] ? "Q = " + q[a].toFixed(3) : "masked (unsafe or unavailable)"}"><div class="qbar ${valid[a] ? (a === act ? "pick" : "ok") : "blocked"}" style="height:${valid[a] ? (12 + 88 * (q[a] - lo) / span).toFixed(0) : 100}%"></div><div class="qlab ${a === act ? "pick" : ""} ${a === tr[3] ? "plan" : ""}">${lab}</div></div>`).join("");
+      $("qnote").textContent = `Bars are the network's Q-values for the actions still allowed, scaled from lowest to highest (${q[act].toFixed(2)} for the pick). Hatched actions are masked by the safety layer. The underlined label is the planned platform.`;
+    } else {
+      $("qbars").innerHTML = ACT.map((lab, a) => `<div class="qcol" title="${lab}: ${valid[a] ? "allowed" : "masked"}"><div class="qbar ${valid[a] ? (a === act ? "pick" : "ok") : "blocked"}" style="height:${valid[a] ? (a === act ? 100 : 30) : 100}%"></div><div class="qlab ${a === act ? "pick" : ""} ${a === tr[3] ? "plan" : ""}">${lab}</div></div>`).join("");
+      $("qnote").textContent = RULE[state.pol] + " Hatched actions are masked. The underlined label is the planned platform.";
+    }
+  } else {
+    $("dec-when").textContent = "—"; $("dec-train").innerHTML = '<span class="empty">No train has asked for a platform yet.</span>'; $("dec-verdict").textContent = "—"; $("qbars").innerHTML = ""; $("qnote").textContent = "";
+  }
+  // queues
+  const row = minuteRow(day, state.pol, minute);
+  $("q-outer").innerHTML = row && row[1].length ? row[1].map(chip).join(" ") : '<span class="empty">clear</span>';
+  $("q-up").innerHTML = row && row[2].length ? row[2].map(chip).join(" ") : '<span class="empty">empty</span>';
+  // board
+  const rows = [];
+  day.trains.forEach((tr, i) => {
+    const [pf, sig, entry, dep, exit] = run.per[i];
+    if (exit < minute) return;
+    let st, cls;
+    if (minute < sig) { if (tr[4] > minute + 30) return; st = "Due"; cls = "st-due"; }
+    else if (minute < entry) { st = `Held ${fmt(minute - sig, 0)} min`; cls = "st-held"; }
+    else if (minute < dep) { st = `On PF ${pf}`; cls = "st-on"; }
+    else { st = "Departing"; cls = ""; }
+    rows.push({ i, tr, pf, sig, st, cls, order: minute < sig ? tr[4] : sig });
+  });
+  rows.sort((a, b) => a.order - b.order);
+  $("board").innerHTML = `<thead><tr><th>Train</th><th>Class</th><th>Sched</th><th>Plan</th><th>PF</th><th>Status</th></tr></thead><tbody>` +
+    (rows.slice(0, 9).map(r => `<tr><td><span class="dot" style="background:var(--c-${r.tr[1]})"></span>${r.tr[0]}</td><td>${r.tr[1]}</td><td>${hhmm(r.tr[4])}</td><td>${r.tr[3]}</td><td class="${minute >= run.per[r.i][2] && r.pf !== r.tr[3] ? "chg" : ""}">${minute >= run.per[r.i][2] ? r.pf : "–"}</td><td class="${r.cls}">${r.st}</td></tr>`).join("") || `<tr><td colspan="6" style="color:var(--board-dim)">No trains due in the next 30 minutes.</td></tr>`) + `</tbody>`;
+  // log
+  const lg = [];
+  for (let j = k; j >= 0 && lg.length < 12; j--) {
+    const [t, ti, act] = run.decisions[j], tr = day.trains[ti];
+    lg.push(`<div><span>${hhmm(t)}</span><span>${tr[0]}</span><span class="${act && act !== tr[3] ? "chg" : ""}">${act ? `→ PF ${act}${act !== tr[3] ? ` (planned ${tr[3]})` : ""}` : "hold"}</span></div>`);
+  }
+  $("log").innerHTML = lg.join("") || '<div><span></span><span></span><span class="empty">No decisions yet</span></div>';
+  // meter
+  const finals = POLS.map(p => day.runs[p].metrics.weighted_station_delay), max = Math.max(...finals);
+  $("meter").innerHTML = POLS.map((p, n) => { const v = cumAt(day, p, minute); return `<div class="mrow ${p === state.pol ? "sel" : ""}"><span class="nm">${PNAME[p]}</span><div class="mtrack"><div class="mfill" style="width:${(v/max*100).toFixed(1)}%"></div><div class="mfinal" style="left:${(finals[n]/max*100).toFixed(1)}%" title="end of day ${fmt(finals[n])}"></div></div><span class="v">${fmt(v,0)}</span></div>`; }).join("");
+}
+
+/* ---------- training sparkline ---------- */
+(function spark() {
+  const V = D.validation, W = 320, H = 130, L = 30, R = 10, T = 18, B = 20, ymin = 230, ymax = 520;
+  const x = e => L + e / 300 * (W - L - R), y = v => T + (ymax - Math.min(v, ymax)) / (ymax - ymin) * (H - T - B);
+  let s = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Validation delay over training">`;
+  [300, 400, 500].forEach(v => s += `<line x1="${L}" x2="${W-R}" y1="${y(v)}" y2="${y(v)}" stroke="var(--rule)"/><text x="${L-4}" y="${y(v)+3}" text-anchor="end">${v}</text>`);
+  [0, 300].forEach(e => s += `<text x="${x(e)}" y="${H-5}" text-anchor="middle">${e}</text>`);
+  s += `<path d="M${V.map(([e,v]) => x(e).toFixed(1) + "," + y(v).toFixed(1)).join("L")}" fill="none" stroke="var(--accent)" stroke-width="1.6" stroke-linejoin="round"/>`;
+  const e0 = V[0], best = V.slice(1).reduce((a, b) => b[1] < a[1] ? b : a);
+  s += `<circle cx="${x(e0[0])}" cy="${y(e0[1])}" r="4.5" fill="var(--muted)" stroke="var(--panel)" stroke-width="2"/><text x="${x(e0[0])+8}" y="${T-6}" style="fill:var(--ink-2)">untrained ${e0[1]} (ep 0)</text><line x1="${x(e0[0])}" x2="${x(e0[0])+6}" y1="${y(e0[1])-5}" y2="${T-4}" stroke="var(--muted)"/>`;
+  s += `<circle cx="${x(best[0])}" cy="${y(best[1])}" r="4.5" fill="var(--accent)" stroke="var(--panel)" stroke-width="2"/><text x="${x(best[0])}" y="${y(best[1])+20}" text-anchor="middle" style="fill:var(--ink-2)">trained ${best[1]} · ep ${best[0]}</text>`;
+  $("spark").innerHTML = s + `</svg>`;
+})();
+
+/* ---------- controls ---------- */
+$("legend").innerHTML = CLASSES.map(c => `<span><i style="background:var(--c-${c})"></i>${c}</span>`).join("") +
+  `<span style="margin-left:auto">Signal lamp shows red while a train from that corridor waits at the outer signal · dashed chips = upstream reservoir</span>`;
+D.days.forEach((d, i) => { const o = document.createElement("option"); o.value = i; o.textContent = d.label; $("day").appendChild(o); });
+function busyStart(day) {
+  const run = day.runs.dqn; let best = run.minutes[0][0], bestN = -1;
+  run.minutes.forEach(m => { const n = m[3].filter(v => v >= 0).length + m[1].length; if (m[0] < 900 && n > bestN) { bestN = n; best = m[0]; } });
+  return Math.max(0, best - 12) * 60;
+}
+function endSec() { return prep(D.days[state.day])[state.pol].end * 60 + 120; }
+function syncUI() {
+  const e = endSec();
+  $("scrub").max = (e / 60).toFixed(0); $("scrub").value = (state.t / 60).toFixed(1);
+  $("t1").textContent = hhmm(e / 60);
+  $("clock").innerHTML = `${hhmm(state.t / 60)}<small>DAY CLOCK</small>`;
+  $("play-txt").textContent = state.playing ? "Pause" : "Play";
+  $("play").setAttribute("aria-label", state.playing ? "Pause" : "Play");
+  $("play-ico").innerHTML = state.playing ? '<path d="M2 1h3v10H2zM7 1h3v10H7z"/>' : '<path d="M2 1l9 5-9 5z"/>';
+}
+let lastTs = null;
+function loop(ts) {
+  if (state.playing) {
+    if (lastTs !== null) state.t += Math.min(0.1, (ts - lastTs) / 1000) * state.speed;
+    if (state.t >= endSec()) { state.t = endSec(); state.playing = false; }
+  }
+  lastTs = ts;
+  draw(); panels(); syncUI();
+  requestAnimationFrame(loop);
+}
+$("play").addEventListener("click", () => { if (state.t >= endSec()) state.t = 0; state.playing = !state.playing; });
+$("scrub").addEventListener("input", e => { state.t = +e.target.value * 60; lastPanel = ""; });
+$("speed").addEventListener("change", e => state.speed = +e.target.value);
+$("day").addEventListener("change", e => { state.day = +e.target.value; state.t = busyStart(D.days[state.day]); lastPanel = ""; draw(); });
+document.querySelectorAll("#seg-pol button").forEach(b => b.addEventListener("click", () => {
+  state.pol = b.dataset.p; lastPanel = ""; document.querySelectorAll("#seg-pol button").forEach(x => x.setAttribute("aria-pressed", x === b));
+}));
+document.addEventListener("keydown", e => { if (e.code === "Space" && !/INPUT|SELECT|BUTTON/.test(e.target.tagName)) { e.preventDefault(); $("play").click(); } });
+const mq = matchMedia("(prefers-color-scheme: dark)");
+const recolor = () => { readColors(); lastPanel = ""; };
+mq.addEventListener?.("change", recolor);
+new MutationObserver(recolor).observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
+window.addEventListener("resize", resize);
+if (document.fonts?.ready) document.fonts.ready.then(() => draw());
+
+function start(saved) {
+  state.day = saved.day ?? 0; state.pol = saved.pol ?? "dqn";
+  state.t = saved.t ?? busyStart(D.days[state.day]);
+  $("day").value = state.day;
+  document.querySelectorAll("#seg-pol button").forEach(x => x.setAttribute("aria-pressed", x.dataset.p === state.pol));
+  state.playing = !matchMedia("(prefers-reduced-motion: reduce)").matches;
+  readColors(); resize(); requestAnimationFrame(loop);
+}
+window.claude?.hot?.snapshot?.(() => ({ day: state.day, pol: state.pol, t: state.t }));
+window.claude?.hot?.ready ? window.claude.hot.ready(start) : start(window.claude?.hot?.data ?? {});
+</script>

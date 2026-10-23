@@ -1,0 +1,250 @@
+{
+  "summaries": {
+    "planned/dqn": {
+      "complete": true,
+      "safety_violations": 0,
+      "weighted_station_delay": {
+        "n": 28,
+        "mean": 422.0499999999997,
+        "std": 64.4354743118593,
+        "ci95_low": 399.12019345238053,
+        "ci95_high": 446.8720535714286
+      },
+      "mean_departure_lateness_completed": {
+        "n": 28,
+        "mean": 2.793534177630221,
+        "std": 0.13964294034211924,
+        "ci95_low": 2.7445000142671114,
+        "ci95_high": 2.8473527840103707
+      }
+    },
+    "planned/fcfs": {
+      "complete": true,
+      "safety_violations": 0,
+      "weighted_station_delay": {
+        "n": 28,
+        "mean": 440.50773809523736,
+        "std": 60.427397256035675,
+        "ci95_low": 417.75842261904705,
+        "ci95_high": 462.70748511904674
+      },
+      "mean_departure_lateness_completed": {
+        "n": 28,
+        "mean": 3.045595394660728,
+        "std": 0.12064930094825634,
+        "ci95_low": 3.002031379581374,
+        "ci95_high": 3.0896637139280747
+      }
+    },
+    "planned/timetable": {
+      "complete": true,
+      "safety_violations": 0,
+      "weighted_station_delay": {
+        "n": 28,
+        "mean": 443.9035714285707,
+        "std": 61.66590229041498,
+        "ci95_low": 420.88543154761845,
+        "ci95_high": 466.82880952380873
+      },
+      "mean_departure_lateness_completed": {
+        "n": 28,
+        "mean": 3.048091042911151,
+        "std": 0.12561540368241322,
+        "ci95_low": 3.003140184756024,
+        "ci95_high": 3.094108741691754
+      }
+    },
+    "planned/priority": {
+      "complete": true,
+      "safety_violations": 0,
+      "weighted_station_delay": {
+        "n": 28,
+        "mean": 454.5279761904756,
+        "std": 66.12678184232516,
+        "ci95_low": 428.6979017857137,
+        "ci95_high": 478.7969494047614
+      },
+      "mean_departure_lateness_completed": {
+        "n": 28,
+        "mean": 3.044038311383668,
+        "std": 0.12964279418028268,
+        "ci95_low": 2.9947247088407756,
+        "ci95_high": 3.0907054984985836
+      }
+    },
+    "planned/greedy": {
+      "complete": true,
+      "safety_violations": 0,
+      "weighted_station_delay": {
+        "n": 28,
+        "mean": 443.57678571428505,
+        "std": 61.69807297336995,
+        "ci95_low": 420.5797470238088,
+        "ci95_high": 466.885416666666
+      },
+      "mean_departure_lateness_completed": {
+        "n": 28,
+        "mean": 3.0469199678951413,
+        "std": 0.1253318959228087,
+        "ci95_low": 3.001287288862744,
+        "ci95_high": 3.092860990466869
+      }
+    },
+    "actual/dqn": {
+      "complete": true,
+      "safety_violations": 0,
+      "weighted_station_delay": {
+        "n": 28,
+        "mean": 729.3470238095257,
+        "std": 223.0345597818204,
+        "ci95_low": 651.4093005952395,
+        "ci95_high": 813.3960714285736
+      },
+      "mean_departure_lateness_completed": {
+        "n": 28,
+        "mean": 46.41399796500939,
+        "std": 7.155888346566917,
+        "ci95_low": 43.73074203975797,
+        "ci95_high": 49.15242060358616
+      }
+    },
+    "actual/fcfs": {
+      "complete": true,
+      "safety_violations": 0,
+      "weighted_station_delay": {
+        "n": 28,
+        "mean": 768.1000000000012,
+        "std": 208.12951990915144,
+        "ci95_low": 694.262425595239,
+        "ci95_high": 848.1186607142874
+      },
+      "mean_departure_lateness_completed": {
+        "n": 28,
+        "mean": 46.707322486841925,
+        "std": 7.0386126259547614,
+        "ci95_low": 44.090890583727735,
+        "ci95_high": 49.393759598217315
+      }
+    },
+    "actual/timetable": {
+      "complete": true,
+      "safety_violations": 0,
+      "weighted_station_delay": {
+        "n": 28,
+        "mean": 729.2702380952393,
+        "std": 210.58669726495683,
+        "ci95_low": 654.5422767857145,
+        "ci95_high": 810.1409970238111
+      },
+      "mean_departure_lateness_completed": {
+        "n": 28,
+        "mean": 46.57848227752207,
+        "std": 6.99608429160427,
+        "ci95_low": 43.976529689950496,
+        "ci95_high": 49.25022145309267
+      }
+    },
+    "actual/priority": {
+      "complete": true,
+      "safety_violations": 0,
+      "weighted_station_delay": {
+        "n": 28,
+        "mean": 723.762500000001,
+        "std": 191.44294724511994,
+        "ci95_low": 655.7609077380953,
+        "ci95_high": 799.3708630952397
+      },
+      "mean_departure_lateness_completed": {
+        "n": 28,
+        "mean": 46.58830069994319,
+        "std": 7.026875258364124,
+        "ci95_low": 43.98558868639704,
+        "ci95_high": 49.27225435594542
+      }
+    },
+    "actual/greedy": {
+      "complete": true,
+      "safety_violations": 0,
+      "weighted_station_delay": {
+        "n": 28,
+        "mean": 706.0571428571436,
+        "std": 180.24335090038198,
+        "ci95_low": 641.9469196428576,
+        "ci95_high": 774.3051488095249
+      },
+      "mean_departure_lateness_completed": {
+        "n": 28,
+        "mean": 46.53279300061316,
+        "std": 7.037677908065516,
+        "ci95_low": 43.92776771809498,
+        "ci95_high": 49.222788450442415
+      }
+    }
+  },
+  "paired_differences": {
+    "planned/dqn-minus-fcfs": {
+      "n": 28,
+      "mean": -18.457738095237747,
+      "std": 41.09243782175296,
+      "ci95_low": -33.686636904761606,
+      "ci95_high": -4.2293749999996795,
+      "dqn_lower_days": 17
+    },
+    "planned/dqn-minus-timetable": {
+      "n": 28,
+      "mean": -21.853571428571083,
+      "std": 43.77363802506536,
+      "ci95_low": -37.75827380952344,
+      "ci95_high": -6.897991071428318,
+      "dqn_lower_days": 17
+    },
+    "planned/dqn-minus-priority": {
+      "n": 28,
+      "mean": -32.47797619047587,
+      "std": 49.394435811821424,
+      "ci95_low": -50.69163690476162,
+      "ci95_high": -14.17380952380921,
+      "dqn_lower_days": 20
+    },
+    "planned/dqn-minus-greedy": {
+      "n": 28,
+      "mean": -21.52678571428539,
+      "std": 42.23541200885016,
+      "ci95_low": -37.25566964285679,
+      "ci95_high": -6.965208333332991,
+      "dqn_lower_days": 17
+    },
+    "actual/dqn-minus-fcfs": {
+      "n": 28,
+      "mean": -38.752976190475536,
+      "std": 164.5038348742846,
+      "ci95_low": -95.89571428571412,
+      "ci95_high": 25.075029761906176,
+      "dqn_lower_days": 18
+    },
+    "actual/dqn-minus-timetable": {
+      "n": 28,
+      "mean": 0.07678571428646462,
+      "std": 165.85372685196347,
+      "ci95_low": -58.55452380952378,
+      "ci95_high": 64.84147321428777,
+      "dqn_lower_days": 17
+    },
+    "actual/dqn-minus-priority": {
+      "n": 28,
+      "mean": 5.584523809524858,
+      "std": 163.05301694841336,
+      "ci95_low": -49.628526785713674,
+      "ci95_high": 70.6705357142879,
+      "dqn_lower_days": 17
+    },
+    "actual/dqn-minus-greedy": {
+      "n": 28,
+      "mean": 23.289880952382013,
+      "std": 157.6770526385898,
+      "ci95_low": -32.02925595238068,
+      "ci95_high": 82.46617559524019,
+      "dqn_lower_days": 14
+    }
+  }
+}
