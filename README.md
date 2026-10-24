@@ -1,173 +1,206 @@
-# Intelligent Railway Platform Allocation and Delay Minimization Using Deep Reinforcement Learning
+# TrainTurn: Railway Platform Allocation with Double DQN
 
-An original Double DQN research pipeline using **Eclipse SUMO 1.28.0**, an original Gymnasium adapter, and synthetic railway junction scenarios. The learning objective is to allocate platforms while reducing priority-weighted station-induced waiting, congestion, and platform changes.
+TrainTurn is a deep reinforcement learning controller for a busy railway junction. When a train arrives at the outer signal, the agent decides which platform it should use, or whether it should wait. The goal is to cut priority-weighted delay, congestion and platform changes.
 
-**Current status:** SUMO, CUDA training, all four baselines, evaluation, and plotting run locally. GPU tests execute on the RTX 3050. The original 50-episode run regressed: its final validation delay exceeded both its early checkpoint and the untrained network. Training diagnostics now expose that comparison; no general RL superiority is claimed. Final held-out experiments and the report remain outstanding.
+The train movements are simulated physically in **Eclipse SUMO 1.28.0** through `libsumo`. A custom Gymnasium environment wraps the simulation, and an original masked **Double DQN**, trained on CUDA, makes the decisions. The agent is compared with four heuristic dispatch rules on identical held-out scenarios. Two extensions test the same trained model, unchanged, in new settings: a seven-station double-track network, and 28 real days of September 2024 traffic at Pt. Deen Dayal Upadhyaya Junction (DDU).
 
-## Installation and hardware
+## Results at a glance
 
-Use Python 3.11+ in the repository root. The tested environment is Python 3.11.13 with SUMO/libsumo 1.28.0, Gymnasium 1.4.0, and PyTorch 2.14.1+cu130. The complete installed package snapshot is in `results/runtime/packages.txt`; it is a Linux development snapshot, not a portable dependency lock.
+**Main experiment.** 8 platforms, 128 trains a day, 100 held-out synthetic days, test seeds from 200000 (`results/station8_128_eval100/`). Every policy completed every train with zero safety violations. Lower is better.
 
-```bash
-uv venv --python 3.11
-source .venv/bin/activate
-uv pip install -r requirements.txt
+| Policy | Weighted station delay (95% CI) | DQN minus policy (95% CI) |
+|---|---|---|
+| **Double DQN** | **322.1** [307.5, 338.0] | — |
+| Priority-aware | 346.1 [330.6, 363.3] | −24.1 [−30.3, −17.8] |
+| Planned platform (timetable) | 374.0 [358.0, 390.6] | −51.9 [−59.2, −44.8] |
+| FCFS | 398.6 [382.0, 416.7] | −76.5 [−84.4, −68.7] |
+| Greedy lookahead | 515.8 [482.8, 550.7] | −193.7 [−218.7, −168.3] |
+
+The model was trained for 300 episodes on an RTX 3050 laptop GPU: 61,543 optimizer updates in about 18.5 minutes. Validation delay fell from 378.7 before training to 285.2 at the best checkpoint. These results come from **one training seed**.
+
+**Extensions** (zero-shot unless noted). Details and caveats are in each folder's README.
+
+- **Seven-station network** ([multistation/README.md](multistation/README.md)): the agent had the lowest network lateness on all 3 test days and clearly beat FCFS and greedy. Against priority-aware and planned-platform allocation, junction waiting was inconclusive.
+- **Real DDU days** ([realdata/README.md](realdata/README.md)), covering 28 days and 420 episodes:
+  - On the real timetable with no delays, the agent beat every heuristic, and every confidence interval excludes zero.
+  - With real delays the main result is inconclusive.
+  - Fine-tuning on real days gave no significant gain over the zero-shot model, but it cut discretionary holds from 9.7 to 2.5 a day.
+
+## Repository layout
+
+| Path | Contents |
+|---|---|
+| `railway_rl/` | Core package: station models, reference simulator, SUMO network and adapter, Gymnasium environment, observations, masks, rewards |
+| `railway_rl/agents/` | Q-network, replay buffer, masked Double DQN with checkpointing |
+| `railway_rl/baselines/` | FCFS, planned platform, priority-aware and greedy-lookahead policies |
+| `railway_rl/evaluation/` | Per-episode metrics, paired bootstrap statistics, evaluator, plots |
+| `railway_rl/training.py` | Training loop, curriculum, validation and checkpoint selection |
+| `configs/` | `default.yaml` (8 platforms, 128 trains), `compact.yaml` (3 platforms, 15 trains), `curriculum.yaml`, `learning_diagnostic.yaml`, `stress_test.yaml` |
+| `scripts/` | Command-line entry points (see below) |
+| `tests/` | 34 core tests, including SUMO and CUDA tests |
+| `checkpoints/station8_128/` | Trained `best_model.pt`, untrained `initial_model.pt`, training and validation logs, manifest |
+| `results/` | 100-scenario evaluation with figures, plus two interactive HTML pages |
+| `multistation/` | Seven-station network extension: code, config, scripts, tests, results, replay page |
+| `realdata/` | DDU real-data suite: importer, fine-tuning, processed September 2024 days, tests, results, replay page |
+| `data/README.md` | Data provenance and the timetable CSV format |
+| `Docs/` | Assignment brief and [TECHNICAL_NOTES.md](Docs/TECHNICAL_NOTES.md) (full RL formulation, railway model and safety design) |
+| `reports/proposal.txt` | Project proposal |
+
+## Setup
+
+You need:
+- Python 3.11 or later.
+- An NVIDIA GPU with a working driver. Neural training and inference are **CUDA-only**, with no CPU fallback. SUMO and the non-neural code run on the CPU.
+- Pip installs SUMO 1.28.0, `libsumo` and `netconvert`, so you don't need a separate SUMO install.
+
+**Windows (PowerShell):**
+
+```powershell
+python -m venv .venv
+.venv\Scripts\activate
+pip install "torch>=2.6,<3" --index-url https://download.pytorch.org/whl/cu126
+pip install -r requirements.txt
 python scripts/check_runtime.py
 ```
 
-`check_runtime.py` verifies CUDA arithmetic as well as SUMO availability. An RTX 3050 is the intended neural device. A working NVIDIA driver and a compatible CUDA-enabled PyTorch installation are required; installing CUDA Python packages alone does not make an unavailable driver work. **There is no CPU fallback for neural training or inference.** SUMO, queues, replay storage, statistical analysis, and non-neural tests use the CPU.
-
-The requested default is **8 platforms, 128 trains, a 1,440-minute horizon, 300 training episodes, and 3 evaluation scenarios**, using a compact 128–128 MLP, 50,000-transition replay buffer and batch size 64. The larger case uses 1,024 warm-up transitions and a 15,000-decision exploration decay; the compact configuration retains its original settings. `configs/compact.yaml` preserves the small **3-platform/15-train, 360-minute** development experiment. A full run with 128 trains takes longer; only a single timetable-policy safety/completion check has been executed on that size. libsumo runs in-process and only one environment may be live per process; always close it. No distributed framework or extra RL library is used.
-
-## Run the verified small workflow
+**Linux / macOS:**
 
 ```bash
-python scripts/validate_simulator.py
-python -m pytest -q
-python scripts/compare_baselines.py --config configs/compact.yaml --episodes 3 --output results/my_baseline_run
-python scripts/generate_plots.py --results results/my_baseline_run
+python3.11 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+python scripts/check_runtime.py
+```
+
+`check_runtime.py` prints the torch, SUMO and `netconvert` versions and runs a small CUDA calculation.
+
+**Activate the virtual environment before running anything.** The SUMO adapter finds `netconvert` on `PATH`; on Windows it isn't found unless the environment is active.
+
+Run every command from the repository root.
+
+## Running the project
+
+**Tests**
+
+```bash
+python -m pytest tests multistation/tests realdata/tests
+```
+
+All 51 tests pass when the raw DDU data is present. Without it, 44 pass and the 7 DDU tests are skipped, as designed. See [Real DDU data](#real-ddu-data) for how to download it.
+
+**Baselines, plots and demo** (fast, uses the compact 3-platform configuration)
+
+```bash
+python scripts/validate_simulator.py                       # zero-delay timetable is safe and delay-free in SUMO
+python scripts/compare_baselines.py --config configs/compact.yaml --episodes 3 --output results/my_baselines
+python scripts/generate_plots.py --results results/my_baselines
 python scripts/demo.py --config configs/compact.yaml --policy timetable --seed 123
 python scripts/generate_scenarios.py --config configs/compact.yaml --count 3 --output data/my_scenarios
 ```
 
-Evaluation displays a tqdm bar with completed/total policy episodes, elapsed time, estimated remaining time, and the current setting, policy and scenario. With a DQN checkpoint, 100 scenarios means 500 episodes normally or 3,000 with `--stress`. The bar advances after each episode finishes and writes to stderr, keeping redirected JSON output separate.
-
-Output directories containing an experiment manifest are protected from overwriting; choose a new directory for each run. `results/smoke/` contains the actual initial three-scenario baseline run, immutable input scenarios, per-episode and per-train CSVs, occupancy traces, bootstrap summaries, and PNG/PDF figures. All 12 baseline episodes completed, with zero recorded safety violations. These are smoke results, not evidence for the research hypothesis.
-
-After `check_runtime.py` succeeds, run:
+**Evaluate the trained agent**
 
 ```bash
-python scripts/train.py --config configs/default.yaml --seed 42 --output checkpoints/smoke
-python scripts/evaluate.py --config configs/default.yaml --checkpoint checkpoints/smoke/best_model.pt --episodes 3 --output results/rl_smoke
-python scripts/generate_plots.py --results results/rl_smoke --training checkpoints/smoke
-python scripts/demo.py --config configs/default.yaml --policy dqn --checkpoint checkpoints/smoke/best_model.pt --seed 123
+python scripts/evaluate.py --config configs/default.yaml --checkpoint checkpoints/station8_128/best_model.pt --episodes 3 --output results/my_eval
+python scripts/generate_plots.py --results results/my_eval --training checkpoints/station8_128
+python scripts/demo.py --config configs/default.yaml --policy dqn --checkpoint checkpoints/station8_128/best_model.pt --seed 123
 ```
 
-Choose a fresh output directory for these commands. Actual user-run checkpoints are under `checkpoints/run01/`; diagnostic runs use separate directories. `best_model.pt` is saved only when validation completes all trains; `final_model.pt` is saved after each completed training episode. CSV logs include actual optimizer update counts, loss, Q-value magnitude, epsilon, validation reward, and operational metrics. An episode budget that never passes warm-up is not evidence of learning. New runs also save `initial_model.pt`, an episode-zero validation row, `validation_references.json` for all heuristics on the same validation cases, and discretionary-hold counts (hold selected while a safe platform exists). The initial checkpoint is a reference, never a candidate for `best_model.pt`. Greedy validation does not consume the training exploration RNG. The manifest records whether the best trained checkpoint improved over initialization.
+- Add `--stress` to `evaluate.py` to run five more settings: severity ×1.5 and ×2, a platform closure, a peak, and a corridor disruption.
+- `--episodes 100` reproduces the committed evaluation. That takes much longer, at 500 SUMO episodes.
 
-`--warm-start FILE` reuses network weights and restarts replay, optimizer, RNGs, and exploration; it is deliberately not represented as exact resume. Checkpoints use state dictionaries and `weights_only=True` loading. Exact interrupted-run replay restoration is not implemented.
-
-## Changing the station size
-
-Edit these keys in `configs/default.yaml`:
-
-```yaml
-station:
-  platform_count: 8
-scenario:
-  trains: 128
-environment:
-  horizon: 1440
-```
-
-Supported limits are 3–8 platforms and 1–150 trains. Keep `max_platforms: 8` to preserve the 229-feature/9-action layout. Increasing train count may require a longer horizon; inspect completion fraction and unfinished counts. Use the same configuration for training and evaluation. Changing the horizon changes observation normalization, so the compact checkpoint must use `configs/compact.yaml`, not the new default.
-
-For a short run on the requested larger scenario:
+**Train**
 
 ```bash
-python scripts/train.py --config configs/default.yaml --episodes 20 --seed 42 --output checkpoints/station8_128
-python scripts/evaluate.py --config configs/default.yaml --checkpoint checkpoints/station8_128/best_model.pt --episodes 3 --output results/station8_128
+python scripts/train.py --config configs/compact.yaml --episodes 20 --seed 42 --output checkpoints/my_run
+python scripts/train.py --config configs/default.yaml --seed 42 --output checkpoints/my_station8_128   # full 300 episodes
 ```
 
-Omit `--episodes 20` for the configured 300-episode budget. Neither budget guarantees learning. Use fresh output directories.
+A training run writes these files:
+- `initial_model.pt`, `best_model.pt` and `final_model.pt`;
+- `training.csv` and `validation.csv`;
+- `validation_references.json` (heuristic scores on the same validation days);
+- a manifest that records whether training improved on the untrained network.
 
-SUMO supports railway networks with trains visiting multiple stops/stations ([official railway documentation](https://sumo.dlr.de/docs/Simulation/Railways.html)). This adapter currently controls one junction. An interconnected multi-station extension needs station identifiers, connecting tracks and block reservations, station-specific queues, travel-time and delay propagation, and a revised decision/observation contract. It is not enabled by increasing the platform count.
+`--warm-start FILE` reuses network weights but restarts the optimizer, replay buffer and exploration.
 
-## Training regression and GPU memory
+**Output folders.** Every evaluation and training script refuses to overwrite a folder that already contains a manifest, so pick a new `--output` each time.
 
-> **Repository note:** only the 8-platform/128-train run is committed (`checkpoints/station8_128/` with `best_model.pt` and `initial_model.pt`, and `results/station8_128_eval100/`). The `run01`, `compact300`, diagnostic, smoke, runtime and `station8_128_check` artifacts referenced in this README are not in the repository; the figures quoted below are from those runs and can be reproduced with the commands above.
+### Seven-station network
 
-The original `run01` validation used only two fixed cases. A reproduced comparison in `results/training_diagnosis/run01_validation.json` found mean weighted delays of 22.82 (untrained), 22.95 (episode 5), and 148.05 (episode 50). The final policy made 49 discretionary holds across those two cases. Priority-aware allocation scored 16.70. The early result therefore did not establish learning.
-
-Defaults now update once per collected decision instead of every four decisions, with a 300-episode budget authorized after the initial diagnostics. The learning investigation used `configs/compact.yaml`: network size, rewards, scenario size and safety masks were held fixed. The subsequently requested 8-platform/128-train default is a separate experiment. This is a bounded development run, not a guarantee of improvement. `configs/learning_diagnostic.yaml` records the 50-episode update-frequency trial; it still failed to beat initialization. Evaluate the selected checkpoint on held-out cases before drawing conclusions. Increasing episode count is not the same as increasing trains per scenario: edit `scenario.trains` and `station.platform_count` separately only when larger scenarios are wanted.
-
-The completed compact 300-episode CUDA run (`checkpoints/compact300/`) performed 9,713 optimizer updates. Its best validation delay was **16.63**, compared with **22.82** before training; use `best_model.pt`, because the final episode regressed. On three held-out scenarios (`results/compact300/`), mean weighted station delays were **121.33 DQN**, **125.87 FCFS**, **126.06 timetable**, **119.67 priority**, and **124.18 greedy**. The untrained network scored **125.91** on those same cases. These small-sample results show improvement over initialization but do not establish superiority over the strongest heuristic. All evaluated policies completed every train with zero recorded safety violations.
-
-The 8-platform/128-train timetable-policy check at seed 123 completed every train by minute 1,091 with zero recorded safety violations; its immutable case and trace are in `results/station8_128_check/`. Generated platforms are electrified so that the terminal platform can serve the generated electric passenger services. Non-electrified platforms remain supported through explicit station platform configuration. Unused platforms are allowed; the generator does not force utilization.
-
-`agent.vram_limit_gib: 5.5` sets a **PyTorch allocator ceiling**, clamped to device capacity. It does not allocate 5.5 GiB or cap display, CUDA-context, or other-process memory. This small MLP needs much less VRAM; unused capacity does not explain poor learning. The manifest records allocated, reserved and peak allocator memory. Monitor whole-device usage with `watch -n 1 nvidia-smi`. See the [PyTorch allocator documentation](https://docs.pytorch.org/docs/stable/generated/torch.cuda.memory.set_per_process_memory_fraction.html).
-
-## Architecture
-
-```mermaid
-flowchart LR
-    Y[YAML + immutable scenarios] --> S[SUMO physical railway]
-    S --> G[Gymnasium adapter and masks]
-    G --> D[Original Double DQN]
-    G --> B[Observable-only baselines]
-    D --> G
-    B --> G
-    G --> E[Paired metrics and plots]
+```bash
+python multistation/scripts/evaluate_network.py --checkpoint checkpoints/station8_128/best_model.pt --output multistation/results/my_eval
+python multistation/scripts/record_network_replay.py --checkpoint checkpoints/station8_128/best_model.pt --seeds 200000 --output multistation/results/my_replay/replay.json
+python multistation/visualization/build_replay.py multistation/results/my_replay/replay.json multistation/results/my_replay.html
 ```
 
-- `railway_rl/station.py`, `timetable.py`, `delays.py`: validated scenario records, synthetic scheduling, CSV/JSON data, exogenous randomness.
-- `sumo_network.py`, `sumo_simulator.py`: original junction network and libsumo control. Platform release follows actual SUMO completion, not predicted release times.
-- `environment.py`, `observations.py`, `masking.py`, `rewards.py`: the Gymnasium decision contract.
-- `agents/`: original network, replay, masked Double DQN, checkpoints; `training.py`: collection and validation.
-- `baselines/`, `evaluation/`: policies, per-train accounting, shared-scenario experiments, statistics, plots.
-- `simulator.py`: preserved deterministic reference used for unit tests and shared state records; production training rejects the reference backend.
+### Real DDU data
 
-## Railway model and safety
+The raw source data (RSTGCN and DataMeet) isn't redistributed. Download and verify it first. The script uses `bash`, `curl` and `unzip`; on Windows, run it from Git Bash.
 
-A configurable 3–8-platform, two-corridor junction is generated originally with `netconvert`. Each platform has coach capacity, electrification, service-type compatibility, corridor compatibility, and clearance. SUMO uses single-track edges, rail vehicles and rail signals. One physical second is integrated at a time within **one-minute dispatch ticks**. This is an intentional update from the initial one-minute physical simulator design.
+```bash
+realdata/scripts/fetch_data.sh
+python realdata/scripts/build_ddu.py --output realdata/data/my_build          # rebuilds the committed day files byte-for-byte
+python realdata/scripts/replay_ddu.py --scenarios realdata/data/ddu_sep2024 --checkpoint checkpoints/station8_128/best_model.pt --modes planned actual observed --output realdata/results/my_replay
+python realdata/scripts/record_ddu_replay.py --scenarios realdata/data/ddu_sep2024 --checkpoint checkpoints/station8_128/best_model.pt --days "2024-09-27:Median day" --output realdata/results/my_replay.html
+python realdata/scripts/finetune_ddu.py --scenarios realdata/data/ddu_sep2024 --output realdata/results/my_finetune
+```
 
-The adapter reserves the selected platform from admission until the train leaves the modeled station network, then applies clearance. Entry and exit throat reservations end on observed movement completion plus route clearance. Entries sharing the approach throat and exits sharing the departure throat are serialized; extra conflicts can be specified. Platform occupation and route movement are distinct. This is conservative: a platform can remain reserved after its physical track is clear. Actual front-entry/rear-clear intervals, rather than reservations, drive utilization and Gantt plots.
+`replay_ddu.py` only needs the committed day files in `realdata/data/ddu_sep2024/`. The tests, `build_ddu.py` and fine-tuning need the raw data.
 
-Safety is enforced before an action, in the adapter's reservations, and by SUMO signals. Invalid actions raise an error without applying the assignment. Teleportation is disabled and any detected collision or teleport aborts the episode. History checks detect incompatible assignment, reservation overlaps, conflicting movements, clearance violations, and train loss. Closures prevent new admissions; already admitted trains are allowed to clear safely.
+## Viewing results
 
-The outer queue holds 1–3 trains and overflow waits upstream. **These are explicit boundary reservoirs, not physically positioned queues on approach tracks.** A vehicle is inserted into SUMO after admission; its pre-admission waiting is conserved and charged. All policies serve the same FCFS active train, so the priority baseline cannot secretly reorder the queue. Terminal/through restrictions are service eligibility rules on the generated through-track geometry; terminal reversing and locomotive shunting are not modeled. Optional rake links delay the successor until predecessor network exit plus turnaround; this does not animate a physical rake reversal.
+Open these pages in a browser. They are self-contained, with no server needed.
 
-## RL formulation
-
-The controller is a partially observable, variable-duration decision process. It cannot inspect true future arrivals or hidden dwell extensions. Noisy forecasts are pre-sampled and evolve through persistent error with decreasing horizon-dependent amplitude. A feed-forward observation window is an approximation to a belief state.
-
-With maximum platforms `N=8` and forecast slots `K=6`, the fixed observation dimension is:
-
-`10N + (12+N) + K(12+N) + 9 = 229`.
-
-Feature order (also used by baselines):
-
-| Block | Features and normalization |
+| Page | Shows |
 |---|---|
-| Each platform: 10 | valid, occupied, release estimate/120, occupant priority/5, closed, current entry-route availability, length/30, electrified, through-service flag, clearance/10 |
-| Current train: 12+N | valid, priority/5, waiting/120, length/30, dwell/60, electric, through, approach code/4, departure code/4, planned platform/N, observed incoming delay/180, rake-link flag, N compatibility flags |
-| Each forecast: 12+N | valid, ETA/120, estimated delay/180, priority/5, dwell/60, length/30, electric, through, corridor codes, planned platform/N, uncertainty/60, N compatibility flags |
-| Global: 9 | sine/cosine time of day, outer/3, upstream/150, available/N, remaining/150, time/horizon, occupied/N, queue fraction |
+| `results/project_overview.html` | Project overview |
+| `results/station_replay.html` | Animated replay of the single junction |
+| `multistation/results/network_replay.html` | Animated replay of the seven-station network: DQN against priority-aware and FCFS |
+| `realdata/results/ddu_replay.html` | Animated real DDU days (median, best and worst), switchable between controllers |
 
-Features are clipped to `[-1,1]`; missing platforms/trains are zero-padded. Bounded features can lose detail under extreme disruptions. Release estimates use observable nominal information, not hidden true dwell extensions. Baselines receive the same encoded vector and Boolean mask as DQN, not the simulator object or future random outcomes.
+Figures for the main experiment are in `results/station8_128_eval100/figures/` as PNG and PDF:
+- learning curve;
+- policy comparison;
+- delay per train class;
+- platform-occupancy Gantt chart.
 
-Actions are `Discrete(N+1)`: `0` holds and `p=1..N` allocates platform `p`. Padded, occupied, closed, in-clearance, incompatible, or conflicting assignments are masked. After the hold limit, hold is masked if a safe assignment exists; otherwise safety takes precedence and exceptional waiting is counted. Every action advances at least one minute. When no train needs allocation, the environment advances automatically to a decision or episode boundary.
+Raw numbers are in each results folder: `summary.json`, `episodes.csv` (one row per policy and scenario), `trains.csv` (one row per train) and `manifest.json` (configuration, seeds, checkpoint and scenario hashes).
 
-For minute interval `m`, let `W_m` be the sum of train priorities integrated over queue waiting and departure-route waiting **after dwell and scheduled-release requirements are satisfied**. Every train belongs to at most one queue state. Let `O_m,U_m` be outer/upstream train-minutes, `P_m` a platform-change event, and `H_m` an unnecessary hold while allocation was feasible:
+## How it works
 
-`r_m = -(alpha W_m + beta O_m + chi U_m + delta P_m + eta H_m) / scale`.
+- **State.** A 229-value vector:
+  - per platform: occupancy, estimated release time, closures, route availability and compatibility;
+  - the current train: priority, waiting time, length, dwell time and planned platform;
+  - the next 6 forecast arrivals, with noisy ETAs;
+  - global congestion and time of day.
 
-Defaults: `alpha=1, beta=.05, chi=.2, delta=2, eta=.2, scale=10`. Queue costs intentionally add congestion disutility on top of waiting; they do not count a train twice in `W`. Incoming lateness and exogenous dwell extensions are not repeatedly charged. Waiting absorbed by timetable slack still incurs a waiting cost, so intentionally delaying a train cannot create reward through accounting. Final departure lateness is reported separately, using platform-release time in SUMO; network-exit time remains in the trace for conservation.
+  The agent never sees true future delays.
+- **Actions.** `Discrete(9)`: action 0 holds the train for a minute; actions 1–8 assign a platform. A mask removes every unsafe or incompatible choice, and the same mask is given to all baselines.
+- **Reward.** Each minute the reward is `−(1·W + 0.05·O + 0.2·U + 2·P + 0.2·H) / 10`, where:
+  - `W` is priority-weighted waiting;
+  - `O` and `U` are trains queued at the outer signal and further upstream;
+  - `P` is a platform change;
+  - `H` is a hold while a safe platform was free.
 
-For a transition lasting `d` dispatch minutes:
+  Incoming lateness is not charged to the controller.
+- **Learning.** Masked Double DQN with a 128×128 MLP, replay, a target network, Huber loss and gradient clipping. Bellman targets discount by `γ^elapsed_minutes` for decisions that span several minutes.
+- **Safety.** Reservations are checked before each action, again in the adapter, and SUMO signals add a third layer. Teleports are disabled. Any collision or teleport aborts the episode, and history checks run at the end of every episode.
 
-`R = sum_{j=0}^{d-1} gamma^j r_j`, `a* = argmax_{valid a} Q_online(s',a)`,
-`y = R + gamma^d Q_target(s',a*)` for continuing transitions; `y=R` for true terminals.
+The full formulation, normalisation table, railway model and assumptions are in [Docs/TECHNICAL_NOTES.md](Docs/TECHNICAL_NOTES.md).
 
-Time-limit truncations are recorded separately and bootstrap; all unfinished trains remain in the metrics. The finite observation includes time relative to the configured horizon, so time-limit estimates are approximate beyond that horizon. Evaluation suppresses paired superiority comparisons for incomplete policies to avoid rewarding censored trains.
+## Limitations
 
-## Learning and fair evaluation
+- **Synthetic data.** The synthetic timetables and delays are uncalibrated. The DDU layout and interlocking are simplified, so its absolute delay levels are higher than reality.
+- **Evidence.** All results come from one training seed. The extensions use small samples: 3 network days, 28 real days and 10 fine-tuning test days.
+- **Control.** Only the junction is learned. The six minor stations in the network extension follow a fixed rule.
+- **Process.** `libsumo` allows one simulation per process, so evaluation runs sequentially.
 
-Double DQN uses an online/target MLP, Adam, Huber loss, gradient clipping, replay warm-up, and hard target updates counted in optimizer steps. Masks apply to epsilon exploration, greedy decisions, and online next-action selection. Replay stores the actual next mask, elapsed minutes, and separate termination/truncation flags.
+## References
 
-Baselines: FCFS-first-feasible; planned platform with first-feasible fallback; priority-aware preservation of scarce forecast-compatible platforms; greedy projected forecast scheduling. The greedy predictor is an approximation using observable release estimates, not a clone of hidden SUMO futures. None can reorder the FCFS queue.
-
-Training seeds begin at the requested seed; validation seeds start at 100000 and test seeds at 200000. Inputs are materialized once per evaluation setting and shared by all policies. Summaries report means, sample SD and seeded 95% scenario-bootstrap intervals; RL comparisons use paired scenario differences. A single training seed does not estimate training-seed uncertainty. Metrics include waiting by class, weighted station waiting, final lateness, queue events/minutes, platform changes, maxima, actual track utilization, completion fraction, and safety checks. Censored departure statistics explicitly refer only to completed trains.
-
-`configs/curriculum.yaml` contains a small 5/10/15-train curriculum. `--stress` on evaluation adds severity, closure, peak, and corridor settings. These are opt-in and were **not** run as a broad sweep. Larger 100-scenario evaluation and 80–150-train studies are deferred at the user's request. Do not treat the three-scenario smoke study as satisfying the final experimental requirement.
-
-## Submission and reproducibility
-
-- `reports/proposal.txt`: 47-word proposal.
-- The two-column report source and PDF remain to be written using actual experimental evidence. Team names and GitHub URL remain blank per request.
-- Actual CUDA checkpoints and validation logs now exist. Plotting only creates a learning curve when supplied real validation logs; robustness plots require recorded stress runs.
-- Team contribution records and a public/private GitHub repository must be supplied by the team. No commits or pushes were made, and no history was invented.
-
-Before submission: establish useful learning or report its failure, inspect held-out performance, obtain authorization for larger evaluation, fill team/URL fields, update the report with actual RL results (including negative results), and include a genuine trained checkpoint. The original assignment is retained in `Docs/`.
-
-Conceptual references: [Double DQN paper](https://arxiv.org/abs/1509.06461), [SUMO railway documentation](https://sumo.dlr.de/docs/Simulation/Railways.html), [libsumo](https://sumo.dlr.de/docs/Libsumo.html), [Gymnasium API](https://gymnasium.farama.org/api/env/). The simulator is an acknowledged third-party dependency; no public RL project or solution was cloned or copied.
+- [Double DQN](https://arxiv.org/abs/1509.06461)
+- [SUMO railway simulation](https://sumo.dlr.de/docs/Simulation/Railways.html)
+- [libsumo](https://sumo.dlr.de/docs/Libsumo.html)
+- [Gymnasium](https://gymnasium.farama.org/api/env/)
+- RSTGCN dataset: Chowdhury et al., IEEE T-ITS 2026
+- DataMeet railways (CC0)
