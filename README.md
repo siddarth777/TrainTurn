@@ -91,12 +91,14 @@ All 51 tests pass when the raw DDU data is present. Without it, 44 pass and the 
 **Baselines, plots and demo** (fast, uses the compact 3-platform configuration)
 
 ```bash
-python scripts/validate_simulator.py                       # zero-delay timetable is safe and delay-free in SUMO
+python scripts/validate_simulator.py --config configs/compact.yaml   # zero-delay timetable is safe and delay-free in SUMO
 python scripts/compare_baselines.py --config configs/compact.yaml --episodes 3 --output results/my_baselines
 python scripts/generate_plots.py --results results/my_baselines
 python scripts/demo.py --config configs/compact.yaml --policy timetable --seed 123
 python scripts/generate_scenarios.py --config configs/compact.yaml --count 3 --output data/my_scenarios
 ```
+
+`validate_simulator.py` defaults to `configs/default.yaml`, so without `--config` it checks the full 8-platform, 128-train station (about as fast).
 
 **Evaluate the trained agent**
 

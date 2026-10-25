@@ -1,5 +1,8 @@
-# Controlled small-run candidate: same scenario/reward as default.yaml.
-# More optimizer updates per collected decision; improvement is not assumed.
+# Record of the 50-episode update-frequency trial on the compact scenario
+# (3 platforms, 15 trains; same scenario and reward as compact.yaml).
+# The trial raised updates to one per collected decision (train_every: 1), which
+# is now the default everywhere, so this file differs from compact.yaml only in
+# its 50-episode budget. The trial did not beat the untrained network.
 station:
   platform_count: 3
 scenario:

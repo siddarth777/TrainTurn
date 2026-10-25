@@ -4,6 +4,9 @@ from pathlib import Path
 import math
 import yaml
 
+# Built-in fallbacks for keys a YAML file omits; load_config() with no path uses
+# them alone. They describe the small 3-platform/15-train development case, not
+# the experiment default, which is configs/default.yaml (8 platforms, 128 trains).
 DEFAULTS = {
     "station": {"platform_count": 3, "outer_capacity": 2, "platforms": [],
                 "entry_minutes": 3, "departure_minutes": 3, "route_clearance": 1,
