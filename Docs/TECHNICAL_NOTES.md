@@ -1,28 +1,28 @@
-# Technical notes: Intelligent Railway Platform Allocation and Delay Minimization Using Deep Reinforcement Learning
+# Technical notes: Intelligent Railway Platform Allocation and Delay Minimization Using Double Deep Q-Learning
 
 An original Double DQN research pipeline using **Eclipse SUMO 1.28.0**, an original Gymnasium adapter, and synthetic railway junction scenarios. The learning objective is to allocate platforms while reducing priority-weighted station-induced waiting, congestion, and platform changes.
 
-**Current status:** SUMO, CUDA training, all four baselines, evaluation, and plotting run locally. GPU tests execute on the RTX 3050. The original 50-episode run regressed: its final validation delay exceeded both its early checkpoint and the untrained network. Training diagnostics now expose that comparison; no general RL superiority is claimed. The later 8-platform/128-train run (`checkpoints/station8_128/`) was evaluated on 100 held-out scenarios (`results/station8_128_eval100/`); the two-page report is in `reports/report.tex`.
+**Current status:** SUMO, CUDA training, all four baselines, evaluation, and plotting run locally. GPU tests execute on the RTX 3050. The original 50-episode run regressed: its final validation delay exceeded both its early checkpoint and the untrained network. Training diagnostics now expose that comparison; no general RL superiority is claimed. The later 8-platform/128-train run (`checkpoints/station8_128/`) was evaluated on 100 held-out scenarios (`results/station8_128_eval100/`). The two-page report is not yet committed; `reports/` holds only the proposal.
 
 ## Installation and hardware
 
-Use Python 3.11+ in the repository root. The tested environment is Python 3.11.13 with SUMO/libsumo 1.28.0, Gymnasium 1.4.0, and PyTorch 2.14.1+cu130. The complete installed package snapshot is in `results/runtime/packages.txt`; it is a Linux development snapshot, not a portable dependency lock.
+Use Python 3.11+ in the repository root. The tested environment is Python 3.11.13 with SUMO/libsumo 1.28.0, Gymnasium 1.4.0, and PyTorch 2.14.1+cu130. Install from `requirements.txt`; no full package snapshot or dependency lock is committed.
 
 ```bash
-uv venv --python 3.11
+python3.11 -m venv .venv
 source .venv/bin/activate
-uv pip install -r requirements.txt
+pip install -r requirements.txt
 python scripts/check_runtime.py
 ```
 
 `check_runtime.py` verifies CUDA arithmetic as well as SUMO availability. An RTX 3050 is the intended neural device. A working NVIDIA driver and a compatible CUDA-enabled PyTorch installation are required; installing CUDA Python packages alone does not make an unavailable driver work. **There is no CPU fallback for neural training or inference.** SUMO, queues, replay storage, statistical analysis, and non-neural tests use the CPU.
 
-The requested default is **8 platforms, 128 trains, a 1,440-minute horizon, 300 training episodes, and 3 evaluation scenarios**, using a compact 128–128 MLP, 50,000-transition replay buffer and batch size 64. The larger case uses 1,024 warm-up transitions and a 15,000-decision exploration decay; the compact configuration retains its original settings. `configs/compact.yaml` preserves the small **3-platform/15-train, 360-minute** development experiment. A full run with 128 trains takes longer; only a single timetable-policy safety/completion check has been executed on that size. libsumo runs in-process and only one environment may be live per process; always close it. No distributed framework or extra RL library is used.
+The requested default is **8 platforms, 128 trains, a 1,440-minute horizon, 300 training episodes, and 3 evaluation scenarios**, using a compact 128–128 MLP, 50,000-transition replay buffer and batch size 64. The larger case uses 1,024 warm-up transitions and a 15,000-decision exploration decay; the compact configuration retains its original settings. `configs/compact.yaml` preserves the small **3-platform/15-train, 360-minute** development experiment. A full run with 128 trains takes longer. The committed 300-episode run on this size is `checkpoints/station8_128/`, evaluated on 100 held-out scenarios in `results/station8_128_eval100/`. libsumo runs in-process and only one environment may be live per process; always close it. No distributed framework or extra RL library is used.
 
 ## Run the verified small workflow
 
 ```bash
-python scripts/validate_simulator.py
+python scripts/validate_simulator.py --config configs/compact.yaml
 python -m pytest -q
 python scripts/compare_baselines.py --config configs/compact.yaml --episodes 3 --output results/my_baseline_run
 python scripts/generate_plots.py --results results/my_baseline_run
@@ -32,18 +32,18 @@ python scripts/generate_scenarios.py --config configs/compact.yaml --count 3 --o
 
 Evaluation displays a tqdm bar with completed/total policy episodes, elapsed time, estimated remaining time, and the current setting, policy and scenario. With a DQN checkpoint, 100 scenarios means 500 episodes normally or 3,000 with `--stress`. The bar advances after each episode finishes and writes to stderr, keeping redirected JSON output separate.
 
-Output directories containing an experiment manifest are protected from overwriting; choose a new directory for each run. `results/smoke/` contains the actual initial three-scenario baseline run, immutable input scenarios, per-episode and per-train CSVs, occupancy traces, bootstrap summaries, and PNG/PDF figures. All 12 baseline episodes completed, with zero recorded safety violations. These are smoke results, not evidence for the research hypothesis.
+Output directories containing an experiment manifest are protected from overwriting; choose a new directory for each run. The initial three-scenario baseline smoke run (12 episodes, all complete, zero recorded safety violations) is not committed; the commands above reproduce it. Three-scenario runs are smoke checks, not evidence for the research hypothesis.
 
-After `check_runtime.py` succeeds, run:
+After `check_runtime.py` succeeds, a short trial of the full learning pipeline on the compact station:
 
 ```bash
-python scripts/train.py --config configs/default.yaml --seed 42 --output checkpoints/smoke
-python scripts/evaluate.py --config configs/default.yaml --checkpoint checkpoints/smoke/best_model.pt --episodes 3 --output results/rl_smoke
-python scripts/generate_plots.py --results results/rl_smoke --training checkpoints/smoke
-python scripts/demo.py --config configs/default.yaml --policy dqn --checkpoint checkpoints/smoke/best_model.pt --seed 123
+python scripts/train.py --config configs/compact.yaml --episodes 20 --seed 42 --output checkpoints/my_trial
+python scripts/evaluate.py --config configs/compact.yaml --checkpoint checkpoints/my_trial/best_model.pt --episodes 3 --output results/my_trial_eval
+python scripts/generate_plots.py --results results/my_trial_eval --training checkpoints/my_trial
+python scripts/demo.py --config configs/compact.yaml --policy dqn --checkpoint checkpoints/my_trial/best_model.pt --seed 123
 ```
 
-Choose a fresh output directory for these commands. Actual user-run checkpoints are under `checkpoints/run01/`; diagnostic runs use separate directories. `best_model.pt` is saved only when validation completes all trains; `final_model.pt` is saved after each completed training episode. CSV logs include actual optimizer update counts, loss, Q-value magnitude, epsilon, validation reward, and operational metrics. An episode budget that never passes warm-up is not evidence of learning. New runs also save `initial_model.pt`, an episode-zero validation row, `validation_references.json` for all heuristics on the same validation cases, and discretionary-hold counts (hold selected while a safe platform exists). The initial checkpoint is a reference, never a candidate for `best_model.pt`. Greedy validation does not consume the training exploration RNG. The manifest records whether the best trained checkpoint improved over initialization.
+Choose a fresh output directory for these commands. The only committed checkpoint is `checkpoints/station8_128/`; earlier development runs are not committed. `best_model.pt` is saved only when validation completes all trains; `final_model.pt` is saved after each completed training episode. CSV logs include actual optimizer update counts, loss, Q-value magnitude, epsilon, validation reward, and operational metrics. An episode budget that never passes warm-up is not evidence of learning. New runs also save `initial_model.pt`, an episode-zero validation row, `validation_references.json` for all heuristics on the same validation cases, and discretionary-hold counts (hold selected while a safe platform exists). The initial checkpoint is a reference, never a candidate for `best_model.pt`. Greedy validation does not consume the training exploration RNG. The manifest records whether the best trained checkpoint improved over initialization.
 
 `--warm-start FILE` reuses network weights and restarts replay, optimizer, RNGs, and exploration; it is deliberately not represented as exact resume. Checkpoints use state dictionaries and `weights_only=True` loading. Exact interrupted-run replay restoration is not implemented.
 
@@ -60,24 +60,24 @@ environment:
   horizon: 1440
 ```
 
-Supported limits are 3–8 platforms and 1–150 trains. Keep `max_platforms: 8` to preserve the 229-feature/9-action layout. Increasing train count may require a longer horizon; inspect completion fraction and unfinished counts. Use the same configuration for training and evaluation. Changing the horizon changes observation normalization, so the compact checkpoint must use `configs/compact.yaml`, not the new default.
+Supported limits are 3–8 platforms and 1–150 trains. Keep `max_platforms: 8` to preserve the 229-feature/9-action layout. Increasing train count may require a longer horizon; inspect completion fraction and unfinished counts. Use the same configuration for training and evaluation. Changing the horizon changes observation normalization, so a checkpoint must be evaluated with the configuration it was trained on: `configs/compact.yaml` for compact runs, `configs/default.yaml` for the committed 8-platform checkpoint.
 
 For a short run on the requested larger scenario:
 
 ```bash
-python scripts/train.py --config configs/default.yaml --episodes 20 --seed 42 --output checkpoints/station8_128
-python scripts/evaluate.py --config configs/default.yaml --checkpoint checkpoints/station8_128/best_model.pt --episodes 3 --output results/station8_128
+python scripts/train.py --config configs/default.yaml --episodes 20 --seed 42 --output checkpoints/my_station8_128
+python scripts/evaluate.py --config configs/default.yaml --checkpoint checkpoints/my_station8_128/best_model.pt --episodes 3 --output results/my_station8_128
 ```
 
 Omit `--episodes 20` for the configured 300-episode budget. Neither budget guarantees learning. Use fresh output directories.
 
-SUMO supports railway networks with trains visiting multiple stops/stations ([official railway documentation](https://sumo.dlr.de/docs/Simulation/Railways.html)). This adapter currently controls one junction. An interconnected multi-station extension needs station identifiers, connecting tracks and block reservations, station-specific queues, travel-time and delay propagation, and a revised decision/observation contract. It is not enabled by increasing the platform count.
+SUMO supports railway networks with trains visiting multiple stops/stations ([official railway documentation](https://sumo.dlr.de/docs/Simulation/Railways.html)). This adapter controls one junction, and increasing the platform count does not create a network. The separate `multistation/` package places the trained junction inside a seven-station double-track network with connecting tracks, block signals and minor stations; see [multistation/README.md](../multistation/README.md).
 
 ## Training regression and GPU memory
 
-> **Repository note:** only the 8-platform/128-train run is committed (`checkpoints/station8_128/` with `best_model.pt` and `initial_model.pt`, and `results/station8_128_eval100/`). The `run01`, `compact300`, diagnostic, smoke, runtime and `station8_128_check` artifacts referenced in these notes are not in the repository; the figures quoted below are from those runs and can be reproduced with the commands above.
+> **Repository note:** only the 8-platform/128-train run is committed (`checkpoints/station8_128/` with `best_model.pt` and `initial_model.pt`, and `results/station8_128_eval100/`). The `run01`, `compact300`, training-diagnosis and `station8_128_check` artifacts referenced in these notes are not in the repository; the figures quoted below are from those runs and can be reproduced with the commands above.
 
-The original `run01` validation used only two fixed cases. A reproduced comparison in `results/training_diagnosis/run01_validation.json` found mean weighted delays of 22.82 (untrained), 22.95 (episode 5), and 148.05 (episode 50). The final policy made 49 discretionary holds across those two cases. Priority-aware allocation scored 16.70. The early result therefore did not establish learning.
+The original `run01` validation used only two fixed cases. A reproduced comparison (not committed) found mean weighted delays of 22.82 (untrained), 22.95 (episode 5), and 148.05 (episode 50). The final policy made 49 discretionary holds across those two cases. Priority-aware allocation scored 16.70. The early result therefore did not establish learning.
 
 Defaults now update once per collected decision instead of every four decisions, with a 300-episode budget authorized after the initial diagnostics. The learning investigation used `configs/compact.yaml`: network size, rewards, scenario size and safety masks were held fixed. The subsequently requested 8-platform/128-train default is a separate experiment. This is a bounded development run, not a guarantee of improvement. `configs/learning_diagnostic.yaml` records the 50-episode update-frequency trial; it still failed to beat initialization. Evaluate the selected checkpoint on held-out cases before drawing conclusions. Increasing episode count is not the same as increasing trains per scenario: edit `scenario.trains` and `station.platform_count` separately only when larger scenarios are wanted.
 
@@ -159,14 +159,14 @@ Baselines: FCFS-first-feasible; planned platform with first-feasible fallback; p
 
 Training seeds begin at the requested seed; validation seeds start at 100000 and test seeds at 200000. Inputs are materialized once per evaluation setting and shared by all policies. Summaries report means, sample SD and seeded 95% scenario-bootstrap intervals; RL comparisons use paired scenario differences. A single training seed does not estimate training-seed uncertainty. Metrics include waiting by class, weighted station waiting, final lateness, queue events/minutes, platform changes, maxima, actual track utilization, completion fraction, and safety checks. Censored departure statistics explicitly refer only to completed trains.
 
-`configs/curriculum.yaml` contains a small 5/10/15-train curriculum. `--stress` on evaluation adds severity, closure, peak, and corridor settings. These are opt-in and were **not** run as a broad sweep. Larger 100-scenario evaluation and 80–150-train studies are deferred at the user's request. Do not treat the three-scenario smoke study as satisfying the final experimental requirement.
+`configs/curriculum.yaml` contains a small 5/10/15-train curriculum. `--stress` on evaluation adds severity, closure, peak, and corridor settings. These are opt-in and were **not** run as a broad sweep. Beyond the committed 100-scenario evaluation of the 8-platform/128-train checkpoint (normal setting only), broader studies such as stress sweeps, other train counts and multiple training seeds have not been run. Three-scenario runs are smoke checks and do not satisfy the final experimental requirement.
 
 ## Submission and reproducibility
 
 - `reports/proposal.txt`: 47-word proposal.
-- `reports/report.tex`: the two-page, two-column report (IEEE conference format). Its figures in `reports/figures/` are drawn only from committed results by `python reports/make_figures.py`. Team member names must be filled in before submission.
+- The two-page, two-column report is not yet committed. Its figures should come only from committed results. Team member names must be filled in before submission.
 - Actual CUDA checkpoints and validation logs exist. Plotting only creates a learning curve when supplied real validation logs; robustness plots require recorded stress runs.
-- The repository is hosted at https://github.com/siddarth777/TrainTurn. If it stays private, share access with the course GitHub handles listed in `Docs/AI_Assignment2_2026_RL.pdf`.
+- The repository link is intentionally left blank for now. If the repository stays private, share access with the course GitHub handles listed in `Docs/AI_Assignment2_2026_RL.pdf`.
 
 The original assignment is retained in `Docs/`.
 
