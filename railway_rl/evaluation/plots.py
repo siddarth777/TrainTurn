@@ -30,7 +30,9 @@ def generate_plots(results: str | Path, training: str | Path | None = None) -> l
         fig.tight_layout()
         for extension in ("png", "pdf"):
             path = output / f"{name}.{extension}"
-            fig.savefig(path, bbox_inches="tight")
+            # Omit the PDF creation timestamp so figures depend only on the data.
+            metadata = {"CreationDate": None} if extension == "pdf" else None
+            fig.savefig(path, bbox_inches="tight", metadata=metadata)
             written.append(str(path))
         plt.close(fig)
     policies = manifest["policies"]
@@ -51,7 +53,8 @@ def generate_plots(results: str | Path, training: str | Path | None = None) -> l
         ax.bar(np.arange(len(classes)) + index * width, [grouped.get((c, policy), np.nan) for c in classes], width, label=policy)
     ax.set_xticks(np.arange(len(classes)) + width * (len(policies) - 1) / 2, classes)
     ax.set_ylabel("Mean station-induced waiting (min/train)")
-    ax.set_title("Per-class delay; synthetic small scenarios")
+    station, scenario = manifest["config"]["station"], manifest["config"]["scenario"]
+    ax.set_title(f"Per-class delay; synthetic {station['platform_count']}-platform, {scenario['trains']}-train scenarios")
     ax.legend(ncol=2, fontsize=8)
     save(fig, "class_delays")
     comparison = ["fcfs", "dqn"] if "dqn" in policies else ["fcfs", "timetable"]
