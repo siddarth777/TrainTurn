@@ -1,8 +1,8 @@
 {
   "junction_config": "../../configs/default.yaml",
   "raw": {
-    "rstgcn": "/home/sid/Documents/gamet/AI/data/raw/rstgcn/Indian-Railway-Network-and-Delays",
-    "datameet": "/home/sid/Documents/gamet/AI/data/raw/datameet"
+    "rstgcn": "data/raw/rstgcn/Indian-Railway-Network-and-Delays",
+    "datameet": "data/raw/datameet"
   },
   "station": {
     "code": "DDU",
@@ -92,7 +92,7 @@
     ]
   },
   "finetune": {
-    "warm_start": "/home/sid/Documents/gamet/AI/checkpoints/station8_128/best_model.pt",
+    "warm_start": "checkpoints/station8_128/best_model.pt",
     "mode": "actual",
     "train_days": [
       "2024-09-03",
@@ -199,5 +199,5 @@
     },
     "curriculum": []
   },
-  "source": "/home/sid/Documents/gamet/AI/realdata/configs/ddu.yaml"
+  "source": "realdata/configs/ddu.yaml"
 }

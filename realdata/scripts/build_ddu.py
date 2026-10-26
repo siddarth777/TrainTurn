@@ -11,7 +11,7 @@ import hashlib
 import json
 from pathlib import Path
 from railway_rl.timetable import save_scenario
-from railway_real.ddu import build_runs, complete_days, day_scenario, describe, load_real_config
+from railway_real.ddu import build_runs, complete_days, day_scenario, describe, load_real_config, portable
 
 FIELDS = ["id", "category", "scheduled_arrival", "scheduled_departure", "planned_platform", "length",
           "electric", "kind", "arrival_corridor", "departure_corridor", "dwell", "priority"]
@@ -54,7 +54,7 @@ def main():
                 "raw_sha256": {str(r.name): sha(r) for r in raw},
                 "sources": {"rstgcn": "github.com/KoyenaChowdhury/RSTGCN (research use; cite IEEE T-ITS 2026)",
                             "datameet": "github.com/datameet/railways (CC0)"}}
-    (out / "manifest.json").write_text(json.dumps(manifest, indent=1, default=str))
+    (out / "manifest.json").write_text(json.dumps(manifest, indent=1, default=portable))
     print(f"{len(days)} days -> {out}")
 
 

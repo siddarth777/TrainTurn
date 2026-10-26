@@ -1,5 +1,5 @@
 {
- "config": "/home/sid/Documents/gamet/AI/realdata/configs/ddu.yaml",
+ "config": "realdata/configs/ddu.yaml",
  "station": {
   "code": "DDU",
   "platform_lengths_coaches": [

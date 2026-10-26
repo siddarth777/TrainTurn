@@ -1,5 +1,5 @@
 {
-  "config": "/home/sid/Documents/gamet/AI/realdata/configs/ddu.yaml",
+  "config": "realdata/configs/ddu.yaml",
   "scenarios": "realdata/data/ddu_sep2024",
   "days": [
     "2024-09-21",

@@ -37,7 +37,7 @@
     "epsilon_steps": 6000,
     "warmup": 1024
   },
-  "warm_start": "/home/sid/Documents/gamet/AI/checkpoints/station8_128/best_model.pt",
+  "warm_start": "checkpoints/station8_128/best_model.pt",
   "warm_start_sha256": "d017946d1e67328faa153e29f9ae2440cb4716342b6a756c585947d8a5256d5e",
   "initial_validation_delay": 852.4777777777795,
   "best_validation_delay": 729.8000000000001,

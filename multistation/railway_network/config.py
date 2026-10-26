@@ -5,6 +5,7 @@ import yaml
 from railway_rl.config import load_config, merge, validate
 
 DEFAULT_PATH = Path(__file__).resolve().parents[1] / "configs" / "network.yaml"
+REPO = Path(__file__).resolve().parents[2]
 REQUIRED = ("line_speed", "acceleration", "deceleration", "block_length", "run_allowance",
             "station_entry_length", "station_track_length", "station_exit_length", "drain_minutes",
             "west", "east", "stations", "stops", "minor_dwell_minutes",
@@ -35,4 +36,4 @@ def load_network_config(path: str | Path | None = None) -> dict:
     if min(network["line_speed"], network["acceleration"], network["deceleration"]) <= 0:
         raise ValueError("Speeds and rates must be positive")
     evaluation = {"test_seed": 200000, "episodes": 3, **(raw.get("evaluation") or {})}
-    return {"junction": junction, "network": network, "evaluation": evaluation, "source": str(path)}
+    return {"junction": junction, "network": network, "evaluation": evaluation, "source": (path.relative_to(REPO).as_posix() if path.is_relative_to(REPO) else str(path))}

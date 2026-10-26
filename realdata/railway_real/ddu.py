@@ -36,6 +36,13 @@ from railway_rl.config import load_config
 from railway_rl.station import Disturbance, Platform, Scenario, Station, Train
 
 WORD = re.compile(r"[^A-Z]+")
+REPO = Path(__file__).resolve().parents[2]
+
+
+def portable(path: str | Path) -> str:
+    """Repository-relative form of a path, so written manifests carry no machine paths."""
+    path = Path(path).resolve()
+    return path.relative_to(REPO).as_posix() if path.is_relative_to(REPO) else str(path)
 
 
 def load_real_config(path: str | Path) -> dict:
@@ -54,7 +61,7 @@ def load_real_config(path: str | Path) -> dict:
             f[key] = [str(d) for d in f[key]]  # YAML reads bare dates as datetime.date
         if not f["train_days"][1] < f["validation_days"][0] <= f["validation_days"][1] < f["test_days"][0]:
             raise ValueError("Fine-tuning split must be chronological: train < validation < test")
-    raw["source"] = str(path)
+    raw["source"] = portable(path)
     return raw
 
 

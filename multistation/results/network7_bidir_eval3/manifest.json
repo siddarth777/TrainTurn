@@ -1,5 +1,5 @@
 {
-  "network_config": "/home/sid/Documents/gamet/AI/multistation/configs/network.yaml",
+  "network_config": "multistation/configs/network.yaml",
   "config": {
     "junction": {
       "station": {

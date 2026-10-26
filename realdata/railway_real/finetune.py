@@ -22,6 +22,7 @@ from railway_rl.evaluation.metrics import episode_metrics
 from railway_rl.observations import observation_size
 from railway_rl.station import Scenario
 from railway_rl.timetable import load_scenario
+from .ddu import portable
 
 
 def days_between(available: list[str], span: list[str]) -> list[str]:
@@ -69,7 +70,7 @@ def finetune(cfg: dict, source: Path, output: Path) -> dict:
     rng = np.random.default_rng(f["seed"])
     schedule = [d for _ in range(f["passes"]) for d in rng.permutation(train_days)]
     output.mkdir(parents=True)
-    (output / "config.json").write_text(json.dumps({**cfg, "junction": config}, indent=2, default=str))
+    (output / "config.json").write_text(json.dumps({**cfg, "junction": config}, indent=2, default=portable))
     history, validation_history, started = [], [], time.monotonic()
     initial = greedy_validation(config, validation_cases, agent)
     validation_history.append({"episode": 0, **initial})
@@ -119,7 +120,7 @@ def finetune(cfg: dict, source: Path, output: Path) -> dict:
               "elapsed_seconds": time.monotonic() - started, "mode": f["mode"],
               "train_days": train_days, "validation_days": validation_days, "test_days_untouched": f["test_days"],
               "seed": f["seed"], "agent_overrides": f["agent"],
-              "warm_start": str(f["warm_start"]),
+              "warm_start": portable(f["warm_start"]),
               "warm_start_sha256": hashlib.sha256(Path(f["warm_start"]).read_bytes()).hexdigest(),
               "initial_validation_delay": initial["mean_weighted_delay"],
               "best_validation_delay": best if np.isfinite(best) else None, "best_episode": best_episode,
